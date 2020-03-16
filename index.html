@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/java中的@override/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/原子操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/21/java中的@override/" itemprop="url">java中的@override写与不写的区别</a></h1>
+                <a class="post-title-link" href="/2020/03/16/原子操作/" itemprop="url">原子操作</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-21T17:39:13+08:00">
-                2020-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T09:02:44+08:00">
+                2020-03-16
               </time>
             
 
@@ -343,12 +343,20 @@
       
         
           
-            <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="方法签名"><a href="#方法签名" class="headerlink" title="方法签名"></a>方法签名</h3><p>方法签名包括 <strong>参数列表</strong> 和 <strong>方法名</strong> ，不包括返回类型，修饰符和异常类型。</p>
-<h3 id="覆写"><a href="#覆写" class="headerlink" title="覆写"></a>覆写</h3><p>java中如果在子类中定义了一个和父类方法签名相同的方法，新的方法会覆盖掉继承的方法，这种过程称之为 <strong>覆写</strong>。</p>
-<h3 id="Override"><a href="#Override" class="headerlink" title="@Override"></a>@Override</h3><p>据我所知，正常情况下 @Override 写或不写对编译运行没有影响，jvm会自动识别覆写的方法。唯一的作用是：如果programmer在覆写方法时写错了方法名并且写了 @Override，编译器可以起到提醒作用。</p>
-<p>栗子：</p>
-<p>情况1<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gc469krxcpj30r10mjq4g.jpg"></p>
-<p>情况2<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gc469kogexj30pd0irt9y.jpg"></p>
+            <p>下面哪个选项不需要同步(synchronized)？</p>
+<ul>
+<li>a++;</li>
+</ul>
+<ul>
+<li>a = b;</li>
+</ul>
+<ul>
+<li>a = 1;</li>
+</ul>
+<p>分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。</p>
+<p>a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。</p>
+<p>a = 1这个操作无需读取，直接把1写到内存即可。</p>
+<p>综上所述，只有a = 1是原子操作（要么不做，要么一步到位），不需要同步。</p>
 
           
         
@@ -484,142 +492,6 @@
 <h3 id="The-witcher-3"><a href="#The-witcher-3" class="headerlink" title="The witcher 3"></a>The witcher 3</h3><p>只玩overwatch难免过于单调，我选择了巫师3。有了硬件基础，我可以在一个很好的画质下畅玩，也不用担心之前糟糕的环境，结果是我获得了前所未有的游戏体验。巫师3故事讲得真好，主线任务结束时，我不禁失落道，再精彩的故事也有结束的时候。回家前一天晚上，我打昆特牌到凌晨3点。因为主机太大带不回家，巫师3暂时告一段落。</p>
 <h2 id="期末考试"><a href="#期末考试" class="headerlink" title="期末考试"></a>期末考试</h2><p>十一门的考试，十多天的跨度，加上平日未曾花很多时间在听课和作业上，仅靠最后的突击，成绩一般，但也说得过去。考完后松了一口气。没啥好说的。</p>
 <h2 id="女神的笑颜"><a href="#女神的笑颜" class="headerlink" title="女神的笑颜"></a>女神的笑颜</h2><p>先占个位。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/听课之我见/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/听课之我见/" itemprop="url">听课之我见</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-07T21:04:12+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>先贴上之前画的图：<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7pxve4vzej31nt0rrtci.jpg"></p>
-<h2 id="如何听得懂、听得有意思"><a href="#如何听得懂、听得有意思" class="headerlink" title="如何听得懂、听得有意思"></a>如何听得懂、听得有意思</h2><h3 id="哲学三问"><a href="#哲学三问" class="headerlink" title="哲学三问"></a>哲学三问</h3><ol>
-<li>这个概念说了个啥？</li>
-<li>为啥是这样的？为啥不能是别的？</li>
-<li>咋可能呢？</li>
-</ol>
-<h3 id="通过栗子学习"><a href="#通过栗子学习" class="headerlink" title="通过栗子学习"></a>通过栗子学习</h3><ol>
-<li>看知识描述的时候，要结合一个栗子，便于理解。</li>
-<li>看栗子的时候，要善于总结知识（规律）。  </li>
-</ol>
-<h3 id="Aha！时刻"><a href="#Aha！时刻" class="headerlink" title="Aha！时刻"></a>Aha！时刻</h3><p>体会发现的乐趣。</p>
-<h2 id="如何学会"><a href="#如何学会" class="headerlink" title="如何学会"></a>如何学会</h2><p>有些知识，记下或者理解知识的描述并不代表掌握了它，在我看来，听得懂和自己实现是不同的知识（它们的关系类似反函数），有时候可以通过逻辑推理由理解的知识学会应用的知识，有时候难以这么做，解决方法就是回归。  </p>
-<ol>
-<li>费曼技巧：自己组织语言然后描述知识、和同学讨论、讲给同学听（这个过程很可能遇到崭新的栗子）。  </li>
-<li>动手试试：检验的最直接方法。  </li>
-</ol>
-<p><strong>知行合一，先写这些，想到别的再来补充。</strong></p>
 
           
         
@@ -1528,13 +1400,146 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/About-my-Blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/22/About-my-Blog/" itemprop="url">About my Blog</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T09:07:16+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="写博客的目的"><a href="#写博客的目的" class="headerlink" title="写博客的目的"></a>写博客的目的</h2><ol>
+<li>从中学习。作为阅读者，我们可以从别人的博客里获取知识和信息。作为作者，我们也可以从写作的过程中学习。把一件事儿讲清楚并不容易，这个过程是很好的学习过程，体现在明确知识，查漏补缺等方面。</li>
+<li>在力所能及的范围内去分享知识，甚至是传播思想。</li>
+<li>写博客可以是一种记录生活的方式，值得费尽心思，苦心经营。</li>
+</ol>
+<h2 id="博客的内容"><a href="#博客的内容" class="headerlink" title="博客的内容"></a>博客的内容</h2><ul>
+<li>各种知识</li>
+<li>生活随笔</li>
+</ul>
+<h2 id="博客的特点"><a href="#博客的特点" class="headerlink" title="博客的特点"></a>博客的特点</h2><ol>
+<li>鉴于没什么人看，写的会较随意。</li>
+<li>错误之处在所难免</li>
+</ol>
+<h2 id="博客本身"><a href="#博客本身" class="headerlink" title="博客本身"></a>博客本身</h2><ul>
+<li>基于github和hexo</li>
+<li>hexo主题：next–mist</li>
+</ul>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>菜的真实</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1578,7 +1583,7 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

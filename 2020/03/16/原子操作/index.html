@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="新硬盘  新起点咬牙换了固态硬盘并且加了个内存条，大换血，果然机械硬盘是最短的板，换了硬盘之后，性能大幅度提升，让我们重新开始吧。">
+<meta name="description" content="下面哪个选项不需要同步(synchronized)？  a++;   a = b;   a = 1;  分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。 a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。 a = 1这个操作无需读取，直接把1写到内存即可。 综上所述，只有a = 1是原子操作（要么不做，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Long time no see">
-<meta property="og:url" content="http://yoursite.com/2019/09/26/Long-time-no-see/index.html">
+<meta property="og:title" content="原子操作">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/原子操作/index.html">
 <meta property="og:site_name" content="XiaoMing">
-<meta property="og:description" content="新硬盘  新起点咬牙换了固态硬盘并且加了个内存条，大换血，果然机械硬盘是最短的板，换了硬盘之后，性能大幅度提升，让我们重新开始吧。">
+<meta property="og:description" content="下面哪个选项不需要同步(synchronized)？  a++;   a = b;   a = 1;  分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。 a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。 a = 1这个操作无需读取，直接把1写到内存即可。 综上所述，只有a = 1是原子操作（要么不做，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-01T11:26:05.388Z">
+<meta property="og:updated_time" content="2020-03-16T01:23:16.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Long time no see">
-<meta name="twitter:description" content="新硬盘  新起点咬牙换了固态硬盘并且加了个内存条，大换血，果然机械硬盘是最短的板，换了硬盘之后，性能大幅度提升，让我们重新开始吧。">
+<meta name="twitter:title" content="原子操作">
+<meta name="twitter:description" content="下面哪个选项不需要同步(synchronized)？  a++;   a = b;   a = 1;  分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。 a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。 a = 1这个操作无需读取，直接把1写到内存即可。 综上所述，只有a = 1是原子操作（要么不做，">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/26/Long-time-no-see/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/16/原子操作/">
 
 
 
 
 
-  <title>Long time no see | XiaoMing</title>
+  <title>原子操作 | XiaoMing</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/Long-time-no-see/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/原子操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Long time no see</h1>
+          <h1 class="post-title" itemprop="name headline">原子操作</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-26T23:45:28+08:00">
-                2019-09-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T09:02:44+08:00">
+                2020-03-16
               </time>
             
 
@@ -339,7 +339,20 @@
       
 
       
-        <h1 id="新硬盘-新起点"><a href="#新硬盘-新起点" class="headerlink" title="新硬盘  新起点"></a>新硬盘  新起点</h1><p>咬牙换了固态硬盘并且加了个内存条，大换血，果然机械硬盘是最短的板，换了硬盘之后，性能大幅度提升，让我们重新开始吧。</p>
+        <p>下面哪个选项不需要同步(synchronized)？</p>
+<ul>
+<li>a++;</li>
+</ul>
+<ul>
+<li>a = b;</li>
+</ul>
+<ul>
+<li>a = 1;</li>
+</ul>
+<p>分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。</p>
+<p>a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。</p>
+<p>a = 1这个操作无需读取，直接把1写到内存即可。</p>
+<p>综上所述，只有a = 1是原子操作（要么不做，要么一步到位），不需要同步。</p>
 
       
     </div>
@@ -364,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/22/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/02/03/long-time-no-see-0/" rel="next" title="long time no see">
+                <i class="fa fa-chevron-left"></i> long time no see
               </a>
             
           </div>
@@ -373,10 +386,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/28/DeMon-Slayer/" rel="prev" title="DeMon Slayer/鬼灭之刃">
-                DeMon Slayer/鬼灭之刃 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -428,17 +437,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -480,22 +480,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新硬盘-新起点"><span class="nav-number">1.</span> <span class="nav-text">新硬盘  新起点</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
