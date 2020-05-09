@@ -272,6 +272,1658 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/反射/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/反射/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:30:08+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>Jvm为每一个加载到内存中的类都创建了一个特殊的Class类的实例</li>
+</ul>
+<h3 id="获得"><a href="#获得" class="headerlink" title="获得"></a>获得</h3><ul>
+<li>通过class的静态变量class获得</li>
+<li>通过实例的getClass方法获得</li>
+<li>通过Class的静态方法forName获得</li>
+</ul>
+<h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><h3 id="通过类对应的Class实例获得类和实例的信息"><a href="#通过类对应的Class实例获得类和实例的信息" class="headerlink" title="通过类对应的Class实例获得类和实例的信息"></a>通过类对应的Class实例获得类和实例的信息</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="访问字段"><a href="#访问字段" class="headerlink" title="访问字段"></a>访问字段</h3><ul>
+<li><p>获得特定实例的某个字段的值</p>
+<ul>
+<li>获得该实例对应的类对应的Class实例</li>
+<li>通过Class实例获得该字段对应的field实例</li>
+<li>通过field实例的方法get获得该类的实例的该字段的值</li>
+</ul>
+</li>
+<li><p>修改特定实例的某个字段的值</p>
+<ul>
+<li>获得该字段对应的field实例</li>
+<li>通过field实例的set方法修改字段的值</li>
+</ul>
+</li>
+</ul>
+<h3 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h3><ul>
+<li><p>获得方法的信息</p>
+<ul>
+<li>获得类对应的Class实例</li>
+<li>通过Class实例获得该方法对应的Method实例</li>
+</ul>
+</li>
+<li><p>调用方法</p>
+<ul>
+<li><p>一般</p>
+<ul>
+<li>获得类对应的Class实例</li>
+<li>通过Class实例获得该方法对应的Method实例</li>
+<li>通过Method实例的invoke方法实现调用</li>
+</ul>
+</li>
+<li><p>静态</p>
+<ul>
+<li><p>和“一般”的区别</p>
+<ul>
+<li>invoke传入的实例参数为null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkkz7tzfj313b0ubtdl.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/设计ORM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/设计ORM/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:29:40+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="设计ORM"><a href="#设计ORM" class="headerlink" title="设计ORM"></a>设计ORM</h1><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程"><a href="#利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程" class="headerlink" title="利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程"></a>利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程</h3><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="我可以在java里写java代码-但不能写SQL代码"><a href="#我可以在java里写java代码-但不能写SQL代码" class="headerlink" title="我可以在java里写java代码 但不能写SQL代码"></a>我可以在java里写java代码 但不能写SQL代码</h3><h3 id="我通过SQL代码才能操纵SQL"><a href="#我通过SQL代码才能操纵SQL" class="headerlink" title="我通过SQL代码才能操纵SQL"></a>我通过SQL代码才能操纵SQL</h3><h3 id="JDBC可以让我通过操纵java来操纵SQL"><a href="#JDBC可以让我通过操纵java来操纵SQL" class="headerlink" title="JDBC可以让我通过操纵java来操纵SQL"></a>JDBC可以让我通过操纵java来操纵SQL</h3><h2 id="WHY-ORM？"><a href="#WHY-ORM？" class="headerlink" title="WHY ORM？"></a>WHY ORM？</h2><h3 id="Without-ORM"><a href="#Without-ORM" class="headerlink" title="Without ORM"></a>Without ORM</h3><ul>
+<li>Connection</li>
+<li>PreparedStatement</li>
+<li>executeQuery</li>
+<li>ResultSet</li>
+<li>next</li>
+<li>new Java Bean</li>
+</ul>
+<h3 id="With-ORM"><a href="#With-ORM" class="headerlink" title="With ORM"></a>With ORM</h3><ul>
+<li><p>以MyBatis为例</p>
+<ul>
+<li>Mapper&amp;Annotation</li>
+<li>MapperScan</li>
+<li>Autowired</li>
+<li>Use API</li>
+</ul>
+</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
+<li>HQL语法</li>
+</ul>
+<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><ul>
+<li><p>JPQL语法</p>
+<ul>
+<li>Complex尤其是Criteria</li>
+</ul>
+</li>
+</ul>
+<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><ul>
+<li>手撸SQL代码</li>
+</ul>
+<h2 id="设计ORM接口"><a href="#设计ORM接口" class="headerlink" title="设计ORM接口"></a>设计ORM接口</h2><h2 id="以后理解更透彻一点再写吧"><a href="#以后理解更透彻一点再写吧" class="headerlink" title="以后理解更透彻一点再写吧"></a>以后理解更透彻一点再写吧</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkk834fej31ix0ocgpf.jpg">
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/集成MyBatis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/集成MyBatis/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:29:20+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="集成MyBatis"><a href="#集成MyBatis" class="headerlink" title="集成MyBatis"></a>集成MyBatis</h1><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>Hibernate</li>
+<li>JPA</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li><p>简化数据库操作</p>
+<ul>
+<li>起初：通过SQL语句增删改查</li>
+<li>现在：通过对一个实例增删改查后调用接口</li>
+</ul>
+</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><p>前提：ORM获得了一些信息（注解）</p>
+</li>
+<li><p>把ResultSet的每一行映射成javaBean</p>
+</li>
+<li><p>把javaBean映射成SQL语句的参数</p>
+<ul>
+<li><p>ORM如何检视javaBean的修改</p>
+<ul>
+<li>Proxy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="全自动ORM和半自动ORM和不自动的"><a href="#全自动ORM和半自动ORM和不自动的" class="headerlink" title="全自动ORM和半自动ORM和不自动的"></a>全自动ORM和半自动ORM和不自动的</h2><h3 id="全自动的有些问题-不好优化"><a href="#全自动的有些问题-不好优化" class="headerlink" title="全自动的有些问题 不好优化"></a>全自动的有些问题 不好优化</h3><ul>
+<li>比如hibernate</li>
+</ul>
+<h3 id="半自动面向SQL-就很灵活"><a href="#半自动面向SQL-就很灵活" class="headerlink" title="半自动面向SQL 就很灵活"></a>半自动面向SQL 就很灵活</h3><ul>
+<li>比如myBatis</li>
+</ul>
+<h3 id="不自动的-很满发"><a href="#不自动的-很满发" class="headerlink" title="不自动的 很满发"></a>不自动的 很满发</h3><ul>
+<li>比如JdbcTemplate</li>
+</ul>
+<h2 id="MyBatis的优缺点"><a href="#MyBatis的优缺点" class="headerlink" title="MyBatis的优缺点"></a>MyBatis的优缺点</h2><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>所有的SQL语句都要我自己写</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>所有SQL语句都是我自己写的</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkko8ce7j312k0kktbb.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/网络编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/网络编程/" itemprop="url">网络编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:24:07+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="网路编程"><a href="#网路编程" class="headerlink" title="网路编程"></a>网路编程</h1><h2 id="网络编程基础"><a href="#网络编程基础" class="headerlink" title="网络编程基础"></a>网络编程基础</h2><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><ul>
+<li>多台计算机通过通讯线路相连接</li>
+</ul>
+<h3 id="互联网"><a href="#互联网" class="headerlink" title="互联网"></a>互联网</h3><ul>
+<li><p>将所有计算机网络相连接</p>
+</li>
+<li><p>协议</p>
+<ul>
+<li>TCP</li>
+<li>IP</li>
+</ul>
+</li>
+</ul>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><ul>
+<li><p>标识一个网络接口</p>
+</li>
+<li><p>一台接入互联网的计算机至少有一个IP地址</p>
+<p>我感觉应该是一块无线网卡对应一个ip地址</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>按格式</p>
+<ul>
+<li><p>IPV4</p>
+<ul>
+<li>32位整数</li>
+<li>耗尽</li>
+</ul>
+</li>
+<li><p>IPV6</p>
+</li>
+</ul>
+</li>
+<li><p>按范围</p>
+<ul>
+<li>公网</li>
+<li>内网（局域网）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络号"><a href="#网络号" class="headerlink" title="网络号"></a>网络号</h3><ul>
+<li><p>获得</p>
+<ul>
+<li>ip地址经过子网掩码过滤</li>
+</ul>
+</li>
+<li><p>用途</p>
+<ul>
+<li><p>网络号相同</p>
+<ul>
+<li>设备在同一个网络下，可以直接通信</li>
+</ul>
+</li>
+<li><p>网络号不同</p>
+<ul>
+<li>设备不在一个网络下，要依靠路由器或交换机通信</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h3><ul>
+<li><p>网关</p>
+<ul>
+<li>路由器</li>
+<li>交换机</li>
+</ul>
+</li>
+</ul>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><ul>
+<li>通过网关把一个网络的数据包发送到另一个网络</li>
+</ul>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><ul>
+<li><p>为什么存在？</p>
+<ul>
+<li><p>因为IP地址太难记</p>
+<p>也就是说 域名就是给ip地址起个小名儿 叫起来方便</p>
+</li>
+</ul>
+</li>
+<li><p>特殊的localhost</p>
+<ul>
+<li><p>因为特殊所以特殊</p>
+<p>我看了C盘windows下的那个hosts文件，就像是字典一样，一个ip地址对应一个域名，我怀疑域名解析就是靠这个实现的。</p>
+<ul>
+<li>127.0.0.1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><ul>
+<li><p>分层</p>
+<ul>
+<li><p>原因</p>
+<ul>
+<li>因为复杂所以分层</li>
+</ul>
+</li>
+<li><p>目的</p>
+<ul>
+<li>简化网络操作</li>
+</ul>
+</li>
+<li><p>有哪些层呢</p>
+<ul>
+<li><p>应用层</p>
+<ul>
+<li>提供应用程序之间的通信</li>
+</ul>
+</li>
+<li><p>传输层</p>
+<ul>
+<li>提供端到端的传输</li>
+</ul>
+</li>
+<li><p>IP层</p>
+<ul>
+<li>根据目标地址选择路由传输数据</li>
+</ul>
+</li>
+<li><p>网络接口层</p>
+<ul>
+<li>处理数据然后通过物理设备（网线\wifi）传输</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><ul>
+<li><p>作用</p>
+<ul>
+<li>交易之前总得商量好吧</li>
+</ul>
+</li>
+<li><p>常用协议</p>
+<ul>
+<li><p>IP协议</p>
+<ul>
+<li><p>负责发数据包</p>
+<p>好像是瞎jb‘发的 据说不保证顺序 正确与否<br>也不知道是不是真的</p>
+</li>
+</ul>
+</li>
+<li><p>TCP协议</p>
+<ul>
+<li><p>负责控制数据包传输</p>
+<p>负责的协议，通过一些手段（目前我还听不懂的名词）保证可靠、正确、稳定。</p>
+<ul>
+<li>建立连接</li>
+<li>传输数据</li>
+<li>断开连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>UDP</p>
+<ul>
+<li><p>VS TCP</p>
+<ul>
+<li><p>UDP完任务型选手</p>
+<p>我只管传输数据，有没有人接受我不care</p>
+</li>
+<li><p>无连接</p>
+</li>
+<li><p>速度更快</p>
+</li>
+<li><p>协议更简单</p>
+</li>
+<li><p>质量更垃圾</p>
+</li>
+<li><p>数据必丢失</p>
+</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li><p>能容忍数据丢失的场合</p>
+<p>据说音视频通话比较常用，我想也是，能听来或者看来个百分之八九十就可了。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><h3 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h3><p>据说socket、tcp和部分ip的功能是由操作系统实现并提供的，不同的语言只是对操作系统提供的接口进行了一些包装</p>
+<ul>
+<li><p>啥是socket</p>
+<ul>
+<li>application通过socket在网络间传输数据</li>
+<li>socket通过TCP/IP协议在网络间传输数据</li>
+</ul>
+</li>
+<li><p>为啥需要socket</p>
+<ul>
+<li><p>ip地址是网卡的标识</p>
+<p>说的粗糙一点就是 设备的标识</p>
+</li>
+<li><p>ip地址过于粗糙</p>
+</li>
+<li><p>socket精确到application</p>
+</li>
+</ul>
+</li>
+<li><p>socket长啥样啊</p>
+<ul>
+<li>ip地址再加点儿料（端口）</li>
+</ul>
+</li>
+<li><p>端口</p>
+<ul>
+<li><p>为啥需要端口啊</p>
+<p>ip地址标识网络接口，if我的电脑有一个网卡，这个网卡有一个ip地址，我的电脑上运行了好多需要联网的应用，比如qq、战网、steam，还有很多其他应用。我的网卡对于从远方发过来的包照单全收，但这些包都是名花有主的，因为物质资料还没有到极大丰富的地步，所以不能实行共产主义平均分配或者每人来一份，我们得按需分配，按闹分配，比如qq你只能领取属于自己的包，那怎么实现这样的需求呢？<br>咱这样，你们每个应用，给自己整一个端口，比如战网，你的port是988，那我网卡以后就通过这个端口跟你keep touch，其他应用都要有自己的端口，俺网卡按照包的标识，按照咱约定好的端口，按需分配，这样就解决问题了。</p>
+<ul>
+<li>因为socket</li>
+</ul>
+</li>
+<li><p>特权端口</p>
+<p>比如我的应用是用一个普通user打开的，那这个应用就不能使用1024以下的端口</p>
+<ul>
+<li>1024以下需要管理员权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>socket编程</p>
+<ul>
+<li><p>服务器端</p>
+<ul>
+<li><p>服务客户端的端</p>
+</li>
+<li><p>服务端会监听某个端口</p>
+</li>
+<li><p>从端口获得数据包然后服务客户端（我猜的</p>
+</li>
+<li><p>代码</p>
+<p>package Laboratory;</p>
+<p>import javax.xml.crypto.Data;<br>import java.io.<em>;<br>import java.net.</em>;<br>import java.nio.charset.StandardCharsets;</p>
+<p>public class Experiment {</p>
+<pre><code>public static void main(String[] args) throws IOException {
+    //服务器端，可能会有很多客户端请求与我共舞
+    //监听指定的端口，可以指定ip地址，ip地址标识网络接口，如果不指定ip地址，表明监听计算机上的所有网络接口
+    ServerSocket serverSocket = new ServerSocket(6666);
+    System.out.println(&quot;server is running&quot;);
+    //处理和客户端之间的连接
+    while (true) {
+        //ServerSocket的accept方法，如果有客户端请求连接，我就整个socket对象给他，如果没有人请求连接，这个方法就会block
+        Socket socket = serverSocket.accept();
+        System.out.println(&quot;Connected from &quot; + socket.getRemoteSocketAddress());
+        Thread thread = new Handler(socket);
+        thread.start();
+    }
+}</code></pre><p>}</p>
+<p>class Handler extends Thread {</p>
+<pre><code>Socket socket;
+
+public Handler(Socket socket) {
+    this.socket = socket;
+}
+
+@Override
+public void run() {
+    try (InputStream inputStream = this.socket.getInputStream()) {
+        try (OutputStream outputStream = this.socket.getOutputStream()) {
+            handle(inputStream, outputStream);
+        }
+    } catch (Exception e) {
+        try {
+            this.socket.close();
+        } catch (IOException ioe) {
+        }
+        System.out.println(&quot;Client disconnected&quot;);
+    }
+}
+
+private void handle(InputStream inputStream, OutputStream outputStream) throws IOException {
+    var writer = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
+    var reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+    writer.write(&quot;Fku\n&quot;);
+    writer.flush();
+    while (true) {
+        String s = reader.readLine();
+        if (s.equals(&quot;bye&quot;)) {
+            writer.write(&quot;bye too&quot;);
+            writer.flush();
+            break;
+        }
+        writer.write(&quot;fku 3000 times &quot; + s);
+        writer.flush();
+    }
+}</code></pre><p>}</p>
+</li>
+</ul>
+</li>
+<li><p>客户端</p>
+<ul>
+<li><p>主动连接服务器的ip和指定端口</p>
+</li>
+<li><p>代码</p>
+<p>package Laboratory;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>      import java.io.*;
+      import java.net.Socket;
+      import java.nio.charset.StandardCharsets;
+      import java.util.Scanner;
+
+      public class Experiment {
+          public static void main(String[] args) throws IOException {
+              //客户端的TCP程序
+              //连接指定的服务器和端口，如果连接成功，会返回一个socket实例，用于日后的通信
+              Socket socket = new Socket(&quot;localhost&quot;, 6666);
+              try (InputStream inputStream = socket.getInputStream()) {
+                  try (OutputStream outputStream = socket.getOutputStream()) {
+                      handle(inputStream, outputStream);
+                  }
+              }
+              socket.close();
+              System.out.println(&quot;Disconnected&quot;);
+          }
+
+          private static void handle(InputStream inputStream, OutputStream outputStream) throws IOException {
+              var reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+              var writer = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
+              Scanner scanner = new Scanner(System.in);
+              System.out.println(&quot;[server] &quot; + reader.readLine());
+              while (true) {
+                  System.out.print(&quot;&gt;&gt;&gt; &quot;);       //打印提示
+                  String s = scanner.nextLine();      //读取一行输入
+                  writer.write(s);
+                  writer.newLine();
+                  writer.flush();
+                  String str = reader.readLine();
+                  System.out.println(&quot;&lt;&lt;&lt;&quot; + str);
+                  if (str.equals(&quot;bye&quot;)) {
+                      break;
+                  }
+              }
+          }
+      }
+
+- 编程使得客户端和服务端进行通信</code></pre><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>tcp是要和服务器建立连接的啊</p>
+<ul>
+<li>屌丝：可以吗？</li>
+<li>女神：可以，你想什么时候？</li>
+<li>屌丝：今ここだ</li>
+</ul>
+<h2 id="UDP编程"><a href="#UDP编程" class="headerlink" title="UDP编程"></a>UDP编程</h2><h3 id="UDP-VS-TCP"><a href="#UDP-VS-TCP" class="headerlink" title="UDP VS TCP"></a>UDP VS TCP</h3><ul>
+<li><p>UDP不需要建立连接</p>
+<p>当然也就不需要断开连接</p>
+</li>
+<li><p>UDP没有流的概念</p>
+</li>
+<li><p>两者的端口相互独立</p>
+<p>就是 假如有两个应用，一个用UDP，一个用TCP，就算两个用一个端口也没事儿</p>
+</li>
+</ul>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><ul>
+<li><p>监听指定的端口</p>
+</li>
+<li><p>代码</p>
+<p>package Laboratory;</p>
+<p>import java.io.IOException;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.SocketException;<br>import java.nio.charset.StandardCharsets;</p>
+<p>public class Experiment {</p>
+<pre><code>public static void main(String[] args) throws IOException {
+    //服务端的操作：准备一个datagramSocket对象，利用他的receive和send方法接收和发送数据
+    //服务器端首先使用如下语句在指定的端口监听UDP数据包：
+    DatagramSocket datagramSocket = new DatagramSocket(6666);
+    while (true) {
+        //准备一个byte[]类型的缓冲包用来接收来自端口的数据
+        byte[] buffer = new byte[1024];
+        //通过DatagramPacket对象的方法receive接收数据包
+        DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
+        datagramSocket.receive(datagramPacket);
+        //通过DatagramPacket的getOffset和getLength方法确定接收到的数据在缓冲区的起始位置
+        String s = new String(datagramPacket.getData(), datagramPacket.getOffset(), datagramPacket.getLength(), StandardCharsets.UTF_8);
+        byte[] data = &quot;ACK&quot;.getBytes(StandardCharsets.UTF_8);
+        datagramPacket.setData(data);
+        datagramSocket.send(datagramPacket);
+    }
+}</code></pre><p>}</p>
+</li>
+</ul>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ul>
+<li><p>操作</p>
+<ul>
+<li>向服务器发送UDP包</li>
+<li>接收服务器返回的UDP包</li>
+</ul>
+</li>
+<li><p>代码</p>
+<p>package Laboratory;</p>
+<p>import javax.xml.crypto.Data;<br>import java.io.IOException;<br>import java.net.DatagramPacket;<br>import java.net.DatagramSocket;<br>import java.net.InetAddress;<br>import java.net.SocketException;<br>import java.nio.charset.StandardCharsets;</p>
+<p>public class Experiment {</p>
+<pre><code>public static void main(String[] args) throws IOException {
+    //客户端
+    //客户端创建DatagramSocket的时候不需要指定端口，分配端口这个活儿是OS干的，所以说OS是程序员的好朋友
+    DatagramSocket datagramSocket = new DatagramSocket();
+    //此处有别于服务器端，服务器端可以循环到天荒地老，但客户端有所不同，需要设置最长等待时间，过期不候
+    datagramSocket.setSoTimeout(1000);
+    //UDP不需要建立连接，没错，这里的connect并不是真连接，而是想把服务器的ip和端口保存下来，以便之后向服务器发送UDP数据包
+    datagramSocket.connect(InetAddress.getByName(&quot;localhost&quot;), 6666);
+    //现在可以发送数据了
+    //先来点数据
+    byte[] data = &quot;What&apos;s going on?&quot;.getBytes();
+    //和DatagramPacket绑在一起
+    DatagramPacket datagramPacket = new DatagramPacket(data, data.length);
+    //通过Socket的方法send将Packet发送到服务器，必须是先发再收，不然服务器不知道客户端的ip和端口号
+    datagramSocket.send(datagramPacket);
+    //发送之后就可以接受数据了
+    //接受数据，和服务端一样
+    //先准备一个byte数组用来接受数据
+    byte[] buffer = new byte[1024];
+    //把buffer和packet绑定起来
+    datagramPacket = new DatagramPacket(buffer, buffer.length);
+    //通过socket的receive方法接受数据存到预先设定的packet里
+    datagramSocket.receive(datagramPacket);
+    //转换成String
+    String str = new String(datagramPacket.getData(), datagramPacket.getOffset(), datagramPacket.getLength());
+    //如果可以，可以选择断开连接
+    //既然不存在连接，当然也就不存在断开的对象，确实如此，此处的disconnect只是把socket对象恢复出厂设置，以便于socket可以再利用而已
+    datagramSocket.disconnect();
+}</code></pre><p>}</p>
+</li>
+</ul>
+<h2 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h2><h3 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h3><ul>
+<li><p>传统的邮件</p>
+<ul>
+<li>投递到邮局——邮局2——邮局3——信箱</li>
+</ul>
+</li>
+<li><p>电子邮件</p>
+<ul>
+<li>从用户的邮箱软件发送到服务器——服务器2——服务器3——邮箱</li>
+</ul>
+</li>
+<li><p>邮箱软件</p>
+<ul>
+<li>MUA</li>
+<li>Mail User Agent</li>
+</ul>
+</li>
+<li><p>邮件服务器</p>
+<ul>
+<li><p>MTA</p>
+</li>
+<li><p>MDA</p>
+<ul>
+<li>邮件最终的归属</li>
+<li>或许是某个服务器的某块硬盘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码</p>
+<pre>
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+
+public class Mail {
+    public static void main(String[] args) throws MessagingException {
+        String smtp = "smtp.qq.com";
+        String username = "674602921@qq.com";
+        String password = "grzbslakcefkbceg";
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", smtp);
+        properties.put("mail.smtp.port", 465);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.starttls.enable", "true");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        session.setDebug(true);
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress("674602921@qq.com"));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress("ljm158675@gmail.com"));
+        message.setSubject("Hey", "UTF-8");
+        message.setText("Java,please!");
+        Transport.send(message);
+    }
+}
+
+public class Mail {
+    public static void main(String[] args) throws MessagingException {
+        String smtp = "smtp.qq.com";
+        String username = "674602921@qq.com";
+        String password = "grzbslakcefkbceg";
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", smtp);
+        properties.put("mail.smtp.port", 465);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.starttls.enable", "true");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        session.setDebug(true);
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress("674602921@qq.com"));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress("ljm158675@gmail.com"));
+        message.setSubject("Hey", "UTF-8");
+        message.setText("Java,please!");
+        Transport.send(message);
+    }
+}
+</pre>
+
+</li>
+</ul>
+<h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h3><ul>
+<li><p>代码</p>
+<pre>
+import com.sun.mail.pop3.POP3SSLStore;
+
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Mail {
+    public static void main(String[] args) throws MessagingException, IOException {
+        String host = "pop3.example.com";
+        String username = "bob@example.com";
+        String password = "********";
+        int port = 995;
+        Properties properties = new Properties();
+        properties.setProperty("mail.store.protocol", "pop3");
+        properties.setProperty("mail.pop3.host", host);
+        properties.setProperty("mail.pop3.port", String.valueOf(port));
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.socketFactory.port", String.valueOf(port));
+        URLName urlName = new URLName("pop3", host, port, "", username, password);
+        Session session = Session.getInstance(properties, null);
+        session.setDebug(true);
+        Store store = new POP3SSLStore(session, urlName);
+        store.connect();
+        // 获取收件箱:
+        Folder folder = store.getFolder("INBOX");
+// 以读写方式打开:
+        folder.open(Folder.READ_WRITE);
+// 打印邮件总数/新邮件数量/未读数量/已删除数量:
+        System.out.println("Total messages: " + folder.getMessageCount());
+        System.out.println("New messages: " + folder.getNewMessageCount());
+        System.out.println("Unread messages: " + folder.getUnreadMessageCount());
+        System.out.println("Deleted messages: " + folder.getDeletedMessageCount());
+// 获取每一封邮件:
+        Message[] messages = folder.getMessages();
+        for (Message message : messages) {
+            // 打印每一封邮件:
+            printMessage((MimeMessage) message);
+        }
+    }
+
+    static void printMessage(MimeMessage msg) throws IOException, MessagingException {
+        // 邮件主题:
+        System.out.println("Subject: " + MimeUtility.decodeText(msg.getSubject()));
+        // 发件人:
+        Address[] froms = msg.getFrom();
+        InternetAddress address = (InternetAddress) froms[0];
+        String personal = address.getPersonal();
+        String from = personal == null ? address.getAddress() : (MimeUtility.decodeText(personal) + " <" + address.getaddress() ">");
+        System.out.println("From: " + from);
+        // 继续打印收件人:
+    }
+}
+</"></pre>
+<h2 id="HTTP编程"><a href="#HTTP编程" class="headerlink" title="HTTP编程"></a>HTTP编程</h2></li>
+</ul>
+<h3 id="建立TCP连接"><a href="#建立TCP连接" class="headerlink" title="建立TCP连接"></a>建立TCP连接</h3><h3 id="请求（HTTP，浏览器）"><a href="#请求（HTTP，浏览器）" class="headerlink" title="请求（HTTP，浏览器）"></a>请求（HTTP，浏览器）</h3><ul>
+<li>HTTP HEADER</li>
+<li>HTTP BODY</li>
+</ul>
+<h3 id="响应（HTTP，服务器）"><a href="#响应（HTTP，服务器）" class="headerlink" title="响应（HTTP，服务器）"></a>响应（HTTP，服务器）</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkh4bst8j32461ljh0o.jpg">
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/http/" itemprop="url">http</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:21:48+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><h3 id="传输之前总要先约定好的吧"><a href="#传输之前总要先约定好的吧" class="headerlink" title="传输之前总要先约定好的吧"></a>传输之前总要先约定好的吧</h3><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="从web服务器传输html到浏览器的协议"><a href="#从web服务器传输html到浏览器的协议" class="headerlink" title="从web服务器传输html到浏览器的协议"></a>从web服务器传输html到浏览器的协议</h3><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><h3 id="1-0"><a href="#1-0" class="headerlink" title="1.0"></a>1.0</h3><ul>
+<li>一次连接一次传输</li>
+</ul>
+<h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><ul>
+<li>一次连接多次传输</li>
+</ul>
+<h3 id="2-0"><a href="#2-0" class="headerlink" title="2.0"></a>2.0</h3><ul>
+<li>实验阶段</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h3><h3 id="BS架构"><a href="#BS架构" class="headerlink" title="BS架构"></a>BS架构</h3><h3 id="浏览器作为HTTP客户端通过URL向服务器发送请求"><a href="#浏览器作为HTTP客户端通过URL向服务器发送请求" class="headerlink" title="浏览器作为HTTP客户端通过URL向服务器发送请求"></a>浏览器作为HTTP客户端通过URL向服务器发送请求</h3><h2 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a>DNS服务器</h2><h3 id="保存所有主机的域名和IP地址"><a href="#保存所有主机的域名和IP地址" class="headerlink" title="保存所有主机的域名和IP地址"></a>保存所有主机的域名和IP地址</h3><h3 id="可以把域名翻译成IP地址"><a href="#可以把域名翻译成IP地址" class="headerlink" title="可以把域名翻译成IP地址"></a>可以把域名翻译成IP地址</h3><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="DNS服务器把域名解析成IP地址"><a href="#DNS服务器把域名解析成IP地址" class="headerlink" title="DNS服务器把域名解析成IP地址"></a>DNS服务器把域名解析成IP地址</h3><h3 id="客户端和服务器三次握手建立TCP连接"><a href="#客户端和服务器三次握手建立TCP连接" class="headerlink" title="客户端和服务器三次握手建立TCP连接"></a>客户端和服务器三次握手建立TCP连接</h3><h3 id="客户端向服务器发送HTTP请求"><a href="#客户端向服务器发送HTTP请求" class="headerlink" title="客户端向服务器发送HTTP请求"></a>客户端向服务器发送HTTP请求</h3><h3 id="服务器向客户端发送HTTP响应"><a href="#服务器向客户端发送HTTP响应" class="headerlink" title="服务器向客户端发送HTTP响应"></a>服务器向客户端发送HTTP响应</h3><h3 id="客户端把得到的html和资源渲染到前端呈现给用户"><a href="#客户端把得到的html和资源渲染到前端呈现给用户" class="headerlink" title="客户端把得到的html和资源渲染到前端呈现给用户"></a>客户端把得到的html和资源渲染到前端呈现给用户</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="BS架构-1"><a href="#BS架构-1" class="headerlink" title="BS架构"></a>BS架构</h3><ul>
+<li>请求-响应模式</li>
+</ul>
+<h3 id="请求简单"><a href="#请求简单" class="headerlink" title="请求简单"></a>请求简单</h3><ul>
+<li><p>请求命令</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>Delete</li>
+</ul>
+</li>
+<li><p>资源路径</p>
+</li>
+</ul>
+<h3 id="啥都能传"><a href="#啥都能传" class="headerlink" title="啥都能传"></a>啥都能传</h3><ul>
+<li>传输的类型用Content-Type标记</li>
+</ul>
+<h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><h3 id="Uniform-Resource-Identifier"><a href="#Uniform-Resource-Identifier" class="headerlink" title="Uniform Resource Identifier"></a>Uniform Resource Identifier</h3><ul>
+<li>标识</li>
+</ul>
+<h3 id="Uniform-Resource-Location"><a href="#Uniform-Resource-Location" class="headerlink" title="Uniform Resource Location"></a>Uniform Resource Location</h3><ul>
+<li>定位</li>
+<li>互联网的资源都有唯一的URL</li>
+</ul>
+<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><ul>
+<li><p>请求方法</p>
+<ul>
+<li><p>分类</p>
+<ul>
+<li><p>GET</p>
+<ul>
+<li>请求获得某个资源</li>
+</ul>
+</li>
+<li><p>POST</p>
+<ul>
+<li>提交表单</li>
+<li>上传文件</li>
+</ul>
+</li>
+<li><p>HEAD</p>
+<ul>
+<li>只能获得header的Get</li>
+</ul>
+</li>
+<li><p>PUT</p>
+<ul>
+<li>请求创建或修改文件</li>
+</ul>
+</li>
+<li><p>DELETE</p>
+<ul>
+<li>请求删除文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>POST和GET的区别</p>
+<ul>
+<li>GET请求的内容在URL就可以看到</li>
+<li>GET没BODY</li>
+<li>POST有BODY</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>URL</p>
+</li>
+<li><p>协议类型</p>
+</li>
+<li><p>协议版本</p>
+</li>
+</ul>
+<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><ul>
+<li><p>响应状态码</p>
+<ul>
+<li><p>分类</p>
+<ul>
+<li><p>1XX</p>
+<ul>
+<li>服务器收到请求，给客户端一个message，明示你继续操作</li>
+</ul>
+</li>
+<li><p>2XX</p>
+<ul>
+<li>一切OK，清楚明白</li>
+</ul>
+</li>
+<li><p>3XX</p>
+<ul>
+<li><p>重定向</p>
+<ul>
+<li>比如之前的资源换位置了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>4XX</p>
+<ul>
+<li><p>客户端的错误</p>
+<ul>
+<li>语法</li>
+<li>服务器无法完成请求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>5XX</p>
+<ul>
+<li><p>服务器的错误</p>
+<ul>
+<li>服务器处理请求的时候出了差错</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常见/常用</p>
+<ul>
+<li><p>200</p>
+</li>
+<li><p>301</p>
+<ul>
+<li><p>URL变了</p>
+<ul>
+<li>这人搬家了，去别处找吧</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>302</p>
+<ul>
+<li>这人暂时不在这里，去别处找吧</li>
+</ul>
+</li>
+<li><p>400</p>
+<ul>
+<li><p>客户端的请求有语法错误</p>
+<ul>
+<li>服务器：？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>401</p>
+<ul>
+<li>服务器：你没有资格和我提这样的请求</li>
+</ul>
+</li>
+<li><p>404</p>
+<ul>
+<li>NOT FOUND</li>
+</ul>
+</li>
+<li><p>500</p>
+<ul>
+<li>服务器：dbq</li>
+</ul>
+</li>
+<li><p>503</p>
+<ul>
+<li>服务器：我很忙，过会儿再来试试吧</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Header-1"><a href="#Header-1" class="headerlink" title="Header"></a>Header</h3><h3 id="Body-1"><a href="#Body-1" class="headerlink" title="Body"></a>Body</h3><h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><h3 id="HTTP存在的问题"><a href="#HTTP存在的问题" class="headerlink" title="HTTP存在的问题"></a>HTTP存在的问题</h3><ul>
+<li>请求的信息明文传输，能被轻易窃取</li>
+<li>数据的完整性未经校验，可能被篡改</li>
+<li>对方身份未经检验，可能被冒充</li>
+</ul>
+<h3 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h3><ul>
+<li>HTTP+SSL/TLS</li>
+<li>Hypertext transfer protocol over secure socket layer</li>
+</ul>
+<h3 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h3><ul>
+<li>提供安全支持的一种协议</li>
+</ul>
+<h3 id="TLS"><a href="#TLS" class="headerlink" title="TLS"></a>TLS</h3><ul>
+<li>由SSL演化而来</li>
+</ul>
+<h3 id="传输数据的流程"><a href="#传输数据的流程" class="headerlink" title="传输数据的流程"></a>传输数据的流程</h3><ul>
+<li>建立HTTPS连接</li>
+<li>用非对称加密传输对称加密的密钥</li>
+<li>通过密钥进行密文通信</li>
+<li>（详情见网络通信加密）</li>
+</ul>
+<h3 id="缺点（相对于http）"><a href="#缺点（相对于http）" class="headerlink" title="缺点（相对于http）"></a>缺点（相对于http）</h3><ul>
+<li><p>慢</p>
+</li>
+<li><p>SSL证书要钱，越好的越贵</p>
+<ul>
+<li>SSL证书是CA证书的一种</li>
+</ul>
+</li>
+<li><p>消耗资源多</p>
+</li>
+</ul>
+<h3 id="值得一提的是HTTP和HTTPS用的端口不一样"><a href="#值得一提的是HTTP和HTTPS用的端口不一样" class="headerlink" title="值得一提的是HTTP和HTTPS用的端口不一样"></a>值得一提的是HTTP和HTTPS用的端口不一样</h3><h2 id="网络通信加密"><a href="#网络通信加密" class="headerlink" title="网络通信加密"></a>网络通信加密</h2><h3 id="盘古时代"><a href="#盘古时代" class="headerlink" title="盘古时代"></a>盘古时代</h3><ul>
+<li><p>路不拾遗，夜不闭户</p>
+<ul>
+<li>明文直接传</li>
+</ul>
+</li>
+</ul>
+<h3 id="上古时代"><a href="#上古时代" class="headerlink" title="上古时代"></a>上古时代</h3><ul>
+<li><p>问题</p>
+<ul>
+<li>出现了刁民监听数据、伪造数据</li>
+</ul>
+</li>
+<li><p>应对策略</p>
+<ul>
+<li><p>对称加密</p>
+<ul>
+<li>约定公用一把钥匙</li>
+<li>关键是钥匙不能给别人知道</li>
+<li>56bit的DES</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="近代"><a href="#近代" class="headerlink" title="近代"></a>近代</h3><ul>
+<li><p>问题</p>
+<ul>
+<li>道高一尺魔高一丈</li>
+<li>找个好的计算机可以暴力破解56位的钥匙</li>
+</ul>
+</li>
+<li><p>应对策略</p>
+<ul>
+<li><p>对称加密（pro</p>
+<ul>
+<li>长度加倍，不够再加倍</li>
+<li>256位的AES</li>
+<li>168位的DES</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="现代"><a href="#现代" class="headerlink" title="现代"></a>现代</h3><ul>
+<li><p>问题</p>
+<ul>
+<li>对称加密需要一把唯一的key，这个key得找个好的时机告诉对方，决不能泄露，否则所做的一切毫无意义</li>
+<li>访问的人数太多了，言多必失</li>
+</ul>
+</li>
+<li><p>应对策略</p>
+<ul>
+<li><p>非对称加密</p>
+<ul>
+<li><p>奥义</p>
+<ul>
+<li>加密解密所用的不是一把钥匙</li>
+</ul>
+</li>
+<li><p>钥匙</p>
+<ul>
+<li>private key</li>
+<li>public key</li>
+</ul>
+</li>
+<li><p>流程</p>
+<ul>
+<li><p>A和B双方各有一个private key和对方的public key</p>
+</li>
+<li><p>关于数据的安全性</p>
+<ul>
+<li>A用B的public key对数据加密 发送给B</li>
+<li>B用自己的private key对数据解密</li>
+</ul>
+</li>
+<li><p>关于数据的完整性</p>
+<ul>
+<li>A用自己的private key给hash值加密 发送给A</li>
+<li>B用A的public key解密收到的hash</li>
+<li>B用解密的数据算一下hash</li>
+<li>B对比一下两个hash</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="非对称加密的安全隐患"><a href="#非对称加密的安全隐患" class="headerlink" title="非对称加密的安全隐患"></a>非对称加密的安全隐患</h3><ul>
+<li><p>天下没有不透风的墙，如果有，那肯定是暂时的</p>
+</li>
+<li><p>非对称加密最初需要告知对方自己的public key</p>
+</li>
+<li><p>C拦截了传输的public key，并把自己的public key传输给了A和B</p>
+</li>
+<li><p>在之后的A和B的传输中，C可以获取A发给B的内容并篡改</p>
+<ul>
+<li><p>hash值呢？</p>
+<ul>
+<li>C自己整一个就行了呗，反正C已经无所不知了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>应对策略</p>
+<ul>
+<li>保证public key不被拦截</li>
+</ul>
+</li>
+</ul>
+<h3 id="CA"><a href="#CA" class="headerlink" title="CA"></a>CA</h3><ul>
+<li>一个嵌入在浏览器或者操作系统的第三方</li>
+<li>A和B通过CA生成数字证书交换public key</li>
+<li>C可以获取public key但不能伪造数字证书 因为CA在本地从未经过传输</li>
+</ul>
+<h3 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h3><ul>
+<li>非对称加密太复杂了</li>
+<li>非对称加密太慢了</li>
+<li>所以我还用对称加密，但用非对称加密传输对称加密的密钥</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkb8pg61j32df2hr1i8.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/走进Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1197,625 +2849,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/论守望先锋的成瘾性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/03/论守望先锋的成瘾性/" itemprop="url">论守望先锋的成瘾性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-03T18:44:38+08:00">
-                2019-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/更换hexo网页图标/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/01/更换hexo网页图标/" itemprop="url">更换hexo网页图标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-01T19:54:40+08:00">
-                2019-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>网页图标就像是网页的头像，比如说百度的熊掌。<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7iyc40ypqj30f00f0wgk.jpg" width="200" height="200"><br>next主题默认的网页图标是“N”，怎样改变图标呢？</p>
-<h2 id="需要的东西"><a href="#需要的东西" class="headerlink" title="需要的东西"></a>需要的东西</h2><ol>
-<li>心仪的图片  <img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7iybqngylj305c060q3w.jpg" width="200" height="200"></li>
-<li>能把一般图片转为favicon.ico的工具<br>可以用Photoshop或者在线工具（<a href="http://www.faviconico.org/favicon）将图片转为favicon.ico" target="_blank" rel="noopener">http://www.faviconico.org/favicon）将图片转为favicon.ico</a></li>
-</ol>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>把生成好的图标文件移动到<code>themes\next\source\images</code>目录下，打开主题的_config.iml文件，修改favicon-&gt;small和medium为图标的目录，保存退出，大功告成。<br>效果：<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7jklx4643j306f010mwx.jpg"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/博客踩过的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/博客踩过的坑/" itemprop="url">博客踩过的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-28T22:10:45+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>不踩坑是不可能的。  </p>
-<ol>
-<li>关于tags的坑<br>用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：<br><code>ERROR Process failed: _posts/鬼灭之刃.md
-YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</code><br>现在还不知道这个tags到底是做什么用的，记得之前修改主题的时候，配置文件里tags后必须有一个空格，我因此卡了很久。等我弄明白了再补上吧。   </li>
-<li>关于插入的图片<br>用图床插入的图片在本地服务器（localhost:4000）是无法正常显示的，需要部署在服务器上，才能预览。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/DeMon-Slayer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/DeMon-Slayer/" itemprop="url">DeMon Slayer/鬼灭之刃</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-28T21:18:01+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>午睡之前有点时间，决心看一集鬼灭之刃然后就去睡觉，结果用了一整个下午把剩下的都看完了。感觉就是很爽，尤其是19集火神，完全不虚巨人的epic time。我想到《了不起的盖茨比》中的一段话，大概是说每个人所经历的不同，你不能去期望别人对于一件事儿和你产生一样的观点，也就是说，不能拿自己的标准去衡量别人。我觉得这部剧很有意思，不论是主角还是反派，每一个角色都有属于自己的故事，因为截然不同的遭遇，所以有完全不同的性格特点，这是一口气25集还能不产生一点儿厌倦心理的主要原因吧。我想对几个主要的出场角色作个简单的分析，除了爽之外，还留下些什么。</p>
-<h2 id="主角：炭治郎"><a href="#主角：炭治郎" class="headerlink" title="主角：炭治郎"></a>主角：炭治郎</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix4rst0xj30i70smgtn.jpg" alt="炭治郎.png"></p>
-<h3 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h3><p>炭治郎作为主角，他的故事也是整部番的主要剧情。炭治郎作为村里的老好人，下山卖炭，回家时发现除了变成鬼的妹妹Nezuko，都惨遭横祸。之后偶遇鬼杀队的富岗，凭借过人的胆识获得了一封推荐信，在训练师的指导下刻苦训练，最终成功加入鬼杀队，成为带着鬼的鬼杀队员。每个角色在绝境时都会有所回忆，炭治郎在绝境时，回想起的是父亲为火神献上的舞，战斗力爆发，由此斩断了蜘蛛人（忘了叫啥）的蛛丝，火神一集也是全剧的高潮。</p>
-<h3 id="特点：智勇双全-道德模范-坚持不懈-鼻子灵敏"><a href="#特点：智勇双全-道德模范-坚持不懈-鼻子灵敏" class="headerlink" title="特点：智勇双全 道德模范 坚持不懈 鼻子灵敏"></a>特点：智勇双全 道德模范 坚持不懈 鼻子灵敏</h3><p>炭治郎的刷怪经历很励志，很热血，但不是毒鸡汤。炭治郎刷怪不只靠主角光环（天赋和运气之类），在战斗过程中，炭治郎即使在战况十分危急，不断遭到挑衅时，还能维持呼吸，不停的在思考，寻求敌人的破绽，而不是一个单纯的奋斗逼，我奋斗还能有错？奋斗逼越努力越傻逼。我很喜欢这个角色。  </p>
-<h2 id="我妻善逸"><a href="#我妻善逸" class="headerlink" title="我妻善逸"></a>我妻善逸</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix47pieij30i70smqb9.jpg" alt="b64543a98226cffc36404018b7014a90f603ea36.png"></p>
-<h3 id="故事-1"><a href="#故事-1" class="headerlink" title="故事"></a>故事</h3><p>善逸这个角色的设置，简直不要太真实，和主角真的很互补。善逸的钱财被女人所骗，而且被骗的钱财用来和男人私奔，善逸以又黄又绿的发色登场。一位训练师帮助善逸还了钱，代价是刻苦的训练，以加入鬼杀队。善逸怯懦到极点，总是在逃避，但师傅十分耐心，谆谆教诲。善逸在绝境时，回想到的场景是，师兄指责善逸，说师傅花在善逸身上的时间都是浪费。善逸只会一招，但登峰造极。</p>
-<h3 id="特点：扮猪吃老虎（暂时不知道为什么）-笑点担当-耳朵灵敏"><a href="#特点：扮猪吃老虎（暂时不知道为什么）-笑点担当-耳朵灵敏" class="headerlink" title="特点：扮猪吃老虎（暂时不知道为什么） 笑点担当 耳朵灵敏"></a>特点：扮猪吃老虎（暂时不知道为什么） 笑点担当 耳朵灵敏</h3><p>正常情况下，善逸十分怯懦，是战五渣，但是在被吓晕之后，判若两人。善逸是全剧的笑点担当，雷之型有六个种类，然而善逸只能使出雷之呼吸的壹之型，尽管只能使用一个，但善逸凭借自己的努力将其超越极限，磨炼到极限中的极限！在艰难的处境下，善逸的吐槽精神值得学习。</p>
-<h2 id="伊之助"><a href="#伊之助" class="headerlink" title="伊之助"></a>伊之助</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix56djssj30i70smdpf.jpg" alt="f31fbe096b63f6240406c6a98944ebf81b4ca3c5.png"></p>
-<h3 id="故事-2"><a href="#故事-2" class="headerlink" title="故事"></a>故事</h3><p>伊之助戴着猪头面具，似乎是想掩盖萌妹长相。伊之助自幼被抛弃，和野兽比力气。因为生活在山中，所以不谙人事，对人的情感难以理解。</p>
-<h3 id="特点：莽夫-触觉灵敏-单纯-好战-不服输-还有猪突猛进"><a href="#特点：莽夫-触觉灵敏-单纯-好战-不服输-还有猪突猛进" class="headerlink" title="特点：莽夫 触觉灵敏 单纯 好战 不服输 还有猪突猛进"></a>特点：莽夫 触觉灵敏 单纯 好战 不服输 还有猪突猛进</h3><p>在遇到富冈义勇之前，伊之助无所畏惧，勇往直前，遭遇富冈义勇之后，被社会毒打一蹶不振。随着剧情发展，逐渐懂得人类感情。在与另两位男主的对比之下，性格特点鲜明。头铁的精神是有必要的，但不能如此头铁。。。在三位男主身上，都有不同的值得学习的品质。不同的人生经历，截然不同的性格，十分有趣。我觉得我有时候是伊之助，有时候是善逸，有时候是炭治郎。吹爆鬼灭之刃。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/Long-time-no-see/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/26/Long-time-no-see/" itemprop="url">Long time no see</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-26T23:45:28+08:00">
-                2019-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="新硬盘-新起点"><a href="#新硬盘-新起点" class="headerlink" title="新硬盘  新起点"></a>新硬盘  新起点</h1><p>咬牙换了固态硬盘并且加了个内存条，大换血，果然机械硬盘是最短的板，换了硬盘之后，性能大幅度提升，让我们重新开始吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1866,7 +2899,7 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
