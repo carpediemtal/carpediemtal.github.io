@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Chain-Of-Responsibility/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/工厂方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/12/Chain-Of-Responsibility/" itemprop="url">Chain Of Responsibility</a></h1>
+                <a class="post-title-link" href="/2020/05/12/工厂方法/" itemprop="url">工厂方法</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T10:31:30+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T13:00:36+08:00">
                 2020-05-12
               </time>
             
@@ -343,13 +343,14 @@
       
         
           
-            <h1 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"><a href="#使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。" class="headerlink" title="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"></a>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</h3><h3 id="多个处理器按照一定顺序组合排列，依次处理请求"><a href="#多个处理器按照一定顺序组合排列，依次处理请求" class="headerlink" title="多个处理器按照一定顺序组合排列，依次处理请求"></a>多个处理器按照一定顺序组合排列，依次处理请求</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="财务申报"><a href="#财务申报" class="headerlink" title="财务申报"></a>财务申报</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HandlerChain handlerChain = <span class="keyword">new</span> HandlerChain();</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> ManagerHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> DirectorHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> CEOHandler());</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"Doomfist"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">123123</span>)));</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"tracer"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">1231231</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerChain</span> </span>&#123;</span><br><span class="line">    List&lt;Handler&gt; handlerList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHandler</span><span class="params">(Handler handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.handlerList.add(handler);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> handler : handlerList) &#123;</span><br><span class="line">            Boolean result = handler.process(request);</span><br><span class="line">            <span class="keyword">if</span> (result != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Approved by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Denied by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"idk"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Request</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Request</span><span class="params">(String name, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAmount</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Request:"</span> + <span class="keyword">this</span>.name + <span class="string">","</span> + <span class="keyword">this</span>.amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> request the request which are waiting to be handled</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true if success, false if refuse, null if pass to next handler</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Boolean <span class="title">process</span><span class="params">(Request request)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManagerHandler</span> <span class="keyword">implements</span> <span class="title">Handler</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> request.getAmount().compareTo(BigDecimal.valueOf(<span class="number">1000</span>)) &gt; <span class="number">0</span> ? <span class="keyword">null</span> : !request.getName().equals(<span class="string">"Doomfist"</span>);<span class="comment">//英雄歧视搞起来</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="处理器接口"><a href="#处理器接口" class="headerlink" title="处理器接口"></a>处理器接口</h3><ul>
-<li>实现类</li>
+            <h1 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h1><hr>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="List-of"><a href="#List-of" class="headerlink" title="List.of()"></a>List.of()</h3><h3 id="Map-of"><a href="#Map-of" class="headerlink" title="Map.of()"></a>Map.of()</h3><h3 id="MessageDigest-getInstance"><a href="#MessageDigest-getInstance" class="headerlink" title="MessageDigest.getInstance()"></a>MessageDigest.getInstance()</h3><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><h3 id="在接口中定义一个静态方法返回实现类的实例"><a href="#在接口中定义一个静态方法返回实现类的实例" class="headerlink" title="在接口中定义一个静态方法返回实现类的实例"></a>在接口中定义一个静态方法返回实现类的实例</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="隐藏实现细节"><a href="#隐藏实现细节" class="headerlink" title="隐藏实现细节"></a>隐藏实现细节</h3><ul>
+<li>你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的</li>
 </ul>
-<h3 id="组合各种处理器"><a href="#组合各种处理器" class="headerlink" title="组合各种处理器"></a>组合各种处理器</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepgmtzlvuj30os0fpab1.jpg">
+<h3 id="创建产品的代码与调用产品的代码相分离"><a href="#创建产品的代码与调用产品的代码相分离" class="headerlink" title="创建产品的代码与调用产品的代码相分离"></a>创建产品的代码与调用产品的代码相分离</h3><h3 id="调用方只和抽象工厂及其产品打交道"><a href="#调用方只和抽象工厂及其产品打交道" class="headerlink" title="调用方只和抽象工厂及其产品打交道"></a>调用方只和抽象工厂及其产品打交道</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="创建产品的代码可以独立变化"><a href="#创建产品的代码可以独立变化" class="headerlink" title="创建产品的代码可以独立变化"></a>创建产品的代码可以独立变化</h3><h3 id="可能存在的优化"><a href="#可能存在的优化" class="headerlink" title="可能存在的优化"></a>可能存在的优化</h3><ul>
+<li>静态工厂方法不一定创建产品，可能使用缓存已有的</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
           
         
       
@@ -397,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/REST/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/原型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -416,7 +417,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/11/REST/" itemprop="url">REST</a></h1>
+                <a class="post-title-link" href="/2020/05/12/原型/" itemprop="url">原型</a></h1>
         
 
         <div class="post-meta">
@@ -428,8 +429,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T16:41:58+08:00">
-                2020-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:58:36+08:00">
+                2020-05-12
               </time>
             
 
@@ -468,12 +469,8 @@
       
         
           
-            <h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="输入输出都是JSON的API接口"><a href="#输入输出都是JSON的API接口" class="headerlink" title="输入输出都是JSON的API接口"></a>输入输出都是JSON的API接口</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="便于第三方调用"><a href="#便于第三方调用" class="headerlink" title="便于第三方调用"></a>便于第三方调用</h3><h3 id="便于使用js进行交互"><a href="#便于使用js进行交互" class="headerlink" title="便于使用js进行交互"></a>便于使用js进行交互</h3><h2 id="编写RestController"><a href="#编写RestController" class="headerlink" title="编写RestController"></a>编写RestController</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">users</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUsers();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">user</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">long</span> id) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUserById(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/signin"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">signin</span><span class="params">(@RequestBody SignInRequest signInRequest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            User user = userService.signin(signInRequest.email, signInRequest.password);</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"user"</span>, user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"error"</span>, <span class="string">"SIGNIN_FAILED"</span>, <span class="string">"message"</span>, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SignInRequest</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> String email;</span><br><span class="line">        <span class="keyword">public</span> String password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="精细化控制"><a href="#精细化控制" class="headerlink" title="精细化控制"></a>精细化控制</h3><p><u>防止密码明文输出</u></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty</span>(access = Access.WRITE_ONLY)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geolnzw9clj30nw0brwf2.jpg">
+            <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><hr>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。"><a href="#用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。" class="headerlink" title="用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。"></a>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</h3><h3 id="创建新对象的时候，根据现有的一个对象创建"><a href="#创建新对象的时候，根据现有的一个对象创建" class="headerlink" title="创建新对象的时候，根据现有的一个对象创建"></a>创建新对象的时候，根据现有的一个对象创建</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="Arrays-copyof"><a href="#Arrays-copyof" class="headerlink" title="Arrays.copyof"></a>Arrays.copyof</h3><h3 id="Object-clone"><a href="#Object-clone" class="headerlink" title="Object.clone"></a>Object.clone</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkv7xxlwj30np0ap74x.jpg">
           
         
       
@@ -521,7 +518,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/JSON/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/maven/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -540,7 +537,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/11/JSON/" itemprop="url">JSON</a></h1>
+                <a class="post-title-link" href="/2020/05/12/maven/" itemprop="url">maven</a></h1>
         
 
         <div class="post-meta">
@@ -552,8 +549,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T15:35:03+08:00">
-                2020-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:51:45+08:00">
+                2020-05-12
               </time>
             
 
@@ -592,1258 +589,75 @@
       
         
           
-            <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h2><h3 id="数据传输的一种格式"><a href="#数据传输的一种格式" class="headerlink" title="数据传输的一种格式"></a>数据传输的一种格式</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="UTF-8-Only"><a href="#UTF-8-Only" class="headerlink" title="UTF-8 Only"></a>UTF-8 Only</h3><h3 id="语法简单，key只能是字符串"><a href="#语法简单，key只能是字符串" class="headerlink" title="语法简单，key只能是字符串"></a>语法简单，key只能是字符串</h3><h3 id="浏览器认识JSON，可以转为js对象"><a href="#浏览器认识JSON，可以转为js对象" class="headerlink" title="浏览器认识JSON，可以转为js对象"></a>浏览器认识JSON，可以转为js对象</h3><ul>
-<li>开发web应用的不二之选</li>
-</ul>
-<h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h2><h3 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h3><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><h3 id="空值null"><a href="#空值null" class="headerlink" title="空值null"></a>空值null</h3><h2 id="用java读写JSON"><a href="#用java读写JSON" class="headerlink" title="用java读写JSON"></a>用java读写JSON</h2><p>测试函数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationFeature;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        InputStream inputStream = Main.class.getResourceAsStream(<span class="string">"/book.json"</span>);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper().registerModule(<span class="keyword">new</span> JavaTimeModule());</span><br><span class="line">        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, <span class="keyword">false</span>);</span><br><span class="line">        Book book = objectMapper.readValue(inputStream, Book.class);</span><br><span class="line">        System.out.println(book.pubDate);</span><br><span class="line">        System.out.println(book.price);</span><br><span class="line">        System.out.println(book.isbn);</span><br><span class="line">        String json = objectMapper.writeValueAsString(book);</span><br><span class="line">        System.out.println(json);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>自定义解析规则</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonParser;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationContext;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonDeserializer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IsbnDeserializer</span> <span class="keyword">extends</span> <span class="title">JsonDeserializer</span>&lt;<span class="title">BigInteger</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigInteger <span class="title">deserialize</span><span class="params">(JsonParser jsonParser, DeserializationContext deserializationContext)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">        String str = jsonParser.getValueAsString();</span><br><span class="line">        <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BigInteger(str.replace(<span class="string">'-'</span>, <span class="string">' '</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Java Bean</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.annotation.JsonDeserialize;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> id;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> String author;</span><br><span class="line">    <span class="meta">@JsonDeserialize</span>(using = IsbnDeserializer.class)</span><br><span class="line">    <span class="keyword">public</span> BigInteger isbn;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; tags;</span><br><span class="line">    <span class="keyword">public</span> LocalDate pubDate;</span><br><span class="line">    <span class="keyword">public</span> BigDecimal price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要解析的JSON</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Java核心技术"</span>,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"Cay S. Horstmann"</span>,</span><br><span class="line">  <span class="attr">"isbn"</span>: <span class="string">"978-7-111-54742-6"</span>,</span><br><span class="line">  <span class="attr">"tags"</span>: [<span class="string">"Java"</span>, <span class="string">"Network"</span>],</span><br><span class="line">  <span class="attr">"pubDate"</span>: <span class="string">"2016-09-01"</span>,</span><br><span class="line">  <span class="attr">"price"</span>: <span class="number">119.5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
-<li>JSON转化为一般的java对象</li>
-<li>JSON转化为特殊的java对象，例如LocalTime</li>
-<li>自定义解析规则</li>
-</ul>
-<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
-<li>自定义解析规则</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geojoo2cg9j31lv0j776v.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/flyweight/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/11/flyweight/" itemprop="url">flyweight</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T08:53:02+08:00">
-                2020-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="享元"><a href="#享元" class="headerlink" title="享元"></a>享元</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="运用共享技术有效地支持大量细粒度的对象。"><a href="#运用共享技术有效地支持大量细粒度的对象。" class="headerlink" title="运用共享技术有效地支持大量细粒度的对象。"></a>运用共享技术有效地支持大量细粒度的对象。</h3><ul>
-<li>谁和谁共享</li>
-<li>什么叫细粒度</li>
-</ul>
-<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行"><a href="#如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行" class="headerlink" title="如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行"></a>如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"Running constant pool"</span>;</span><br><span class="line">        String s2 = <span class="string">"Running constant pool"</span>;</span><br><span class="line">        System.out.println(s1 == s2);</span><br><span class="line">        Integer num1 = Integer.valueOf(<span class="number">101</span>);</span><br><span class="line">        Integer num2 = Integer.valueOf(<span class="number">101</span>);</span><br><span class="line">        System.out.println(num1 == num2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用"><a href="#String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用" class="headerlink" title="String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用"></a>String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用</h3><h3 id="Integer-valueOf-方法和上面的类似，预先缓存了-128到127"><a href="#Integer-valueOf-方法和上面的类似，预先缓存了-128到127" class="headerlink" title="Integer.valueOf()方法和上面的类似，预先缓存了-128到127"></a>Integer.valueOf()方法和上面的类似，预先缓存了-128到127</h3><h3 id="Byte只有256个状态，如果用Byte-valueOf-返回的全是缓存"><a href="#Byte只有256个状态，如果用Byte-valueOf-返回的全是缓存" class="headerlink" title="Byte只有256个状态，如果用Byte.valueOf()返回的全是缓存"></a>Byte只有256个状态，如果用Byte.valueOf()返回的全是缓存</h3><h2 id="享用享元"><a href="#享用享元" class="headerlink" title="享用享元"></a>享用享元</h2><h3 id="因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元"><a href="#因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元" class="headerlink" title="因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元"></a>因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元</h3><h2 id="设计享元模式"><a href="#设计享元模式" class="headerlink" title="设计享元模式"></a>设计享元模式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">//cache</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, Student&gt; cache = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//static factory method</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title">createStudent</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        String key = id + name;</span><br><span class="line">        Student student = cache.get(key);</span><br><span class="line">        <span class="keyword">if</span> (student == <span class="keyword">null</span>) &#123;</span><br><span class="line">            cache.put(id + name, <span class="keyword">new</span> Student(id, name));</span><br><span class="line">            <span class="keyword">return</span> cache.get(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> cache.get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="可以使用成熟的Cache库，如Guava的Cache"><a href="#可以使用成熟的Cache库，如Guava的Cache" class="headerlink" title="可以使用成熟的Cache库，如Guava的Cache"></a>可以使用成熟的Cache库，如Guava的Cache</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1geo87bp6blj31ac0gl76v.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/facade/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/10/facade/" itemprop="url">facade</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-10T19:49:11+08:00">
-                2020-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="外观-Facade"><a href="#外观-Facade" class="headerlink" title="外观(Facade)"></a>外观(Facade)</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"><a href="#为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。" class="headerlink" title="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"></a>为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="栗子-1"><a href="#栗子-1" class="headerlink" title="栗子"></a>栗子</h3><ul>
-<li><p>假如我是个java写的对象，我想完成“起床“这件事</p>
+            <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><hr>
+<h2 id="java项目所需"><a href="#java项目所需" class="headerlink" title="java项目所需"></a>java项目所需</h2><h3 id="classpath"><a href="#classpath" class="headerlink" title="classpath"></a>classpath</h3><ul>
+<li><p>概念</p>
 <ul>
-<li>上厕所</li>
-<li>更衣</li>
-<li>洗漱</li>
-</ul>
-</li>
-<li><p>我需要调用3个接口来完成这件事</p>
-</li>
-<li><p>我整一个Facade类，在内部定义一个“getUp()”方法，方法内部依次调用这三个接口</p>
-</li>
-<li><p>有了Facade，我只需要调用Favade提供的getup接口即可</p>
-</li>
-</ul>
-<h3 id="栗子-2"><a href="#栗子-2" class="headerlink" title="栗子"></a>栗子</h3><ul>
-<li>Gateway</li>
-</ul>
-<ul>
-<li><img src="http://ww1.sinaimg.cn/large/005VT09Qly1genlibq39kj30y20h4gnh.jpg">
-
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/集成MyBatis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/集成MyBatis/" itemprop="url">集成MyBatis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:39:20+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="集成MyBatis"><a href="#集成MyBatis" class="headerlink" title="集成MyBatis"></a>集成MyBatis</h1><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li>Hibernate</li>
-<li>JPA</li>
-</ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
-<li><p>简化数据库操作</p>
-<ul>
-<li>起初：通过SQL语句增删改查</li>
-<li>现在：通过对一个实例增删改查后调用接口</li>
-</ul>
-</li>
-</ul>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
-<li><p>前提：ORM获得了一些信息（注解）</p>
-</li>
-<li><p>把ResultSet的每一行映射成javaBean</p>
-</li>
-<li><p>把javaBean映射成SQL语句的参数</p>
-<ul>
-<li><p>ORM如何检视javaBean的修改</p>
-<ul>
-<li>Proxy</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="全自动ORM和半自动ORM和不自动的"><a href="#全自动ORM和半自动ORM和不自动的" class="headerlink" title="全自动ORM和半自动ORM和不自动的"></a>全自动ORM和半自动ORM和不自动的</h2><h3 id="全自动的有些问题-不好优化"><a href="#全自动的有些问题-不好优化" class="headerlink" title="全自动的有些问题 不好优化"></a>全自动的有些问题 不好优化</h3><ul>
-<li>比如hibernate</li>
-</ul>
-<h3 id="半自动面向SQL-就很灵活"><a href="#半自动面向SQL-就很灵活" class="headerlink" title="半自动面向SQL 就很灵活"></a>半自动面向SQL 就很灵活</h3><ul>
-<li>比如myBatis</li>
-</ul>
-<h3 id="不自动的-很满发"><a href="#不自动的-很满发" class="headerlink" title="不自动的 很满发"></a>不自动的 很满发</h3><ul>
-<li>比如JdbcTemplate</li>
-</ul>
-<h2 id="MyBatis的优缺点"><a href="#MyBatis的优缺点" class="headerlink" title="MyBatis的优缺点"></a>MyBatis的优缺点</h2><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>所有的SQL语句都要我自己写</li>
-</ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>所有SQL语句都是我自己写的</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkko8ce7j312k0kktbb.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/设计ORM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/设计ORM/" itemprop="url">设计ORM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:39:08+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="设计ORM"><a href="#设计ORM" class="headerlink" title="设计ORM"></a>设计ORM</h1><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程"><a href="#利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程" class="headerlink" title="利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程"></a>利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程</h3><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="我可以在java里写java代码-但不能写SQL代码"><a href="#我可以在java里写java代码-但不能写SQL代码" class="headerlink" title="我可以在java里写java代码 但不能写SQL代码"></a>我可以在java里写java代码 但不能写SQL代码</h3><h3 id="我通过SQL代码才能操纵SQL"><a href="#我通过SQL代码才能操纵SQL" class="headerlink" title="我通过SQL代码才能操纵SQL"></a>我通过SQL代码才能操纵SQL</h3><h3 id="JDBC可以让我通过操纵java来操纵SQL"><a href="#JDBC可以让我通过操纵java来操纵SQL" class="headerlink" title="JDBC可以让我通过操纵java来操纵SQL"></a>JDBC可以让我通过操纵java来操纵SQL</h3><h2 id="WHY-ORM？"><a href="#WHY-ORM？" class="headerlink" title="WHY ORM？"></a>WHY ORM？</h2><h3 id="Without-ORM"><a href="#Without-ORM" class="headerlink" title="Without ORM"></a>Without ORM</h3><ul>
-<li>Connection</li>
-<li>PreparedStatement</li>
-<li>executeQuery</li>
-<li>ResultSet</li>
-<li>next</li>
-<li>new Java Bean</li>
-</ul>
-<h3 id="With-ORM"><a href="#With-ORM" class="headerlink" title="With ORM"></a>With ORM</h3><ul>
-<li><p>以MyBatis为例</p>
-<ul>
-<li>Mapper&amp;Annotation</li>
-<li>MapperScan</li>
-<li>Autowired</li>
-<li>Use API</li>
-</ul>
-</li>
-</ul>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
-<li>HQL语法</li>
-</ul>
-<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><ul>
-<li><p>JPQL语法</p>
-<ul>
-<li>Complex尤其是Criteria</li>
-</ul>
-</li>
-</ul>
-<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><ul>
-<li>手撸SQL代码</li>
-</ul>
-<h2 id="设计ORM接口"><a href="#设计ORM接口" class="headerlink" title="设计ORM接口"></a>设计ORM接口</h2><h2 id="以后理解更透彻一点再写吧"><a href="#以后理解更透彻一点再写吧" class="headerlink" title="以后理解更透彻一点再写吧"></a>以后理解更透彻一点再写吧</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkk834fej31ix0ocgpf.jpg">
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/反射/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/反射/" itemprop="url">反射</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:38:58+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>Jvm为每一个加载到内存中的类都创建了一个特殊的Class类的实例</li>
-</ul>
-<h3 id="获得"><a href="#获得" class="headerlink" title="获得"></a>获得</h3><ul>
-<li>通过class的静态变量class获得</li>
-<li>通过实例的getClass方法获得</li>
-<li>通过Class的静态方法forName获得</li>
-</ul>
-<h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><h3 id="通过类对应的Class实例获得类和实例的信息"><a href="#通过类对应的Class实例获得类和实例的信息" class="headerlink" title="通过类对应的Class实例获得类和实例的信息"></a>通过类对应的Class实例获得类和实例的信息</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="访问字段"><a href="#访问字段" class="headerlink" title="访问字段"></a>访问字段</h3><ul>
-<li><p>获得特定实例的某个字段的值</p>
-<ul>
-<li>获得该实例对应的类对应的Class实例</li>
-<li>通过Class实例获得该字段对应的field实例</li>
-<li>通过field实例的方法get获得该类的实例的该字段的值</li>
-</ul>
-</li>
-<li><p>修改特定实例的某个字段的值</p>
-<ul>
-<li>获得该字段对应的field实例</li>
-<li>通过field实例的set方法修改字段的值</li>
-</ul>
-</li>
-</ul>
-<h3 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h3><ul>
-<li><p>获得方法的信息</p>
-<ul>
-<li>获得类对应的Class实例</li>
-<li>通过Class实例获得该方法对应的Method实例</li>
-</ul>
-</li>
-<li><p>调用方法</p>
-<ul>
-<li><p>一般</p>
-<ul>
-<li>获得类对应的Class实例</li>
-<li>通过Class实例获得该方法对应的Method实例</li>
-<li>通过Method实例的invoke方法实现调用</li>
-</ul>
-</li>
-<li><p>静态</p>
-<ul>
-<li><p>和“一般”的区别</p>
-<ul>
-<li>invoke传入的实例参数为null</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>构造</p>
-</li>
-</ul>
-</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkkz7tzfj313b0ubtdl.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/网络编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/网络编程/" itemprop="url">网络编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:24:07+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="网路编程"><a href="#网路编程" class="headerlink" title="网路编程"></a>网路编程</h1><h2 id="网络编程基础"><a href="#网络编程基础" class="headerlink" title="网络编程基础"></a>网络编程基础</h2><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><ul>
-<li>多台计算机通过通讯线路相连接</li>
-</ul>
-<h3 id="互联网"><a href="#互联网" class="headerlink" title="互联网"></a>互联网</h3><ul>
-<li><p>将所有计算机网络相连接</p>
-</li>
-<li><p>协议</p>
-<ul>
-<li>TCP</li>
-<li>IP</li>
-</ul>
-</li>
-</ul>
-<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><ul>
-<li><p>标识一个网络接口</p>
-</li>
-<li><p>一台接入互联网的计算机至少有一个IP地址</p>
-<p>我感觉应该是一块无线网卡对应一个ip地址</p>
-</li>
-<li><p>分类</p>
-<ul>
-<li><p>按格式</p>
-<ul>
-<li><p>IPV4</p>
-<ul>
-<li>32位整数</li>
-<li>耗尽</li>
-</ul>
-</li>
-<li><p>IPV6</p>
-</li>
-</ul>
-</li>
-<li><p>按范围</p>
-<ul>
-<li>公网</li>
-<li>内网（局域网）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="网络号"><a href="#网络号" class="headerlink" title="网络号"></a>网络号</h3><ul>
-<li><p>获得</p>
-<ul>
-<li>ip地址经过子网掩码过滤</li>
+<li>一组路径的集合</li>
 </ul>
 </li>
 <li><p>用途</p>
 <ul>
-<li><p>网络号相同</p>
+<li>告知jvm哪里可以找到指定的class文件</li>
+</ul>
+</li>
+<li><p>默认值</p>
 <ul>
-<li>设备在同一个网络下，可以直接通信</li>
+<li>当前目录</li>
 </ul>
 </li>
-<li><p>网络号不同</p>
+</ul>
+<h3 id="项目的目录结构"><a href="#项目的目录结构" class="headerlink" title="项目的目录结构"></a>项目的目录结构</h3><h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><ul>
+<li>JDK的版本</li>
+<li>编译打包的流程</li>
+<li>当前代码的版本号</li>
+</ul>
+<h3 id="使用命令行工具"><a href="#使用命令行工具" class="headerlink" title="使用命令行工具"></a>使用命令行工具</h3><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="提供标准化的项目结构"><a href="#提供标准化的项目结构" class="headerlink" title="提供标准化的项目结构"></a>提供标准化的项目结构</h3><ul>
+<li><p>目录结构</p>
 <ul>
-<li>设备不在一个网络下，要依靠路由器或交换机通信</li>
-</ul>
+<li><p>pom.xml</p>
+<p>项目描述文件</p>
 </li>
-</ul>
-</li>
-</ul>
-<h3 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h3><ul>
-<li><p>网关</p>
+<li><p>src</p>
 <ul>
-<li>路由器</li>
-<li>交换机</li>
-</ul>
-</li>
-</ul>
-<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><ul>
-<li>通过网关把一个网络的数据包发送到另一个网络</li>
-</ul>
-<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><ul>
-<li><p>为什么存在？</p>
+<li><p>main</p>
 <ul>
-<li><p>因为IP地址太难记</p>
-<p>也就是说 域名就是给ip地址起个小名儿 叫起来方便</p>
-</li>
+<li>java</li>
+<li>resources</li>
 </ul>
 </li>
-<li><p>特殊的localhost</p>
+<li><p>test</p>
 <ul>
-<li><p>因为特殊所以特殊</p>
-<p>我看了C盘windows下的那个hosts文件，就像是字典一样，一个ip地址对应一个域名，我怀疑域名解析就是靠这个实现的。</p>
-<ul>
-<li>127.0.0.1</li>
+<li>java</li>
+<li>resources</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<h3 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h3><ul>
-<li><p>分层</p>
-<ul>
-<li><p>原因</p>
-<ul>
-<li>因为复杂所以分层</li>
-</ul>
-</li>
-<li><p>目的</p>
-<ul>
-<li>简化网络操作</li>
-</ul>
-</li>
-<li><p>有哪些层呢</p>
-<ul>
-<li><p>应用层</p>
-<ul>
-<li>提供应用程序之间的通信</li>
-</ul>
-</li>
-<li><p>传输层</p>
-<ul>
-<li>提供端到端的传输</li>
-</ul>
-</li>
-<li><p>IP层</p>
-<ul>
-<li>根据目标地址选择路由传输数据</li>
-</ul>
-</li>
-<li><p>网络接口层</p>
-<ul>
-<li>处理数据然后通过物理设备（网线\wifi）传输</li>
-</ul>
+<li><p>target</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><ul>
-<li><p>作用</p>
-<ul>
-<li>交易之前总得商量好吧</li>
+<h3 id="提供标准化的构建流程"><a href="#提供标准化的构建流程" class="headerlink" title="提供标准化的构建流程"></a>提供标准化的构建流程</h3><ul>
+<li>编译</li>
+<li>测试</li>
+<li>打包</li>
+<li>发布</li>
 </ul>
-</li>
-<li><p>常用协议</p>
-<ul>
-<li><p>IP协议</p>
-<ul>
-<li><p>负责发数据包</p>
-<p>好像是瞎jb‘发的 据说不保证顺序 正确与否<br>也不知道是不是真的</p>
-</li>
+<h3 id="提供依赖管理机制"><a href="#提供依赖管理机制" class="headerlink" title="提供依赖管理机制"></a>提供依赖管理机制</h3><h3 id="在maven中声明一个依赖项可以自动下载并导入-Claspath"><a href="#在maven中声明一个依赖项可以自动下载并导入-Claspath" class="headerlink" title="在maven中声明一个依赖项可以自动下载并导入 Claspath"></a>在maven中声明一个依赖项可以自动下载并导入 Claspath</h3><h2 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h2><h3 id="lifecycle"><a href="#lifecycle" class="headerlink" title="lifecycle"></a>lifecycle</h3><h3 id="phase"><a href="#phase" class="headerlink" title="phase"></a>phase</h3><h3 id="goal"><a href="#goal" class="headerlink" title="goal"></a>goal</h3><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><ul>
+<li>clean</li>
 </ul>
-</li>
-<li><p>TCP协议</p>
-<ul>
-<li><p>负责控制数据包传输</p>
-<p>负责的协议，通过一些手段（目前我还听不懂的名词）保证可靠、正确、稳定。</p>
-<ul>
-<li>建立连接</li>
-<li>传输数据</li>
-<li>断开连接</li>
+<h3 id="compiler"><a href="#compiler" class="headerlink" title="compiler"></a>compiler</h3><ul>
+<li>compile</li>
 </ul>
-</li>
+<h3 id="surefire"><a href="#surefire" class="headerlink" title="surefire"></a>surefire</h3><ul>
+<li>test</li>
 </ul>
-</li>
-<li><p>UDP</p>
-<ul>
-<li><p>VS TCP</p>
-<ul>
-<li><p>UDP完任务型选手</p>
-<p>我只管传输数据，有没有人接受我不care</p>
-</li>
-<li><p>无连接</p>
-</li>
-<li><p>速度更快</p>
-</li>
-<li><p>协议更简单</p>
-</li>
-<li><p>质量更垃圾</p>
-</li>
-<li><p>数据必丢失</p>
-</li>
+<h3 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h3><ul>
+<li>package</li>
 </ul>
-</li>
-<li><p>应用</p>
-<ul>
-<li><p>能容忍数据丢失的场合</p>
-<p>据说音视频通话比较常用，我想也是，能听来或者看来个百分之八九十就可了。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><h3 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h3><p>据说socket、tcp和部分ip的功能是由操作系统实现并提供的，不同的语言只是对操作系统提供的接口进行了一些包装</p>
-<ul>
-<li><p>啥是socket</p>
-<ul>
-<li>application通过socket在网络间传输数据</li>
-<li>socket通过TCP/IP协议在网络间传输数据</li>
-</ul>
-</li>
-<li><p>为啥需要socket</p>
-<ul>
-<li><p>ip地址是网卡的标识</p>
-<p>说的粗糙一点就是 设备的标识</p>
-</li>
-<li><p>ip地址过于粗糙</p>
-</li>
-<li><p>socket精确到application</p>
-</li>
-</ul>
-</li>
-<li><p>socket长啥样啊</p>
-<ul>
-<li>ip地址再加点儿料（端口）</li>
-</ul>
-</li>
-<li><p>端口</p>
-<ul>
-<li><p>为啥需要端口啊</p>
-<p>ip地址标识网络接口，if我的电脑有一个网卡，这个网卡有一个ip地址，我的电脑上运行了好多需要联网的应用，比如qq、战网、steam，还有很多其他应用。我的网卡对于从远方发过来的包照单全收，但这些包都是名花有主的，因为物质资料还没有到极大丰富的地步，所以不能实行共产主义平均分配或者每人来一份，我们得按需分配，按闹分配，比如qq你只能领取属于自己的包，那怎么实现这样的需求呢？<br>咱这样，你们每个应用，给自己整一个端口，比如战网，你的port是988，那我网卡以后就通过这个端口跟你keep touch，其他应用都要有自己的端口，俺网卡按照包的标识，按照咱约定好的端口，按需分配，这样就解决问题了。</p>
-<ul>
-<li>因为socket</li>
-</ul>
-</li>
-<li><p>特权端口</p>
-<p>比如我的应用是用一个普通user打开的，那这个应用就不能使用1024以下的端口</p>
-<ul>
-<li>1024以下需要管理员权限</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>socket编程</p>
-<ul>
-<li><p>服务器端</p>
-<ul>
-<li><p>服务客户端的端</p>
-</li>
-<li><p>服务端会监听某个端口</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>从端口获得数据包然后服务客户端（我猜的</p>
-<ul>
-<li><p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Laboratory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.xml.crypto.Data;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.*;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Experiment</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//服务器端，可能会有很多客户端请求与我共舞</span></span><br><span class="line">        <span class="comment">//监听指定的端口，可以指定ip地址，ip地址标识网络接口，如果不指定ip地址，表明监听计算机上的所有网络接口</span></span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">6666</span>);</span><br><span class="line">        System.out.println(<span class="string">"server is running"</span>);</span><br><span class="line">        <span class="comment">//处理和客户端之间的连接</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="comment">//ServerSocket的accept方法，如果有客户端请求连接，我就整个socket对象给他，如果没有人请求连接，这个方法就会block</span></span><br><span class="line">            Socket socket = serverSocket.accept();</span><br><span class="line">            System.out.println(<span class="string">"Connected from "</span> + socket.getRemoteSocketAddress());</span><br><span class="line">            Thread thread = <span class="keyword">new</span> Handler(socket);</span><br><span class="line">            thread.start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Handler</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    Socket socket;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Handler</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.socket = socket;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (InputStream inputStream = <span class="keyword">this</span>.socket.getInputStream()) &#123;</span><br><span class="line">            <span class="keyword">try</span> (OutputStream outputStream = <span class="keyword">this</span>.socket.getOutputStream()) &#123;</span><br><span class="line">                handle(inputStream, outputStream);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.socket.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException ioe) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Client disconnected"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(InputStream inputStream, OutputStream outputStream)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> writer = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(outputStream, StandardCharsets.UTF_8));</span><br><span class="line">        <span class="keyword">var</span> reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(inputStream, StandardCharsets.UTF_8));</span><br><span class="line">        writer.write(<span class="string">"Fku\n"</span>);</span><br><span class="line">        writer.flush();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            String s = reader.readLine();</span><br><span class="line">            <span class="keyword">if</span> (s.equals(<span class="string">"bye"</span>)) &#123;</span><br><span class="line">                writer.write(<span class="string">"bye too"</span>);</span><br><span class="line">                writer.flush();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            writer.write(<span class="string">"fku 3000 times "</span> + s);</span><br><span class="line">           writer.flush();</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>- 客户端
-
-  - 主动连接服务器的ip和指定端口
-
-  - 代码
-
-    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Laboratory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Experiment</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//客户端的TCP程序</span></span><br><span class="line">        <span class="comment">//连接指定的服务器和端口，如果连接成功，会返回一个socket实例，用于日后的通信</span></span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>, <span class="number">6666</span>);</span><br><span class="line">        <span class="keyword">try</span> (InputStream inputStream = socket.getInputStream()) &#123;</span><br><span class="line">            <span class="keyword">try</span> (OutputStream outputStream = socket.getOutputStream()) &#123;</span><br><span class="line">                handle(inputStream, outputStream);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        socket.close();</span><br><span class="line">        System.out.println(<span class="string">"Disconnected"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(InputStream inputStream, OutputStream outputStream)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(inputStream, StandardCharsets.UTF_8));</span><br><span class="line">        <span class="keyword">var</span> writer = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(outputStream, StandardCharsets.UTF_8));</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"[server] "</span> + reader.readLine());</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.print(<span class="string">"&gt;&gt;&gt; "</span>);       <span class="comment">//打印提示</span></span><br><span class="line">            String s = scanner.nextLine();      <span class="comment">//读取一行输入</span></span><br><span class="line">            writer.write(s);</span><br><span class="line">            writer.newLine();</span><br><span class="line">           writer.flush();</span><br><span class="line">            String str = reader.readLine();</span><br><span class="line">            System.out.println(<span class="string">"&lt;&lt;&lt;"</span> + str);</span><br><span class="line">            <span class="keyword">if</span> (str.equals(<span class="string">"bye"</span>)) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-- 编程使得客户端和服务端进行通信</code></pre><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>tcp是要和服务器建立连接的啊</p>
-<ul>
-<li>屌丝：可以吗？</li>
-<li>女神：可以，你想什么时候？</li>
-<li>屌丝：今ここだ</li>
-</ul>
-<h2 id="UDP编程"><a href="#UDP编程" class="headerlink" title="UDP编程"></a>UDP编程</h2><h3 id="UDP-VS-TCP"><a href="#UDP-VS-TCP" class="headerlink" title="UDP VS TCP"></a>UDP VS TCP</h3><ul>
-<li><p>UDP不需要建立连接</p>
-<p>当然也就不需要断开连接</p>
-</li>
-<li><p>UDP没有流的概念</p>
-</li>
-<li><p>两者的端口相互独立</p>
-<p>就是 假如有两个应用，一个用UDP，一个用TCP，就算两个用一个端口也没事儿</p>
-</li>
-</ul>
-<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><ul>
-<li><p>监听指定的端口</p>
-</li>
-<li><p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Laboratory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.SocketException;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Experiment</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//服务端的操作：准备一个datagramSocket对象，利用他的receive和send方法接收和发送数据</span></span><br><span class="line">        <span class="comment">//服务器端首先使用如下语句在指定的端口监听UDP数据包：</span></span><br><span class="line">        DatagramSocket datagramSocket = <span class="keyword">new</span> DatagramSocket(<span class="number">6666</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="comment">//准备一个byte[]类型的缓冲包用来接收来自端口的数据</span></span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="comment">//通过DatagramPacket对象的方法receive接收数据包</span></span><br><span class="line">            DatagramPacket datagramPacket = <span class="keyword">new</span> DatagramPacket(buffer, buffer.length);</span><br><span class="line">            datagramSocket.receive(datagramPacket);</span><br><span class="line">            <span class="comment">//通过DatagramPacket的getOffset和getLength方法确定接收到的数据在缓冲区的起始位置</span></span><br><span class="line">            String s = <span class="keyword">new</span> String(datagramPacket.getData(), datagramPacket.getOffset(), datagramPacket.getLength(), StandardCharsets.UTF_8);</span><br><span class="line">            <span class="keyword">byte</span>[] data = <span class="string">"ACK"</span>.getBytes(StandardCharsets.UTF_8);</span><br><span class="line">            datagramPacket.setData(data);</span><br><span class="line">            datagramSocket.send(datagramPacket);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ul>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ul>
-<li><p>操作</p>
-<ul>
-<li>向服务器发送UDP包</li>
-<li>接收服务器返回的UDP包</li>
-</ul>
-</li>
-<li><p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Laboratory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.xml.crypto.Data;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.SocketException;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Experiment</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//客户端</span></span><br><span class="line">        <span class="comment">//客户端创建DatagramSocket的时候不需要指定端口，分配端口这个活儿是OS干的，所以说OS是程序员的好朋友</span></span><br><span class="line">        DatagramSocket datagramSocket = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line">        <span class="comment">//此处有别于服务器端，服务器端可以循环到天荒地老，但客户端有所不同，需要设置最长等待时间，过期不候</span></span><br><span class="line">        datagramSocket.setSoTimeout(<span class="number">1000</span>);</span><br><span class="line">        <span class="comment">//UDP不需要建立连接，没错，这里的connect并不是真连接，而是想把服务器的ip和端口保存下来，以便之后向服务器发送UDP数据包</span></span><br><span class="line">        datagramSocket.connect(InetAddress.getByName(<span class="string">"localhost"</span>), <span class="number">6666</span>);</span><br><span class="line">        <span class="comment">//现在可以发送数据了</span></span><br><span class="line">        <span class="comment">//先来点数据</span></span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="string">"What's going on?"</span>.getBytes();</span><br><span class="line">        <span class="comment">//和DatagramPacket绑在一起</span></span><br><span class="line">        DatagramPacket datagramPacket = <span class="keyword">new</span> DatagramPacket(data, data.length);</span><br><span class="line">        <span class="comment">//通过Socket的方法send将Packet发送到服务器，必须是先发再收，不然服务器不知道客户端的ip和端口号</span></span><br><span class="line">        datagramSocket.send(datagramPacket);</span><br><span class="line">        <span class="comment">//发送之后就可以接受数据了</span></span><br><span class="line">        <span class="comment">//接受数据，和服务端一样</span></span><br><span class="line">        <span class="comment">//先准备一个byte数组用来接受数据</span></span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="comment">//把buffer和packet绑定起来</span></span><br><span class="line">        datagramPacket = <span class="keyword">new</span> DatagramPacket(buffer, buffer.length);</span><br><span class="line">        <span class="comment">//通过socket的receive方法接受数据存到预先设定的packet里</span></span><br><span class="line">        datagramSocket.receive(datagramPacket);</span><br><span class="line">        <span class="comment">//转换成String</span></span><br><span class="line">        String str = <span class="keyword">new</span> String(datagramPacket.getData(), datagramPacket.getOffset(), datagramPacket.getLength());</span><br><span class="line">        <span class="comment">//如果可以，可以选择断开连接</span></span><br><span class="line">        <span class="comment">//既然不存在连接，当然也就不存在断开的对象，确实如此，此处的disconnect只是把socket对象恢复出厂设置，以便于socket可以再利用而已</span></span><br><span class="line">        datagramSocket.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ul>
-<h2 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h2><h3 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h3><ul>
-<li><p>传统的邮件</p>
-<ul>
-<li>投递到邮局——邮局2——邮局3——信箱</li>
-</ul>
-</li>
-<li><p>电子邮件</p>
-<ul>
-<li>从用户的邮箱软件发送到服务器——服务器2——服务器3——邮箱</li>
-</ul>
-</li>
-<li><p>邮箱软件</p>
-<ul>
-<li>MUA</li>
-<li>Mail User Agent</li>
-</ul>
-</li>
-<li><p>邮件服务器</p>
-<ul>
-<li><p>MTA</p>
-</li>
-<li><p>MDA</p>
-<ul>
-<li>邮件最终的归属</li>
-<li>或许是某个服务器的某块硬盘</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"> <span class="keyword">import</span> javax.mail.*;</span><br><span class="line"> <span class="keyword">import</span> javax.mail.internet.AddressException;</span><br><span class="line"> <span class="keyword">import</span> javax.mail.internet.InternetAddress;</span><br><span class="line"> <span class="keyword">import</span> javax.mail.internet.MimeMessage;</span><br><span class="line"> <span class="keyword">import</span> java.util.Properties;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mail</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> MessagingException </span>&#123;</span><br><span class="line">         String smtp = <span class="string">"smtp.qq.com"</span>;</span><br><span class="line">         String username = <span class="string">"674602921@qq.com"</span>;</span><br><span class="line">         String password = <span class="string">"grzbslakcefkbceg"</span>;</span><br><span class="line">         Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.host"</span>, smtp);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.port"</span>, <span class="number">465</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.auth"</span>, <span class="string">"true"</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.starttls.enable"</span>, <span class="string">"true"</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.socketFactory.class"</span>, <span class="string">"javax.net.ssl.SSLSocketFactory"</span>);</span><br><span class="line">         Session session = Session.getInstance(properties, <span class="keyword">new</span> Authenticator() &#123;</span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">protected</span> PasswordAuthentication <span class="title">getPasswordAuthentication</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                 <span class="keyword">return</span> <span class="keyword">new</span> PasswordAuthentication(username, password);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">         session.setDebug(<span class="keyword">true</span>);</span><br><span class="line">         MimeMessage message = <span class="keyword">new</span> MimeMessage(session);</span><br><span class="line">         message.setFrom(<span class="keyword">new</span> InternetAddress(<span class="string">"674602921@qq.com"</span>));</span><br><span class="line">         message.setRecipient(Message.RecipientType.TO, <span class="keyword">new</span> InternetAddress(<span class="string">"ljm158675@gmail.com"</span>));</span><br><span class="line">         message.setSubject(<span class="string">"Hey"</span>, <span class="string">"UTF-8"</span>);</span><br><span class="line">         message.setText(<span class="string">"Java,please!"</span>);</span><br><span class="line">         Transport.send(message);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mail</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> MessagingException </span>&#123;</span><br><span class="line">         String smtp = <span class="string">"smtp.qq.com"</span>;</span><br><span class="line">         String username = <span class="string">"674602921@qq.com"</span>;</span><br><span class="line">         String password = <span class="string">"grzbslakcefkbceg"</span>;</span><br><span class="line">         Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.host"</span>, smtp);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.port"</span>, <span class="number">465</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.auth"</span>, <span class="string">"true"</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.starttls.enable"</span>, <span class="string">"true"</span>);</span><br><span class="line">         properties.put(<span class="string">"mail.smtp.socketFactory.class"</span>, <span class="string">"javax.net.ssl.SSLSocketFactory"</span>);</span><br><span class="line">         Session session = Session.getInstance(properties, <span class="keyword">new</span> Authenticator() &#123;</span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">protected</span> PasswordAuthentication <span class="title">getPasswordAuthentication</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                 <span class="keyword">return</span> <span class="keyword">new</span> PasswordAuthentication(username, password);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">         session.setDebug(<span class="keyword">true</span>);</span><br><span class="line">         MimeMessage message = <span class="keyword">new</span> MimeMessage(session);</span><br><span class="line">         message.setFrom(<span class="keyword">new</span> InternetAddress(<span class="string">"674602921@qq.com"</span>));</span><br><span class="line">         message.setRecipient(Message.RecipientType.TO, <span class="keyword">new</span> InternetAddress(<span class="string">"ljm158675@gmail.com"</span>));</span><br><span class="line">         message.setSubject(<span class="string">"Hey"</span>, <span class="string">"UTF-8"</span>);</span><br><span class="line">         message.setText(<span class="string">"Java,please!"</span>);</span><br><span class="line">         Transport.send(message);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h3><ul>
-<li><p>代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">import com.sun.mail.pop3.POP3SSLStore;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">import javax.mail.*;</span><br><span class="line">import javax.mail.internet.AddressException;</span><br><span class="line">import javax.mail.internet.InternetAddress;</span><br><span class="line">import javax.mail.internet.MimeMessage;</span><br><span class="line">import javax.mail.internet.MimeUtility;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line">  </span><br><span class="line">public class Mail &#123;</span><br><span class="line">    public static void main(String[] args) throws MessagingException, IOException &#123;</span><br><span class="line">        String host = &quot;pop3.example.com&quot;;</span><br><span class="line">        String username = &quot;bob@example.com&quot;;</span><br><span class="line">        String password = &quot;********&quot;;</span><br><span class="line">        int port = 995;</span><br><span class="line">        Properties properties = new Properties();</span><br><span class="line">        properties.setProperty(&quot;mail.store.protocol&quot;, &quot;pop3&quot;);</span><br><span class="line">        properties.setProperty(&quot;mail.pop3.host&quot;, host);</span><br><span class="line">        properties.setProperty(&quot;mail.pop3.port&quot;, String.valueOf(port));</span><br><span class="line">        properties.put(&quot;mail.smtp.socketFactory.class&quot;, &quot;javax.net.ssl.SSLSocketFactory&quot;);</span><br><span class="line">        properties.put(&quot;mail.smtp.socketFactory.port&quot;, String.valueOf(port));</span><br><span class="line">        URLName urlName = new URLName(&quot;pop3&quot;, host, port, &quot;&quot;, username, password);</span><br><span class="line">        Session session = Session.getInstance(properties, null);</span><br><span class="line">        session.setDebug(true);</span><br><span class="line">        Store store = new POP3SSLStore(session, urlName);</span><br><span class="line">        store.connect();</span><br><span class="line">        // 获取收件箱:</span><br><span class="line">        Folder folder = store.getFolder(&quot;INBOX&quot;);</span><br><span class="line">// 以读写方式打开:</span><br><span class="line">        folder.open(Folder.READ_WRITE);</span><br><span class="line">// 打印邮件总数/新邮件数量/未读数量/已删除数量:</span><br><span class="line">        System.out.println(&quot;Total messages: &quot; + folder.getMessageCount());</span><br><span class="line">        System.out.println(&quot;New messages: &quot; + folder.getNewMessageCount());</span><br><span class="line">        System.out.println(&quot;Unread messages: &quot; + folder.getUnreadMessageCount());</span><br><span class="line">        System.out.println(&quot;Deleted messages: &quot; + folder.getDeletedMessageCount());</span><br><span class="line">// 获取每一封邮件:</span><br><span class="line">        Message[] messages = folder.getMessages();</span><br><span class="line">        for (Message message : messages) &#123;</span><br><span class="line">            // 打印每一封邮件:</span><br><span class="line">            printMessage((MimeMessage) message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    static void printMessage(MimeMessage msg) throws IOException, MessagingException &#123;</span><br><span class="line">        // 邮件主题:</span><br><span class="line">        System.out.println(&quot;Subject: &quot; + MimeUtility.decodeText(msg.getSubject()));</span><br><span class="line">        // 发件人:</span><br><span class="line">        Address[] froms = msg.getFrom();</span><br><span class="line">        InternetAddress address = (InternetAddress) froms[0];</span><br><span class="line">        String personal = address.getPersonal();</span><br><span class="line">        String from = personal == null ? address.getAddress() : (MimeUtility.decodeText(personal) + &quot; &lt;&quot; + address.getAddress() + &quot;&gt;&quot;);</span><br><span class="line">        System.out.println(&quot;From: &quot; + from);</span><br><span class="line">        // 继续打印收件人:</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="HTTP编程"><a href="#HTTP编程" class="headerlink" title="HTTP编程"></a>HTTP编程</h2><h3 id="建立TCP连接"><a href="#建立TCP连接" class="headerlink" title="建立TCP连接"></a>建立TCP连接</h3><h3 id="请求（HTTP，浏览器）"><a href="#请求（HTTP，浏览器）" class="headerlink" title="请求（HTTP，浏览器）"></a>请求（HTTP，浏览器）</h3><ul>
-<li>HTTP HEADER</li>
-<li>HTTP BODY</li>
-</ul>
-<h3 id="响应（HTTP，服务器）"><a href="#响应（HTTP，服务器）" class="headerlink" title="响应（HTTP，服务器）"></a>响应（HTTP，服务器）</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkh4bst8j32461ljh0o.jpg">
-
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkofqfuaj32nv0jen0c.jpg">
           
         
       
@@ -1891,7 +705,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/http/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/单例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -1910,7 +724,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/09/http/" itemprop="url">http</a></h1>
+                <a class="post-title-link" href="/2020/05/12/单例/" itemprop="url">单例</a></h1>
         
 
         <div class="post-meta">
@@ -1922,8 +736,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:21:48+08:00">
-                2020-05-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:51:06+08:00">
+                2020-05-12
               </time>
             
 
@@ -1962,341 +776,795 @@
       
         
           
-            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><h3 id="传输之前总要先约定好的吧"><a href="#传输之前总要先约定好的吧" class="headerlink" title="传输之前总要先约定好的吧"></a>传输之前总要先约定好的吧</h3><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="从web服务器传输html到浏览器的协议"><a href="#从web服务器传输html到浏览器的协议" class="headerlink" title="从web服务器传输html到浏览器的协议"></a>从web服务器传输html到浏览器的协议</h3><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><h3 id="1-0"><a href="#1-0" class="headerlink" title="1.0"></a>1.0</h3><ul>
-<li>一次连接一次传输</li>
+            <h1 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="保证一个类仅有一个实例，并提供一个访问它的全局访问点。"><a href="#保证一个类仅有一个实例，并提供一个访问它的全局访问点。" class="headerlink" title="保证一个类仅有一个实例，并提供一个访问它的全局访问点。"></a>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="在某个进程中，某个类有且只有一个实例"><a href="#在某个进程中，某个类有且只有一个实例" class="headerlink" title="在某个进程中，某个类有且只有一个实例"></a>在某个进程中，某个类有且只有一个实例</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><ul>
+<li>private的构造方法确保外部无法实例化</li>
+<li>private的static变量持有唯一的实例</li>
+<li>public的static方法返回此实例确保外部能获得此唯一实例</li>
 </ul>
-<h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><ul>
-<li>一次连接多次传输</li>
-</ul>
-<h3 id="2-0"><a href="#2-0" class="headerlink" title="2.0"></a>2.0</h3><ul>
-<li>实验阶段</li>
-</ul>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h3><h3 id="BS架构"><a href="#BS架构" class="headerlink" title="BS架构"></a>BS架构</h3><h3 id="浏览器作为HTTP客户端通过URL向服务器发送请求"><a href="#浏览器作为HTTP客户端通过URL向服务器发送请求" class="headerlink" title="浏览器作为HTTP客户端通过URL向服务器发送请求"></a>浏览器作为HTTP客户端通过URL向服务器发送请求</h3><h2 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a>DNS服务器</h2><h3 id="保存所有主机的域名和IP地址"><a href="#保存所有主机的域名和IP地址" class="headerlink" title="保存所有主机的域名和IP地址"></a>保存所有主机的域名和IP地址</h3><h3 id="可以把域名翻译成IP地址"><a href="#可以把域名翻译成IP地址" class="headerlink" title="可以把域名翻译成IP地址"></a>可以把域名翻译成IP地址</h3><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="DNS服务器把域名解析成IP地址"><a href="#DNS服务器把域名解析成IP地址" class="headerlink" title="DNS服务器把域名解析成IP地址"></a>DNS服务器把域名解析成IP地址</h3><h3 id="客户端和服务器三次握手建立TCP连接"><a href="#客户端和服务器三次握手建立TCP连接" class="headerlink" title="客户端和服务器三次握手建立TCP连接"></a>客户端和服务器三次握手建立TCP连接</h3><h3 id="客户端向服务器发送HTTP请求"><a href="#客户端向服务器发送HTTP请求" class="headerlink" title="客户端向服务器发送HTTP请求"></a>客户端向服务器发送HTTP请求</h3><h3 id="服务器向客户端发送HTTP响应"><a href="#服务器向客户端发送HTTP响应" class="headerlink" title="服务器向客户端发送HTTP响应"></a>服务器向客户端发送HTTP响应</h3><h3 id="客户端把得到的html和资源渲染到前端呈现给用户"><a href="#客户端把得到的html和资源渲染到前端呈现给用户" class="headerlink" title="客户端把得到的html和资源渲染到前端呈现给用户"></a>客户端把得到的html和资源渲染到前端呈现给用户</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="BS架构-1"><a href="#BS架构-1" class="headerlink" title="BS架构"></a>BS架构</h3><ul>
-<li>请求-响应模式</li>
-</ul>
-<h3 id="请求简单"><a href="#请求简单" class="headerlink" title="请求简单"></a>请求简单</h3><ul>
-<li><p>请求命令</p>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><ul>
+<li><p>enum</p>
 <ul>
-<li>GET</li>
-<li>POST</li>
-<li>Delete</li>
+<li>枚举类的每个枚举都是单例</li>
 </ul>
 </li>
-<li><p>资源路径</p>
-</li>
 </ul>
-<h3 id="啥都能传"><a href="#啥都能传" class="headerlink" title="啥都能传"></a>啥都能传</h3><ul>
-<li>传输的类型用Content-Type标记</li>
+<h3 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h3><ul>
+<li>自觉</li>
 </ul>
-<h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><h3 id="Uniform-Resource-Identifier"><a href="#Uniform-Resource-Identifier" class="headerlink" title="Uniform Resource Identifier"></a>Uniform Resource Identifier</h3><ul>
-<li>标识</li>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="Runtime-getRuntime"><a href="#Runtime-getRuntime" class="headerlink" title="Runtime.getRuntime()"></a>Runtime.getRuntime()</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkn2q3pyj311x0g1wg0.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/创建型模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/创建型模式/" itemprop="url">创建型模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:50:05+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h1><hr>
+<h2 id="Factory-Method"><a href="#Factory-Method" class="headerlink" title="Factory Method"></a>Factory Method</h2><h2 id="Abstract-Factory"><a href="#Abstract-Factory" class="headerlink" title="Abstract Factory"></a>Abstract Factory</h2><h2 id="Builder"><a href="#Builder" class="headerlink" title="Builder"></a>Builder</h2><h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkm3kdrnj30r40apdgi.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/多线程/" itemprop="url">多线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:48:07+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><hr>
+<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h3><ul>
+<li>reentrantlock的partner</li>
+<li>类似于synchronized和（wait、notify）的关系</li>
+<li>一个lock对应一个condition</li>
 </ul>
-<h3 id="Uniform-Resource-Location"><a href="#Uniform-Resource-Location" class="headerlink" title="Uniform Resource Location"></a>Uniform Resource Location</h3><ul>
-<li>定位</li>
-<li>互联网的资源都有唯一的URL</li>
+<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><ul>
+<li>必须使用对应lock的newCondition方法</li>
 </ul>
-<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><ul>
-<li><p>请求方法</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><p>await()</p>
 <ul>
-<li><p>分类</p>
+<li>可以设置等待时间、超过后自己醒来</li>
+</ul>
+</li>
+<li><p>signal()</p>
+</li>
+<li><p>signalAll()</p>
+</li>
+</ul>
+<h2 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h2><h3 id="存在的需求"><a href="#存在的需求" class="headerlink" title="存在的需求"></a>存在的需求</h3><ul>
+<li><p>读操作</p>
 <ul>
-<li><p>GET</p>
+<li>单纯的读不会出什么幺蛾子</li>
+</ul>
+</li>
+<li><p>写操作</p>
 <ul>
-<li>请求获得某个资源</li>
+<li>写和读之间不同步 不合逻辑的现象会出现</li>
 </ul>
 </li>
-<li><p>POST</p>
+<li><p>TODO</p>
+<p>目的是提高性能</p>
 <ul>
-<li>提交表单</li>
-<li>上传文件</li>
-</ul>
-</li>
-<li><p>HEAD</p>
-<ul>
-<li>只能获得header的Get</li>
-</ul>
-</li>
-<li><p>PUT</p>
-<ul>
-<li>请求创建或修改文件</li>
-</ul>
-</li>
-<li><p>DELETE</p>
-<ul>
-<li>请求删除文件</li>
+<li>读操作的时候大伙儿可以一起上</li>
+<li>写操作的时候只能我上</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>POST和GET的区别</p>
-<ul>
-<li>GET请求的内容在URL就可以看到</li>
-<li>GET没BODY</li>
-<li>POST有BODY</li>
+<h3 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h3><ul>
+<li>大大的提高了并发读的效率</li>
 </ul>
-</li>
+<h2 id="Stampedlock"><a href="#Stampedlock" class="headerlink" title="Stampedlock"></a>Stampedlock</h2><h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><h3 id="允许读的过程中有写入"><a href="#允许读的过程中有写入" class="headerlink" title="允许读的过程中有写入"></a>允许读的过程中有写入</h3><h2 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h2><h3 id="不允许读的过程中有写入"><a href="#不允许读的过程中有写入" class="headerlink" title="不允许读的过程中有写入"></a>不允许读的过程中有写入</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkk7yyddj318t0mkgok.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/抽象工厂/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/抽象工厂/" itemprop="url">抽象工厂</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:46:43+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h1><hr>
+<h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><h3 id="工厂是抽象的"><a href="#工厂是抽象的" class="headerlink" title="工厂是抽象的"></a>工厂是抽象的</h3><h3 id="产品也是抽象的"><a href="#产品也是抽象的" class="headerlink" title="产品也是抽象的"></a>产品也是抽象的</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="定义抽象工厂接口"><a href="#定义抽象工厂接口" class="headerlink" title="定义抽象工厂接口"></a>定义抽象工厂接口</h3><h3 id="定义抽象产品接口"><a href="#定义抽象产品接口" class="headerlink" title="定义抽象产品接口"></a>定义抽象产品接口</h3><h3 id="定义代工厂"><a href="#定义代工厂" class="headerlink" title="定义代工厂"></a>定义代工厂</h3><h3 id="定义产品"><a href="#定义产品" class="headerlink" title="定义产品"></a>定义产品</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="抽象工厂模式可以让（工厂和产品的创建）同（工厂和产品的使用）相分离"><a href="#抽象工厂模式可以让（工厂和产品的创建）同（工厂和产品的使用）相分离" class="headerlink" title="抽象工厂模式可以让（工厂和产品的创建）同（工厂和产品的使用）相分离"></a>抽象工厂模式可以让（工厂和产品的创建）同（工厂和产品的使用）相分离</h3><h3 id="可以方便的切换实际工厂"><a href="#可以方便的切换实际工厂" class="headerlink" title="可以方便的切换实际工厂"></a>可以方便的切换实际工厂</h3><h3 id="客户端之和抽象工厂及抽象产品打交道"><a href="#客户端之和抽象工厂及抽象产品打交道" class="headerlink" title="客户端之和抽象工厂及抽象产品打交道"></a>客户端之和抽象工厂及抽象产品打交道</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkjd3bh0j30qo0k00u8.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/decorator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/decorator/" itemprop="url">decorator</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:46:02+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><hr>
+<h2 id="Filter模式就是Decorator模式"><a href="#Filter模式就是Decorator模式" class="headerlink" title="Filter模式就是Decorator模式"></a>Filter模式就是Decorator模式</h2><h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><h3 id="把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上"><a href="#把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上" class="headerlink" title="把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上"></a>把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="可以将核心功能和附加功能分开"><a href="#可以将核心功能和附加功能分开" class="headerlink" title="可以将核心功能和附加功能分开"></a>可以将核心功能和附加功能分开</h3><ul>
+<li>增加核心功能就增加子类</li>
+<li>增加附加功能就增加Decorator的子类</li>
+<li>可以在运行期间动态的给核心功能添加附加功能</li>
 </ul>
-</li>
-<li><p>URL</p>
-</li>
-<li><p>协议类型</p>
-</li>
-<li><p>协议版本</p>
-</li>
+<h2 id="设计Decorator模式"><a href="#设计Decorator模式" class="headerlink" title="设计Decorator模式"></a>设计Decorator模式</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkhrbde1j31640ehabp.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Composite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/Composite/" itemprop="url">Composite</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:44:51+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。"><a href="#将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。" class="headerlink" title="将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。"></a>将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="统一单个节点以及“容器”节点的接口"><a href="#统一单个节点以及“容器”节点的接口" class="headerlink" title="统一单个节点以及“容器”节点的接口"></a>统一单个节点以及“容器”节点的接口</h3><h3 id="容器节点可以添加任意个单个节点，形成层级结构"><a href="#容器节点可以添加任意个单个节点，形成层级结构" class="headerlink" title="容器节点可以添加任意个单个节点，形成层级结构"></a>容器节点可以添加任意个单个节点，形成层级结构</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。"><a href="#Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。" class="headerlink" title="Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。"></a>Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。</h3><ul>
+<li>一致：比如说可以链式操作，很爽</li>
 </ul>
-<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><ul>
-<li><p>响应状态码</p>
-<ul>
-<li><p>分类</p>
-<ul>
-<li><p>1XX</p>
-<ul>
-<li>服务器收到请求，给客户端一个message，明示你继续操作</li>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkgk9z8fj30vy0deaba.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Bridge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/Bridge/" itemprop="url">Bridge</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:43:14+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="将抽象部分与它的实现部分分离，使它们都可以独立地变化"><a href="#将抽象部分与它的实现部分分离，使它们都可以独立地变化" class="headerlink" title="将抽象部分与它的实现部分分离，使它们都可以独立地变化"></a>将抽象部分与它的实现部分分离，使它们都可以独立地变化</h3><h2 id="继承存在的问题"><a href="#继承存在的问题" class="headerlink" title="继承存在的问题"></a>继承存在的问题</h2><h3 id="按特点取名继承"><a href="#按特点取名继承" class="headerlink" title="按特点取名继承"></a>按特点取名继承</h3><ul>
+<li>子类数量爆炸</li>
 </ul>
-</li>
-<li><p>2XX</p>
-<ul>
-<li>一切OK，清楚明白</li>
-</ul>
-</li>
-<li><p>3XX</p>
-<ul>
-<li><p>重定向</p>
-<ul>
-<li>比如之前的资源换位置了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>4XX</p>
-<ul>
-<li><p>客户端的错误</p>
-<ul>
-<li>语法</li>
-<li>服务器无法完成请求</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>5XX</p>
-<ul>
-<li><p>服务器的错误</p>
-<ul>
-<li>服务器处理请求的时候出了差错</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>常见/常用</p>
-<ul>
-<li><p>200</p>
-</li>
-<li><p>301</p>
-<ul>
-<li><p>URL变了</p>
-<ul>
-<li>这人搬家了，去别处找吧</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>302</p>
-<ul>
-<li>这人暂时不在这里，去别处找吧</li>
-</ul>
-</li>
-<li><p>400</p>
-<ul>
-<li><p>客户端的请求有语法错误</p>
-<ul>
-<li>服务器：？</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>401</p>
-<ul>
-<li>服务器：你没有资格和我提这样的请求</li>
-</ul>
-</li>
-<li><p>404</p>
-<ul>
-<li>NOT FOUND</li>
-</ul>
-</li>
-<li><p>500</p>
-<ul>
-<li>服务器：dbq</li>
-</ul>
-</li>
-<li><p>503</p>
-<ul>
-<li>服务器：我很忙，过会儿再来试试吧</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Header-1"><a href="#Header-1" class="headerlink" title="Header"></a>Header</h3><h3 id="Body-1"><a href="#Body-1" class="headerlink" title="Body"></a>Body</h3><h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><h3 id="HTTP存在的问题"><a href="#HTTP存在的问题" class="headerlink" title="HTTP存在的问题"></a>HTTP存在的问题</h3><ul>
-<li>请求的信息明文传输，能被轻易窃取</li>
-<li>数据的完整性未经校验，可能被篡改</li>
-<li>对方身份未经检验，可能被冒充</li>
-</ul>
-<h3 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h3><ul>
-<li>HTTP+SSL/TLS</li>
-<li>Hypertext transfer protocol over secure socket layer</li>
-</ul>
-<h3 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h3><ul>
-<li>提供安全支持的一种协议</li>
-</ul>
-<h3 id="TLS"><a href="#TLS" class="headerlink" title="TLS"></a>TLS</h3><ul>
-<li>由SSL演化而来</li>
-</ul>
-<h3 id="传输数据的流程"><a href="#传输数据的流程" class="headerlink" title="传输数据的流程"></a>传输数据的流程</h3><ul>
-<li>建立HTTPS连接</li>
-<li>用非对称加密传输对称加密的密钥</li>
-<li>通过密钥进行密文通信</li>
-<li>（详情见网络通信加密）</li>
-</ul>
-<h3 id="缺点（相对于http）"><a href="#缺点（相对于http）" class="headerlink" title="缺点（相对于http）"></a>缺点（相对于http）</h3><ul>
-<li><p>慢</p>
-</li>
-<li><p>SSL证书要钱，越好的越贵</p>
-<ul>
-<li>SSL证书是CA证书的一种</li>
-</ul>
-</li>
-<li><p>消耗资源多</p>
-</li>
-</ul>
-<h3 id="值得一提的是HTTP和HTTPS用的端口不一样"><a href="#值得一提的是HTTP和HTTPS用的端口不一样" class="headerlink" title="值得一提的是HTTP和HTTPS用的端口不一样"></a>值得一提的是HTTP和HTTPS用的端口不一样</h3><h2 id="网络通信加密"><a href="#网络通信加密" class="headerlink" title="网络通信加密"></a>网络通信加密</h2><h3 id="盘古时代"><a href="#盘古时代" class="headerlink" title="盘古时代"></a>盘古时代</h3><ul>
-<li><p>路不拾遗，夜不闭户</p>
-<ul>
-<li>明文直接传</li>
-</ul>
-</li>
-</ul>
-<h3 id="上古时代"><a href="#上古时代" class="headerlink" title="上古时代"></a>上古时代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>出现了刁民监听数据、伪造数据</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>对称加密</p>
-<ul>
-<li>约定公用一把钥匙</li>
-<li>关键是钥匙不能给别人知道</li>
-<li>56bit的DES</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="近代"><a href="#近代" class="headerlink" title="近代"></a>近代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>道高一尺魔高一丈</li>
-<li>找个好的计算机可以暴力破解56位的钥匙</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>对称加密（pro</p>
-<ul>
-<li>长度加倍，不够再加倍</li>
-<li>256位的AES</li>
-<li>168位的DES</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="现代"><a href="#现代" class="headerlink" title="现代"></a>现代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>对称加密需要一把唯一的key，这个key得找个好的时机告诉对方，决不能泄露，否则所做的一切毫无意义</li>
-<li>访问的人数太多了，言多必失</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>非对称加密</p>
-<ul>
-<li><p>奥义</p>
-<ul>
-<li>加密解密所用的不是一把钥匙</li>
-</ul>
-</li>
-<li><p>钥匙</p>
-<ul>
-<li>private key</li>
-<li>public key</li>
-</ul>
-</li>
-<li><p>流程</p>
-<ul>
-<li><p>A和B双方各有一个private key和对方的public key</p>
-</li>
-<li><p>关于数据的安全性</p>
-<ul>
-<li>A用B的public key对数据加密 发送给B</li>
-<li>B用自己的private key对数据解密</li>
-</ul>
-</li>
-<li><p>关于数据的完整性</p>
-<ul>
-<li>A用自己的private key给hash值加密 发送给A</li>
-<li>B用A的public key解密收到的hash</li>
-<li>B用解密的数据算一下hash</li>
-<li>B对比一下两个hash</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="非对称加密的安全隐患"><a href="#非对称加密的安全隐患" class="headerlink" title="非对称加密的安全隐患"></a>非对称加密的安全隐患</h3><ul>
-<li><p>天下没有不透风的墙，如果有，那肯定是暂时的</p>
-</li>
-<li><p>非对称加密最初需要告知对方自己的public key</p>
-</li>
-<li><p>C拦截了传输的public key，并把自己的public key传输给了A和B</p>
-</li>
-<li><p>在之后的A和B的传输中，C可以获取A发给B的内容并篡改</p>
-<ul>
-<li><p>hash值呢？</p>
-<ul>
-<li>C自己整一个就行了呗，反正C已经无所不知了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li>保证public key不被拦截</li>
-</ul>
-</li>
-</ul>
-<h3 id="CA"><a href="#CA" class="headerlink" title="CA"></a>CA</h3><ul>
-<li>一个嵌入在浏览器或者操作系统的第三方</li>
-<li>A和B通过CA生成数字证书交换public key</li>
-<li>C可以获取public key但不能伪造数字证书 因为CA在本地从未经过传输</li>
-</ul>
-<h3 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h3><ul>
-<li>非对称加密太复杂了</li>
-<li>非对称加密太慢了</li>
-<li>所以我还用对称加密，但用非对称加密传输对称加密的密钥</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkb8pg61j32df2hr1i8.jpg">
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="在父类里设置一个可以插入的槽位"><a href="#在父类里设置一个可以插入的槽位" class="headerlink" title="在父类里设置一个可以插入的槽位"></a>在父类里设置一个可以插入的槽位</h3><h3 id="可以将独立的特点划分成不同的Component"><a href="#可以将独立的特点划分成不同的Component" class="headerlink" title="可以将独立的特点划分成不同的Component"></a>可以将独立的特点划分成不同的Component</h3><h3 id="这些Component可以被插入到槽位里"><a href="#这些Component可以被插入到槽位里" class="headerlink" title="这些Component可以被插入到槽位里"></a>这些Component可以被插入到槽位里</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="构造方法中添加槽位"><a href="#构造方法中添加槽位" class="headerlink" title="构造方法中添加槽位"></a>构造方法中添加槽位</h3><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="被分离的两个部分可以独立的变化"><a href="#被分离的两个部分可以独立的变化" class="headerlink" title="被分离的两个部分可以独立的变化"></a>被分离的两个部分可以独立的变化</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkf45gfrj31180cpq4e.jpg">
           
         
       
@@ -2335,7 +1603,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2381,7 +1649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

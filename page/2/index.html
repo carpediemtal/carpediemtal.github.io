@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/走进Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/adapter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/09/走进Java/" itemprop="url">走进Java</a></h1>
+                <a class="post-title-link" href="/2020/05/12/adapter/" itemprop="url">adapter</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:17:16+08:00">
-                2020-05-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:35:47+08:00">
+                2020-05-12
               </time>
             
 
@@ -343,291 +343,879 @@
       
         
           
-            <h1 id="走进java"><a href="#走进java" class="headerlink" title="走进java"></a>走进java</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>用户量大</p>
-</li>
-<li><p>一次编写，到处运行</p>
+            <h1 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h1><hr>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="life"><a href="#life" class="headerlink" title="life"></a>life</h3><ul>
+<li>中美插座标准不同，需要适配器去转接</li>
+<li>我的小米8没有耳机插孔，需要转接线</li>
+</ul>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><ul>
+<li><p>问题</p>
 <ul>
-<li>程序员只需要用JDK提供的接口，不必关心硬件如何如何</li>
+<li>我有一个Task继承自Callable</li>
+<li>我的Thread的构造方法需要一个Runnable</li>
 </ul>
 </li>
-<li><p>安全的内存管理机制</p>
+<li><p>解决方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LeetCode</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Callable&lt;Long&gt; callable = <span class="keyword">new</span> Task(<span class="number">123450000L</span>);</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> RunnableAdapter(callable));</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableAdapter</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Callable&lt;?&gt; callable;</span><br><span class="line"></span><br><span class="line">    RunnableAdapter(Callable&lt;?&gt; callable) &#123;</span><br><span class="line">        <span class="keyword">this</span>.callable = callable;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            callable.call();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Task</span><span class="params">(<span class="keyword">long</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.num = num;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"result:"</span> + sum);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <ul>
-<li>看过C++那丑陋的指针和引用就能明白这点</li>
+<li>整一个RunnableAdapter</li>
+<li>它的构造方法接受一个Callable</li>
+<li>它的run方法内部运行Callable的call方法</li>
 </ul>
+<h2 id="编写步骤"><a href="#编写步骤" class="headerlink" title="编写步骤"></a>编写步骤</h2><h3 id="implement目标接口（上面的栗子中是Runnable）"><a href="#implement目标接口（上面的栗子中是Runnable）" class="headerlink" title="implement目标接口（上面的栗子中是Runnable）"></a>implement目标接口（上面的栗子中是Runnable）</h3><h3 id="内部持有一个待转换接口（上面的栗子中是Callable）"><a href="#内部持有一个待转换接口（上面的栗子中是Callable）" class="headerlink" title="内部持有一个待转换接口（上面的栗子中是Callable）"></a>内部持有一个待转换接口（上面的栗子中是Callable）</h3><h3 id="在Adapter类的方法里调用待转换接口的方法"><a href="#在Adapter类的方法里调用待转换接口的方法" class="headerlink" title="在Adapter类的方法里调用待转换接口的方法"></a>在Adapter类的方法里调用待转换接口的方法</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h3><ul>
+<li>我有一个String数组</li>
+<li>我想把这个数组当list使</li>
+<li>List<string> list = new LinkedList&lt;&gt;(Arrays.asList(strings));</string></li>
+<li>Arrays.asList()就是一个Adapter</li>
+</ul>
+<h3 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h3><ul>
+<li>InputStreamReader可以把InputStream转换成Reader</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepk7u4124j30u50ns76u.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/proxy/" itemprop="url">proxy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:34:06+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为其他对象提供代理以控制对这个对象的访问"><a href="#为其他对象提供代理以控制对这个对象的访问" class="headerlink" title="为其他对象提供代理以控制对这个对象的访问"></a>为其他对象提供代理以控制对这个对象的访问</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="我的梯子（V2Ray）"><a href="#我的梯子（V2Ray）" class="headerlink" title="我的梯子（V2Ray）"></a>我的梯子（V2Ray）</h3><ul>
+<li><p>当我请求网络时，我的梯子接受我的请求</p>
 </li>
-<li><p>热点代码检测和运行时编译及优化</p>
+<li><p>看看这是不是外国的域名（假如我开启了PAC）</p>
 <ul>
-<li>越跑越快</li>
-</ul>
-</li>
-<li><p>各种库</p>
-</li>
-</ul>
-<h2 id="java技术体系"><a href="#java技术体系" class="headerlink" title="java技术体系"></a>java技术体系</h2><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul>
-<li><p>根据功能划分</p>
+<li><p>是</p>
 <ul>
-<li><p>java语言</p>
+<li>拦截请求，我来帮你做一些事</li>
+</ul>
 </li>
-<li><p>各种硬件平台上的JVM</p>
-</li>
-<li><p>Class文件</p>
-</li>
-<li><p>第三方java类库</p>
+<li><p>否</p>
 <ul>
-<li>商业机构</li>
-<li>开源社区</li>
+<li>放行</li>
 </ul>
-</li>
-<li><p>java API 类库</p>
 </li>
 </ul>
 </li>
-<li><p>根据服务领域划分</p>
+</ul>
+<h2 id="Proxy-VS-Adapter"><a href="#Proxy-VS-Adapter" class="headerlink" title="Proxy VS Adapter"></a>Proxy VS Adapter</h2><h3 id="Adapter把A接口转为B接口"><a href="#Adapter把A接口转为B接口" class="headerlink" title="Adapter把A接口转为B接口"></a>Adapter把A接口转为B接口</h3><h3 id="Proxy不改变接口"><a href="#Proxy不改变接口" class="headerlink" title="Proxy不改变接口"></a>Proxy不改变接口</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="权限检查"><a href="#权限检查" class="headerlink" title="权限检查"></a>权限检查</h3><ul>
+<li><p>可以在调用目标接口前后添加一些功能</p>
 <ul>
-<li><p>Java Card</p>
+<li><p>栗子</p>
 <ul>
-<li>java程序运行在小内存设备的平台</li>
+<li>比如我的梯子（权限检查）</li>
 </ul>
 </li>
-<li><p>Java ME</p>
+<li><p>为啥不直接在目标接口里实现呢？</p>
 <ul>
-<li><p>含义</p>
+<li>每个类应该各司其职</li>
+<li>我要开发一款梯子，有现成的接口可以调用，何必重复造轮子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Remote-Proxy"><a href="#Remote-Proxy" class="headerlink" title="Remote Proxy"></a>Remote Proxy</h3><ul>
+<li><p>栗子</p>
 <ul>
-<li>micro edition</li>
+<li>TeamViewer</li>
 </ul>
 </li>
-<li><p>特点</p>
+<li><p>我的接口是个代理，这个代理负责把对方法的访问转化成远程调用</p>
+</li>
+</ul>
+<h3 id="Virtual-Proxy"><a href="#Virtual-Proxy" class="headerlink" title="Virtual Proxy"></a>Virtual Proxy</h3><ul>
+<li><p>不到万不得已，代理对象是不会创建的</p>
+</li>
+<li><p>栗子</p>
 <ul>
-<li>对java API有所精简</li>
-<li>加入了对移动终端的支持</li>
-</ul>
-</li>
-<li><p>曾用名</p>
-<ul>
-<li>J2ME</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Java SE</p>
-<ul>
-<li><p>含义</p>
-<ul>
-<li>standard edition</li>
-</ul>
-</li>
-<li><p>特点</p>
-<ul>
-<li>支持面向桌面级应用的java平台</li>
-<li>完整的java核心API</li>
-</ul>
-</li>
-<li><p>曾用名</p>
-<ul>
-<li>J2SE</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Java EE</p>
-<ul>
-<li><p>含义</p>
-<ul>
-<li>enterprise edition</li>
-</ul>
-</li>
-<li><p>特点</p>
-<ul>
-<li>支持使用多层架构的企业应用</li>
-<li>对Java SE API做了扩充</li>
-</ul>
-</li>
-<li><p>曾用名</p>
-<ul>
-<li>J2EE</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="JDK-VS-JRE"><a href="#JDK-VS-JRE" class="headerlink" title="JDK VS JRE"></a>JDK VS JRE</h3><ul>
-<li><p>JDK</p>
-<ul>
-<li><p>Java Development Kit</p>
-<ul>
-<li>开发java程序</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>JRE</p>
-<ul>
-<li><p>Java Runtime Environment</p>
-<ul>
-<li>运行java程序</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="java发展史"><a href="#java发展史" class="headerlink" title="java发展史"></a>java发展史</h2><h3 id="James-Gosling"><a href="#James-Gosling" class="headerlink" title="James Gosling"></a>James Gosling</h3><h3 id="Oak"><a href="#Oak" class="headerlink" title="Oak"></a>Oak</h3><h3 id="JDK-1-0"><a href="#JDK-1-0" class="headerlink" title="JDK 1.0"></a>JDK 1.0</h3><ul>
-<li><p>Write Once，Run anywhere</p>
-</li>
-<li><p>JVM</p>
-</li>
-<li><p>Applet</p>
-<ul>
-<li>可以包含在HTML里的一个小程序</li>
-</ul>
-</li>
-<li><p>AWT</p>
-<ul>
-<li>类似swing、javafx这种吧，idk</li>
-</ul>
-</li>
-</ul>
-<h3 id="JDK-1-1"><a href="#JDK-1-1" class="headerlink" title="JDK 1.1"></a>JDK 1.1</h3><ul>
 <li><p>JDBC</p>
 <ul>
-<li>程序员用java访问数据库只需要关心JDBC提供的接口，实现类由具体的数据库驱动提供</li>
+<li>执行SQL语句才创建代理对象</li>
 </ul>
 </li>
-<li><p>JavaBeans</p>
+</ul>
 </li>
-<li><p>RMI</p>
+</ul>
+<h3 id="Protection-Proxy"><a href="#Protection-Proxy" class="headerlink" title="Protection Proxy"></a>Protection Proxy</h3><ul>
+<li>用代理对象控制对原始对象的访问</li>
+</ul>
+<h3 id="Smart-Reference"><a href="#Smart-Reference" class="headerlink" title="Smart Reference"></a>Smart Reference</h3><ul>
+<li>可以smart的释放资源</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepk5k9dc9j325j0g9jv3.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Chain-Of-Responsibility/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/Chain-Of-Responsibility/" itemprop="url">Chain Of Responsibility</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T10:31:30+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"><a href="#使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。" class="headerlink" title="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"></a>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</h3><h3 id="多个处理器按照一定顺序组合排列，依次处理请求"><a href="#多个处理器按照一定顺序组合排列，依次处理请求" class="headerlink" title="多个处理器按照一定顺序组合排列，依次处理请求"></a>多个处理器按照一定顺序组合排列，依次处理请求</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="财务申报"><a href="#财务申报" class="headerlink" title="财务申报"></a>财务申报</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HandlerChain handlerChain = <span class="keyword">new</span> HandlerChain();</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> ManagerHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> DirectorHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> CEOHandler());</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"Doomfist"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">123123</span>)));</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"tracer"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">1231231</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerChain</span> </span>&#123;</span><br><span class="line">    List&lt;Handler&gt; handlerList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHandler</span><span class="params">(Handler handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.handlerList.add(handler);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> handler : handlerList) &#123;</span><br><span class="line">            Boolean result = handler.process(request);</span><br><span class="line">            <span class="keyword">if</span> (result != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Approved by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Denied by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"idk"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Request</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Request</span><span class="params">(String name, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAmount</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Request:"</span> + <span class="keyword">this</span>.name + <span class="string">","</span> + <span class="keyword">this</span>.amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> request the request which are waiting to be handled</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true if success, false if refuse, null if pass to next handler</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Boolean <span class="title">process</span><span class="params">(Request request)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManagerHandler</span> <span class="keyword">implements</span> <span class="title">Handler</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> request.getAmount().compareTo(BigDecimal.valueOf(<span class="number">1000</span>)) &gt; <span class="number">0</span> ? <span class="keyword">null</span> : !request.getName().equals(<span class="string">"Doomfist"</span>);<span class="comment">//英雄歧视搞起来</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="处理器接口"><a href="#处理器接口" class="headerlink" title="处理器接口"></a>处理器接口</h3><ul>
+<li>实现类</li>
+</ul>
+<h3 id="组合各种处理器"><a href="#组合各种处理器" class="headerlink" title="组合各种处理器"></a>组合各种处理器</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepgmtzlvuj30os0fpab1.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/REST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/REST/" itemprop="url">REST</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T16:41:58+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="输入输出都是JSON的API接口"><a href="#输入输出都是JSON的API接口" class="headerlink" title="输入输出都是JSON的API接口"></a>输入输出都是JSON的API接口</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="便于第三方调用"><a href="#便于第三方调用" class="headerlink" title="便于第三方调用"></a>便于第三方调用</h3><h3 id="便于使用js进行交互"><a href="#便于使用js进行交互" class="headerlink" title="便于使用js进行交互"></a>便于使用js进行交互</h3><h2 id="编写RestController"><a href="#编写RestController" class="headerlink" title="编写RestController"></a>编写RestController</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">users</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUsers();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">user</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">long</span> id) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUserById(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/signin"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">signin</span><span class="params">(@RequestBody SignInRequest signInRequest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            User user = userService.signin(signInRequest.email, signInRequest.password);</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"user"</span>, user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"error"</span>, <span class="string">"SIGNIN_FAILED"</span>, <span class="string">"message"</span>, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SignInRequest</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> String email;</span><br><span class="line">        <span class="keyword">public</span> String password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="精细化控制"><a href="#精细化控制" class="headerlink" title="精细化控制"></a>精细化控制</h3><p><u>防止密码明文输出</u></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty</span>(access = Access.WRITE_ONLY)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geolnzw9clj30nw0brwf2.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/JSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/JSON/" itemprop="url">JSON</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T15:35:03+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h2><h3 id="数据传输的一种格式"><a href="#数据传输的一种格式" class="headerlink" title="数据传输的一种格式"></a>数据传输的一种格式</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="UTF-8-Only"><a href="#UTF-8-Only" class="headerlink" title="UTF-8 Only"></a>UTF-8 Only</h3><h3 id="语法简单，key只能是字符串"><a href="#语法简单，key只能是字符串" class="headerlink" title="语法简单，key只能是字符串"></a>语法简单，key只能是字符串</h3><h3 id="浏览器认识JSON，可以转为js对象"><a href="#浏览器认识JSON，可以转为js对象" class="headerlink" title="浏览器认识JSON，可以转为js对象"></a>浏览器认识JSON，可以转为js对象</h3><ul>
+<li>开发web应用的不二之选</li>
+</ul>
+<h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h2><h3 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h3><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><h3 id="空值null"><a href="#空值null" class="headerlink" title="空值null"></a>空值null</h3><h2 id="用java读写JSON"><a href="#用java读写JSON" class="headerlink" title="用java读写JSON"></a>用java读写JSON</h2><p>测试函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationFeature;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        InputStream inputStream = Main.class.getResourceAsStream(<span class="string">"/book.json"</span>);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper().registerModule(<span class="keyword">new</span> JavaTimeModule());</span><br><span class="line">        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, <span class="keyword">false</span>);</span><br><span class="line">        Book book = objectMapper.readValue(inputStream, Book.class);</span><br><span class="line">        System.out.println(book.pubDate);</span><br><span class="line">        System.out.println(book.price);</span><br><span class="line">        System.out.println(book.isbn);</span><br><span class="line">        String json = objectMapper.writeValueAsString(book);</span><br><span class="line">        System.out.println(json);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义解析规则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonParser;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationContext;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonDeserializer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IsbnDeserializer</span> <span class="keyword">extends</span> <span class="title">JsonDeserializer</span>&lt;<span class="title">BigInteger</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigInteger <span class="title">deserialize</span><span class="params">(JsonParser jsonParser, DeserializationContext deserializationContext)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">        String str = jsonParser.getValueAsString();</span><br><span class="line">        <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BigInteger(str.replace(<span class="string">'-'</span>, <span class="string">' '</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Java Bean</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.annotation.JsonDeserialize;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> id;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> String author;</span><br><span class="line">    <span class="meta">@JsonDeserialize</span>(using = IsbnDeserializer.class)</span><br><span class="line">    <span class="keyword">public</span> BigInteger isbn;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; tags;</span><br><span class="line">    <span class="keyword">public</span> LocalDate pubDate;</span><br><span class="line">    <span class="keyword">public</span> BigDecimal price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要解析的JSON</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Java核心技术"</span>,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"Cay S. Horstmann"</span>,</span><br><span class="line">  <span class="attr">"isbn"</span>: <span class="string">"978-7-111-54742-6"</span>,</span><br><span class="line">  <span class="attr">"tags"</span>: [<span class="string">"Java"</span>, <span class="string">"Network"</span>],</span><br><span class="line">  <span class="attr">"pubDate"</span>: <span class="string">"2016-09-01"</span>,</span><br><span class="line">  <span class="attr">"price"</span>: <span class="number">119.5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
+<li>JSON转化为一般的java对象</li>
+<li>JSON转化为特殊的java对象，例如LocalTime</li>
+<li>自定义解析规则</li>
+</ul>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
+<li>自定义解析规则</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geojoo2cg9j31lv0j776v.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/flyweight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/flyweight/" itemprop="url">flyweight</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T08:53:02+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="享元"><a href="#享元" class="headerlink" title="享元"></a>享元</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="运用共享技术有效地支持大量细粒度的对象。"><a href="#运用共享技术有效地支持大量细粒度的对象。" class="headerlink" title="运用共享技术有效地支持大量细粒度的对象。"></a>运用共享技术有效地支持大量细粒度的对象。</h3><ul>
+<li>谁和谁共享</li>
+<li>什么叫细粒度</li>
+</ul>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行"><a href="#如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行" class="headerlink" title="如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行"></a>如果一个对象实例一经创建就不可变，那么反复创建相同的实例就没有必要，直接向调用方返回一个共享的实例就行</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"Running constant pool"</span>;</span><br><span class="line">        String s2 = <span class="string">"Running constant pool"</span>;</span><br><span class="line">        System.out.println(s1 == s2);</span><br><span class="line">        Integer num1 = Integer.valueOf(<span class="number">101</span>);</span><br><span class="line">        Integer num2 = Integer.valueOf(<span class="number">101</span>);</span><br><span class="line">        System.out.println(num1 == num2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用"><a href="#String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用" class="headerlink" title="String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用"></a>String用字面量初始化的时候，会先看运行常量池里有没有已经存在的，如果有就返回一个引用，否则new一个放进运行常量池并返回引用</h3><h3 id="Integer-valueOf-方法和上面的类似，预先缓存了-128到127"><a href="#Integer-valueOf-方法和上面的类似，预先缓存了-128到127" class="headerlink" title="Integer.valueOf()方法和上面的类似，预先缓存了-128到127"></a>Integer.valueOf()方法和上面的类似，预先缓存了-128到127</h3><h3 id="Byte只有256个状态，如果用Byte-valueOf-返回的全是缓存"><a href="#Byte只有256个状态，如果用Byte-valueOf-返回的全是缓存" class="headerlink" title="Byte只有256个状态，如果用Byte.valueOf()返回的全是缓存"></a>Byte只有256个状态，如果用Byte.valueOf()返回的全是缓存</h3><h2 id="享用享元"><a href="#享用享元" class="headerlink" title="享用享元"></a>享用享元</h2><h3 id="因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元"><a href="#因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元" class="headerlink" title="因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元"></a>因为这个模式是通过静态工厂方法实现的，所以创建变量的时候不要new而用静态工厂方法就可能享受到享元</h3><h2 id="设计享元模式"><a href="#设计享元模式" class="headerlink" title="设计享元模式"></a>设计享元模式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">//cache</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, Student&gt; cache = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//static factory method</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title">createStudent</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        String key = id + name;</span><br><span class="line">        Student student = cache.get(key);</span><br><span class="line">        <span class="keyword">if</span> (student == <span class="keyword">null</span>) &#123;</span><br><span class="line">            cache.put(id + name, <span class="keyword">new</span> Student(id, name));</span><br><span class="line">            <span class="keyword">return</span> cache.get(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> cache.get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="可以使用成熟的Cache库，如Guava的Cache"><a href="#可以使用成熟的Cache库，如Guava的Cache" class="headerlink" title="可以使用成熟的Cache库，如Guava的Cache"></a>可以使用成熟的Cache库，如Guava的Cache</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1geo87bp6blj31ac0gl76v.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/facade/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/10/facade/" itemprop="url">facade</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-10T19:49:11+08:00">
+                2020-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="外观-Facade"><a href="#外观-Facade" class="headerlink" title="外观(Facade)"></a>外观(Facade)</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"><a href="#为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。" class="headerlink" title="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"></a>为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="栗子-1"><a href="#栗子-1" class="headerlink" title="栗子"></a>栗子</h3><ul>
+<li><p>假如我是个java写的对象，我想完成“起床“这件事</p>
 <ul>
-<li>Remote Method Invocation</li>
+<li>上厕所</li>
+<li>更衣</li>
+<li>洗漱</li>
 </ul>
 </li>
-<li><p>Inner class</p>
+<li><p>我需要调用3个接口来完成这件事</p>
+</li>
+<li><p>我整一个Facade类，在内部定义一个“getUp()”方法，方法内部依次调用这三个接口</p>
+</li>
+<li><p>有了Facade，我只需要调用Favade提供的getup接口即可</p>
+</li>
+</ul>
+<h3 id="栗子-2"><a href="#栗子-2" class="headerlink" title="栗子"></a>栗子</h3><ul>
+<li>Gateway</li>
+</ul>
 <ul>
-<li>没用过，感觉不常用，好奇怪</li>
-</ul>
-</li>
-<li><p>Reflection</p>
-</li>
-</ul>
-<h3 id="JDK-1-1发布了9个版本"><a href="#JDK-1-1发布了9个版本" class="headerlink" title="JDK 1.1发布了9个版本"></a>JDK 1.1发布了9个版本</h3><h3 id="JDK-1-2"><a href="#JDK-1-2" class="headerlink" title="JDK 1.2"></a>JDK 1.2</h3><ul>
-<li><p>java技术体系被拆分</p>
-<ul>
-<li><p>J2SE</p>
-<ul>
-<li><p>Java 2 Platform，Standard Edition</p>
-<ul>
-<li>面向桌面级应用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>J2EE</p>
-<ul>
-<li><p>Java 2 Platform，Enterprise Edition</p>
-<ul>
-<li>面向企业级开发</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>J2ME</p>
-<ul>
-<li>Java 2 Platform，Micro Edition</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>strictfp关键字</p>
-</li>
-<li><p>Collections类</p>
-</li>
-</ul>
-<h3 id="HotSpot虚拟机发布"><a href="#HotSpot虚拟机发布" class="headerlink" title="HotSpot虚拟机发布"></a>HotSpot虚拟机发布</h3><ul>
-<li>后来成了JDK的默认虚拟机</li>
-</ul>
-<h3 id="JDK-1-3"><a href="#JDK-1-3" class="headerlink" title="JDK 1.3"></a>JDK 1.3</h3><ul>
-<li>一些闻所未闻看不懂的新特性</li>
-</ul>
-<h3 id="JDK-1-4"><a href="#JDK-1-4" class="headerlink" title="JDK 1.4"></a>JDK 1.4</h3><ul>
-<li><p>走向成熟的版本</p>
-</li>
-<li><p>正则表达式</p>
-</li>
-<li><p>异常链</p>
-<ul>
-<li>你抛我，我抛他，形成永动</li>
-</ul>
-</li>
-<li><p>NIO</p>
-</li>
-<li><p>日志类</p>
-</li>
-<li><p>XML解析器</p>
-</li>
-</ul>
-<h3 id="NET-Framework发布"><a href="#NET-Framework发布" class="headerlink" title=".NET Framework发布"></a>.NET Framework发布</h3><ul>
-<li>强势竞争</li>
-</ul>
-<h3 id="JDK-1-5"><a href="#JDK-1-5" class="headerlink" title="JDK 1.5"></a>JDK 1.5</h3><ul>
-<li><p>自动装箱</p>
-<ul>
-<li>把基本类型转换为包装类型</li>
-</ul>
-</li>
-<li><p>泛型</p>
-</li>
-<li><p>动态注解</p>
-</li>
-<li><p>枚举</p>
-</li>
-<li><p>可变长参数</p>
-</li>
-<li><p>foreach</p>
-</li>
-<li><p>改进了JMM</p>
-<ul>
-<li>Java Memory Model</li>
-</ul>
-</li>
-</ul>
-<h3 id="JDK-1-6"><a href="#JDK-1-6" class="headerlink" title="JDK 1.6"></a>JDK 1.6</h3><ul>
-<li><p>全新的命名方式</p>
-</li>
-<li><p>对虚拟机内部做了很多改进</p>
-<ul>
-<li>锁与同步</li>
-<li>垃圾收集</li>
-<li>类加载</li>
-</ul>
-</li>
-</ul>
-<h3 id="Sun被Oracle收购"><a href="#Sun被Oracle收购" class="headerlink" title="Sun被Oracle收购"></a>Sun被Oracle收购</h3><h2 id="展望Java的未来"><a href="#展望Java的未来" class="headerlink" title="展望Java的未来"></a>展望Java的未来</h2><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h3 id="混合语言"><a href="#混合语言" class="headerlink" title="混合语言"></a>混合语言</h3><ul>
-<li>催生了许多新语言</li>
-<li>许多老古董也有了jvm特供版</li>
-</ul>
-<h3 id="多核并行"><a href="#多核并行" class="headerlink" title="多核并行"></a>多核并行</h3><ul>
-<li>Fork/Join</li>
-</ul>
-<h3 id="丰富语法"><a href="#丰富语法" class="headerlink" title="丰富语法"></a>丰富语法</h3><ul>
-<li>比如函数式编程</li>
-</ul>
-<h3 id="64位虚拟机"><a href="#64位虚拟机" class="headerlink" title="64位虚拟机"></a>64位虚拟机</h3><ul>
-<li>现在可能已经过渡完成了，毕竟我看的是9年前出版的书，那时候java8还没发布呢</li>
-</ul>
-<h2 id="自己编译JDK"><a href="#自己编译JDK" class="headerlink" title="自己编译JDK"></a>自己编译JDK</h2><h3 id="获取JDK原码"><a href="#获取JDK原码" class="headerlink" title="获取JDK原码"></a>获取JDK原码</h3><ul>
-<li>OPENJDK之类的</li>
-</ul>
-<h3 id="构建编译环境"><a href="#构建编译环境" class="headerlink" title="构建编译环境"></a>构建编译环境</h3><ul>
-<li>说出来你可能不信，JDK使用C++编译器编译的（部分），所以要选个IDE的话，VS是不错的选择</li>
-<li>当然很多代码还是用java写的，所以还需要一个已经编译好的JDKhhh</li>
-</ul>
-<h3 id="OPEN-JDK也不是100-开源的，有些依赖项是闭包的，得手动下载那些个依赖项才好JDK-plug"><a href="#OPEN-JDK也不是100-开源的，有些依赖项是闭包的，得手动下载那些个依赖项才好JDK-plug" class="headerlink" title="OPEN JDK也不是100%开源的，有些依赖项是闭包的，得手动下载那些个依赖项才好JDK plug"></a>OPEN JDK也不是100%开源的，有些依赖项是闭包的，得手动下载那些个依赖项才好JDK plug</h3><h3 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h3><ul>
-<li><p>细节一大堆</p>
-<ul>
-<li>tlds<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemk7hk8dtj316432dnf8.jpg">
-</li>
-</ul>
+<li><img src="http://ww1.sinaimg.cn/large/005VT09Qly1genlibq39kj30y20h4gnh.jpg">
+
 </li>
 </ul>
 
@@ -678,7 +1266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/plan/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/集成MyBatis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -697,7 +1285,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/09/plan/" itemprop="url">plan</a></h1>
+                <a class="post-title-link" href="/2020/05/09/集成MyBatis/" itemprop="url">集成MyBatis</a></h1>
         
 
         <div class="post-meta">
@@ -709,7 +1297,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T11:37:47+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:39:20+08:00">
                 2020-05-09
               </time>
             
@@ -749,162 +1337,199 @@
       
         
           
-            <p>这学期已经第十二周了，这怎么玩啊。感觉学校的课听不听也就那样吧，再过几周再开始看吧，如果这学期不复学，那又可以顺延了哈哈哈。从我决心毕业找工作之后，这几个月每天都在学java，有一段时间觉得自己上升很快，也有一段时间觉得自己来到了瓶颈期，大概就这样吧，每天也没什么特定的目标，就想到什么看看什么，想怎么学就怎么学这样子。</p>
-<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4187873187,3743031197&fm=26&gp=0.jpg" alt></p>
-<p>前几天看到阿米尔汗的视频，视频里讲到他在拍摄“摔跤吧，爸爸”中的减肥增肌经历，在几个月时间内从大胖子变身猛男，他讲到，其中最重要的一点是，关注今天的任务。imho，长远的计划是必须的，但是因为计划过于远大，往往觉得遥不可及。所以我心想，或许可以这样，一个阶段一个任务，我只专注于这个阶段，也许能获得更多正反馈，也更能够坚持下来。这个阶段有多久？我觉得可以把Arina姐姐两次发片的间隔时间当做一个period。我看了下，Arina姐姐的新片日期的2020年5月21日，所以做一些截止5月21日的规划。<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gem2252mhej30hl0lujso.jpg"></p>
-<p>java学习规划：</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gem2fcz00wj30da0f2wel.jpg">
-1. 每天一道LeetCode。如果每日一题是困难题就算了，感觉困难题太数学了，我觉得应该多做做简单中等题，By the way 其实我觉得已经没必要继续做了，但是面试要考的呀，所以继续做吧，东亚做题家，fighting。
-
-
-
-
-<ol start="2">
-<li><p>和廖老师的更新进度保持同步，以前有疏漏的可以回顾一下。如果是很复杂又很有关联性的知识，就画思维导图，尽量每个都画。</p>
-</li>
-<li><p>每天学习一个设计模式，敲代码，画思维导图。</p>
-</li>
-<li><p>最近了解到一本书，个人感觉很不错，《深入理解java虚拟机》。java虚拟机还是很有必要去学习的，学过java再看C++就感觉C++很丑陋，java之所以光鲜亮丽，是因为jvm帮我们做了很多事儿，但如果想要拥有C++的那种可操作性，就得对帮我们做事的jvm有深入理解，不然怎么搞啊。再说，jvm面试也比较看重，面向招聘学习和我的目标符合的很好。计划是每天看一章吧，反正我又不听课，时间多的是。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=539445147,30325998&fm=26&gp=0.jpg" alt></p>
-</li>
-<li><p>个人项目。所有的这些我正在学习的知识，都是为了解决实际问题而提出来的，解决实际问题也是最终目的。我有两个觉得值得一试的项目，这个阶段这样子：用Spring给我的网页版Library做一个登录页面，实现登录、注册功能，最好用spring。用javaFX给我的客户端版Library做一个登录页面，实现登录注册功能。</p>
-</li>
-<li><p>每天跟那个Youtube老哥学JavaFX，一集就好，我很喜欢那个老哥的风格，我觉得编程课就应该是那个样子，一边敲一边给你解释。假如我以后要做什么教程，最好也是这个样子，虽然我的C++老师很认真负责，但那种教学方式，idk，可能不太适合。</p>
-</li>
-</ol>
-<p>我希望自己是丢了芝麻捡了西瓜（指不关注学校开设的课程），但如果没捡到西瓜，那不管丢的是不是芝麻，都是血亏的。少打点守望先锋。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/原子操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/16/原子操作/" itemprop="url">原子操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-16T09:02:44+08:00">
-                2020-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>下面哪个选项不需要同步(synchronized)？</p>
-<ul>
-<li>a++;</li>
+            <h1 id="集成MyBatis"><a href="#集成MyBatis" class="headerlink" title="集成MyBatis"></a>集成MyBatis</h1><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>Hibernate</li>
+<li>JPA</li>
 </ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li><p>简化数据库操作</p>
 <ul>
-<li>a = b;</li>
+<li>起初：通过SQL语句增删改查</li>
+<li>现在：通过对一个实例增删改查后调用接口</li>
 </ul>
+</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><p>前提：ORM获得了一些信息（注解）</p>
+</li>
+<li><p>把ResultSet的每一行映射成javaBean</p>
+</li>
+<li><p>把javaBean映射成SQL语句的参数</p>
 <ul>
-<li>a = 1;</li>
+<li><p>ORM如何检视javaBean的修改</p>
+<ul>
+<li>Proxy</li>
 </ul>
-<p>分析：a++ 实质上是 a = a + 1，要想实现这个操作，首先要知道a的值，所以需要取出a的值，然后把a+1赋给a。</p>
-<p>a = b这个操作首先将a加载到寄存器中，然后将b加载的寄存器中，再赋值。</p>
-<p>a = 1这个操作无需读取，直接把1写到内存即可。</p>
-<p>综上所述，只有a = 1是原子操作（要么不做，要么一步到位），不需要同步。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="全自动ORM和半自动ORM和不自动的"><a href="#全自动ORM和半自动ORM和不自动的" class="headerlink" title="全自动ORM和半自动ORM和不自动的"></a>全自动ORM和半自动ORM和不自动的</h2><h3 id="全自动的有些问题-不好优化"><a href="#全自动的有些问题-不好优化" class="headerlink" title="全自动的有些问题 不好优化"></a>全自动的有些问题 不好优化</h3><ul>
+<li>比如hibernate</li>
+</ul>
+<h3 id="半自动面向SQL-就很灵活"><a href="#半自动面向SQL-就很灵活" class="headerlink" title="半自动面向SQL 就很灵活"></a>半自动面向SQL 就很灵活</h3><ul>
+<li>比如myBatis</li>
+</ul>
+<h3 id="不自动的-很满发"><a href="#不自动的-很满发" class="headerlink" title="不自动的 很满发"></a>不自动的 很满发</h3><ul>
+<li>比如JdbcTemplate</li>
+</ul>
+<h2 id="MyBatis的优缺点"><a href="#MyBatis的优缺点" class="headerlink" title="MyBatis的优缺点"></a>MyBatis的优缺点</h2><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>所有的SQL语句都要我自己写</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>所有SQL语句都是我自己写的</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkko8ce7j312k0kktbb.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/设计ORM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/设计ORM/" itemprop="url">设计ORM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:39:08+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="设计ORM"><a href="#设计ORM" class="headerlink" title="设计ORM"></a>设计ORM</h1><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程"><a href="#利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程" class="headerlink" title="利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程"></a>利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程</h3><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="我可以在java里写java代码-但不能写SQL代码"><a href="#我可以在java里写java代码-但不能写SQL代码" class="headerlink" title="我可以在java里写java代码 但不能写SQL代码"></a>我可以在java里写java代码 但不能写SQL代码</h3><h3 id="我通过SQL代码才能操纵SQL"><a href="#我通过SQL代码才能操纵SQL" class="headerlink" title="我通过SQL代码才能操纵SQL"></a>我通过SQL代码才能操纵SQL</h3><h3 id="JDBC可以让我通过操纵java来操纵SQL"><a href="#JDBC可以让我通过操纵java来操纵SQL" class="headerlink" title="JDBC可以让我通过操纵java来操纵SQL"></a>JDBC可以让我通过操纵java来操纵SQL</h3><h2 id="WHY-ORM？"><a href="#WHY-ORM？" class="headerlink" title="WHY ORM？"></a>WHY ORM？</h2><h3 id="Without-ORM"><a href="#Without-ORM" class="headerlink" title="Without ORM"></a>Without ORM</h3><ul>
+<li>Connection</li>
+<li>PreparedStatement</li>
+<li>executeQuery</li>
+<li>ResultSet</li>
+<li>next</li>
+<li>new Java Bean</li>
+</ul>
+<h3 id="With-ORM"><a href="#With-ORM" class="headerlink" title="With ORM"></a>With ORM</h3><ul>
+<li><p>以MyBatis为例</p>
+<ul>
+<li>Mapper&amp;Annotation</li>
+<li>MapperScan</li>
+<li>Autowired</li>
+<li>Use API</li>
+</ul>
+</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
+<li>HQL语法</li>
+</ul>
+<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><ul>
+<li><p>JPQL语法</p>
+<ul>
+<li>Complex尤其是Criteria</li>
+</ul>
+</li>
+</ul>
+<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><ul>
+<li>手撸SQL代码</li>
+</ul>
+<h2 id="设计ORM接口"><a href="#设计ORM接口" class="headerlink" title="设计ORM接口"></a>设计ORM接口</h2><h2 id="以后理解更透彻一点再写吧"><a href="#以后理解更透彻一点再写吧" class="headerlink" title="以后理解更透彻一点再写吧"></a>以后理解更透彻一点再写吧</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkk834fej31ix0ocgpf.jpg">
 
           
         
@@ -953,7 +1578,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/java中的@override/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/反射/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -972,7 +1597,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/21/java中的@override/" itemprop="url">java中的@override写与不写的区别</a></h1>
+                <a class="post-title-link" href="/2020/05/09/反射/" itemprop="url">反射</a></h1>
         
 
         <div class="post-meta">
@@ -984,8 +1609,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-21T17:39:13+08:00">
-                2020-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:38:58+08:00">
+                2020-05-09
               </time>
             
 
@@ -1024,769 +1649,60 @@
       
         
           
-            <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="方法签名"><a href="#方法签名" class="headerlink" title="方法签名"></a>方法签名</h3><p>方法签名包括 <strong>参数列表</strong> 和 <strong>方法名</strong> ，不包括返回类型，修饰符和异常类型。</p>
-<h3 id="覆写"><a href="#覆写" class="headerlink" title="覆写"></a>覆写</h3><p>java中如果在子类中定义了一个和父类方法签名相同的方法，新的方法会覆盖掉继承的方法，这种过程称之为 <strong>覆写</strong>。</p>
-<h3 id="Override"><a href="#Override" class="headerlink" title="@Override"></a>@Override</h3><p>据我所知，正常情况下 @Override 写或不写对编译运行没有影响，jvm会自动识别覆写的方法。唯一的作用是：如果programmer在覆写方法时写错了方法名并且写了 @Override，编译器可以起到提醒作用。</p>
-<p>栗子：</p>
-<p>情况1<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gc469krxcpj30r10mjq4g.jpg"></p>
-<p>情况2<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gc469kogexj30pd0irt9y.jpg"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/long-time-no-see-0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/03/long-time-no-see-0/" itemprop="url">long time no see</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T11:21:35+08:00">
-                2020-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="what’s-going-on"><a href="#what’s-going-on" class="headerlink" title="what’s going on"></a>what’s going on</h2><p>上一篇post的时间是2019-10-07，距今已有一段时间了，这篇post的目的是帮我回顾一下写博客的步骤，顺便多说几句。现在觉得写博客也没什么复杂的，第一次搭建博客的时候，照着教程折腾了好久，但搭建好之后，写博客也就是几个命令而已。</p>
-<p>大学就是有很多时间去想自己做的事情到底有什么意义。我在知乎上关注了许多我觉得很有趣的用户，他们的言论令我耳目一新。许多名词之前闻所未闻，比如“内卷”、“入关”、“租鸡青一”，与之相随的还有很多消极到极点的观点，这对我这个曾经一听到“努力”、“奋斗”就热血沸腾的人影响很大，使我变得很“矛盾”。一方面，我希望通过自己的努力，获得一些好的感受；另一方面，我深受“躺平”和“劝退”思想的影响，曾经读研的决心也渐渐动摇，不知道做什么才好，矛盾的我停滞不前。</p>
-<h2 id="My-1st-PC"><a href="#My-1st-PC" class="headerlink" title="My 1st PC"></a>My 1st PC</h2><p>去年我大概花费了一个月左右的时间，用来准备和购买我的第一台个人电脑。因为特殊的背景，我很早就接触了电脑，但是对电脑的了解仅限于windows的特性了吧。小时候的电脑性能相当的弱，但是我也玩的不亦乐乎（昨天闲来无事，下载了红警，战役开始时还有以前从未看过的cg，红警为什么让人怀恋呢）。一直希望能有更好的配置，让我能够玩的更爽。准备之前对于配置可以说一窍不通，随着我看了许多文章和逛了许久贴吧，我最终也写出了自己购买能力范围之内的配置清单。在此之中，我也获得了很多乐趣，和无奈。从我的第一根内存条到货，到所有的零件到货相隔20余日，第一次的装机也很坎坷，因为内存条的问题，拆了装，装了又拆，直到我新买的内存条到货，点亮之后，我跑到阳台，大喊yes。没有无缘无故的快乐。</p>
-<p>贴上我的配置清单和对应的价格：</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gbj3516vukj30ua1aqdjh.jpg" width="500" height="800">
-
-<h2 id="少时的梦"><a href="#少时的梦" class="headerlink" title="少时的梦"></a>少时的梦</h2><p>对于学习来说，笔记本电脑足矣，但是对于游戏来说，不足。一想到我的steam里还有许多游戏无人问津，大师之梦未圆，我就郁郁不得志。新的电脑于我就像久旱之后的甘霖，终于可以爽玩了。</p>
-<h3 id="overwatch"><a href="#overwatch" class="headerlink" title="overwatch"></a>overwatch</h3><p>之前</p>
-<p>笔记本烫手掉帧屏幕小的问题不再成为我的瓶颈，我的枪法和身法都有了肉眼可见的提升。白天学习，睡前和小伙伴打守望一度成为了我最开心的时间，感觉就是“I feel alive”。说好的上大师，但输出位置一度掉到黄金，但分数早已不是目的。先打竞技，结束之时还有保留的娱乐活动“南极监测站”，回忆中找不到没有比这更爽的游戏时光。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gbj3yy1wkjj33402c01l1.jpg" width="500" height="300">
-
-<p>之后</p>
-<p>回家之后，附近的网吧有144hz的显示器，感受到了前所未有的流畅，再回到60hz时，感觉像ppt。正所谓由俭入奢易，由奢入俭难。</p>
-<h3 id="The-witcher-3"><a href="#The-witcher-3" class="headerlink" title="The witcher 3"></a>The witcher 3</h3><p>只玩overwatch难免过于单调，我选择了巫师3。有了硬件基础，我可以在一个很好的画质下畅玩，也不用担心之前糟糕的环境，结果是我获得了前所未有的游戏体验。巫师3故事讲得真好，主线任务结束时，我不禁失落道，再精彩的故事也有结束的时候。回家前一天晚上，我打昆特牌到凌晨3点。因为主机太大带不回家，巫师3暂时告一段落。</p>
-<h2 id="期末考试"><a href="#期末考试" class="headerlink" title="期末考试"></a>期末考试</h2><p>十一门的考试，十多天的跨度，加上平日未曾花很多时间在听课和作业上，仅靠最后的突击，成绩一般，但也说得过去。考完后松了一口气。没啥好说的。</p>
-<h2 id="女神的笑颜"><a href="#女神的笑颜" class="headerlink" title="女神的笑颜"></a>女神的笑颜</h2><p>先占个位。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/FAQ/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/FAQ/" itemprop="url">FAQ</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-07T20:45:41+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ol>
-<li>当觉得眼前的事儿很无聊时（比如听无聊的课，做无聊的作业），会感到困倦、瞌睡，这样的机制有什么用？如果非做不可，是应该及时休息还是选择忍受？<br>现在可以公开的情报：排除睡眠不足、气候和疾病，做无聊的事感到困倦的原因是：外部刺激减少，参与欲望下降，从而交感神经兴奋性下降，这是告诉大脑可以休息的信号，控制睡眠的神经元加以影响，睡意就随之而来。作用当然是节能、抓紧时间休息呀。由此看来，这种情况下的困倦是很“良性”的，休息是没有必要的，既然如此，应当加强外部刺激（听课时坐前排和老师互动，回答问题之类的），调动好奇心（哲学三问，栗子代入），体会发现的乐趣。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/论守望先锋的成瘾性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/03/论守望先锋的成瘾性/" itemprop="url">论守望先锋的成瘾性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-03T18:44:38+08:00">
-                2019-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/更换hexo网页图标/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/01/更换hexo网页图标/" itemprop="url">更换hexo网页图标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-01T19:54:40+08:00">
-                2019-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>网页图标就像是网页的头像，比如说百度的熊掌。<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7iyc40ypqj30f00f0wgk.jpg" width="200" height="200"><br>next主题默认的网页图标是“N”，怎样改变图标呢？</p>
-<h2 id="需要的东西"><a href="#需要的东西" class="headerlink" title="需要的东西"></a>需要的东西</h2><ol>
-<li>心仪的图片  <img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7iybqngylj305c060q3w.jpg" width="200" height="200"></li>
-<li>能把一般图片转为favicon.ico的工具<br>可以用Photoshop或者在线工具（<a href="http://www.faviconico.org/favicon）将图片转为favicon.ico" target="_blank" rel="noopener">http://www.faviconico.org/favicon）将图片转为favicon.ico</a></li>
-</ol>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>把生成好的图标文件移动到<code>themes\next\source\images</code>目录下，打开主题的_config.iml文件，修改favicon-&gt;small和medium为图标的目录，保存退出，大功告成。<br>效果：<br><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7jklx4643j306f010mwx.jpg"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/博客踩过的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/博客踩过的坑/" itemprop="url">博客踩过的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-28T22:10:45+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>不踩坑是不可能的。  </p>
-<ol>
-<li>关于tags的坑<br>用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：<br><code>ERROR Process failed: _posts/鬼灭之刃.md
-YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</code><br>现在还不知道这个tags到底是做什么用的，记得之前修改主题的时候，配置文件里tags后必须有一个空格，我因此卡了很久。等我弄明白了再补上吧。   </li>
-<li>关于插入的图片<br>用图床插入的图片在本地服务器（localhost:4000）是无法正常显示的，需要部署在服务器上，才能预览。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/DeMon-Slayer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/28/DeMon-Slayer/" itemprop="url">DeMon Slayer/鬼灭之刃</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-28T21:18:01+08:00">
-                2019-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>午睡之前有点时间，决心看一集鬼灭之刃然后就去睡觉，结果用了一整个下午把剩下的都看完了。感觉就是很爽，尤其是19集火神，完全不虚巨人的epic time。我想到《了不起的盖茨比》中的一段话，大概是说每个人所经历的不同，你不能去期望别人对于一件事儿和你产生一样的观点，也就是说，不能拿自己的标准去衡量别人。我觉得这部剧很有意思，不论是主角还是反派，每一个角色都有属于自己的故事，因为截然不同的遭遇，所以有完全不同的性格特点，这是一口气25集还能不产生一点儿厌倦心理的主要原因吧。我想对几个主要的出场角色作个简单的分析，除了爽之外，还留下些什么。</p>
-<h2 id="主角：炭治郎"><a href="#主角：炭治郎" class="headerlink" title="主角：炭治郎"></a>主角：炭治郎</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix4rst0xj30i70smgtn.jpg" alt="炭治郎.png"></p>
-<h3 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h3><p>炭治郎作为主角，他的故事也是整部番的主要剧情。炭治郎作为村里的老好人，下山卖炭，回家时发现除了变成鬼的妹妹Nezuko，都惨遭横祸。之后偶遇鬼杀队的富岗，凭借过人的胆识获得了一封推荐信，在训练师的指导下刻苦训练，最终成功加入鬼杀队，成为带着鬼的鬼杀队员。每个角色在绝境时都会有所回忆，炭治郎在绝境时，回想起的是父亲为火神献上的舞，战斗力爆发，由此斩断了蜘蛛人（忘了叫啥）的蛛丝，火神一集也是全剧的高潮。</p>
-<h3 id="特点：智勇双全-道德模范-坚持不懈-鼻子灵敏"><a href="#特点：智勇双全-道德模范-坚持不懈-鼻子灵敏" class="headerlink" title="特点：智勇双全 道德模范 坚持不懈 鼻子灵敏"></a>特点：智勇双全 道德模范 坚持不懈 鼻子灵敏</h3><p>炭治郎的刷怪经历很励志，很热血，但不是毒鸡汤。炭治郎刷怪不只靠主角光环（天赋和运气之类），在战斗过程中，炭治郎即使在战况十分危急，不断遭到挑衅时，还能维持呼吸，不停的在思考，寻求敌人的破绽，而不是一个单纯的奋斗逼，我奋斗还能有错？奋斗逼越努力越傻逼。我很喜欢这个角色。  </p>
-<h2 id="我妻善逸"><a href="#我妻善逸" class="headerlink" title="我妻善逸"></a>我妻善逸</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix47pieij30i70smqb9.jpg" alt="b64543a98226cffc36404018b7014a90f603ea36.png"></p>
-<h3 id="故事-1"><a href="#故事-1" class="headerlink" title="故事"></a>故事</h3><p>善逸这个角色的设置，简直不要太真实，和主角真的很互补。善逸的钱财被女人所骗，而且被骗的钱财用来和男人私奔，善逸以又黄又绿的发色登场。一位训练师帮助善逸还了钱，代价是刻苦的训练，以加入鬼杀队。善逸怯懦到极点，总是在逃避，但师傅十分耐心，谆谆教诲。善逸在绝境时，回想到的场景是，师兄指责善逸，说师傅花在善逸身上的时间都是浪费。善逸只会一招，但登峰造极。</p>
-<h3 id="特点：扮猪吃老虎（暂时不知道为什么）-笑点担当-耳朵灵敏"><a href="#特点：扮猪吃老虎（暂时不知道为什么）-笑点担当-耳朵灵敏" class="headerlink" title="特点：扮猪吃老虎（暂时不知道为什么） 笑点担当 耳朵灵敏"></a>特点：扮猪吃老虎（暂时不知道为什么） 笑点担当 耳朵灵敏</h3><p>正常情况下，善逸十分怯懦，是战五渣，但是在被吓晕之后，判若两人。善逸是全剧的笑点担当，雷之型有六个种类，然而善逸只能使出雷之呼吸的壹之型，尽管只能使用一个，但善逸凭借自己的努力将其超越极限，磨炼到极限中的极限！在艰难的处境下，善逸的吐槽精神值得学习。</p>
-<h2 id="伊之助"><a href="#伊之助" class="headerlink" title="伊之助"></a>伊之助</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1g7ix56djssj30i70smdpf.jpg" alt="f31fbe096b63f6240406c6a98944ebf81b4ca3c5.png"></p>
-<h3 id="故事-2"><a href="#故事-2" class="headerlink" title="故事"></a>故事</h3><p>伊之助戴着猪头面具，似乎是想掩盖萌妹长相。伊之助自幼被抛弃，和野兽比力气。因为生活在山中，所以不谙人事，对人的情感难以理解。</p>
-<h3 id="特点：莽夫-触觉灵敏-单纯-好战-不服输-还有猪突猛进"><a href="#特点：莽夫-触觉灵敏-单纯-好战-不服输-还有猪突猛进" class="headerlink" title="特点：莽夫 触觉灵敏 单纯 好战 不服输 还有猪突猛进"></a>特点：莽夫 触觉灵敏 单纯 好战 不服输 还有猪突猛进</h3><p>在遇到富冈义勇之前，伊之助无所畏惧，勇往直前，遭遇富冈义勇之后，被社会毒打一蹶不振。随着剧情发展，逐渐懂得人类感情。在与另两位男主的对比之下，性格特点鲜明。头铁的精神是有必要的，但不能如此头铁。。。在三位男主身上，都有不同的值得学习的品质。不同的人生经历，截然不同的性格，十分有趣。我觉得我有时候是伊之助，有时候是善逸，有时候是炭治郎。吹爆鬼灭之刃。</p>
-
+            <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>Jvm为每一个加载到内存中的类都创建了一个特殊的Class类的实例</li>
+</ul>
+<h3 id="获得"><a href="#获得" class="headerlink" title="获得"></a>获得</h3><ul>
+<li>通过class的静态变量class获得</li>
+<li>通过实例的getClass方法获得</li>
+<li>通过Class的静态方法forName获得</li>
+</ul>
+<h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><h3 id="通过类对应的Class实例获得类和实例的信息"><a href="#通过类对应的Class实例获得类和实例的信息" class="headerlink" title="通过类对应的Class实例获得类和实例的信息"></a>通过类对应的Class实例获得类和实例的信息</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="访问字段"><a href="#访问字段" class="headerlink" title="访问字段"></a>访问字段</h3><ul>
+<li><p>获得特定实例的某个字段的值</p>
+<ul>
+<li>获得该实例对应的类对应的Class实例</li>
+<li>通过Class实例获得该字段对应的field实例</li>
+<li>通过field实例的方法get获得该类的实例的该字段的值</li>
+</ul>
+</li>
+<li><p>修改特定实例的某个字段的值</p>
+<ul>
+<li>获得该字段对应的field实例</li>
+<li>通过field实例的set方法修改字段的值</li>
+</ul>
+</li>
+</ul>
+<h3 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h3><ul>
+<li><p>获得方法的信息</p>
+<ul>
+<li>获得类对应的Class实例</li>
+<li>通过Class实例获得该方法对应的Method实例</li>
+</ul>
+</li>
+<li><p>调用方法</p>
+<ul>
+<li><p>一般</p>
+<ul>
+<li>获得类对应的Class实例</li>
+<li>通过Class实例获得该方法对应的Method实例</li>
+<li>通过Method实例的invoke方法实现调用</li>
+</ul>
+</li>
+<li><p>静态</p>
+<ul>
+<li><p>和“一般”的区别</p>
+<ul>
+<li>invoke传入的实例参数为null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>构造</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkkz7tzfj313b0ubtdl.jpg">
           
         
       
@@ -1825,7 +1741,7 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1871,7 +1787,7 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

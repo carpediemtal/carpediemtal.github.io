@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂方法">
+<meta property="og:url" content="http://yoursite.com/2020/05/12/工厂方法/index.html">
+<meta property="og:site_name" content="XiaoMing">
+<meta property="og:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
+<meta property="og:updated_time" content="2020-05-12T05:00:48.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工厂方法">
+<meta name="twitter:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/12/工厂方法/">
+
+
+
+
+
+  <title>工厂方法 | XiaoMing</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2ff12830577cde1e94dd80bdcf083398";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoMing</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/工厂方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">工厂方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T13:00:36+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h1><hr>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="List-of"><a href="#List-of" class="headerlink" title="List.of()"></a>List.of()</h3><h3 id="Map-of"><a href="#Map-of" class="headerlink" title="Map.of()"></a>Map.of()</h3><h3 id="MessageDigest-getInstance"><a href="#MessageDigest-getInstance" class="headerlink" title="MessageDigest.getInstance()"></a>MessageDigest.getInstance()</h3><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><h3 id="在接口中定义一个静态方法返回实现类的实例"><a href="#在接口中定义一个静态方法返回实现类的实例" class="headerlink" title="在接口中定义一个静态方法返回实现类的实例"></a>在接口中定义一个静态方法返回实现类的实例</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="隐藏实现细节"><a href="#隐藏实现细节" class="headerlink" title="隐藏实现细节"></a>隐藏实现细节</h3><ul>
+<li>你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的</li>
+</ul>
+<h3 id="创建产品的代码与调用产品的代码相分离"><a href="#创建产品的代码与调用产品的代码相分离" class="headerlink" title="创建产品的代码与调用产品的代码相分离"></a>创建产品的代码与调用产品的代码相分离</h3><h3 id="调用方只和抽象工厂及其产品打交道"><a href="#调用方只和抽象工厂及其产品打交道" class="headerlink" title="调用方只和抽象工厂及其产品打交道"></a>调用方只和抽象工厂及其产品打交道</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="创建产品的代码可以独立变化"><a href="#创建产品的代码可以独立变化" class="headerlink" title="创建产品的代码可以独立变化"></a>创建产品的代码可以独立变化</h3><h3 id="可能存在的优化"><a href="#可能存在的优化" class="headerlink" title="可能存在的优化"></a>可能存在的优化</h3><ul>
+<li>静态工厂方法不一定创建产品，可能使用缓存已有的</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/12/原型/" rel="next" title="原型">
+                <i class="fa fa-chevron-left"></i> 原型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">XiaoMing</p>
+              <p class="site-description motion-element" itemprop="description">Carpe Diem</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂方法"><span class="nav-number">1.</span> <span class="nav-text">工厂方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栗子"><span class="nav-number">1.1.</span> <span class="nav-text">栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-of"><span class="nav-number">1.1.1.</span> <span class="nav-text">List.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-of"><span class="nav-number">1.1.2.</span> <span class="nav-text">Map.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MessageDigest-getInstance"><span class="nav-number">1.1.3.</span> <span class="nav-text">MessageDigest.getInstance()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程"><span class="nav-number">1.2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.2.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现类"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在接口中定义一个静态方法返回实现类的实例"><span class="nav-number">1.2.3.</span> <span class="nav-text">在接口中定义一个静态方法返回实现类的实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.3.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏实现细节"><span class="nav-number">1.3.1.</span> <span class="nav-text">隐藏实现细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建产品的代码与调用产品的代码相分离"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建产品的代码与调用产品的代码相分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用方只和抽象工厂及其产品打交道"><span class="nav-number">1.3.3.</span> <span class="nav-text">调用方只和抽象工厂及其产品打交道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">1.4.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建产品的代码可以独立变化"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建产品的代码可以独立变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能存在的优化"><span class="nav-number">1.4.2.</span> <span class="nav-text">可能存在的优化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoMing</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
