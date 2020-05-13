@@ -272,6 +272,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/关于Tomcat的一个坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/13/关于Tomcat的一个坑/" itemprop="url">关于Tomcat的一个坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-13T19:46:57+08:00">
+                2020-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前我的spring项目都是直接在Intellij Idea里跑的，今天想把我的程序部署在服务器上，于是就尝试把项目打成War包，放在Tomcat的Webapps底下，然后启动Tomcat服务器运行，运行结果和我在Idea里的结果完全不同，Idea运行是正常的，Tomcat运行时报错，说找不到<strong>数据库的驱动</strong>。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ger2gcyai8j312l0sotgd.jpg">
+
+<p> <code>nested exception is java.lang.RuntimeException: Failed to get driver instance for jdbcUrl=jdbc:mysql://localhost:3306/overwatch?serverTimezone=UTC</code></p>
+<p>报错内容大概就是：Failed to get driver instance for。。。。。。巴拉巴拉。经过我百般尝试，我把Mysql驱动手动复制一份放在了Tomcat的lib目录下，终于正常运行了。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ger2hsf1apj31570lcgnt.jpg">
+
+<p><img src="C:%5CUsers%5C67460%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200513195434686.png" alt="image-20200513195434686"></p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ger3mk25q5j31270q5wi1.jpg">
+
+<p>在linux环境下，也需要做同样的操作：把mysql驱动放在tomcat的lib里。</p>
+<p>By The Way，IntelliJ Idea 可以把talble生成SQL脚本，也可以把Table中的数据生成SQL脚本，给数据库搬家，从windows到linux只需要两个脚本就可以办到，不得不说Idea牛逼。</p>
+<p>成功了！hooray</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/Command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1955,131 +2087,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/创建型模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/12/创建型模式/" itemprop="url">创建型模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:50:05+08:00">
-                2020-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h1><hr>
-<h2 id="Factory-Method"><a href="#Factory-Method" class="headerlink" title="Factory Method"></a>Factory Method</h2><h2 id="Abstract-Factory"><a href="#Abstract-Factory" class="headerlink" title="Abstract Factory"></a>Abstract Factory</h2><h2 id="Builder"><a href="#Builder" class="headerlink" title="Builder"></a>Builder</h2><h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkm3kdrnj30r40apdgi.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2125,7 +2137,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

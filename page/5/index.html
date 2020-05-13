@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
-<meta property="og:type" content="article">
-<meta property="og:title" content="工厂方法">
-<meta property="og:url" content="http://yoursite.com/2020/05/12/工厂方法/index.html">
+<meta name="description" content="Carpe Diem">
+<meta property="og:type" content="website">
+<meta property="og:title" content="XiaoMing">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="XiaoMing">
-<meta property="og:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta property="og:description" content="Carpe Diem">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
-<meta property="og:updated_time" content="2020-05-12T05:00:48.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工厂方法">
-<meta name="twitter:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
+<meta name="twitter:title" content="XiaoMing">
+<meta name="twitter:description" content="Carpe Diem">
 
 
 
@@ -121,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/12/工厂方法/">
+  <link rel="canonical" href="http://yoursite.com/page/5/">
 
 
 
 
 
-  <title>工厂方法 | XiaoMing</title>
+  <title>XiaoMing</title>
   
 
 
@@ -156,7 +153,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,9 +257,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -274,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/工厂方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/About-my-Blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +289,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">工厂方法</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/22/About-my-Blog/" itemprop="url">About my Blog</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T13:00:36+08:00">
-                2020-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T09:07:16+08:00">
+                2019-09-22
               </time>
             
 
@@ -341,14 +341,29 @@
       
 
       
-        <h1 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h1><hr>
-<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="List-of"><a href="#List-of" class="headerlink" title="List.of()"></a>List.of()</h3><h3 id="Map-of"><a href="#Map-of" class="headerlink" title="Map.of()"></a>Map.of()</h3><h3 id="MessageDigest-getInstance"><a href="#MessageDigest-getInstance" class="headerlink" title="MessageDigest.getInstance()"></a>MessageDigest.getInstance()</h3><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><h3 id="在接口中定义一个静态方法返回实现类的实例"><a href="#在接口中定义一个静态方法返回实现类的实例" class="headerlink" title="在接口中定义一个静态方法返回实现类的实例"></a>在接口中定义一个静态方法返回实现类的实例</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="隐藏实现细节"><a href="#隐藏实现细节" class="headerlink" title="隐藏实现细节"></a>隐藏实现细节</h3><ul>
-<li>你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的</li>
+        
+          
+            <h2 id="写博客的目的"><a href="#写博客的目的" class="headerlink" title="写博客的目的"></a>写博客的目的</h2><ol>
+<li>从中学习。作为阅读者，我们可以从别人的博客里获取知识和信息。作为作者，我们也可以从写作的过程中学习。把一件事儿讲清楚并不容易，这个过程是很好的学习过程，体现在明确知识，查漏补缺等方面。</li>
+<li>在力所能及的范围内去分享知识，甚至是传播思想。</li>
+<li>写博客可以是一种记录生活的方式，值得费尽心思，苦心经营。</li>
+</ol>
+<h2 id="博客的内容"><a href="#博客的内容" class="headerlink" title="博客的内容"></a>博客的内容</h2><ul>
+<li>各种知识</li>
+<li>生活随笔</li>
 </ul>
-<h3 id="创建产品的代码与调用产品的代码相分离"><a href="#创建产品的代码与调用产品的代码相分离" class="headerlink" title="创建产品的代码与调用产品的代码相分离"></a>创建产品的代码与调用产品的代码相分离</h3><h3 id="调用方只和抽象工厂及其产品打交道"><a href="#调用方只和抽象工厂及其产品打交道" class="headerlink" title="调用方只和抽象工厂及其产品打交道"></a>调用方只和抽象工厂及其产品打交道</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="创建产品的代码可以独立变化"><a href="#创建产品的代码可以独立变化" class="headerlink" title="创建产品的代码可以独立变化"></a>创建产品的代码可以独立变化</h3><h3 id="可能存在的优化"><a href="#可能存在的优化" class="headerlink" title="可能存在的优化"></a>可能存在的优化</h3><ul>
-<li>静态工厂方法不一定创建产品，可能使用缓存已有的</li>
+<h2 id="博客的特点"><a href="#博客的特点" class="headerlink" title="博客的特点"></a>博客的特点</h2><ol>
+<li>鉴于没什么人看，写的会较随意。</li>
+<li>错误之处在所难免</li>
+</ol>
+<h2 id="博客本身"><a href="#博客本身" class="headerlink" title="博客本身"></a>博客本身</h2><ul>
+<li>基于github和hexo</li>
+<li>hexo主题：next–mist</li>
 </ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>菜的真实</p>
+
+          
+        
       
     </div>
     
@@ -365,32 +380,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/05/12/原型/" rel="next" title="原型">
-                <i class="fa fa-chevron-left"></i> 原型
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/12/condition/" rel="prev" title="condition">
-                condition <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -400,11 +395,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
 
 
           </div>
@@ -412,10 +410,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -436,17 +430,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -488,22 +473,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂方法"><span class="nav-number">1.</span> <span class="nav-text">工厂方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栗子"><span class="nav-number">1.1.</span> <span class="nav-text">栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-of"><span class="nav-number">1.1.1.</span> <span class="nav-text">List.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-of"><span class="nav-number">1.1.2.</span> <span class="nav-text">Map.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MessageDigest-getInstance"><span class="nav-number">1.1.3.</span> <span class="nav-text">MessageDigest.getInstance()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程"><span class="nav-number">1.2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">1.2.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现类"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在接口中定义一个静态方法返回实现类的实例"><span class="nav-number">1.2.3.</span> <span class="nav-text">在接口中定义一个静态方法返回实现类的实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.3.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏实现细节"><span class="nav-number">1.3.1.</span> <span class="nav-text">隐藏实现细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建产品的代码与调用产品的代码相分离"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建产品的代码与调用产品的代码相分离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用方只和抽象工厂及其产品打交道"><span class="nav-number">1.3.3.</span> <span class="nav-text">调用方只和抽象工厂及其产品打交道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">1.4.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建产品的代码可以独立变化"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建产品的代码可以独立变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能存在的优化"><span class="nav-number">1.4.2.</span> <span class="nav-text">可能存在的优化</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -637,10 +606,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
