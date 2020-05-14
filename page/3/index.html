@@ -272,6 +272,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/proxy/" itemprop="url">proxy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:34:06+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为其他对象提供代理以控制对这个对象的访问"><a href="#为其他对象提供代理以控制对这个对象的访问" class="headerlink" title="为其他对象提供代理以控制对这个对象的访问"></a>为其他对象提供代理以控制对这个对象的访问</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="我的梯子（V2Ray）"><a href="#我的梯子（V2Ray）" class="headerlink" title="我的梯子（V2Ray）"></a>我的梯子（V2Ray）</h3><ul>
+<li><p>当我请求网络时，我的梯子接受我的请求</p>
+</li>
+<li><p>看看这是不是外国的域名（假如我开启了PAC）</p>
+<ul>
+<li><p>是</p>
+<ul>
+<li>拦截请求，我来帮你做一些事</li>
+</ul>
+</li>
+<li><p>否</p>
+<ul>
+<li>放行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Proxy-VS-Adapter"><a href="#Proxy-VS-Adapter" class="headerlink" title="Proxy VS Adapter"></a>Proxy VS Adapter</h2><h3 id="Adapter把A接口转为B接口"><a href="#Adapter把A接口转为B接口" class="headerlink" title="Adapter把A接口转为B接口"></a>Adapter把A接口转为B接口</h3><h3 id="Proxy不改变接口"><a href="#Proxy不改变接口" class="headerlink" title="Proxy不改变接口"></a>Proxy不改变接口</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="权限检查"><a href="#权限检查" class="headerlink" title="权限检查"></a>权限检查</h3><ul>
+<li><p>可以在调用目标接口前后添加一些功能</p>
+<ul>
+<li><p>栗子</p>
+<ul>
+<li>比如我的梯子（权限检查）</li>
+</ul>
+</li>
+<li><p>为啥不直接在目标接口里实现呢？</p>
+<ul>
+<li>每个类应该各司其职</li>
+<li>我要开发一款梯子，有现成的接口可以调用，何必重复造轮子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Remote-Proxy"><a href="#Remote-Proxy" class="headerlink" title="Remote Proxy"></a>Remote Proxy</h3><ul>
+<li><p>栗子</p>
+<ul>
+<li>TeamViewer</li>
+</ul>
+</li>
+<li><p>我的接口是个代理，这个代理负责把对方法的访问转化成远程调用</p>
+</li>
+</ul>
+<h3 id="Virtual-Proxy"><a href="#Virtual-Proxy" class="headerlink" title="Virtual Proxy"></a>Virtual Proxy</h3><ul>
+<li><p>不到万不得已，代理对象是不会创建的</p>
+</li>
+<li><p>栗子</p>
+<ul>
+<li><p>JDBC</p>
+<ul>
+<li>执行SQL语句才创建代理对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Protection-Proxy"><a href="#Protection-Proxy" class="headerlink" title="Protection Proxy"></a>Protection Proxy</h3><ul>
+<li>用代理对象控制对原始对象的访问</li>
+</ul>
+<h3 id="Smart-Reference"><a href="#Smart-Reference" class="headerlink" title="Smart Reference"></a>Smart Reference</h3><ul>
+<li>可以smart的释放资源</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepk5k9dc9j325j0g9jv3.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Chain-Of-Responsibility/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1878,460 +2061,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/http/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/http/" itemprop="url">http</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T22:21:48+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><hr>
-<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><h3 id="传输之前总要先约定好的吧"><a href="#传输之前总要先约定好的吧" class="headerlink" title="传输之前总要先约定好的吧"></a>传输之前总要先约定好的吧</h3><h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="从web服务器传输html到浏览器的协议"><a href="#从web服务器传输html到浏览器的协议" class="headerlink" title="从web服务器传输html到浏览器的协议"></a>从web服务器传输html到浏览器的协议</h3><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><h3 id="1-0"><a href="#1-0" class="headerlink" title="1.0"></a>1.0</h3><ul>
-<li>一次连接一次传输</li>
-</ul>
-<h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><ul>
-<li>一次连接多次传输</li>
-</ul>
-<h3 id="2-0"><a href="#2-0" class="headerlink" title="2.0"></a>2.0</h3><ul>
-<li>实验阶段</li>
-</ul>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h3><h3 id="BS架构"><a href="#BS架构" class="headerlink" title="BS架构"></a>BS架构</h3><h3 id="浏览器作为HTTP客户端通过URL向服务器发送请求"><a href="#浏览器作为HTTP客户端通过URL向服务器发送请求" class="headerlink" title="浏览器作为HTTP客户端通过URL向服务器发送请求"></a>浏览器作为HTTP客户端通过URL向服务器发送请求</h3><h2 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a>DNS服务器</h2><h3 id="保存所有主机的域名和IP地址"><a href="#保存所有主机的域名和IP地址" class="headerlink" title="保存所有主机的域名和IP地址"></a>保存所有主机的域名和IP地址</h3><h3 id="可以把域名翻译成IP地址"><a href="#可以把域名翻译成IP地址" class="headerlink" title="可以把域名翻译成IP地址"></a>可以把域名翻译成IP地址</h3><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="DNS服务器把域名解析成IP地址"><a href="#DNS服务器把域名解析成IP地址" class="headerlink" title="DNS服务器把域名解析成IP地址"></a>DNS服务器把域名解析成IP地址</h3><h3 id="客户端和服务器三次握手建立TCP连接"><a href="#客户端和服务器三次握手建立TCP连接" class="headerlink" title="客户端和服务器三次握手建立TCP连接"></a>客户端和服务器三次握手建立TCP连接</h3><h3 id="客户端向服务器发送HTTP请求"><a href="#客户端向服务器发送HTTP请求" class="headerlink" title="客户端向服务器发送HTTP请求"></a>客户端向服务器发送HTTP请求</h3><h3 id="服务器向客户端发送HTTP响应"><a href="#服务器向客户端发送HTTP响应" class="headerlink" title="服务器向客户端发送HTTP响应"></a>服务器向客户端发送HTTP响应</h3><h3 id="客户端把得到的html和资源渲染到前端呈现给用户"><a href="#客户端把得到的html和资源渲染到前端呈现给用户" class="headerlink" title="客户端把得到的html和资源渲染到前端呈现给用户"></a>客户端把得到的html和资源渲染到前端呈现给用户</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="BS架构-1"><a href="#BS架构-1" class="headerlink" title="BS架构"></a>BS架构</h3><ul>
-<li>请求-响应模式</li>
-</ul>
-<h3 id="请求简单"><a href="#请求简单" class="headerlink" title="请求简单"></a>请求简单</h3><ul>
-<li><p>请求命令</p>
-<ul>
-<li>GET</li>
-<li>POST</li>
-<li>Delete</li>
-</ul>
-</li>
-<li><p>资源路径</p>
-</li>
-</ul>
-<h3 id="啥都能传"><a href="#啥都能传" class="headerlink" title="啥都能传"></a>啥都能传</h3><ul>
-<li>传输的类型用Content-Type标记</li>
-</ul>
-<h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><h3 id="Uniform-Resource-Identifier"><a href="#Uniform-Resource-Identifier" class="headerlink" title="Uniform Resource Identifier"></a>Uniform Resource Identifier</h3><ul>
-<li>标识</li>
-</ul>
-<h3 id="Uniform-Resource-Location"><a href="#Uniform-Resource-Location" class="headerlink" title="Uniform Resource Location"></a>Uniform Resource Location</h3><ul>
-<li>定位</li>
-<li>互联网的资源都有唯一的URL</li>
-</ul>
-<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><ul>
-<li><p>请求方法</p>
-<ul>
-<li><p>分类</p>
-<ul>
-<li><p>GET</p>
-<ul>
-<li>请求获得某个资源</li>
-</ul>
-</li>
-<li><p>POST</p>
-<ul>
-<li>提交表单</li>
-<li>上传文件</li>
-</ul>
-</li>
-<li><p>HEAD</p>
-<ul>
-<li>只能获得header的Get</li>
-</ul>
-</li>
-<li><p>PUT</p>
-<ul>
-<li>请求创建或修改文件</li>
-</ul>
-</li>
-<li><p>DELETE</p>
-<ul>
-<li>请求删除文件</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>POST和GET的区别</p>
-<ul>
-<li>GET请求的内容在URL就可以看到</li>
-<li>GET没BODY</li>
-<li>POST有BODY</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>URL</p>
-</li>
-<li><p>协议类型</p>
-</li>
-<li><p>协议版本</p>
-</li>
-</ul>
-<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><ul>
-<li><p>响应状态码</p>
-<ul>
-<li><p>分类</p>
-<ul>
-<li><p>1XX</p>
-<ul>
-<li>服务器收到请求，给客户端一个message，明示你继续操作</li>
-</ul>
-</li>
-<li><p>2XX</p>
-<ul>
-<li>一切OK，清楚明白</li>
-</ul>
-</li>
-<li><p>3XX</p>
-<ul>
-<li><p>重定向</p>
-<ul>
-<li>比如之前的资源换位置了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>4XX</p>
-<ul>
-<li><p>客户端的错误</p>
-<ul>
-<li>语法</li>
-<li>服务器无法完成请求</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>5XX</p>
-<ul>
-<li><p>服务器的错误</p>
-<ul>
-<li>服务器处理请求的时候出了差错</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>常见/常用</p>
-<ul>
-<li><p>200</p>
-</li>
-<li><p>301</p>
-<ul>
-<li><p>URL变了</p>
-<ul>
-<li>这人搬家了，去别处找吧</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>302</p>
-<ul>
-<li>这人暂时不在这里，去别处找吧</li>
-</ul>
-</li>
-<li><p>400</p>
-<ul>
-<li><p>客户端的请求有语法错误</p>
-<ul>
-<li>服务器：？</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>401</p>
-<ul>
-<li>服务器：你没有资格和我提这样的请求</li>
-</ul>
-</li>
-<li><p>404</p>
-<ul>
-<li>NOT FOUND</li>
-</ul>
-</li>
-<li><p>500</p>
-<ul>
-<li>服务器：dbq</li>
-</ul>
-</li>
-<li><p>503</p>
-<ul>
-<li>服务器：我很忙，过会儿再来试试吧</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Header-1"><a href="#Header-1" class="headerlink" title="Header"></a>Header</h3><h3 id="Body-1"><a href="#Body-1" class="headerlink" title="Body"></a>Body</h3><h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><h3 id="HTTP存在的问题"><a href="#HTTP存在的问题" class="headerlink" title="HTTP存在的问题"></a>HTTP存在的问题</h3><ul>
-<li>请求的信息明文传输，能被轻易窃取</li>
-<li>数据的完整性未经校验，可能被篡改</li>
-<li>对方身份未经检验，可能被冒充</li>
-</ul>
-<h3 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h3><ul>
-<li>HTTP+SSL/TLS</li>
-<li>Hypertext transfer protocol over secure socket layer</li>
-</ul>
-<h3 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h3><ul>
-<li>提供安全支持的一种协议</li>
-</ul>
-<h3 id="TLS"><a href="#TLS" class="headerlink" title="TLS"></a>TLS</h3><ul>
-<li>由SSL演化而来</li>
-</ul>
-<h3 id="传输数据的流程"><a href="#传输数据的流程" class="headerlink" title="传输数据的流程"></a>传输数据的流程</h3><ul>
-<li>建立HTTPS连接</li>
-<li>用非对称加密传输对称加密的密钥</li>
-<li>通过密钥进行密文通信</li>
-<li>（详情见网络通信加密）</li>
-</ul>
-<h3 id="缺点（相对于http）"><a href="#缺点（相对于http）" class="headerlink" title="缺点（相对于http）"></a>缺点（相对于http）</h3><ul>
-<li><p>慢</p>
-</li>
-<li><p>SSL证书要钱，越好的越贵</p>
-<ul>
-<li>SSL证书是CA证书的一种</li>
-</ul>
-</li>
-<li><p>消耗资源多</p>
-</li>
-</ul>
-<h3 id="值得一提的是HTTP和HTTPS用的端口不一样"><a href="#值得一提的是HTTP和HTTPS用的端口不一样" class="headerlink" title="值得一提的是HTTP和HTTPS用的端口不一样"></a>值得一提的是HTTP和HTTPS用的端口不一样</h3><h2 id="网络通信加密"><a href="#网络通信加密" class="headerlink" title="网络通信加密"></a>网络通信加密</h2><h3 id="盘古时代"><a href="#盘古时代" class="headerlink" title="盘古时代"></a>盘古时代</h3><ul>
-<li><p>路不拾遗，夜不闭户</p>
-<ul>
-<li>明文直接传</li>
-</ul>
-</li>
-</ul>
-<h3 id="上古时代"><a href="#上古时代" class="headerlink" title="上古时代"></a>上古时代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>出现了刁民监听数据、伪造数据</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>对称加密</p>
-<ul>
-<li>约定公用一把钥匙</li>
-<li>关键是钥匙不能给别人知道</li>
-<li>56bit的DES</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="近代"><a href="#近代" class="headerlink" title="近代"></a>近代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>道高一尺魔高一丈</li>
-<li>找个好的计算机可以暴力破解56位的钥匙</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>对称加密（pro</p>
-<ul>
-<li>长度加倍，不够再加倍</li>
-<li>256位的AES</li>
-<li>168位的DES</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="现代"><a href="#现代" class="headerlink" title="现代"></a>现代</h3><ul>
-<li><p>问题</p>
-<ul>
-<li>对称加密需要一把唯一的key，这个key得找个好的时机告诉对方，决不能泄露，否则所做的一切毫无意义</li>
-<li>访问的人数太多了，言多必失</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li><p>非对称加密</p>
-<ul>
-<li><p>奥义</p>
-<ul>
-<li>加密解密所用的不是一把钥匙</li>
-</ul>
-</li>
-<li><p>钥匙</p>
-<ul>
-<li>private key</li>
-<li>public key</li>
-</ul>
-</li>
-<li><p>流程</p>
-<ul>
-<li><p>A和B双方各有一个private key和对方的public key</p>
-</li>
-<li><p>关于数据的安全性</p>
-<ul>
-<li>A用B的public key对数据加密 发送给B</li>
-<li>B用自己的private key对数据解密</li>
-</ul>
-</li>
-<li><p>关于数据的完整性</p>
-<ul>
-<li>A用自己的private key给hash值加密 发送给A</li>
-<li>B用A的public key解密收到的hash</li>
-<li>B用解密的数据算一下hash</li>
-<li>B对比一下两个hash</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="非对称加密的安全隐患"><a href="#非对称加密的安全隐患" class="headerlink" title="非对称加密的安全隐患"></a>非对称加密的安全隐患</h3><ul>
-<li><p>天下没有不透风的墙，如果有，那肯定是暂时的</p>
-</li>
-<li><p>非对称加密最初需要告知对方自己的public key</p>
-</li>
-<li><p>C拦截了传输的public key，并把自己的public key传输给了A和B</p>
-</li>
-<li><p>在之后的A和B的传输中，C可以获取A发给B的内容并篡改</p>
-<ul>
-<li><p>hash值呢？</p>
-<ul>
-<li>C自己整一个就行了呗，反正C已经无所不知了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>应对策略</p>
-<ul>
-<li>保证public key不被拦截</li>
-</ul>
-</li>
-</ul>
-<h3 id="CA"><a href="#CA" class="headerlink" title="CA"></a>CA</h3><ul>
-<li>一个嵌入在浏览器或者操作系统的第三方</li>
-<li>A和B通过CA生成数字证书交换public key</li>
-<li>C可以获取public key但不能伪造数字证书 因为CA在本地从未经过传输</li>
-</ul>
-<h3 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h3><ul>
-<li>非对称加密太复杂了</li>
-<li>非对称加密太慢了</li>
-<li>所以我还用对称加密，但用非对称加密传输对称加密的密钥</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkb8pg61j32df2hr1i8.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2382,7 +2111,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
