@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="装饰器 Filter模式就是Decorator模式思想把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上优势可以将核心功能和附加功能分开 增加核心功能就增加子类 增加附加功能就增加Decorator的子类 可以在运行期间动态的给核心功能添加附加功能  设计Decorator模式">
+<meta name="description" content="Mediator 定义用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。引入一个中介对象，把多边关系变成多个双边关系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="decorator">
-<meta property="og:url" content="http://yoursite.com/2020/05/12/decorator/index.html">
+<meta property="og:title" content="mediator">
+<meta property="og:url" content="http://yoursite.com/2020/05/16/mediator/index.html">
 <meta property="og:site_name" content="XiaoMing">
-<meta property="og:description" content="装饰器 Filter模式就是Decorator模式思想把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上优势可以将核心功能和附加功能分开 增加核心功能就增加子类 增加附加功能就增加Decorator的子类 可以在运行期间动态的给核心功能添加附加功能  设计Decorator模式">
+<meta property="og:description" content="Mediator 定义用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。引入一个中介对象，把多边关系变成多个双边关系">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkhrbde1j31640ehabp.jpg">
-<meta property="og:updated_time" content="2020-05-12T04:46:10.034Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1geu1a03d89j30vo0kimyy.jpg">
+<meta property="og:updated_time" content="2020-05-16T01:28:46.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="decorator">
-<meta name="twitter:description" content="装饰器 Filter模式就是Decorator模式思想把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上优势可以将核心功能和附加功能分开 增加核心功能就增加子类 增加附加功能就增加Decorator的子类 可以在运行期间动态的给核心功能添加附加功能  设计Decorator模式">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkhrbde1j31640ehabp.jpg">
+<meta name="twitter:title" content="mediator">
+<meta name="twitter:description" content="Mediator 定义用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。引入一个中介对象，把多边关系变成多个双边关系">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1geu1a03d89j30vo0kimyy.jpg">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/12/decorator/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/16/mediator/">
 
 
 
 
 
-  <title>decorator | XiaoMing</title>
+  <title>mediator | XiaoMing</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/decorator/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/mediator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">decorator</h1>
+          <h1 class="post-title" itemprop="name headline">mediator</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:46:02+08:00">
-                2020-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T09:27:51+08:00">
+                2020-05-16
               </time>
             
 
@@ -341,13 +341,22 @@
       
 
       
-        <h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><hr>
-<h2 id="Filter模式就是Decorator模式"><a href="#Filter模式就是Decorator模式" class="headerlink" title="Filter模式就是Decorator模式"></a>Filter模式就是Decorator模式</h2><h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><h3 id="把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上"><a href="#把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上" class="headerlink" title="把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上"></a>把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="可以将核心功能和附加功能分开"><a href="#可以将核心功能和附加功能分开" class="headerlink" title="可以将核心功能和附加功能分开"></a>可以将核心功能和附加功能分开</h3><ul>
-<li>增加核心功能就增加子类</li>
-<li>增加附加功能就增加Decorator的子类</li>
-<li>可以在运行期间动态的给核心功能添加附加功能</li>
+        <h1 id="Mediator"><a href="#Mediator" class="headerlink" title="Mediator"></a>Mediator</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。"><a href="#用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。" class="headerlink" title="用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。"></a>用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</h3><h3 id="引入一个中介对象，把多边关系变成多个双边关系"><a href="#引入一个中介对象，把多边关系变成多个双边关系" class="headerlink" title="引入一个中介对象，把多边关系变成多个双边关系"></a>引入一个中介对象，把多边关系变成多个双边关系</h3><a id="more"></a>
+
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="房产中介"><a href="#房产中介" class="headerlink" title="房产中介"></a>房产中介</h3><ul>
+<li><p>without 中介</p>
+<ul>
+<li>买方和卖方直接打交道</li>
 </ul>
-<h2 id="设计Decorator模式"><a href="#设计Decorator模式" class="headerlink" title="设计Decorator模式"></a>设计Decorator模式</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkhrbde1j31640ehabp.jpg">
+</li>
+<li><p>with中介</p>
+<ul>
+<li>买方和卖方都只和中介打交道</li>
+</ul>
+</li>
+</ul>
+<h3 id="MVC的Controller"><a href="#MVC的Controller" class="headerlink" title="MVC的Controller"></a>MVC的Controller</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="降低了类的复杂度"><a href="#降低了类的复杂度" class="headerlink" title="降低了类的复杂度"></a>降低了类的复杂度</h3><h3 id="耦合性低"><a href="#耦合性低" class="headerlink" title="耦合性低"></a>耦合性低</h3><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><h3 id="中介是要收费的"><a href="#中介是要收费的" class="headerlink" title="中介是要收费的"></a>中介是要收费的</h3><h3 id="中介可能会非常庞大复杂"><a href="#中介可能会非常庞大复杂" class="headerlink" title="中介可能会非常庞大复杂"></a>中介可能会非常庞大复杂</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1geu1a03d89j30vo0kimyy.jpg">
       
     </div>
     
@@ -371,8 +380,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/12/Composite/" rel="next" title="Composite">
-                <i class="fa fa-chevron-left"></i> Composite
+              <a href="/2020/05/15/Iterator/" rel="next" title="Iterator">
+                <i class="fa fa-chevron-left"></i> Iterator
               </a>
             
           </div>
@@ -380,10 +389,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/12/抽象工厂/" rel="prev" title="抽象工厂">
-                抽象工厂 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -497,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#装饰器"><span class="nav-number">1.</span> <span class="nav-text">装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter模式就是Decorator模式"><span class="nav-number">1.1.</span> <span class="nav-text">Filter模式就是Decorator模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想"><span class="nav-number">1.2.</span> <span class="nav-text">思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上"><span class="nav-number">1.2.1.</span> <span class="nav-text">把需要新添加的内容用Decorator的方式层层加之于上，把新功能组合于原有基础之上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">1.3.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以将核心功能和附加功能分开"><span class="nav-number">1.3.1.</span> <span class="nav-text">可以将核心功能和附加功能分开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计Decorator模式"><span class="nav-number">1.4.</span> <span class="nav-text">设计Decorator模式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mediator"><span class="nav-number">1.</span> <span class="nav-text">Mediator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。"><span class="nav-number">1.1.1.</span> <span class="nav-text">用一个中介对象来封装一系列的对象交互。中介者使各个对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入一个中介对象，把多边关系变成多个双边关系"><span class="nav-number">1.1.2.</span> <span class="nav-text">引入一个中介对象，把多边关系变成多个双边关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栗子"><span class="nav-number">1.2.</span> <span class="nav-text">栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#房产中介"><span class="nav-number">1.2.1.</span> <span class="nav-text">房产中介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC的Controller"><span class="nav-number">1.2.2.</span> <span class="nav-text">MVC的Controller</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">1.3.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#降低了类的复杂度"><span class="nav-number">1.3.1.</span> <span class="nav-text">降低了类的复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#耦合性低"><span class="nav-number">1.3.2.</span> <span class="nav-text">耦合性低</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">1.4.</span> <span class="nav-text">缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中介是要收费的"><span class="nav-number">1.4.1.</span> <span class="nav-text">中介是要收费的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中介可能会非常庞大复杂"><span class="nav-number">1.4.2.</span> <span class="nav-text">中介可能会非常庞大复杂</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
