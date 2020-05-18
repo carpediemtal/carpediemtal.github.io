@@ -272,6 +272,143 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Filter模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/12/Filter模式/" itemprop="url">Filter模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T14:03:40+08:00">
+                2020-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Filter模式"><a href="#Filter模式" class="headerlink" title="Filter模式"></a>Filter模式</h1><hr>
+<h2 id="继承的问题"><a href="#继承的问题" class="headerlink" title="继承的问题"></a>继承的问题</h2><h3 id="如果新功能的实现依赖于继承（每个新功能对应一个子类）会出现子类数目过多的情况"><a href="#如果新功能的实现依赖于继承（每个新功能对应一个子类）会出现子类数目过多的情况" class="headerlink" title="如果新功能的实现依赖于继承（每个新功能对应一个子类）会出现子类数目过多的情况"></a>如果新功能的实现依赖于继承（每个新功能对应一个子类）会出现子类数目过多的情况</h3><h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><ul>
+<li>给FileInputStream添加解压、签名、加解密</li>
+</ul>
+<h2 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h2><h3 id="分类是不可或缺的"><a href="#分类是不可或缺的" class="headerlink" title="分类是不可或缺的"></a>分类是不可或缺的</h3><ul>
+<li><p>InputStream</p>
+<ul>
+<li>FileInputStream</li>
+<li>ByteArrayInputStream</li>
+<li>ServletInputStream</li>
+<li>BufferedInputStream</li>
+<li>DigestInputStream</li>
+<li>CipherInputStream</li>
+</ul>
+</li>
+</ul>
+<h3 id="先new基础类，再以基础类为参数new额外功能类，但统筹调度统一用InputStream"><a href="#先new基础类，再以基础类为参数new额外功能类，但统筹调度统一用InputStream" class="headerlink" title="先new基础类，再以基础类为参数new额外功能类，但统筹调度统一用InputStream"></a>先new基础类，再以基础类为参数new额外功能类，但统筹调度统一用InputStream</h3><h2 id="编写FilterInputStream"><a href="#编写FilterInputStream" class="headerlink" title="编写FilterInputStream"></a>编写FilterInputStream</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FilterInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountInputStream</span> <span class="keyword">extends</span> <span class="title">FilterInputStream</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a &#123;<span class="doctag">@code</span> FilterInputStream&#125;</span></span><br><span class="line"><span class="comment">     * by assigning the  argument &#123;<span class="doctag">@code</span> in&#125;</span></span><br><span class="line"><span class="comment">     * to the field &#123;<span class="doctag">@code</span> this.in&#125; so as</span></span><br><span class="line"><span class="comment">     * to remember it for later use.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> in the underlying input stream, or &#123;<span class="doctag">@code</span> null&#125; if</span></span><br><span class="line"><span class="comment">     *           this instance is to be created without an underlying stream.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountInputStream</span><span class="params">(InputStream in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(in);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBytesRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = in.read();</span><br><span class="line">        <span class="keyword">if</span> (n != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = in.read(b, off, len);</span><br><span class="line">        <span class="keyword">this</span>.count++;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepms0z13pj310b0metbn.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/condition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1476,129 +1613,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Composite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/12/Composite/" itemprop="url">Composite</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:44:51+08:00">
-                2020-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。"><a href="#将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。" class="headerlink" title="将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。"></a>将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="统一单个节点以及“容器”节点的接口"><a href="#统一单个节点以及“容器”节点的接口" class="headerlink" title="统一单个节点以及“容器”节点的接口"></a>统一单个节点以及“容器”节点的接口</h3><h3 id="容器节点可以添加任意个单个节点，形成层级结构"><a href="#容器节点可以添加任意个单个节点，形成层级结构" class="headerlink" title="容器节点可以添加任意个单个节点，形成层级结构"></a>容器节点可以添加任意个单个节点，形成层级结构</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。"><a href="#Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。" class="headerlink" title="Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。"></a>Composite模式使得叶子对象和容器对象具有一致性，从而形成统一的树形结构，并用一致的方式去处理它们。</h3><ul>
-<li>一致：比如说可以链式操作，很爽</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkgk9z8fj30vy0deaba.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1649,7 +1663,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
