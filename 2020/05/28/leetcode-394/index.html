@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。">
+<meta name="description" content="题目     题解 java版本： 123456789101112131415161718class Solution &amp;#123;    public String decodeString(String s) &amp;#123;        Pattern pattern = Pattern.compile(&quot;(\\d+)(\\[[a-zA-Z]+])&quot;);        while (true)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论守望先锋的成瘾性">
-<meta property="og:url" content="http://yoursite.com/2019/10/03/论守望先锋的成瘾性/index.html">
+<meta property="og:title" content="leetcode-394">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/leetcode-394/index.html">
 <meta property="og:site_name" content="XiaoMing">
-<meta property="og:description" content="今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。">
+<meta property="og:description" content="题目     题解 java版本： 123456789101112131415161718class Solution &amp;#123;    public String decodeString(String s) &amp;#123;        Pattern pattern = Pattern.compile(&quot;(\\d+)(\\[[a-zA-Z]+])&quot;);        while (true)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-07T13:26:45.339Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf7yffo6fgj30k30g6my3.jpg">
+<meta property="og:updated_time" content="2020-05-28T02:32:12.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论守望先锋的成瘾性">
-<meta name="twitter:description" content="今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。">
+<meta name="twitter:title" content="leetcode-394">
+<meta name="twitter:description" content="题目     题解 java版本： 123456789101112131415161718class Solution &amp;#123;    public String decodeString(String s) &amp;#123;        Pattern pattern = Pattern.compile(&quot;(\\d+)(\\[[a-zA-Z]+])&quot;);        while (true)">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf7yffo6fgj30k30g6my3.jpg">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/03/论守望先锋的成瘾性/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/28/leetcode-394/">
 
 
 
 
 
-  <title>论守望先锋的成瘾性 | XiaoMing</title>
+  <title>leetcode-394 | XiaoMing</title>
   
 
 
@@ -272,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/论守望先锋的成瘾性/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/leetcode-394/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -289,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论守望先锋的成瘾性</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode-394</h1>
         
 
         <div class="post-meta">
@@ -301,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-03T18:44:38+08:00">
-                2019-10-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T10:26:49+08:00">
+                2020-05-28
               </time>
             
 
@@ -339,8 +341,17 @@
       
 
       
-        <p>今天是国庆假期的第三天，我已经打了三天守望先锋了，我知道不能再打了，身体却还是诚实地再来一局。我是万年钻石，自开服以来，就没有长进（曾经混到过大师）。为什么守望先锋类的游戏，很容易让人深陷其中呢。</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><hr>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf7yffo6fgj30k30g6my3.jpg">
 
+
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<p>java版本：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">decodeString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Pattern pattern = Pattern.compile(<span class="string">"(\\d+)(\\[[a-zA-Z]+])"</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            Matcher matcher = pattern.matcher(s);</span><br><span class="line">            <span class="keyword">if</span> (!matcher.find()) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> num = Integer.parseInt(matcher.group(<span class="number">1</span>));</span><br><span class="line">            String tmp = matcher.group(<span class="number">2</span>);</span><br><span class="line">            String ans = tmp.repeat(num);</span><br><span class="line">            ans = ans.replaceAll(<span class="string">"\\["</span>, <span class="string">""</span>);</span><br><span class="line">            ans = ans.replaceAll(<span class="string">"]"</span>, <span class="string">""</span>);</span><br><span class="line">            s = matcher.replaceFirst(ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin版本：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">decodeString</span><span class="params">(s: <span class="type">String</span>)</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">var</span> str = s</span><br><span class="line">        <span class="keyword">val</span> pattern = Pattern.compile(<span class="string">"(\\d+)(\\[[a-zA-Z]+])"</span>)</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">val</span> matcher = pattern.matcher(str)</span><br><span class="line">            <span class="keyword">if</span> (!matcher.find()) &#123;</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">val</span> num = matcher.group(<span class="number">1</span>).toInt()</span><br><span class="line">            <span class="keyword">val</span> tmp = matcher.group(<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">var</span> ans = tmp.repeat(num)</span><br><span class="line">            ans = ans.replace(<span class="string">"\\["</span>.toRegex(), <span class="string">""</span>)</span><br><span class="line">            ans = ans.replace(<span class="string">"]"</span>.toRegex(), <span class="string">""</span>)</span><br><span class="line">            str = matcher.replaceFirst(ans)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -364,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/01/更换hexo网页图标/" rel="next" title="更换hexo网页图标">
-                <i class="fa fa-chevron-left"></i> 更换hexo网页图标
+              <a href="/2020/05/25/大师/" rel="next" title="大师">
+                <i class="fa fa-chevron-left"></i> 大师
               </a>
             
           </div>
@@ -373,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/07/FAQ/" rel="prev" title="FAQ">
-                FAQ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -428,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -471,6 +487,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
