@@ -272,6 +272,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/QQ聊天机器人/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/30/QQ聊天机器人/" itemprop="url">QQ聊天机器人</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T09:39:14+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="QQ聊天机器人-教程向"><a href="#QQ聊天机器人-教程向" class="headerlink" title="QQ聊天机器人-教程向"></a>QQ聊天机器人-教程向</h1><p>这篇文章将引导大家如何去写一个QQ聊天机器人。在此之前，先给大伙儿展示一下本fw的Robot的一些特点和功能：</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8i163zbj30aa08wglu.jpg">
+
+<p>Name: Arina</p>
+<p>Attribute: 萌妹子</p>
+<h2 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h2><h4 id="发送以-为前缀的消息可以触发图灵机器人的功能，这些功能包含但不限于："><a href="#发送以-为前缀的消息可以触发图灵机器人的功能，这些功能包含但不限于：" class="headerlink" title="发送以#为前缀的消息可以触发图灵机器人的功能，这些功能包含但不限于："></a>发送以#为前缀的消息可以触发图灵机器人的功能，这些功能包含但不限于：</h4><ul>
+<li>天气查询<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8khh1pqj30mf0gcmxw.jpg"></li>
+<li>数学运算<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8lxa5h7j30mf03z3ye.jpg"></li>
+<li>聊天对话<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8mred9wj30mz056mx3.jpg"></li>
+<li>单词翻译<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8nrobwvj30m904p3yf.jpg"></li>
+</ul>
+<h4 id="不需要-前缀能对一些特定的语句做出反应"><a href="#不需要-前缀能对一些特定的语句做出反应" class="headerlink" title="不需要#前缀能对一些特定的语句做出反应"></a>不需要#前缀能对一些特定的语句做出反应</h4><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8pfypwbj30mn04wdfp.jpg">
+
+
+
+<h4 id="可以在群里-或者撤回或者禁言（需要管理员权限）"><a href="#可以在群里-或者撤回或者禁言（需要管理员权限）" class="headerlink" title="可以在群里@或者撤回或者禁言（需要管理员权限）"></a>可以在群里@或者撤回或者禁言（需要管理员权限）</h4><p>这个就不展示了。</p>
+<h4 id="定时天气播报"><a href="#定时天气播报" class="headerlink" title="定时天气播报"></a>定时天气播报</h4><p>每天早上8点准时向qq群播送今日天气状况，误差小于2秒。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8s8hx0qj30lp040t8t.jpg">
+
+<h4 id="定时晚安"><a href="#定时晚安" class="headerlink" title="定时晚安"></a>定时晚安</h4><p>每晚12点，可以从指定的文件里随机抽取一行向qq群发送晚安。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8t1l9j5j30k20powg8.jpg">
+
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8vix9lxj30e402f0sm.jpg">
+
+<h2 id="需要的技能或工具："><a href="#需要的技能或工具：" class="headerlink" title="需要的技能或工具："></a>需要的技能或工具：</h2><ul>
+<li>服务器一个（如果你想让robot 24小时在线）</li>
+<li>QQ小号一个</li>
+<li>精通java（的拼写）</li>
+<li>对Http有所了解</li>
+<li>会使用java向服务器指定的端口发送GET请求</li>
+<li>会使用java对文件进行读取操作</li>
+<li>会使用java创建线程（定时推送时所需）</li>
+<li>掌握linux常用命令若干（可以随时百度）</li>
+<li>会使用maven进行依赖管理和打包部署</li>
+<li>会JSON和JavaBean的相互转换（调天气查询api时所需）</li>
+<li><u>不抛弃、不放弃（坑实在太多了）</u></li>
+</ul>
+<h2 id="本项目基于"><a href="#本项目基于" class="headerlink" title="本项目基于"></a>本项目基于</h2><ul>
+<li>酷Q</li>
+<li>酷Q插件：CQHTTP（酷Q本身使用易语言编写的，这就对不熟悉易语言的人造成很大障碍，这个插件通过 HTTP 对 酷Q 的事件进行上报以及接收 HTTP 请求来调用 酷Q 的 DLL 接口，从而可以使用其它语言编写 酷Q 插件。现已支持 WebSocket。不得不说，这是个绝妙的注意。</li>
+<li>java</li>
+</ul>
+<h2 id="本fw使用的开发平台："><a href="#本fw使用的开发平台：" class="headerlink" title="本fw使用的开发平台："></a>本fw使用的开发平台：</h2><p>全宇宙第一的Intellij IDEA 2020</p>
+<p><del>还有好多作业没做，等我做完在更（逃</del></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Spring-Boot-表单输入验证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -363,7 +526,7 @@
 <h3 id="创建-一个PersonForm类"><a href="#创建-一个PersonForm类" class="headerlink" title="创建 一个PersonForm类"></a>创建 一个PersonForm类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Min;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.NotNull;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Size;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonForm</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Size</span>(min = <span class="number">2</span>, max = <span class="number">30</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Min</span>(<span class="number">18</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person(name:"</span> + <span class="keyword">this</span>.name + <span class="string">", age:"</span> + <span class="keyword">this</span>.age + <span class="string">")"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>值得一提的是，这个类有两个属性，一个是name，另一个是age，通过注解限定了name和age的合理取值范围，这个注解之后要搭配BindingResult使用。</p>
-<h3 id="创建一个WebController类"><a href="#创建一个WebController类" class="headerlink" title="创建一个WebController类"></a>创建一个WebController类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ViewControllerRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.validation.Valid;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebController</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addViewController(<span class="string">"/results"</span>).setViewName(<span class="string">"results"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">showForm</span><span class="params">(PersonForm personForm)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"form"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">checkPersonInfo</span><span class="params">(@Valid PersonForm personForm, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        System.out.println(personForm.getAge() + <span class="string">":"</span> + personForm.getName());</span><br><span class="line">        <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"this is not possible"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"form"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/results"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建一个WebController类"><a href="#创建一个WebController类" class="headerlink" title="创建一个WebController类"></a>创建一个WebController类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xyz.eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ViewControllerRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.validation.Valid;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebController</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addViewController(<span class="string">"/results"</span>).setViewName(<span class="string">"results"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">showForm</span><span class="params">(PersonForm personForm)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"form"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">checkPersonInfo</span><span class="params">(@Valid PersonForm personForm, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"form"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/results"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这个Controller有一个Get方法和Post方法，它们都被map到”/“下。</p>
 <p>showForm方法返回form模板，它包含了一个PersonForm参数的目的是让模板可以把表格的属性和PersonForm这个类关联起来。</p>
@@ -1473,136 +1636,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/19/state/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/19/state/" itemprop="url">state</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-19T09:43:50+08:00">
-                2020-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="允许一个对象在其内部状态改变时改变它的行为"><a href="#允许一个对象在其内部状态改变时改变它的行为" class="headerlink" title="允许一个对象在其内部状态改变时改变它的行为"></a>允许一个对象在其内部状态改变时改变它的行为</h3><h3 id="对象看起来似乎修改了它的类"><a href="#对象看起来似乎修改了它的类" class="headerlink" title="对象看起来似乎修改了它的类"></a>对象看起来似乎修改了它的类</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="qq的状态"><a href="#qq的状态" class="headerlink" title="qq的状态"></a>qq的状态</h3><ul>
-<li>我在线上</li>
-<li>Q我吧</li>
-<li>离开</li>
-<li>离线</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/19/state/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1653,7 +1686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
