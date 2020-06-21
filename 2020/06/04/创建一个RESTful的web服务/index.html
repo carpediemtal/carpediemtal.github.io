@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gfg76165xlj30gn05l74a.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gfg6hn4og4j30n705a3yk.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gfg6mczqu4j318u0q1gmm.jpg">
-<meta property="og:updated_time" content="2020-06-04T05:39:39.483Z">
+<meta property="og:updated_time" content="2020-06-04T05:41:24.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建一个RESTful的web服务">
 <meta name="twitter:description" content="Building a RESTful Web Service最终的效果你会创建一个能处理http://localhost:8080/greeting的get请求的web服务，它会回复一个如图所示的json。     你还可以加入一个自定义的name参数，回复将会如图所示：   注意到id每次访问都会递增。 你需要的 大概10分钟时间 一个你喜欢的编辑器或者java IDE JDK1.8以上 Mav">
@@ -372,7 +372,7 @@
 <p>@GetMapping注解保证了对/greeting的get请求会被greeting方法处理。</p>
 <p>@RequestParam注解可以把url里的name参数注入到方法参数String name里，如果没找到这个参数，将使用默认的“world”。</p>
 <p>greeting方法内部返回了一个Greeting类的对象，这个对象将会被自动转成JSON。</p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h4 id="传统MVC-controller和RESTful-web-service-controller的区别"><a href="#传统MVC-controller和RESTful-web-service-controller的区别" class="headerlink" title="传统MVC controller和RESTful web service controller的区别"></a>传统MVC controller和RESTful web service controller的区别</h4><p>区别主要体现在HTTP RESPONSE的建立上。传统的MVC controller要利用模板引擎把数据渲染成HTML，然后RESTful web service controller直接返回一个Greeting对象，这个对象将会被转换成JSON然后直接写到Response里。</p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h4 id="传统MVC-controller和RESTful-web-service-controller的区别"><a href="#传统MVC-controller和RESTful-web-service-controller的区别" class="headerlink" title="传统MVC controller和RESTful web service controller的区别"></a>传统MVC controller和RESTful web service controller的区别</h4><p>区别主要体现在HTTP RESPONSE的建立上。传统的MVC controller要利用模板引擎把数据渲染成HTML，然而RESTful web service controller直接返回一个Greeting对象，这个对象将会被转换成JSON然后直接写到Response里。</p>
 <h4 id="RestController注解"><a href="#RestController注解" class="headerlink" title="@RestController注解"></a>@RestController注解</h4><p>相当于@Controller+@ResponseBody</p>
 <h3 id="自动生成的Application类"><a href="#自动生成的Application类" class="headerlink" title="自动生成的Application类"></a>自动生成的Application类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RESTfulApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(RESTfulApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -416,6 +416,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/21/AJAX/" rel="prev" title="AJAX">
+                AJAX <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -492,7 +496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

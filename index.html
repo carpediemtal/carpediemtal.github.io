@@ -272,6 +272,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/21/AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/21/AJAX/" itemprop="url">AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-21T10:32:52+08:00">
+                2020-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AJAX心得体会"><a href="#AJAX心得体会" class="headerlink" title="AJAX心得体会"></a>AJAX心得体会</h1><p>在接触AJAX这个概念之前，觉得这东西好高端啊，熟悉了之后就觉得也没什么了不起，挺土的。</p>
+<p>在WEB世界里，浏览器向服务器发送一次HTTP请求，服务器返回一个HTML页面。</p>
+<p>栗子</p>
+<ul>
+<li>提交表单时，页面会刷新，服务器会返回一个全新的html页面</li>
+<li>百度的搜索框会根据用户输入的内容，即时进行联想，如果总是要刷新，肯定是不行的。</li>
+</ul>
+<p>解决方法是，用JavaScript发送新的请求，接受到数据之后，再用JavaScript更新页面数据，这样用户感觉自己始终停留在一个页面（没有刷新）。</p>
+<p>举个完整的栗子：</p>
+<p>我用Spring Boot在本地部署了一个服务器，访问<code>localhost:8080/greeting</code>可以得到如下的结果：<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfzppd161hj30hq066q2w.jpg"></p>
+<p>返回值会根据请求里的name参数做出改变：</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfzprdglu1j30k705fjrc.jpg">
+
+<p>AJAX代码：</p>
+<p>文件名：text.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>SOMETHING IS GOING TO HAPPEN<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"test.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>文件名：text.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> paragraph = <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    paragraph.innerHTML = text;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params">code</span>) </span>&#123;</span><br><span class="line">    paragraph.innerHTML = <span class="string">'Error code:'</span> + code;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">paragraph.innerHTML = <span class="string">'BLACK LIVES MATTER'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> XHR = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">XHR.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (XHR.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (XHR.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> success(XHR.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> fail(XHR.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">'还在处理中'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XHR.open(<span class="string">'GET'</span>, <span class="string">'http://localhost:8080/greeting'</span>, <span class="literal">true</span>);</span><br><span class="line">XHR.send();</span><br><span class="line"></span><br><span class="line">alert(<span class="string">'请求已发送'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>AJAX代码的核心是XMLHttpRequest对象，有了这个对象之后，先设置onreadystatechange的回调函数。可以根据readyState的值来判断请求是否已经完成，根据status值来判断响应的结果成功与否。</p>
+<p>XMLHttpRequest对象的open方法有3个参数，第一个参数确定请求类型是GET还是POST，第二个参数是要请求的服务器的URL（此处是我之前部署的本地服务器），第三个参数布尔值指定是否异步执行。</p>
+<p>值得一提的是CORS，我需要在我的服务器应用上设置正确的跨域请求策略（像是白名单的一种东西），才能让我的AJAX代码成功运行。在Spring里，需要这样做：</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfzq1lw3xoj310y0pptch.jpg">
+
+<p>使用<code>@CrossOrigin</code>注解，可以指定允许来自哪些域名的跨域访问，“*” 代表允许任何域的跨域访问。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/创建一个RESTful的web服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -372,7 +517,7 @@
 <p>@GetMapping注解保证了对/greeting的get请求会被greeting方法处理。</p>
 <p>@RequestParam注解可以把url里的name参数注入到方法参数String name里，如果没找到这个参数，将使用默认的“world”。</p>
 <p>greeting方法内部返回了一个Greeting类的对象，这个对象将会被自动转成JSON。</p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h4 id="传统MVC-controller和RESTful-web-service-controller的区别"><a href="#传统MVC-controller和RESTful-web-service-controller的区别" class="headerlink" title="传统MVC controller和RESTful web service controller的区别"></a>传统MVC controller和RESTful web service controller的区别</h4><p>区别主要体现在HTTP RESPONSE的建立上。传统的MVC controller要利用模板引擎把数据渲染成HTML，然后RESTful web service controller直接返回一个Greeting对象，这个对象将会被转换成JSON然后直接写到Response里。</p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h4 id="传统MVC-controller和RESTful-web-service-controller的区别"><a href="#传统MVC-controller和RESTful-web-service-controller的区别" class="headerlink" title="传统MVC controller和RESTful web service controller的区别"></a>传统MVC controller和RESTful web service controller的区别</h4><p>区别主要体现在HTTP RESPONSE的建立上。传统的MVC controller要利用模板引擎把数据渲染成HTML，然而RESTful web service controller直接返回一个Greeting对象，这个对象将会被转换成JSON然后直接写到Response里。</p>
 <h4 id="RestController注解"><a href="#RestController注解" class="headerlink" title="@RestController注解"></a>@RestController注解</h4><p>相当于@Controller+@ResponseBody</p>
 <h3 id="自动生成的Application类"><a href="#自动生成的Application类" class="headerlink" title="自动生成的Application类"></a>自动生成的Application类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RESTfulApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(RESTfulApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1541,138 +1686,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/visitor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/21/visitor/" itemprop="url">visitor</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T10:47:02+08:00">
-                2020-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="表示一个作用于某对象结构中的各元素的操作"><a href="#表示一个作用于某对象结构中的各元素的操作" class="headerlink" title="表示一个作用于某对象结构中的各元素的操作"></a>表示一个作用于某对象结构中的各元素的操作</h3><h3 id="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"><a href="#可以在不改变各元素的类的前提下定义作用于这些元素的新操作" class="headerlink" title="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"></a>可以在不改变各元素的类的前提下定义作用于这些元素的新操作</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="递归遍历某个文件夹下的所有文件夹和文件"><a href="#递归遍历某个文件夹下的所有文件夹和文件" class="headerlink" title="递归遍历某个文件夹下的所有文件夹和文件"></a>递归遍历某个文件夹下的所有文件夹和文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">    <span class="comment">//visit a directory</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//visit a file</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> File path;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileStructure</span><span class="params">(File path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.path = path;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(Visitor visitor)</span> </span>&#123;</span><br><span class="line">        scan(path, visitor);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scan</span><span class="params">(File file, Visitor visitor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">            visitor.visitDir(file);</span><br><span class="line">            <span class="keyword">for</span> (File f : Objects.requireNonNull(file.listFiles())) &#123;</span><br><span class="line">                scan(f, visitor);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (file.isFile()) &#123;</span><br><span class="line">            visitor.visitFile(file);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaFileVisitor</span> <span class="keyword">implements</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"I'm visiting the directory:"</span> + dir);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"I'm visiting the file:"</span> + file);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassFileVisitor</span> <span class="keyword">implements</span> <span class="title">Visitor</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (file.getName().endsWith(<span class="string">".class"</span>)) &#123;</span><br><span class="line">            System.out.println(<span class="string">"I'm visiting the class file"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FileStructure fileStructure = <span class="keyword">new</span> FileStructure(<span class="keyword">new</span> File(<span class="string">"."</span>));</span><br><span class="line">        fileStructure.handle(<span class="keyword">new</span> JavaFileVisitor());</span><br><span class="line">        fileStructure.handle(<span class="keyword">new</span> ClassFileVisitor());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">I&apos;m visiting the directory:.</span><br><span class="line">I&apos;m visiting the directory:.\.idea</span><br><span class="line">I&apos;m visiting the file:.\.idea\.gitignore</span><br><span class="line">I&apos;m visiting the file:.\.idea\misc.xml</span><br><span class="line">I&apos;m visiting the file:.\.idea\modules.xml</span><br><span class="line">I&apos;m visiting the file:.\.idea\workspace.xml</span><br><span class="line">I&apos;m visiting the directory:.\out</span><br><span class="line">I&apos;m visiting the directory:.\out\production</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor\eternal</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor\eternal\fire</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\ClassFileVisitor.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\FileStructure.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\JavaFileVisitor.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\Main.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\Visitor.class</span><br><span class="line">I&apos;m visiting the directory:.\src</span><br><span class="line">I&apos;m visiting the directory:.\src\eternal</span><br><span class="line">I&apos;m visiting the directory:.\src\eternal\fire</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\ClassFileVisitor.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\FileStructure.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\JavaFileVisitor.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\Main.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\Visitor.java</span><br><span class="line">I&apos;m visiting the file:.\Visitor.iml</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\ClassFileVisitor.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\FileStructure.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\JavaFileVisitor.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\Main.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\Visitor.class</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="新增操作而不必对现有的对象结构做任何改动"><a href="#新增操作而不必对现有的对象结构做任何改动" class="headerlink" title="新增操作而不必对现有的对象结构做任何改动"></a>新增操作而不必对现有的对象结构做任何改动</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezvl0dvzrj30pv0cet9i.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1723,7 +1736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
