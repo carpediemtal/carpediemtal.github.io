@@ -272,6 +272,143 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/对前后端分离的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/02/对前后端分离的理解/" itemprop="url">对前后端分离的理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-02T12:37:36+08:00">
+                2020-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="对前后端分离的一点理解"><a href="#对前后端分离的一点理解" class="headerlink" title="对前后端分离的一点理解"></a>对前后端分离的一点理解</h1><p>对前后端分离的认知经历了一个比较长的过程。</p>
+<h2 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h2><p>记得大一的时候，我从一个同学那儿第一次听说了“前端”和“后端”这两个名词，我就问他什么是前端和后端啊，他告诉我前端就是用户可以看到的那部分，后端就是用户看不到的部分。</p>
+<h2 id="初认识"><a href="#初认识" class="headerlink" title="初认识"></a>初认识</h2><p>在学习MVC的时候，我了解到。传统的开发模式因为耦合性很高，所以有很多缺点。但是我只是听别人说耦合性高，自己从来没有试过传统的写法。在写了一些MVC架构的demo之后，才对这一点有了更深的理解。</p>
+<p>在学习WEB开发的时候，我用到了模板引擎（Pebble，ThymeLeaf）。用模板引擎可以把数据渲染到html页面上，等到我牛刀小试之后，对前后端分离有了新的认识。此时的我认为，前端写html、css，后端操作数据库，处理业务逻辑，把数据渲染到html上。前后端各司其职，这就是前后端分离。</p>
+<p>在最开始学习用spring写一个RESTful服务的时候，我不明白这东西有什么用。直到我学习到了Ajax，我才明白原来这东西是这样用的啊，此时对前后端如何交互有了新的认识。</p>
+<p>再后来，在我开始学习Vue的时候，我觉得这和ThymeLeaf等模板引擎不就是一回儿事儿嘛，他们负责把数据渲染到页面上，语法上也很相似。既如此，为什么把Vue叫做前端框架，把ThymeLeaf叫做模板引擎呢。</p>
+<h2 id="再认识"><a href="#再认识" class="headerlink" title="再认识"></a>再认识</h2><p>现在的我对前后端分离这件事儿又有了新的理解，是否可以称之为前后端分离，关键在于传输的数据，也可以这样说，浏览器和服务器两者，到底是谁把数据渲染到页面上的。</p>
+<h3 id="前后端不分离是怎样的？"><a href="#前后端不分离是怎样的？" class="headerlink" title="前后端不分离是怎样的？"></a>前后端不分离是怎样的？</h3><p>把数据渲染到页面这个过程是在服务器完成的，传输的数据是整个html页面。</p>
+<h3 id="前后端分离是怎样的？"><a href="#前后端分离是怎样的？" class="headerlink" title="前后端分离是怎样的？"></a>前后端分离是怎样的？</h3><p>把数据渲染到页面这个过程是在浏览器完成的，传输的数据是需要渲染的数据。</p>
+<h3 id="为什么需要前后端分离呢"><a href="#为什么需要前后端分离呢" class="headerlink" title="为什么需要前后端分离呢"></a>为什么需要前后端分离呢</h3><ul>
+<li><p>前端工程师和后端工程师的任务截然不同，正所谓闻道有先后，术业有专攻，分工合作，各司其职可以提高效率。</p>
+</li>
+<li><p>让服务器传输整个html页面势必会造成许多浪费，也会增加服务器的压力。</p>
+</li>
+<li><p>越是复杂的项目越需要解耦，简单的项目可以随便来。</p>
+</li>
+</ul>
+<p>纸上得来终觉浅，绝知此事要躬行。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/21/AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1626,153 +1763,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/overwatch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/21/overwatch/" itemprop="url">overwatch_Anniversary</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T11:01:53+08:00">
-                2020-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="四周年"><a href="#四周年" class="headerlink" title="四周年"></a>四周年</h1><p>不知不觉已经打了四年守望了，游戏时间将近1000个小时，是我这辈子玩的时间最长的游戏。我从第一个赛季就开始玩儿，现在已经900级了，如果考虑到当初防沉迷的限制（游戏时间3小时以上就不再有经验），我现在应该已经1000级了。再考虑到，我帮好几个同学从黄金上到钻石，游戏时间还要再往上涨。不过就算玩了这么久，昨天周年庆有活动，还是去网吧又玩了8个小时，这游戏的魅力自然不必多说了。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezw6j2h2tj31hc0u0n1g.jpg">
-
-<p>在2016年之前，我玩的最多的大概是4399之类的，小学的时候很喜欢玩穿越火线，QQ飞车。第一次玩守望先锋的时候，就被游戏的精良程度震撼了，开始先是借同学的号玩儿，越玩越有意思。虽然我是穷B，但还是咬咬牙，买了。之后有优惠活动的时候，我还升级了典藏版。之前去网吧和同学可以组六轮车，虽然基本没赢过。现在还在坚守守望先锋的几乎只剩下我了。</p>
-<p>起初感觉10块钱的鼠标和键盘用起来不亦乐乎，随着对游戏更深一步的理解，鼠标成为我的瓶颈。因为10块钱的鼠标，如果我转速太快，鼠标就会“失灵”。经常因为这个原因，白给。又咬咬牙，上淘宝买了个稍微上档次一点的鼠标（二手的），不得不说，质量真的好，现在还没坏，除了鼠标底面的防滑贴已经被磨烂了（上次我上淘宝花了几块钱买了更厚的），除了大拇指这边的硅胶已经被磨烂了（这个好像无法挽回）。</p>
-<p>之前去网吧不太了解垂直同步的事情，导致我在网吧水平下滑的厉害。关掉垂直同步的那一刻，我感觉我水平上升了1000分。</p>
-<p>之前不太懂显卡，家里的GTX950就能畅玩守望先锋了，不得不说，这游戏优化很好。</p>
-<p>之前觉得60Hz已经无敌了，直到我用过了144Hz，现在看60Hz就很卡，感觉帧数很低。曾经沧海难为水。</p>
-<p>之前看到金框很惊讶，现在看到钻石框已经见怪不怪了。</p>
-<p>之前玩家水平都很低，对这个游戏还在理解状态。现在老玩家都挺厉害的，这游戏少了很多神秘的魅力。</p>
-<p>我有时候在想，要是把打守望的时间用来学java，这时候我应该真的有“四年开发经验”了，或许去一家公司已经能干活儿了。</p>
-<p>我有时候在想，要是学java的时候，能像打守望一样专心致志，一玩儿就是8个小时，我java就不用这么菜了。</p>
-<p>昨天的箱子：两金一紫。可能是我最欧的一次了。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezw3c9onej31hc0u0u0x.jpg">
-
-<p>第一把金武器。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezw8bgkanj31hc0u076v.jpg">
-
-<p>几乎全收集了：</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezx23k6kej31hc0u0agu.jpg">
-
-
-
-<h5 id="The-music-is-playing-again…it-can’t-be-stopped…"><a href="#The-music-is-playing-again…it-can’t-be-stopped…" class="headerlink" title="The music, is playing again…it can’t be stopped…"></a>The music, is playing again…it can’t be stopped…</h5>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1818,7 +1813,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
