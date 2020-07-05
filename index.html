@@ -272,6 +272,335 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/垃圾收集器与内存分配策略（1）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoMing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/05/垃圾收集器与内存分配策略（1）/" itemprop="url">垃圾收集器与内存分配策略（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-05T22:31:05+08:00">
+                2020-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="垃圾收集器与内存分配策略（1）"><a href="#垃圾收集器与内存分配策略（1）" class="headerlink" title="垃圾收集器与内存分配策略（1）"></a>垃圾收集器与内存分配策略（1）</h1><hr>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人想出来</p>
+<h3 id="GC（Garbage-Collection）"><a href="#GC（Garbage-Collection）" class="headerlink" title="GC（Garbage Collection）"></a>GC（Garbage Collection）</h3><h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
+<li><p>解决问题</p>
+<ul>
+<li>内存溢出、泄漏</li>
+<li>GC成了性能瓶颈</li>
+</ul>
+</li>
+</ul>
+<h2 id="GC区域"><a href="#GC区域" class="headerlink" title="GC区域"></a>GC区域</h2><h3 id="无关紧要的"><a href="#无关紧要的" class="headerlink" title="无关紧要的"></a>无关紧要的</h3><ul>
+<li><p>与线程同生共死</p>
+<p>分配内存时大致内存是确定的，方法或线程结束，内存自动回收，所以整个生命周期内存是比较确定的，没什么好说的。GC主要关注java堆（又称gc堆）</p>
+<ul>
+<li>程序计数器</li>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+</ul>
+</li>
+</ul>
+<h3 id="至关重要的"><a href="#至关重要的" class="headerlink" title="至关重要的"></a>至关重要的</h3><ul>
+<li><p>Java堆</p>
+<p>主要存放对象的 实例。</p>
+<ul>
+<li>内存动态分配</li>
+<li>内存动态回收</li>
+</ul>
+</li>
+</ul>
+<h2 id="找垃圾算法"><a href="#找垃圾算法" class="headerlink" title="找垃圾算法"></a>找垃圾算法</h2><p>回收之前要确定对象是死是活（未来还会用到吗）</p>
+<h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><p>有一个人引用计数就加1，少一个人引用计数就减1</p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li><p>立即执行</p>
+<p>计数为0就可以立即回收了</p>
+</li>
+<li><p>自我诊断</p>
+<p>没必要再去new一个线程，是否可以回收自己就可以判断。</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<p>因为致命缺陷jvm不用这个</p>
+<ul>
+<li><p>计数本身有一定的工作量</p>
+</li>
+<li><p>循环引用，形成永动</p>
+<p>两个变量互相引用是无解（无法回收）的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="根搜索算法"><a href="#根搜索算法" class="headerlink" title="根搜索算法"></a>根搜索算法</h3><p>有一些特殊的对象可以作为gc root，从gc root出发，能到达之处就不是垃圾，不能到达之处就是垃圾</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="上古时代的定义"><a href="#上古时代的定义" class="headerlink" title="上古时代的定义"></a>上古时代的定义</h3><ul>
+<li>存储着另一块内存的起始地址的变量</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>强引用</p>
+<p>Strong</p>
+<ul>
+<li>Object obj = new Object()</li>
+<li>只要引用存在，就不会被回收</li>
+</ul>
+</li>
+<li><p>软引用</p>
+<p>Soft</p>
+<ul>
+<li>内存溢出之前会把软引用的对象回收，如果没用就报错了</li>
+<li>通过SoftReference实现软引用</li>
+</ul>
+</li>
+<li><p>弱引用</p>
+<p>Weak</p>
+<ul>
+<li>比软引用更容易被回收</li>
+<li>朝生暮死（下次回收开始弱引用必死）</li>
+<li>通过WeakReference实现弱引用</li>
+</ul>
+</li>
+<li><p>虚引用</p>
+<p>Phatom</p>
+<ul>
+<li>唯一用处是对象被回收时能收到一个系统通知</li>
+<li>通过PhatomReference实现虚引用</li>
+</ul>
+</li>
+</ul>
+<h2 id="生存还是死亡"><a href="#生存还是死亡" class="headerlink" title="生存还是死亡"></a>生存还是死亡</h2><h3 id="根搜索算法之后并未宣判死刑，对象仍有一线生机"><a href="#根搜索算法之后并未宣判死刑，对象仍有一线生机" class="headerlink" title="根搜索算法之后并未宣判死刑，对象仍有一线生机"></a>根搜索算法之后并未宣判死刑，对象仍有一线生机</h3><h3 id="两次标记"><a href="#两次标记" class="headerlink" title="两次标记"></a>两次标记</h3><ul>
+<li><p>第一次标记</p>
+<ul>
+<li><p>finalize方法</p>
+<p>这个方法时java对c\c++程序员作出的妥协，这方法已经不适合这个版本了，应该被gc</p>
+<ul>
+<li><p>对象自我救赎的最后一次机会</p>
+<p>这个方法只可能被调用一次</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第二次标记</p>
+<ul>
+<li>如果对象救赎成功，就不会被标记，否则只有死路一条</li>
+</ul>
+</li>
+</ul>
+<h2 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h2><h3 id="回收废弃常量和无用的类"><a href="#回收废弃常量和无用的类" class="headerlink" title="回收废弃常量和无用的类"></a>回收废弃常量和无用的类</h3><h3 id="性价比低，可以不gc"><a href="#性价比低，可以不gc" class="headerlink" title="性价比低，可以不gc"></a>性价比低，可以不gc</h3><h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>标记</p>
+<ul>
+<li>找垃圾算法</li>
+</ul>
+</li>
+<li><p>清除</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>效率不行</li>
+<li>碎片太多，可能找不到大的连续的内存空间</li>
+</ul>
+</li>
+<li><p>地位</p>
+<ul>
+<li><p>基石</p>
+<ul>
+<li>之后的算法都是改进版</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>设置保留区，内存不够用时将所有活着的移到保留区，再清除</p>
+<p>50%-50%会减少一半的可用内存，代价太大，而且也不需要如此。90%-10%又没法交换，所以一般是三部分：80%-10%-10%，只有一个10%是闲置的</p>
+</li>
+<li><p>分配担保</p>
+</li>
+</ul>
+</li>
+<li><p>优势</p>
+<ul>
+<li>简单易行</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>牺牲部分内存</li>
+<li>对象比较多时复制操作会比较多</li>
+</ul>
+</li>
+</ul>
+<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>标记</p>
+</li>
+<li><p>整理</p>
+<ul>
+<li>把活着的拼接到一起</li>
+</ul>
+</li>
+<li><p>清除</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><ul>
+<li><p>内存划分</p>
+<ul>
+<li><p>新生代</p>
+<ul>
+<li>新生代每次存活数量少，选复制算法</li>
+</ul>
+</li>
+<li><p>老生代</p>
+<ul>
+<li>存活率高，使用标记-整理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gggguxml1ej31bd1y2wqt.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/Leetcode-31/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,6 +699,9 @@
 <h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggfuqouj3qj30ok08xt8x.jpg">
 
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LeetCode</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 测试</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Solution solution = <span class="keyword">new</span> Solution();</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        solution.nextPermutation(nums);</span><br><span class="line">        System.out.println(Arrays.toString(nums));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 核心函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 从数组中倒数第二个元素开始从后往前找起</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.length - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> position = theOne(nums, i);</span><br><span class="line">            <span class="keyword">if</span> (position != -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">// 交换位置</span></span><br><span class="line">                swap(nums, i, position);</span><br><span class="line">                <span class="comment">// 将后面的部分排序以保证是最小的</span></span><br><span class="line">                Arrays.sort(nums, i + <span class="number">1</span>, nums.length);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果没有找到更大的排列方式</span></span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                reverse(nums);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 交换数组中的元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums 数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> i    下标1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> j    下标2</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 找到比nums[index]大的数，返回最小的一个符合条件的数的下标</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums 数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 下标</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 返回最小的一个符合条件的数的下标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theOne</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 初始化</span></span><br><span class="line">        <span class="keyword">int</span> val = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> position = -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 给val和position一个初始值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index + <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[index] &lt; nums[i]) &#123;</span><br><span class="line">                val = nums[i];</span><br><span class="line">                position = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 没有合适的可交换对象</span></span><br><span class="line">        <span class="keyword">if</span> (position == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新val和position的值确保其是最合适的</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = position; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[index]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &lt; val) &#123;</span><br><span class="line">                    position = i;</span><br><span class="line">                    val = nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 翻转数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums 数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            swap(nums, i, j);</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps：没看题解，不知道自己是否最优。</p>
+
           
         
       
@@ -1791,175 +2123,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/WebSocket/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoMing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoMing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/24/WebSocket/" itemprop="url">WebSocket</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-24T12:56:30+08:00">
-                2020-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><hr>
-<h2 id="传统的Http协议"><a href="#传统的Http协议" class="headerlink" title="传统的Http协议"></a>传统的Http协议</h2><h3 id="无请求，不响应"><a href="#无请求，不响应" class="headerlink" title="无请求，不响应"></a>无请求，不响应</h3><ul>
-<li>浏览器向服务器发送请求，服务器回应</li>
-<li>服务器想要定期推送数据，需要用JavaScript定时轮询</li>
-</ul>
-<h2 id="WebSocket：Http升级版"><a href="#WebSocket：Http升级版" class="headerlink" title="WebSocket：Http升级版"></a>WebSocket：Http升级版</h2><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>GET /chat HTTP/1.1<br>Host: <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a><br>Upgrade: websocket<br>Connection: Upgrade</p>
-<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>HTTP/1.1 101 Switching Protocols<br>Upgrade: websocket<br>Connection: Upgrade</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>TCP连接will go on</li>
-</ul>
-<h2 id="WebSocket-in-SpringMVC"><a href="#WebSocket-in-SpringMVC" class="headerlink" title="WebSocket in SpringMVC"></a>WebSocket in SpringMVC</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
-<li>依赖项</li>
-<li>WebSocketConfigurer</li>
-</ul>
-<h3 id="处理WebSocket连接"><a href="#处理WebSocket连接" class="headerlink" title="处理WebSocket连接"></a>处理WebSocket连接</h3><ul>
-<li><p>继承Handler</p>
-<ul>
-<li>TextWebSocketHandler</li>
-<li>BinaryWebSocketHandler</li>
-</ul>
-</li>
-<li><p>覆写父类方法</p>
-<ul>
-<li>afterConnectionEstablished()</li>
-<li>afterConnectionClosed()</li>
-</ul>
-</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf3g9erid9j31xj0f3q5a.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2010,7 +2173,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
