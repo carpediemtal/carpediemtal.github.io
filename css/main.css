@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #29b3e5;
+  background: #ffb577;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3243,5 +3243,24 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #f6c;
+  background: #4fc08d;
+}
+.site-meta {
+  padding: 20px 0;
+  color: #fff;
+  background: #4fc08d;
+}
+::selection {
+  background: #4fc08d;
+  color: #f7f7f7;
+}
+.site-subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4fc08d;
+}
+.btn {
+  color: #4fc08d;
+  background: #fff;
+  border: 2px solid #4fc08d;
 }
