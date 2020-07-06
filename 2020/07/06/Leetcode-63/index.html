@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="桥接 定义将抽象部分与它的实现部分分离，使它们都可以独立地变化继承存在的问题按特点取名继承 子类数量爆炸  解决方案在父类里设置一个可以插入的槽位可以将独立的特点划分成不同的Component这些Component可以被插入到槽位里实现构造方法中添加槽位优点被分离的两个部分可以独立的变化">
+<meta name="description" content="Leetcode-63  不同路径II题目  结果  代码版本一123456789101112131415161718192021222324252627class Solution &amp;#123;    public int uniquePathsWithObstacles(int[][] obstacleGrid) &amp;#123;        // 用两个变量存储行数和列数        int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bridge">
-<meta property="og:url" content="http://yoursite.com/2020/05/12/Bridge/index.html">
+<meta property="og:title" content="Leetcode-63">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/Leetcode-63/index.html">
 <meta property="og:site_name" content="XiaoMing">
-<meta property="og:description" content="桥接 定义将抽象部分与它的实现部分分离，使它们都可以独立地变化继承存在的问题按特点取名继承 子类数量爆炸  解决方案在父类里设置一个可以插入的槽位可以将独立的特点划分成不同的Component这些Component可以被插入到槽位里实现构造方法中添加槽位优点被分离的两个部分可以独立的变化">
+<meta property="og:description" content="Leetcode-63  不同路径II题目  结果  代码版本一123456789101112131415161718192021222324252627class Solution &amp;#123;    public int uniquePathsWithObstacles(int[][] obstacleGrid) &amp;#123;        // 用两个变量存储行数和列数        int">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkf45gfrj31180cpq4e.jpg">
-<meta property="og:updated_time" content="2020-07-04T15:30:37.165Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43gykjzj30p90lc0tk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43uck04j30ol08fjrk.jpg">
+<meta property="og:updated_time" content="2020-07-06T04:00:56.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bridge">
-<meta name="twitter:description" content="桥接 定义将抽象部分与它的实现部分分离，使它们都可以独立地变化继承存在的问题按特点取名继承 子类数量爆炸  解决方案在父类里设置一个可以插入的槽位可以将独立的特点划分成不同的Component这些Component可以被插入到槽位里实现构造方法中添加槽位优点被分离的两个部分可以独立的变化">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkf45gfrj31180cpq4e.jpg">
+<meta name="twitter:title" content="Leetcode-63">
+<meta name="twitter:description" content="Leetcode-63  不同路径II题目  结果  代码版本一123456789101112131415161718192021222324252627class Solution &amp;#123;    public int uniquePathsWithObstacles(int[][] obstacleGrid) &amp;#123;        // 用两个变量存储行数和列数        int">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43gykjzj30p90lc0tk.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/12/Bridge/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/06/Leetcode-63/">
 
 
 
 
 
-  <title>Bridge | XiaoMing</title>
+  <title>Leetcode-63 | XiaoMing</title>
   
 
 
@@ -274,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/Bridge/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/Leetcode-63/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoMing">
@@ -291,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Bridge</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode-63</h1>
         
 
         <div class="post-meta">
@@ -303,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T12:43:14+08:00">
-                2020-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-06T11:52:20+08:00">
+                2020-07-06
               </time>
             
 
@@ -326,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -363,11 +364,15 @@
       
 
       
-        <h1 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="将抽象部分与它的实现部分分离，使它们都可以独立地变化"><a href="#将抽象部分与它的实现部分分离，使它们都可以独立地变化" class="headerlink" title="将抽象部分与它的实现部分分离，使它们都可以独立地变化"></a>将抽象部分与它的实现部分分离，使它们都可以独立地变化</h3><h2 id="继承存在的问题"><a href="#继承存在的问题" class="headerlink" title="继承存在的问题"></a>继承存在的问题</h2><h3 id="按特点取名继承"><a href="#按特点取名继承" class="headerlink" title="按特点取名继承"></a>按特点取名继承</h3><ul>
-<li>子类数量爆炸</li>
-</ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="在父类里设置一个可以插入的槽位"><a href="#在父类里设置一个可以插入的槽位" class="headerlink" title="在父类里设置一个可以插入的槽位"></a>在父类里设置一个可以插入的槽位</h3><h3 id="可以将独立的特点划分成不同的Component"><a href="#可以将独立的特点划分成不同的Component" class="headerlink" title="可以将独立的特点划分成不同的Component"></a>可以将独立的特点划分成不同的Component</h3><h3 id="这些Component可以被插入到槽位里"><a href="#这些Component可以被插入到槽位里" class="headerlink" title="这些Component可以被插入到槽位里"></a>这些Component可以被插入到槽位里</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="构造方法中添加槽位"><a href="#构造方法中添加槽位" class="headerlink" title="构造方法中添加槽位"></a>构造方法中添加槽位</h3><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="被分离的两个部分可以独立的变化"><a href="#被分离的两个部分可以独立的变化" class="headerlink" title="被分离的两个部分可以独立的变化"></a>被分离的两个部分可以独立的变化</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkf45gfrj31180cpq4e.jpg">
+        <h1 id="Leetcode-63-不同路径II"><a href="#Leetcode-63-不同路径II" class="headerlink" title="Leetcode-63  不同路径II"></a>Leetcode-63  不同路径II</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43gykjzj30p90lc0tk.jpg">
+
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43uck04j30ol08fjrk.jpg">
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="版本一"><a href="#版本一" class="headerlink" title="版本一"></a>版本一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 用两个变量存储行数和列数</span></span><br><span class="line">        <span class="keyword">int</span> row = obstacleGrid.length, column = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="comment">// path[i][j]代表从起点到（i，j）的路径数</span></span><br><span class="line">        <span class="keyword">int</span>[][] path = <span class="keyword">new</span> <span class="keyword">int</span>[row][column];</span><br><span class="line">        <span class="comment">// 初始条件</span></span><br><span class="line">        path[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 遍历path</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; column; j++) &#123;</span><br><span class="line">                <span class="comment">// 障碍物</span></span><br><span class="line">                <span class="keyword">if</span> (obstacleGrid[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    path[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">                        path[i][j] += path[i - <span class="number">1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (j &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">                        path[i][j] += path[i][j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> path[row - <span class="number">1</span>][column - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="版本二（优化版）"><a href="#版本二（优化版）" class="headerlink" title="版本二（优化版）"></a>版本二（优化版）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 用两个变量存储行数和列数</span></span><br><span class="line">        <span class="keyword">int</span> row = obstacleGrid.length, column = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="comment">// path[i]代表从起点到第i个位置的路径数</span></span><br><span class="line">        <span class="keyword">int</span>[] path = <span class="keyword">new</span> <span class="keyword">int</span>[column];</span><br><span class="line">        <span class="comment">// 初始条件</span></span><br><span class="line">        path[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 遍历path</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] rows : obstacleGrid) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; column; j++) &#123;</span><br><span class="line">                <span class="comment">// 障碍物</span></span><br><span class="line">                <span class="keyword">if</span> (rows[j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    path[j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">                        path[j] += path[j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> path[column - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -391,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/12/adapter/" rel="next" title="adapter">
-                <i class="fa fa-chevron-left"></i> adapter
+              <a href="/2020/07/05/垃圾收集器与内存分配策略（1）/" rel="next" title="垃圾收集器与内存分配策略（1）">
+                <i class="fa fa-chevron-left"></i> 垃圾收集器与内存分配策略（1）
               </a>
             
           </div>
@@ -400,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/12/Composite/" rel="prev" title="Composite">
-                Composite <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#桥接"><span class="nav-number">1.</span> <span class="nav-text">桥接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将抽象部分与它的实现部分分离，使它们都可以独立地变化"><span class="nav-number">1.1.1.</span> <span class="nav-text">将抽象部分与它的实现部分分离，使它们都可以独立地变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承存在的问题"><span class="nav-number">1.2.</span> <span class="nav-text">继承存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按特点取名继承"><span class="nav-number">1.2.1.</span> <span class="nav-text">按特点取名继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在父类里设置一个可以插入的槽位"><span class="nav-number">1.3.1.</span> <span class="nav-text">在父类里设置一个可以插入的槽位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以将独立的特点划分成不同的Component"><span class="nav-number">1.3.2.</span> <span class="nav-text">可以将独立的特点划分成不同的Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这些Component可以被插入到槽位里"><span class="nav-number">1.3.3.</span> <span class="nav-text">这些Component可以被插入到槽位里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">1.4.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法中添加槽位"><span class="nav-number">1.4.1.</span> <span class="nav-text">构造方法中添加槽位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.5.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#被分离的两个部分可以独立的变化"><span class="nav-number">1.5.1.</span> <span class="nav-text">被分离的两个部分可以独立的变化</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode-63-不同路径II"><span class="nav-number">1.</span> <span class="nav-text">Leetcode-63  不同路径II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">1.2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本一"><span class="nav-number">1.3.1.</span> <span class="nav-text">版本一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本二（优化版）"><span class="nav-number">1.3.2.</span> <span class="nav-text">版本二（优化版）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
