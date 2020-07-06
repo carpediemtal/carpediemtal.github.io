@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。栗子java标准库 Arrays.sort() 1234567public static void main(String[] args) &amp;#123;    String[] array = &amp;#123; &quot;apple&quot;, &quot;Pear&quot;, &quot;Banana&quot;, &quot;orang">
+<meta name="description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stategy">
 <meta property="og:url" content="http://yoursite.com/2020/05/20/Stategy/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。栗子java标准库 Arrays.sort() 1234567public static void main(String[] args) &amp;#123;    String[] array = &amp;#123; &quot;apple&quot;, &quot;Pear&quot;, &quot;Banana&quot;, &quot;orang">
+<meta property="og:description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1geyqv2my6lj30s90dmq40.jpg">
-<meta property="og:updated_time" content="2020-07-04T15:33:25.837Z">
+<meta property="og:updated_time" content="2020-07-06T14:38:49.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stategy">
-<meta name="twitter:description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。栗子java标准库 Arrays.sort() 1234567public static void main(String[] args) &amp;#123;    String[] array = &amp;#123; &quot;apple&quot;, &quot;Pear&quot;, &quot;Banana&quot;, &quot;orang">
+<meta name="twitter:description" content="Strategy 定义定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1geyqv2my6lj30s90dmq40.jpg">
 
 
@@ -364,7 +364,9 @@
 
       
         <h1 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy"></a>Strategy</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。"><a href="#定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。" class="headerlink" title="定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。"></a>定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。</h3><h3 id="本模式使得算法可独立于使用它的客户而变化。"><a href="#本模式使得算法可独立于使用它的客户而变化。" class="headerlink" title="本模式使得算法可独立于使用它的客户而变化。"></a>本模式使得算法可独立于使用它的客户而变化。</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="java标准库"><a href="#java标准库" class="headerlink" title="java标准库"></a>java标准库</h3><ul>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。"><a href="#定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。" class="headerlink" title="定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。"></a>定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。</h3><h3 id="本模式使得算法可独立于使用它的客户而变化。"><a href="#本模式使得算法可独立于使用它的客户而变化。" class="headerlink" title="本模式使得算法可独立于使用它的客户而变化。"></a>本模式使得算法可独立于使用它的客户而变化。</h3><a id="more"></a>
+
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="java标准库"><a href="#java标准库" class="headerlink" title="java标准库"></a>java标准库</h3><ul>
 <li><p>Arrays.sort()</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] array = &#123; <span class="string">"apple"</span>, <span class="string">"Pear"</span>, <span class="string">"Banana"</span>, <span class="string">"orange"</span> &#125;;</span><br><span class="line">    Arrays.sort(array,String::compareToIgnoreCase);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> s : array) &#123;</span><br><span class="line">        System.out.print(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -558,12 +560,6 @@
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>

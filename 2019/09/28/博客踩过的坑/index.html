@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="不踩坑是不可能的。    关于tags的坑用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：ERROR Process failed: _posts/鬼灭之刃.md YAMLException: can not read a block mapping entry; a multilin">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-04T15:51:01.831Z">
+<meta property="og:updated_time" content="2020-07-06T14:42:44.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客踩过的坑">
 <meta name="twitter:description" content="不踩坑是不可能的。    关于tags的坑用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：ERROR Process failed: _posts/鬼灭之刃.md YAMLException: can not read a block mapping entry; a multilin">
@@ -363,9 +363,23 @@
       
         <p>不踩坑是不可能的。  </p>
 <ol>
-<li>关于tags的坑<br>用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：<br><code>ERROR Process failed: _posts/鬼灭之刃.md
-YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</code><br>现在还不知道这个tags到底是做什么用的，记得之前修改主题的时候，配置文件里tags后必须有一个空格，我因此卡了很久。等我弄明白了再补上吧。   </li>
-<li>关于插入的图片<br>用图床插入的图片在本地服务器（localhost:4000）是无法正常显示的，需要部署在服务器上，才能预览。</li>
+<li><p>关于tags的坑<br>用hexo new “title”新建文章时，默认生成的文本文件中有tags一行，我原以为此处是填与标签有关的内容，但是发现填了之后，用hexo生成会报错，栗子：<br><code>ERROR Process failed: _posts/鬼灭之刃.md
+YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:</code><br>现在还不知道这个tags到底是做什么用的，记得之前修改主题的时候，配置文件里tags后必须有一个空格，我因此卡了很久。等我弄明白了再补上吧。   </p>
+</li>
+<li><p><del>关于插入的图片<br>用图床插入的图片在本地服务器（localhost:4000）是无法正常显示的，需要部署在服务器上，才能预览。</del></p>
+</li>
+<li><p>如果使用新浪图床并且博客部署在自己的服务器上，图片将无法显示。</p>
+</li>
+<li><p>更换了主题之后却没得到想要的结果，可以试试hexo clean命令，之后再执行hexo g和hexo d。</p>
+</li>
+<li><p>设置阅读全文：</p>
+<ul>
+<li>在文章中使用 <a id="more"></a>手动进行截断，Hexo 提供的方式</li>
+<li>在文章的 <a href="https://hexo.io/docs/front-matter.html" target="_blank" rel="noopener">front-matter</a> 中添加 <code>description</code>，并提供文章摘录</li>
+<li>自动形成摘要，在 <strong>主题配置文件</strong> 中添加：auto_excerpt:  enable: true  length: 150</li>
+<li>自动摘要会失去格式</li>
+</ul>
+</li>
 </ol>
 
       
@@ -542,12 +556,6 @@ YAMLException: can not read a block mapping entry; a multiline key may not be an
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>

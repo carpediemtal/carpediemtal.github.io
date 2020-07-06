@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ger2hsf1apj31570lcgnt.jpg">
 <meta property="og:image" content="c:%5CUsers%5C67460%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200513195434686.png">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ger3mk25q5j31270q5wi1.jpg">
-<meta property="og:updated_time" content="2020-07-04T15:38:03.851Z">
+<meta property="og:updated_time" content="2020-07-06T14:41:11.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Tomcat的一个坑">
 <meta name="twitter:description" content="之前我的spring项目都是直接在Intellij Idea里跑的，今天想把我的程序部署在服务器上，于是就尝试把项目打成War包，放在Tomcat的Webapps底下，然后启动Tomcat服务器运行，运行结果和我在Idea里的结果完全不同，Idea运行是正常的，Tomcat运行时报错，说找不到数据库的驱动。    nested exception is java.lang.RuntimeExcep">
@@ -370,6 +370,8 @@
 <img src="http://ww1.sinaimg.cn/large/005VT09Qly1ger2gcyai8j312l0sotgd.jpg">
 
 <p> <code>nested exception is java.lang.RuntimeException: Failed to get driver instance for jdbcUrl=jdbc:mysql://localhost:3306/overwatch?serverTimezone=UTC</code></p>
+<a id="more"></a>
+
 <p>报错内容大概就是：Failed to get driver instance for。。。。。。巴拉巴拉。经过我百般尝试，我把Mysql驱动手动复制一份放在了Tomcat的lib目录下，终于正常运行了。</p>
 <img src="http://ww1.sinaimg.cn/large/005VT09Qly1ger2hsf1apj31570lcgnt.jpg">
 
@@ -554,12 +556,6 @@
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>

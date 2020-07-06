@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。 利用Spring Ini">
+<meta name="description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot:表单输入验证">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/Spring-Boot-表单输入验证/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。 利用Spring Ini">
+<meta property="og:description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j0ds2l6j31hc0u0t9b.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j682kh0j30p00ndwf9.jpg">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8jt37fadj31hc0u0446.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8ju3zhs7j31hc0u0dgf.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j0ds2l6j31hc0u0t9b.jpg">
-<meta property="og:updated_time" content="2020-07-04T15:37:07.400Z">
+<meta property="og:updated_time" content="2020-07-06T14:38:37.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot:表单输入验证">
-<meta name="twitter:description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。 利用Spring Ini">
+<meta name="twitter:description" content="本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。   如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。 本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j0ds2l6j31hc0u0t9b.jpg">
 
 
@@ -377,6 +377,8 @@
 
 <p>如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。</p>
 <p>本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。</p>
+<a id="more"></a>
+
 <h3 id="利用Spring-Initializr创建一个Spring-Boot项目"><a href="#利用Spring-Initializr创建一个Spring-Boot项目" class="headerlink" title="利用Spring Initializr创建一个Spring Boot项目"></a>利用Spring Initializr创建一个Spring Boot项目</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j682kh0j30p00ndwf9.jpg">
 
 <img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j818cywj30p00ndq3w.jpg">
@@ -598,12 +600,6 @@
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>

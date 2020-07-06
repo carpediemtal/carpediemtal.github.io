@@ -364,13 +364,18 @@
 
       
         
-          
-            <h1 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h1><hr>
+          <h1 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h1><hr>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="将抽象部分与它的实现部分分离，使它们都可以独立地变化"><a href="#将抽象部分与它的实现部分分离，使它们都可以独立地变化" class="headerlink" title="将抽象部分与它的实现部分分离，使它们都可以独立地变化"></a>将抽象部分与它的实现部分分离，使它们都可以独立地变化</h3><h2 id="继承存在的问题"><a href="#继承存在的问题" class="headerlink" title="继承存在的问题"></a>继承存在的问题</h2><h3 id="按特点取名继承"><a href="#按特点取名继承" class="headerlink" title="按特点取名继承"></a>按特点取名继承</h3><ul>
 <li>子类数量爆炸</li>
 </ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="在父类里设置一个可以插入的槽位"><a href="#在父类里设置一个可以插入的槽位" class="headerlink" title="在父类里设置一个可以插入的槽位"></a>在父类里设置一个可以插入的槽位</h3><h3 id="可以将独立的特点划分成不同的Component"><a href="#可以将独立的特点划分成不同的Component" class="headerlink" title="可以将独立的特点划分成不同的Component"></a>可以将独立的特点划分成不同的Component</h3><h3 id="这些Component可以被插入到槽位里"><a href="#这些Component可以被插入到槽位里" class="headerlink" title="这些Component可以被插入到槽位里"></a>这些Component可以被插入到槽位里</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="构造方法中添加槽位"><a href="#构造方法中添加槽位" class="headerlink" title="构造方法中添加槽位"></a>构造方法中添加槽位</h3><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="被分离的两个部分可以独立的变化"><a href="#被分离的两个部分可以独立的变化" class="headerlink" title="被分离的两个部分可以独立的变化"></a>被分离的两个部分可以独立的变化</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepkf45gfrj31180cpq4e.jpg">
-          
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="在父类里设置一个可以插入的槽位"><a href="#在父类里设置一个可以插入的槽位" class="headerlink" title="在父类里设置一个可以插入的槽位"></a>在父类里设置一个可以插入的槽位</h3><h3 id="可以将独立的特点划分成不同的Component"><a href="#可以将独立的特点划分成不同的Component" class="headerlink" title="可以将独立的特点划分成不同的Component"></a>可以将独立的特点划分成不同的Component</h3><h3 id="这些Component可以被插入到槽位里"><a href="#这些Component可以被插入到槽位里" class="headerlink" title="这些Component可以被插入到槽位里"></a>这些Component可以被插入到槽位里</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/12/Bridge/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -509,8 +514,7 @@
 
       
         
-          
-            <h1 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h1><hr>
+          <h1 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h1><hr>
 <h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="life"><a href="#life" class="headerlink" title="life"></a>life</h3><ul>
 <li>中美插座标准不同，需要适配器去转接</li>
 <li>我的小米8没有耳机插孔，需要转接线</li>
@@ -534,17 +538,13 @@
 <li>它的构造方法接受一个Callable</li>
 <li>它的run方法内部运行Callable的call方法</li>
 </ul>
-<h2 id="编写步骤"><a href="#编写步骤" class="headerlink" title="编写步骤"></a>编写步骤</h2><h3 id="implement目标接口（上面的栗子中是Runnable）"><a href="#implement目标接口（上面的栗子中是Runnable）" class="headerlink" title="implement目标接口（上面的栗子中是Runnable）"></a>implement目标接口（上面的栗子中是Runnable）</h3><h3 id="内部持有一个待转换接口（上面的栗子中是Callable）"><a href="#内部持有一个待转换接口（上面的栗子中是Callable）" class="headerlink" title="内部持有一个待转换接口（上面的栗子中是Callable）"></a>内部持有一个待转换接口（上面的栗子中是Callable）</h3><h3 id="在Adapter类的方法里调用待转换接口的方法"><a href="#在Adapter类的方法里调用待转换接口的方法" class="headerlink" title="在Adapter类的方法里调用待转换接口的方法"></a>在Adapter类的方法里调用待转换接口的方法</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h3><ul>
-<li>我有一个String数组</li>
-<li>我想把这个数组当list使</li>
-<li>List<string> list = new LinkedList&lt;&gt;(Arrays.asList(strings));</string></li>
-<li>Arrays.asList()就是一个Adapter</li>
-</ul>
-<h3 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h3><ul>
-<li>InputStreamReader可以把InputStream转换成Reader</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepk7u4124j30u50ns76u.jpg">
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/12/adapter/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -683,8 +683,7 @@
 
       
         
-          
-            <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><hr>
+          <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><hr>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为其他对象提供代理以控制对这个对象的访问"><a href="#为其他对象提供代理以控制对这个对象的访问" class="headerlink" title="为其他对象提供代理以控制对这个对象的访问"></a>为其他对象提供代理以控制对这个对象的访问</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="我的梯子（V2Ray）"><a href="#我的梯子（V2Ray）" class="headerlink" title="我的梯子（V2Ray）"></a>我的梯子（V2Ray）</h3><ul>
 <li><p>当我请求网络时，我的梯子接受我的请求</p>
 </li>
@@ -703,53 +702,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="Proxy-VS-Adapter"><a href="#Proxy-VS-Adapter" class="headerlink" title="Proxy VS Adapter"></a>Proxy VS Adapter</h2><h3 id="Adapter把A接口转为B接口"><a href="#Adapter把A接口转为B接口" class="headerlink" title="Adapter把A接口转为B接口"></a>Adapter把A接口转为B接口</h3><h3 id="Proxy不改变接口"><a href="#Proxy不改变接口" class="headerlink" title="Proxy不改变接口"></a>Proxy不改变接口</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="权限检查"><a href="#权限检查" class="headerlink" title="权限检查"></a>权限检查</h3><ul>
-<li><p>可以在调用目标接口前后添加一些功能</p>
-<ul>
-<li><p>栗子</p>
-<ul>
-<li>比如我的梯子（权限检查）</li>
-</ul>
-</li>
-<li><p>为啥不直接在目标接口里实现呢？</p>
-<ul>
-<li>每个类应该各司其职</li>
-<li>我要开发一款梯子，有现成的接口可以调用，何必重复造轮子</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Remote-Proxy"><a href="#Remote-Proxy" class="headerlink" title="Remote Proxy"></a>Remote Proxy</h3><ul>
-<li><p>栗子</p>
-<ul>
-<li>TeamViewer</li>
-</ul>
-</li>
-<li><p>我的接口是个代理，这个代理负责把对方法的访问转化成远程调用</p>
-</li>
-</ul>
-<h3 id="Virtual-Proxy"><a href="#Virtual-Proxy" class="headerlink" title="Virtual Proxy"></a>Virtual Proxy</h3><ul>
-<li><p>不到万不得已，代理对象是不会创建的</p>
-</li>
-<li><p>栗子</p>
-<ul>
-<li><p>JDBC</p>
-<ul>
-<li>执行SQL语句才创建代理对象</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Protection-Proxy"><a href="#Protection-Proxy" class="headerlink" title="Protection Proxy"></a>Protection Proxy</h3><ul>
-<li>用代理对象控制对原始对象的访问</li>
-</ul>
-<h3 id="Smart-Reference"><a href="#Smart-Reference" class="headerlink" title="Smart Reference"></a>Smart Reference</h3><ul>
-<li>可以smart的释放资源</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepk5k9dc9j325j0g9jv3.jpg">
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/12/proxy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -888,15 +847,15 @@
 
       
         
-          
-            <h1 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"><a href="#使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。" class="headerlink" title="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"></a>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</h3><h3 id="多个处理器按照一定顺序组合排列，依次处理请求"><a href="#多个处理器按照一定顺序组合排列，依次处理请求" class="headerlink" title="多个处理器按照一定顺序组合排列，依次处理请求"></a>多个处理器按照一定顺序组合排列，依次处理请求</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="财务申报"><a href="#财务申报" class="headerlink" title="财务申报"></a>财务申报</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HandlerChain handlerChain = <span class="keyword">new</span> HandlerChain();</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> ManagerHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> DirectorHandler());</span><br><span class="line">        handlerChain.addHandler(<span class="keyword">new</span> CEOHandler());</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"Doomfist"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">123123</span>)));</span><br><span class="line">        handlerChain.process(<span class="keyword">new</span> Request(<span class="string">"tracer"</span>, <span class="keyword">new</span> BigDecimal(<span class="number">1231231</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerChain</span> </span>&#123;</span><br><span class="line">    List&lt;Handler&gt; handlerList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHandler</span><span class="params">(Handler handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.handlerList.add(handler);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> handler : handlerList) &#123;</span><br><span class="line">            Boolean result = handler.process(request);</span><br><span class="line">            <span class="keyword">if</span> (result != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Approved by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(request + <span class="string">" Denied by "</span> + handler.getClass().getSimpleName());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"idk"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Request</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Request</span><span class="params">(String name, BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAmount</span><span class="params">(BigDecimal amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Request:"</span> + <span class="keyword">this</span>.name + <span class="string">","</span> + <span class="keyword">this</span>.amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> request the request which are waiting to be handled</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true if success, false if refuse, null if pass to next handler</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Boolean <span class="title">process</span><span class="params">(Request request)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManagerHandler</span> <span class="keyword">implements</span> <span class="title">Handler</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">process</span><span class="params">(Request request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> request.getAmount().compareTo(BigDecimal.valueOf(<span class="number">1000</span>)) &gt; <span class="number">0</span> ? <span class="keyword">null</span> : !request.getName().equals(<span class="string">"Doomfist"</span>);<span class="comment">//英雄歧视搞起来</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="处理器接口"><a href="#处理器接口" class="headerlink" title="处理器接口"></a>处理器接口</h3><ul>
-<li>实现类</li>
-</ul>
-<h3 id="组合各种处理器"><a href="#组合各种处理器" class="headerlink" title="组合各种处理器"></a>组合各种处理器</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gepgmtzlvuj30os0fpab1.jpg">
-          
+          <h1 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h1><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"><a href="#使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。" class="headerlink" title="使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。"></a>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</h3><h3 id="多个处理器按照一定顺序组合排列，依次处理请求"><a href="#多个处理器按照一定顺序组合排列，依次处理请求" class="headerlink" title="多个处理器按照一定顺序组合排列，依次处理请求"></a>多个处理器按照一定顺序组合排列，依次处理请求</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/12/Chain-Of-Responsibility/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1035,14 +994,14 @@
 
       
         
-          
-            <h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="输入输出都是JSON的API接口"><a href="#输入输出都是JSON的API接口" class="headerlink" title="输入输出都是JSON的API接口"></a>输入输出都是JSON的API接口</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="便于第三方调用"><a href="#便于第三方调用" class="headerlink" title="便于第三方调用"></a>便于第三方调用</h3><h3 id="便于使用js进行交互"><a href="#便于使用js进行交互" class="headerlink" title="便于使用js进行交互"></a>便于使用js进行交互</h3><h2 id="编写RestController"><a href="#编写RestController" class="headerlink" title="编写RestController"></a>编写RestController</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/api"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">users</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUsers();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">user</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">long</span> id) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUserById(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/signin"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">signin</span><span class="params">(@RequestBody SignInRequest signInRequest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            User user = userService.signin(signInRequest.email, signInRequest.password);</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"user"</span>, user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">"error"</span>, <span class="string">"SIGNIN_FAILED"</span>, <span class="string">"message"</span>, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SignInRequest</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> String email;</span><br><span class="line">        <span class="keyword">public</span> String password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="精细化控制"><a href="#精细化控制" class="headerlink" title="精细化控制"></a>精细化控制</h3><p><u>防止密码明文输出</u></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty</span>(access = Access.WRITE_ONLY)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geolnzw9clj30nw0brwf2.jpg">
-          
+          <h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="输入输出都是JSON的API接口"><a href="#输入输出都是JSON的API接口" class="headerlink" title="输入输出都是JSON的API接口"></a>输入输出都是JSON的API接口</h3><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="便于第三方调用"><a href="#便于第三方调用" class="headerlink" title="便于第三方调用"></a>便于第三方调用</h3><h3 id="便于使用js进行交互"><a href="#便于使用js进行交互" class="headerlink" title="便于使用js进行交互"></a>便于使用js进行交互</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/11/REST/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1181,31 +1140,16 @@
 
       
         
-          
-            <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h2><h3 id="数据传输的一种格式"><a href="#数据传输的一种格式" class="headerlink" title="数据传输的一种格式"></a>数据传输的一种格式</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="UTF-8-Only"><a href="#UTF-8-Only" class="headerlink" title="UTF-8 Only"></a>UTF-8 Only</h3><h3 id="语法简单，key只能是字符串"><a href="#语法简单，key只能是字符串" class="headerlink" title="语法简单，key只能是字符串"></a>语法简单，key只能是字符串</h3><h3 id="浏览器认识JSON，可以转为js对象"><a href="#浏览器认识JSON，可以转为js对象" class="headerlink" title="浏览器认识JSON，可以转为js对象"></a>浏览器认识JSON，可以转为js对象</h3><ul>
+          <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h2><h3 id="数据传输的一种格式"><a href="#数据传输的一种格式" class="headerlink" title="数据传输的一种格式"></a>数据传输的一种格式</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="UTF-8-Only"><a href="#UTF-8-Only" class="headerlink" title="UTF-8 Only"></a>UTF-8 Only</h3><h3 id="语法简单，key只能是字符串"><a href="#语法简单，key只能是字符串" class="headerlink" title="语法简单，key只能是字符串"></a>语法简单，key只能是字符串</h3><h3 id="浏览器认识JSON，可以转为js对象"><a href="#浏览器认识JSON，可以转为js对象" class="headerlink" title="浏览器认识JSON，可以转为js对象"></a>浏览器认识JSON，可以转为js对象</h3><ul>
 <li>开发web应用的不二之选</li>
 </ul>
-<h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h2><h3 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h3><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><h3 id="空值null"><a href="#空值null" class="headerlink" title="空值null"></a>空值null</h3><h2 id="用java读写JSON"><a href="#用java读写JSON" class="headerlink" title="用java读写JSON"></a>用java读写JSON</h2><p>测试函数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationFeature;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        InputStream inputStream = Main.class.getResourceAsStream(<span class="string">"/book.json"</span>);</span><br><span class="line">        ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper().registerModule(<span class="keyword">new</span> JavaTimeModule());</span><br><span class="line">        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, <span class="keyword">false</span>);</span><br><span class="line">        Book book = objectMapper.readValue(inputStream, Book.class);</span><br><span class="line">        System.out.println(book.pubDate);</span><br><span class="line">        System.out.println(book.price);</span><br><span class="line">        System.out.println(book.isbn);</span><br><span class="line">        String json = objectMapper.writeValueAsString(book);</span><br><span class="line">        System.out.println(json);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>自定义解析规则</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonParser;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationContext;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonDeserializer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IsbnDeserializer</span> <span class="keyword">extends</span> <span class="title">JsonDeserializer</span>&lt;<span class="title">BigInteger</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BigInteger <span class="title">deserialize</span><span class="params">(JsonParser jsonParser, DeserializationContext deserializationContext)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">        String str = jsonParser.getValueAsString();</span><br><span class="line">        <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BigInteger(str.replace(<span class="string">'-'</span>, <span class="string">' '</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Java Bean</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.annotation.JsonDeserialize;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> id;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> String author;</span><br><span class="line">    <span class="meta">@JsonDeserialize</span>(using = IsbnDeserializer.class)</span><br><span class="line">    <span class="keyword">public</span> BigInteger isbn;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; tags;</span><br><span class="line">    <span class="keyword">public</span> LocalDate pubDate;</span><br><span class="line">    <span class="keyword">public</span> BigDecimal price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要解析的JSON</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Java核心技术"</span>,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"Cay S. Horstmann"</span>,</span><br><span class="line">  <span class="attr">"isbn"</span>: <span class="string">"978-7-111-54742-6"</span>,</span><br><span class="line">  <span class="attr">"tags"</span>: [<span class="string">"Java"</span>, <span class="string">"Network"</span>],</span><br><span class="line">  <span class="attr">"pubDate"</span>: <span class="string">"2016-09-01"</span>,</span><br><span class="line">  <span class="attr">"price"</span>: <span class="number">119.5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
-<li>JSON转化为一般的java对象</li>
-<li>JSON转化为特殊的java对象，例如LocalTime</li>
-<li>自定义解析规则</li>
-</ul>
-<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
-<li>自定义解析规则</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1geojoo2cg9j31lv0j776v.jpg">
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/11/JSON/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1493,8 +1437,7 @@
 
       
         
-          
-            <h1 id="外观-Facade"><a href="#外观-Facade" class="headerlink" title="外观(Facade)"></a>外观(Facade)</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"><a href="#为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。" class="headerlink" title="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"></a>为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="栗子-1"><a href="#栗子-1" class="headerlink" title="栗子"></a>栗子</h3><ul>
+          <h1 id="外观-Facade"><a href="#外观-Facade" class="headerlink" title="外观(Facade)"></a>外观(Facade)</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"><a href="#为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。" class="headerlink" title="为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。"></a>为子系统中的一组接口提供一个一致的界面。Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</h3><h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="栗子-1"><a href="#栗子-1" class="headerlink" title="栗子"></a>栗子</h3><ul>
 <li><p>假如我是个java写的对象，我想完成“起床“这件事</p>
 <ul>
 <li>上厕所</li>
@@ -1509,16 +1452,13 @@
 <li><p>有了Facade，我只需要调用Favade提供的getup接口即可</p>
 </li>
 </ul>
-<h3 id="栗子-2"><a href="#栗子-2" class="headerlink" title="栗子"></a>栗子</h3><ul>
-<li>Gateway</li>
-</ul>
-<ul>
-<li><img src="http://ww1.sinaimg.cn/large/005VT09Qly1genlibq39kj30y20h4gnh.jpg">
-
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/10/facade/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1657,8 +1597,7 @@
 
       
         
-          
-            <h1 id="集成MyBatis"><a href="#集成MyBatis" class="headerlink" title="集成MyBatis"></a>集成MyBatis</h1><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+          <h1 id="集成MyBatis"><a href="#集成MyBatis" class="headerlink" title="集成MyBatis"></a>集成MyBatis</h1><h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
 <li>Hibernate</li>
 <li>JPA</li>
 </ul>
@@ -1685,23 +1624,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="全自动ORM和半自动ORM和不自动的"><a href="#全自动ORM和半自动ORM和不自动的" class="headerlink" title="全自动ORM和半自动ORM和不自动的"></a>全自动ORM和半自动ORM和不自动的</h2><h3 id="全自动的有些问题-不好优化"><a href="#全自动的有些问题-不好优化" class="headerlink" title="全自动的有些问题 不好优化"></a>全自动的有些问题 不好优化</h3><ul>
-<li>比如hibernate</li>
-</ul>
-<h3 id="半自动面向SQL-就很灵活"><a href="#半自动面向SQL-就很灵活" class="headerlink" title="半自动面向SQL 就很灵活"></a>半自动面向SQL 就很灵活</h3><ul>
-<li>比如myBatis</li>
-</ul>
-<h3 id="不自动的-很满发"><a href="#不自动的-很满发" class="headerlink" title="不自动的 很满发"></a>不自动的 很满发</h3><ul>
-<li>比如JdbcTemplate</li>
-</ul>
-<h2 id="MyBatis的优缺点"><a href="#MyBatis的优缺点" class="headerlink" title="MyBatis的优缺点"></a>MyBatis的优缺点</h2><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>所有的SQL语句都要我自己写</li>
-</ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>所有SQL语句都是我自己写的</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkko8ce7j312k0kktbb.jpg">
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/09/集成MyBatis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1840,41 +1769,14 @@
 
       
         
-          
-            <h1 id="设计ORM"><a href="#设计ORM" class="headerlink" title="设计ORM"></a>设计ORM</h1><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程"><a href="#利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程" class="headerlink" title="利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程"></a>利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程</h3><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="我可以在java里写java代码-但不能写SQL代码"><a href="#我可以在java里写java代码-但不能写SQL代码" class="headerlink" title="我可以在java里写java代码 但不能写SQL代码"></a>我可以在java里写java代码 但不能写SQL代码</h3><h3 id="我通过SQL代码才能操纵SQL"><a href="#我通过SQL代码才能操纵SQL" class="headerlink" title="我通过SQL代码才能操纵SQL"></a>我通过SQL代码才能操纵SQL</h3><h3 id="JDBC可以让我通过操纵java来操纵SQL"><a href="#JDBC可以让我通过操纵java来操纵SQL" class="headerlink" title="JDBC可以让我通过操纵java来操纵SQL"></a>JDBC可以让我通过操纵java来操纵SQL</h3><h2 id="WHY-ORM？"><a href="#WHY-ORM？" class="headerlink" title="WHY ORM？"></a>WHY ORM？</h2><h3 id="Without-ORM"><a href="#Without-ORM" class="headerlink" title="Without ORM"></a>Without ORM</h3><ul>
-<li>Connection</li>
-<li>PreparedStatement</li>
-<li>executeQuery</li>
-<li>ResultSet</li>
-<li>next</li>
-<li>new Java Bean</li>
-</ul>
-<h3 id="With-ORM"><a href="#With-ORM" class="headerlink" title="With ORM"></a>With ORM</h3><ul>
-<li><p>以MyBatis为例</p>
-<ul>
-<li>Mapper&amp;Annotation</li>
-<li>MapperScan</li>
-<li>Autowired</li>
-<li>Use API</li>
-</ul>
-</li>
-</ul>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
-<li>HQL语法</li>
-</ul>
-<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><ul>
-<li><p>JPQL语法</p>
-<ul>
-<li>Complex尤其是Criteria</li>
-</ul>
-</li>
-</ul>
-<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><ul>
-<li>手撸SQL代码</li>
-</ul>
-<h2 id="设计ORM接口"><a href="#设计ORM接口" class="headerlink" title="设计ORM接口"></a>设计ORM接口</h2><h2 id="以后理解更透彻一点再写吧"><a href="#以后理解更透彻一点再写吧" class="headerlink" title="以后理解更透彻一点再写吧"></a>以后理解更透彻一点再写吧</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gemkk834fej31ix0ocgpf.jpg">
-
-          
+          <h1 id="设计ORM"><a href="#设计ORM" class="headerlink" title="设计ORM"></a>设计ORM</h1><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程"><a href="#利用一些Component-像积木一样组合拼凑-成具有新的所需的特性的过程" class="headerlink" title="利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程"></a>利用一些Component 像积木一样组合拼凑 成具有新的所需的特性的过程</h3><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="我可以在java里写java代码-但不能写SQL代码"><a href="#我可以在java里写java代码-但不能写SQL代码" class="headerlink" title="我可以在java里写java代码 但不能写SQL代码"></a>我可以在java里写java代码 但不能写SQL代码</h3><h3 id="我通过SQL代码才能操纵SQL"><a href="#我通过SQL代码才能操纵SQL" class="headerlink" title="我通过SQL代码才能操纵SQL"></a>我通过SQL代码才能操纵SQL</h3><h3 id="JDBC可以让我通过操纵java来操纵SQL"><a href="#JDBC可以让我通过操纵java来操纵SQL" class="headerlink" title="JDBC可以让我通过操纵java来操纵SQL"></a>JDBC可以让我通过操纵java来操纵SQL</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/09/设计ORM/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2000,12 +1902,6 @@
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>

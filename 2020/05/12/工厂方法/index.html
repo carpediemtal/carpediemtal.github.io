@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta name="description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工厂方法">
 <meta property="og:url" content="http://yoursite.com/2020/05/12/工厂方法/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta property="og:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
-<meta property="og:updated_time" content="2020-05-12T05:00:48.085Z">
+<meta property="og:updated_time" content="2020-07-06T14:41:02.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂方法">
-<meta name="twitter:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例特点隐藏实现细节 你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的  创建产品的代码与调用产品的代码相分离调用方只和抽象工厂及其产品打交道优势创建产品的代码可以独立变化可能存在的优化 静态工厂方">
+<meta name="twitter:description" content="工厂方法 栗子List.of()Map.of()MessageDigest.getInstance()过程接口实现类在接口中定义一个静态方法返回实现类的实例">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gepkwtwsarj31ea0fn761.jpg">
 
 
@@ -342,7 +342,9 @@
 
       
         <h1 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h1><hr>
-<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="List-of"><a href="#List-of" class="headerlink" title="List.of()"></a>List.of()</h3><h3 id="Map-of"><a href="#Map-of" class="headerlink" title="Map.of()"></a>Map.of()</h3><h3 id="MessageDigest-getInstance"><a href="#MessageDigest-getInstance" class="headerlink" title="MessageDigest.getInstance()"></a>MessageDigest.getInstance()</h3><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><h3 id="在接口中定义一个静态方法返回实现类的实例"><a href="#在接口中定义一个静态方法返回实现类的实例" class="headerlink" title="在接口中定义一个静态方法返回实现类的实例"></a>在接口中定义一个静态方法返回实现类的实例</h3><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="隐藏实现细节"><a href="#隐藏实现细节" class="headerlink" title="隐藏实现细节"></a>隐藏实现细节</h3><ul>
+<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="List-of"><a href="#List-of" class="headerlink" title="List.of()"></a>List.of()</h3><h3 id="Map-of"><a href="#Map-of" class="headerlink" title="Map.of()"></a>Map.of()</h3><h3 id="MessageDigest-getInstance"><a href="#MessageDigest-getInstance" class="headerlink" title="MessageDigest.getInstance()"></a>MessageDigest.getInstance()</h3><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><h3 id="在接口中定义一个静态方法返回实现类的实例"><a href="#在接口中定义一个静态方法返回实现类的实例" class="headerlink" title="在接口中定义一个静态方法返回实现类的实例"></a>在接口中定义一个静态方法返回实现类的实例</h3><a id="more"></a>
+
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="隐藏实现细节"><a href="#隐藏实现细节" class="headerlink" title="隐藏实现细节"></a>隐藏实现细节</h3><ul>
 <li>你需要的是List，我返回的可能是LinkedList也可能是ArrayList，这是你所不知道的</li>
 </ul>
 <h3 id="创建产品的代码与调用产品的代码相分离"><a href="#创建产品的代码与调用产品的代码相分离" class="headerlink" title="创建产品的代码与调用产品的代码相分离"></a>创建产品的代码与调用产品的代码相分离</h3><h3 id="调用方只和抽象工厂及其产品打交道"><a href="#调用方只和抽象工厂及其产品打交道" class="headerlink" title="调用方只和抽象工厂及其产品打交道"></a>调用方只和抽象工厂及其产品打交道</h3><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="创建产品的代码可以独立变化"><a href="#创建产品的代码可以独立变化" class="headerlink" title="创建产品的代码可以独立变化"></a>创建产品的代码可以独立变化</h3><h3 id="可能存在的优化"><a href="#可能存在的优化" class="headerlink" title="可能存在的优化"></a>可能存在的优化</h3><ul>
@@ -532,12 +534,6 @@
                     <a href="qq:674602921" target="_blank" title="QQ">
                       
                         <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/linjinming" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-gitee"></i>Gitee</a>
                   </span>
                 
             </div>
