@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="FAQ 当觉得眼前的事儿很无聊时（比如听无聊的课，做无聊的作业），会感到困倦、瞌睡，这样的机制有什么用？如果非做不可，是应该及时休息还是选择忍受？现在可以公开的情报：排除睡眠不足、气候和疾病，做无聊的事感到困倦的原因是：外部刺激减少，参与欲望下降，从而交感神经兴奋性下降，这是告诉大脑可以休息的信号，控制睡眠的神经元加以影响，睡意就随之而来。作用当然是节能、抓紧时间休息呀。由此看来，这种情况下的困倦">
+<meta name="description" content="Java异常Error VS ExceptionError和Exception本质是两个Class，他们都继承自Throwable这个类。Error表示严重的错误，比如OutOfMemoryError和StackOverflowError，出现Error程序就会停止，Error无法被捕获处理。Exception表示常见的一般的错误，可以被捕获处理，也可以向上层函数抛出，可以一直抛到main方法为止">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FAQ">
-<meta property="og:url" content="http://yoursite.com/2019/10/07/FAQ/index.html">
+<meta property="og:title" content="异常">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/异常/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="FAQ 当觉得眼前的事儿很无聊时（比如听无聊的课，做无聊的作业），会感到困倦、瞌睡，这样的机制有什么用？如果非做不可，是应该及时休息还是选择忍受？现在可以公开的情报：排除睡眠不足、气候和疾病，做无聊的事感到困倦的原因是：外部刺激减少，参与欲望下降，从而交感神经兴奋性下降，这是告诉大脑可以休息的信号，控制睡眠的神经元加以影响，睡意就随之而来。作用当然是节能、抓紧时间休息呀。由此看来，这种情况下的困倦">
+<meta property="og:description" content="Java异常Error VS ExceptionError和Exception本质是两个Class，他们都继承自Throwable这个类。Error表示严重的错误，比如OutOfMemoryError和StackOverflowError，出现Error程序就会停止，Error无法被捕获处理。Exception表示常见的一般的错误，可以被捕获处理，也可以向上层函数抛出，可以一直抛到main方法为止">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-06T14:35:05.332Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggiilypwmzj32500jewgw.jpg">
+<meta property="og:updated_time" content="2020-07-07T09:15:42.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FAQ">
-<meta name="twitter:description" content="FAQ 当觉得眼前的事儿很无聊时（比如听无聊的课，做无聊的作业），会感到困倦、瞌睡，这样的机制有什么用？如果非做不可，是应该及时休息还是选择忍受？现在可以公开的情报：排除睡眠不足、气候和疾病，做无聊的事感到困倦的原因是：外部刺激减少，参与欲望下降，从而交感神经兴奋性下降，这是告诉大脑可以休息的信号，控制睡眠的神经元加以影响，睡意就随之而来。作用当然是节能、抓紧时间休息呀。由此看来，这种情况下的困倦">
+<meta name="twitter:title" content="异常">
+<meta name="twitter:description" content="Java异常Error VS ExceptionError和Exception本质是两个Class，他们都继承自Throwable这个类。Error表示严重的错误，比如OutOfMemoryError和StackOverflowError，出现Error程序就会停止，Error无法被捕获处理。Exception表示常见的一般的错误，可以被捕获处理，也可以向上层函数抛出，可以一直抛到main方法为止">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggiilypwmzj32500jewgw.jpg">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/07/FAQ/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/07/异常/">
 
 
 
 
 
-  <title>FAQ | Ming</title>
+  <title>异常 | Ming</title>
   
 
 
@@ -304,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/FAQ/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -321,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">FAQ</h1>
+          <h1 class="post-title" itemprop="name headline">异常</h1>
         
 
         <div class="post-meta">
@@ -333,8 +335,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-07T20:45:41+08:00">
-                2019-10-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T17:02:15+08:00">
+                2020-07-07
               </time>
             
 
@@ -356,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Essay/" itemprop="url" rel="index">
-                    <span itemprop="name">Essay</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -387,7 +389,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  238
+                  262
                 </span>
               
 
@@ -424,10 +426,9 @@
       
 
       
-        <h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ol>
-<li>当觉得眼前的事儿很无聊时（比如听无聊的课，做无聊的作业），会感到困倦、瞌睡，这样的机制有什么用？如果非做不可，是应该及时休息还是选择忍受？<br>现在可以公开的情报：排除睡眠不足、气候和疾病，做无聊的事感到困倦的原因是：外部刺激减少，参与欲望下降，从而交感神经兴奋性下降，这是告诉大脑可以休息的信号，控制睡眠的神经元加以影响，睡意就随之而来。作用当然是节能、抓紧时间休息呀。由此看来，这种情况下的困倦是很“良性”的，休息是没有必要的，既然如此，应当加强外部刺激（听课时坐前排和老师互动，回答问题之类的），调动好奇心（哲学三问，栗子代入），体会发现的乐趣。</li>
-</ol>
-<a id="more"></a>
+        <h1 id="Java异常"><a href="#Java异常" class="headerlink" title="Java异常"></a>Java异常</h1><h2 id="Error-VS-Exception"><a href="#Error-VS-Exception" class="headerlink" title="Error VS Exception"></a>Error VS Exception</h2><p>Error和Exception本质是两个Class，他们都继承自Throwable这个类。Error表示严重的错误，比如OutOfMemoryError和StackOverflowError，出现Error程序就会停止，Error无法被捕获处理。Exception表示常见的一般的错误，可以被捕获处理，也可以向上层函数抛出，可以一直抛到main方法为止，如果在main方法内部还没有捕获异常，程序将会停止。</p>
+<h2 id="RuntimeException-VS-CheckedException"><a href="#RuntimeException-VS-CheckedException" class="headerlink" title="RuntimeException VS CheckedException"></a>RuntimeException VS CheckedException</h2><p>RuntimeException又叫UncheckedException，两者的区别从名字就可见一斑。RuntimeException及其子类不需要程序去捕获或者抛出，CheckedException及其子类必须去捕获或抛出。究其原因，在于RuntimeException及其子类是一些难以预估的错误，比如最常见的NullPointerException、IndexOutOfBoundsException等，这类错误编译器无法获知，只有当程序运行起来之后才能得到结果。而我们容易预估到CheckedException的出现，比如我们操作程序去读一个文件，就可能出现FileNotFoundException，这类Exception必须要去捕获处理或抛出。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggiilypwmzj32500jewgw.jpg">
       
     </div>
     
@@ -480,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/03/论守望先锋的成瘾性/" rel="next" title="论守望先锋的成瘾性">
-                <i class="fa fa-chevron-left"></i> 论守望先锋的成瘾性
+              <a href="/2020/07/07/Leetcode-34/" rel="next" title="Leetcode-34">
+                <i class="fa fa-chevron-left"></i> Leetcode-34
               </a>
             
           </div>
@@ -489,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/03/long-time-no-see-0/" rel="prev" title="long time no see">
-                long time no see <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">1.</span> <span class="nav-text">FAQ</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java异常"><span class="nav-number">1.</span> <span class="nav-text">Java异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-VS-Exception"><span class="nav-number">1.1.</span> <span class="nav-text">Error VS Exception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RuntimeException-VS-CheckedException"><span class="nav-number">1.2.</span> <span class="nav-text">RuntimeException VS CheckedException</span></a></li></ol></li></ol></div>
             
 
           </div>
