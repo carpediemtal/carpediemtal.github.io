@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>剑指offer-03</title>
+      <link href="/2020/07/07/%E5%89%91%E6%8C%87offer-03/"/>
+      <url>/2020/07/07/%E5%89%91%E6%8C%87offer-03/</url>
+      
+        <content type="html"><![CDATA[<h1 id="剑指offer-03-数组中重复的数字"><a href="#剑指offer-03-数组中重复的数字" class="headerlink" title="剑指offer-03  数组中重复的数字"></a>剑指offer-03  数组中重复的数字</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggieb7db1jj30ph0angm3.jpg"><a id="more"></a><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggiebtsg5ej30on08h74i.jpg"><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!set.add(i)) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面代码的时间复杂度是O（n）。最开始，我的代码是这样的：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list.contains(i)) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                list.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>思路和用集合set是一样的，但是这种方法超时了，原因是list的contains方法本身也有O（n）的时间复杂度。但是set不一样，set内部是用HashMap实现的，查找的时间复杂度只有O（1）。</p><p>值得一提的是，set的add方法有一个布尔类型的返回值，如果添加失败（集合中已经存在这样的元素）会返回false，否则返回true，这一点是我之前所不知道的，可以善加利用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-36</title>
       <link href="/2020/07/07/LeetCode-36/"/>
       <url>/2020/07/07/LeetCode-36/</url>
