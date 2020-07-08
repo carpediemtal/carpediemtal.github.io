@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/05/30/QQ聊天机器人/</loc>
+    
+    <lastmod>2020-07-08T12:12:11.123Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/07/08/以前后端分离的方式实现表单验证/</loc>
     
     <lastmod>2020-07-08T07:55:27.491Z</lastmod>
@@ -201,13 +208,6 @@
     <loc>https://linjinming.gitee.io/2020/05/11/REST/</loc>
     
     <lastmod>2020-07-06T14:38:29.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linjinming.gitee.io/2020/05/30/QQ聊天机器人/</loc>
-    
-    <lastmod>2020-07-06T14:38:24.324Z</lastmod>
     
   </url>
   
