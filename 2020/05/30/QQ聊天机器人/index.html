@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggjs81bdm5j30h00ahwf4.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggjsa2hxbvj30xd0nkdhh.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggjsaggqloj30wl0fpwg1.jpg">
-<meta property="og:updated_time" content="2020-07-08T12:12:11.123Z">
+<meta property="og:updated_time" content="2020-07-09T06:38:58.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QQ聊天机器人">
 <meta name="twitter:description" content="QQ聊天机器人-教程向这篇文章将引导大家如何去写一个QQ聊天机器人。在此之前，先给大伙儿展示一下本fw的Robot的一些特点和功能：   Name: Arina Attribute: 萌妹子 官网：http://47.98.252.1:7000/arina">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  4.8k
+                  5k
                 </span>
               
 
@@ -532,7 +532,15 @@
 <p>可以不用域名（域名备案很麻烦），直接通过ip地址访问服务器。</p>
 <h2 id="服务器开放端口"><a href="#服务器开放端口" class="headerlink" title="服务器开放端口"></a>服务器开放端口</h2><p>比如我的NoVNC运行在服务器的9000端口下，我需要修改安全组策略，对9000端口“放行”。<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gga1tchswdj31hc0ssmxz.jpg"></p>
 <p>如何修改安全组策略取决于你的服务器供应商，请自行百度。</p>
-<h2 id="酷q在linux环境下的运行"><a href="#酷q在linux环境下的运行" class="headerlink" title="酷q在linux环境下的运行"></a>酷q在linux环境下的运行</h2><p>酷q在windows下可以简单的安装运行，但在linux下需要通过wine借助docker来运行。请参考<a href="https://github.com/CoolQ/docker-wine-coolq。" target="_blank" rel="noopener">https://github.com/CoolQ/docker-wine-coolq。</a></p>
+<h2 id="酷q在linux环境下的运行"><a href="#酷q在linux环境下的运行" class="headerlink" title="酷q在linux环境下的运行"></a>酷q在linux环境下的运行</h2><p>酷q在windows下可以简单的安装运行，但在linux下需要通过wine借助docker来运行。</p>
+<p>基本用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull richardchien/cqhttp:latest</span><br><span class="line">$ mkdir coolq  <span class="comment"># 用于存储 酷Q 的程序文件</span></span><br><span class="line">$ docker run -ti --rm --name cqhttp-test \</span><br><span class="line">             -v $(<span class="built_in">pwd</span>)/coolq:/home/user/coolq \  <span class="comment"># 将宿主目录挂载到容器内用于持久化 酷Q 的程序文件</span></span><br><span class="line">             -p 9000:9000 \  <span class="comment"># noVNC 端口，用于从浏览器控制 酷Q</span></span><br><span class="line">             -p 5700:5700 \  <span class="comment"># CQHTTP 插件开放的端口</span></span><br><span class="line">             -e COOLQ_ACCOUNT=123456 \ <span class="comment"># 要登录的 QQ 账号，可选但建议填</span></span><br><span class="line">             -e CQHTTP_POST_URL=http://example.com:8080 \  <span class="comment"># 事件上报地址</span></span><br><span class="line">             -e CQHTTP_SERVE_DATA_FILES=yes \  <span class="comment"># 允许通过 HTTP 接口访问 酷Q 数据文件</span></span><br><span class="line">             richardchien/cqhttp:latest</span><br></pre></td></tr></table></figure>
+
+<p>这部分请参考</p>
+<ul>
+<li><a href="https://github.com/CoolQ/docker-wine-coolq（原版镜像）" target="_blank" rel="noopener">https://github.com/CoolQ/docker-wine-coolq（原版镜像）</a></li>
+<li><a href="https://cqhttp.cc/docs/4.15/#/Docker（安装了cqhttp插件的镜像）" target="_blank" rel="noopener">https://cqhttp.cc/docs/4.15/#/Docker（安装了cqhttp插件的镜像）</a></li>
+</ul>
 <h2 id="获取并配置图灵机器人api-key"><a href="#获取并配置图灵机器人api-key" class="headerlink" title="获取并配置图灵机器人api key"></a>获取并配置图灵机器人api key</h2><p>上官网<a href="http://www.turingapi.com/注册领取。" target="_blank" rel="noopener">http://www.turingapi.com/注册领取。</a></p>
 <p>获取到之后手动添加到酷q的图灵机器人插件里：</p>
 <img src="http://ww1.sinaimg.cn/large/005VT09Qly1gga1xl84ytj31hc0swmza.jpg">
@@ -756,7 +764,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -872,7 +880,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">40.2k</span>
+    <span title="Site words total count">40.4k</span>
   
 </div>
 

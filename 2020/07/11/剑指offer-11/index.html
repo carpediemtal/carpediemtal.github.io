@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="Template Method 定义定义一个操作中的算法的骨架将一些步骤延迟到子类中子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤核心思想父类定义骨架 骨架一般声明为final  子类实现（某些）细节 需要子类实现的一般声明为protected">
+<meta name="description" content="剑指offer-11  旋转数组的最小数字题目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Template Method">
-<meta property="og:url" content="http://yoursite.com/2020/05/21/Template-Method/index.html">
+<meta property="og:title" content="剑指offer-11">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/剑指offer-11/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="Template Method 定义定义一个操作中的算法的骨架将一些步骤延迟到子类中子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤核心思想父类定义骨架 骨架一般声明为final  子类实现（某些）细节 需要子类实现的一般声明为protected">
+<meta property="og:description" content="剑指offer-11  旋转数组的最小数字题目">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gezu7q33ywj311q0ee75j.jpg">
-<meta property="og:updated_time" content="2020-07-04T15:33:33.244Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggmpsu63e8j30pm0bx0t9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggmpt5mrfxj30p608f3yp.jpg">
+<meta property="og:updated_time" content="2020-07-11T00:15:19.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Template Method">
-<meta name="twitter:description" content="Template Method 定义定义一个操作中的算法的骨架将一些步骤延迟到子类中子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤核心思想父类定义骨架 骨架一般声明为final  子类实现（某些）细节 需要子类实现的一般声明为protected">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gezu7q33ywj311q0ee75j.jpg">
+<meta name="twitter:title" content="剑指offer-11">
+<meta name="twitter:description" content="剑指offer-11  旋转数组的最小数字题目">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggmpsu63e8j30pm0bx0t9.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/21/Template-Method/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/11/剑指offer-11/">
 
 
 
 
 
-  <title>Template Method | Ming</title>
+  <title>剑指offer-11 | Ming</title>
   
 
 
@@ -306,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/Template-Method/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/11/剑指offer-11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Template Method</h1>
+          <h1 class="post-title" itemprop="name headline">剑指offer-11</h1>
         
 
         <div class="post-meta">
@@ -335,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T09:56:00+08:00">
-                2020-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-11T08:10:00+08:00">
+                2020-07-11
               </time>
             
 
@@ -358,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
                   </a>
                 </span>
 
@@ -389,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  249
+                  36
                 </span>
               
 
@@ -426,22 +427,15 @@
       
 
       
-        <h1 id="Template-Method"><a href="#Template-Method" class="headerlink" title="Template Method"></a>Template Method</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="定义一个操作中的算法的骨架"><a href="#定义一个操作中的算法的骨架" class="headerlink" title="定义一个操作中的算法的骨架"></a>定义一个操作中的算法的骨架</h3><h3 id="将一些步骤延迟到子类中"><a href="#将一些步骤延迟到子类中" class="headerlink" title="将一些步骤延迟到子类中"></a>将一些步骤延迟到子类中</h3><h3 id="子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤"><a href="#子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤" class="headerlink" title="子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤"></a>子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</h3><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="父类定义骨架"><a href="#父类定义骨架" class="headerlink" title="父类定义骨架"></a>父类定义骨架</h3><ul>
-<li>骨架一般声明为final</li>
-</ul>
-<h3 id="子类实现（某些）细节"><a href="#子类实现（某些）细节" class="headerlink" title="子类实现（某些）细节"></a>子类实现（某些）细节</h3><ul>
-<li>需要子类实现的一般声明为protected</li>
-</ul>
+        <h1 id="剑指offer-11-旋转数组的最小数字"><a href="#剑指offer-11-旋转数组的最小数字" class="headerlink" title="剑指offer-11  旋转数组的最小数字"></a>剑指offer-11  旋转数组的最小数字</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggmpsu63e8j30pm0bx0t9.jpg">
+
 <a id="more"></a>
 
-<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="找到数组中最大的元素"><a href="#找到数组中最大的元素" class="headerlink" title="找到数组中最大的元素"></a>找到数组中最大的元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="comment">//找出数组中最大的元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">findMax</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//排序</span></span><br><span class="line">        sort(nums);</span><br><span class="line">        <span class="comment">//返回最后的元素</span></span><br><span class="line">        <span class="keyword">return</span> nums[nums.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这个sort怎么写，暂时还没想好，所以留给子类去实现</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggmpt5mrfxj30p608f3yp.jpg">
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Max</span> <span class="keyword">extends</span> <span class="title">TemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(numbers);</span><br><span class="line">        <span class="keyword">return</span> numbers[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">8</span>&#125;;</span><br><span class="line">        Max max = <span class="keyword">new</span> Max();</span><br><span class="line">        <span class="keyword">int</span> m = max.findMax(nums);</span><br><span class="line">        System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezu7q33ywj311q0ee75j.jpg">
       
     </div>
     
@@ -494,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/20/Stategy/" rel="next" title="Stategy">
-                <i class="fa fa-chevron-left"></i> Stategy
+              <a href="/2020/07/09/剑指offer-07/" rel="next" title="剑指offer-07">
+                <i class="fa fa-chevron-left"></i> 剑指offer-07
               </a>
             
           </div>
@@ -504,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/21/visitor/" rel="prev" title="visitor">
-                visitor <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/11/LeetCode-154/" rel="prev" title="LeetCode-154">
+                LeetCode-154 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -667,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Template-Method"><span class="nav-number">1.</span> <span class="nav-text">Template Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义一个操作中的算法的骨架"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义一个操作中的算法的骨架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将一些步骤延迟到子类中"><span class="nav-number">1.1.2.</span> <span class="nav-text">将一些步骤延迟到子类中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤"><span class="nav-number">1.1.3.</span> <span class="nav-text">子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思想"><span class="nav-number">1.2.</span> <span class="nav-text">核心思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父类定义骨架"><span class="nav-number">1.2.1.</span> <span class="nav-text">父类定义骨架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子类实现（某些）细节"><span class="nav-number">1.2.2.</span> <span class="nav-text">子类实现（某些）细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栗子"><span class="nav-number">1.3.</span> <span class="nav-text">栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找到数组中最大的元素"><span class="nav-number">1.3.1.</span> <span class="nav-text">找到数组中最大的元素</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#剑指offer-11-旋转数组的最小数字"><span class="nav-number">1.</span> <span class="nav-text">剑指offer-11  旋转数组的最小数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">1.2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
