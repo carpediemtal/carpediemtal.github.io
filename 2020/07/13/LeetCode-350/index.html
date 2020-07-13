@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="Visitor 定义表示一个作用于某对象结构中的各元素的操作可以在不改变各元素的类的前提下定义作用于这些元素的新操作">
+<meta name="description" content="LeetCode-350  两个数组的交集II题目  结果  代码12345678910111213141516171819202122232425262728293031323334class Solution &amp;#123;    public int[] intersect(int[] nums1, int[] nums2) &amp;#123;        // 对两个数组进行排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="visitor">
-<meta property="og:url" content="http://yoursite.com/2020/05/21/visitor/index.html">
+<meta property="og:title" content="LeetCode-350">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/LeetCode-350/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="Visitor 定义表示一个作用于某对象结构中的各元素的操作可以在不改变各元素的类的前提下定义作用于这些元素的新操作">
+<meta property="og:description" content="LeetCode-350  两个数组的交集II题目  结果  代码12345678910111213141516171819202122232425262728293031323334class Solution &amp;#123;    public int[] intersect(int[] nums1, int[] nums2) &amp;#123;        // 对两个数组进行排序">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gezvl0dvzrj30pv0cet9i.jpg">
-<meta property="og:updated_time" content="2020-07-06T14:39:00.083Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggp31z58mnj30pm0atq38.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggp31lvnntj30oh08mjrj.jpg">
+<meta property="og:updated_time" content="2020-07-13T01:24:36.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="visitor">
-<meta name="twitter:description" content="Visitor 定义表示一个作用于某对象结构中的各元素的操作可以在不改变各元素的类的前提下定义作用于这些元素的新操作">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gezvl0dvzrj30pv0cet9i.jpg">
+<meta name="twitter:title" content="LeetCode-350">
+<meta name="twitter:description" content="LeetCode-350  两个数组的交集II题目  结果  代码12345678910111213141516171819202122232425262728293031323334class Solution &amp;#123;    public int[] intersect(int[] nums1, int[] nums2) &amp;#123;        // 对两个数组进行排序">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggp31z58mnj30pm0atq38.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/21/visitor/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/13/LeetCode-350/">
 
 
 
 
 
-  <title>visitor | Ming</title>
+  <title>LeetCode-350 | Ming</title>
   
 
 
@@ -306,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/visitor/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/LeetCode-350/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -323,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">visitor</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-350</h1>
         
 
         <div class="post-meta">
@@ -335,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T10:47:02+08:00">
-                2020-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-13T09:18:37+08:00">
+                2020-07-13
               </time>
             
 
@@ -358,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -389,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  618
+                  181
                 </span>
               
 
@@ -405,7 +406,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  1
                 </span>
               
             </div>
@@ -426,22 +427,15 @@
       
 
       
-        <h1 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="表示一个作用于某对象结构中的各元素的操作"><a href="#表示一个作用于某对象结构中的各元素的操作" class="headerlink" title="表示一个作用于某对象结构中的各元素的操作"></a>表示一个作用于某对象结构中的各元素的操作</h3><h3 id="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"><a href="#可以在不改变各元素的类的前提下定义作用于这些元素的新操作" class="headerlink" title="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"></a>可以在不改变各元素的类的前提下定义作用于这些元素的新操作</h3><a id="more"></a>
+        <h1 id="LeetCode-350-两个数组的交集II"><a href="#LeetCode-350-两个数组的交集II" class="headerlink" title="LeetCode-350  两个数组的交集II"></a>LeetCode-350  两个数组的交集II</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggp31z58mnj30pm0atq38.jpg">
 
-<h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><h3 id="递归遍历某个文件夹下的所有文件夹和文件"><a href="#递归遍历某个文件夹下的所有文件夹和文件" class="headerlink" title="递归遍历某个文件夹下的所有文件夹和文件"></a>递归遍历某个文件夹下的所有文件夹和文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">    <span class="comment">//visit a directory</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//visit a file</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggp31lvnntj30oh08mjrj.jpg">
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> File path;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileStructure</span><span class="params">(File path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.path = path;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(Visitor visitor)</span> </span>&#123;</span><br><span class="line">        scan(path, visitor);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scan</span><span class="params">(File file, Visitor visitor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">            visitor.visitDir(file);</span><br><span class="line">            <span class="keyword">for</span> (File f : Objects.requireNonNull(file.listFiles())) &#123;</span><br><span class="line">                scan(f, visitor);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (file.isFile()) &#123;</span><br><span class="line">            visitor.visitFile(file);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersect(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// 对两个数组进行排序</span></span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 由于不知道交集的长度，所以用list来存储结果</span></span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 双指针</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length, len2 = nums2.length;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[i] == nums2[j]) &#123;</span><br><span class="line">                list.add(nums1[i]);</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将list中的内容拷贝到数组中</span></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[list.size()];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; ans.length; k++) &#123;</span><br><span class="line">            ans[k] = list.get(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaFileVisitor</span> <span class="keyword">implements</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"I'm visiting the directory:"</span> + dir);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"I'm visiting the file:"</span> + file);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：<em>O</em>(<em>m</em>log<em>m</em>+<em>n</em>log<em>n</em>)</p>
+<p>空间复杂度：<em>O</em>(min(<em>m</em>,<em>n</em>))</p>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassFileVisitor</span> <span class="keyword">implements</span> <span class="title">Visitor</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitDir</span><span class="params">(File dir)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitFile</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (file.getName().endsWith(<span class="string">".class"</span>)) &#123;</span><br><span class="line">            System.out.println(<span class="string">"I'm visiting the class file"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FileStructure fileStructure = <span class="keyword">new</span> FileStructure(<span class="keyword">new</span> File(<span class="string">"."</span>));</span><br><span class="line">        fileStructure.handle(<span class="keyword">new</span> JavaFileVisitor());</span><br><span class="line">        fileStructure.handle(<span class="keyword">new</span> ClassFileVisitor());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">I&apos;m visiting the directory:.</span><br><span class="line">I&apos;m visiting the directory:.\.idea</span><br><span class="line">I&apos;m visiting the file:.\.idea\.gitignore</span><br><span class="line">I&apos;m visiting the file:.\.idea\misc.xml</span><br><span class="line">I&apos;m visiting the file:.\.idea\modules.xml</span><br><span class="line">I&apos;m visiting the file:.\.idea\workspace.xml</span><br><span class="line">I&apos;m visiting the directory:.\out</span><br><span class="line">I&apos;m visiting the directory:.\out\production</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor\eternal</span><br><span class="line">I&apos;m visiting the directory:.\out\production\Visitor\eternal\fire</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\ClassFileVisitor.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\FileStructure.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\JavaFileVisitor.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\Main.class</span><br><span class="line">I&apos;m visiting the file:.\out\production\Visitor\eternal\fire\Visitor.class</span><br><span class="line">I&apos;m visiting the directory:.\src</span><br><span class="line">I&apos;m visiting the directory:.\src\eternal</span><br><span class="line">I&apos;m visiting the directory:.\src\eternal\fire</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\ClassFileVisitor.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\FileStructure.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\JavaFileVisitor.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\Main.java</span><br><span class="line">I&apos;m visiting the file:.\src\eternal\fire\Visitor.java</span><br><span class="line">I&apos;m visiting the file:.\Visitor.iml</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\ClassFileVisitor.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\FileStructure.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\JavaFileVisitor.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\Main.class</span><br><span class="line">I&apos;m visiting the class file:.\out\production\Visitor\eternal\fire\Visitor.class</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="新增操作而不必对现有的对象结构做任何改动"><a href="#新增操作而不必对现有的对象结构做任何改动" class="headerlink" title="新增操作而不必对现有的对象结构做任何改动"></a>新增操作而不必对现有的对象结构做任何改动</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezvl0dvzrj30pv0cet9i.jpg">
       
     </div>
     
@@ -494,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/21/Template-Method/" rel="next" title="Template Method">
-                <i class="fa fa-chevron-left"></i> Template Method
+              <a href="/2020/07/11/LeetCode-154/" rel="next" title="LeetCode-154">
+                <i class="fa fa-chevron-left"></i> LeetCode-154
               </a>
             
           </div>
@@ -503,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/21/overwatch/" rel="prev" title="overwatch_Anniversary">
-                overwatch_Anniversary <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Visitor"><span class="nav-number">1.</span> <span class="nav-text">Visitor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示一个作用于某对象结构中的各元素的操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">表示一个作用于某对象结构中的各元素的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以在不改变各元素的类的前提下定义作用于这些元素的新操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">可以在不改变各元素的类的前提下定义作用于这些元素的新操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栗子"><span class="nav-number">1.2.</span> <span class="nav-text">栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归遍历某个文件夹下的所有文件夹和文件"><span class="nav-number">1.2.1.</span> <span class="nav-text">递归遍历某个文件夹下的所有文件夹和文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">1.3.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">1.4.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新增操作而不必对现有的对象结构做任何改动"><span class="nav-number">1.4.1.</span> <span class="nav-text">新增操作而不必对现有的对象结构做任何改动</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode-350-两个数组的交集II"><span class="nav-number">1.</span> <span class="nav-text">LeetCode-350  两个数组的交集II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">1.2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">1.4.</span> <span class="nav-text">复杂度</span></a></li></ol></li></ol></div>
             
 
           </div>
