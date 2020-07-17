@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/07/17/hexo同时deploy到github和gitee上/</loc>
+    
+    <lastmod>2020-07-17T02:31:16.472Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/07/17/LeetCode-35/</loc>
     
     <lastmod>2020-07-17T01:55:51.747Z</lastmod>
