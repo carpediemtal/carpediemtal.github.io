@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/07/18/JavaScript中的this/</loc>
+    
+    <lastmod>2020-07-18T04:24:39.273Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/07/18/LeetCode-191/</loc>
     
     <lastmod>2020-07-18T03:21:10.572Z</lastmod>
