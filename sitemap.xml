@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/about/index.html</loc>
+    
+    <lastmod>2020-07-18T08:39:31.579Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/07/18/Vue-自定义组件的v-model/</loc>
     
     <lastmod>2020-07-18T08:25:46.768Z</lastmod>
@@ -621,13 +628,6 @@
     <loc>https://linjinming.gitee.io/404/index.html</loc>
     
     <lastmod>2019-07-30T10:42:38.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linjinming.gitee.io/about/index.html</loc>
-    
-    <lastmod>2019-07-30T10:27:18.671Z</lastmod>
     
   </url>
   
