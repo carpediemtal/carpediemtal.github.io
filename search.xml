@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>IKBC poker说明书</title>
+      <link href="/2020/07/20/IKBC-poker%E8%AF%B4%E6%98%8E%E4%B9%A6/"/>
+      <url>/2020/07/20/IKBC-poker%E8%AF%B4%E6%98%8E%E4%B9%A6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="键位示意图"><a href="#键位示意图" class="headerlink" title="键位示意图"></a>键位示意图</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggxdus8rdsj30z00bstg0.jpg"><h2 id="主要功能介绍"><a href="#主要功能介绍" class="headerlink" title="主要功能介绍:"></a>主要功能介绍:</h2><ol><li>可携带式 </li><li>60%键盘 搭配 QWERTY 配置(61 Key) </li><li>Cherry MX 系列轴 (黑、青、茶、红) </li><li>双层板 PCB </li><li>键帽材质: ABS(喷漆镀膜-LED 专用)、PBT </li><li>LED 背光功能 (LED 专用) </li><li>USB 介面</li></ol><h2 id="包装内容物"><a href="#包装内容物" class="headerlink" title="包装内容物"></a>包装内容物</h2><ol><li>键盘x1</li><li>使用手册 x 1 </li><li>USB连接线x1</li></ol><h2 id="技术性资料"><a href="#技术性资料" class="headerlink" title="技术性资料"></a>技术性资料</h2><p>键数:<br>US ASCII (61 keys) = US 配置<br>尺寸:<br>约. 29.5 x 10.2 x 3.8cm (键盘)<br>连接线:<br>约 1.5 米 (mini USB B type)<br>按键使用寿命:<br>Cherry: &gt;5000 万次</p><h2 id="包装"><a href="#包装" class="headerlink" title="包装:"></a>包装:</h2><p>20 键盘/1 纸箱</p><h2 id="介面"><a href="#介面" class="headerlink" title="介面:"></a>介面:</h2><p>USB (DC5V —-100mA)<br>可用配置:<br>US USA</p><h2 id="编程说明"><a href="#编程说明" class="headerlink" title="编程说明"></a>编程说明</h2><ol><li>按 PMode(FN + 右 CTRL) 进入编程模式 (空格右灯闪烁) </li><li>按想要对其编程的键 (空格右灯长亮) </li><li>键入编程内容然后按 PN (空格右灯再次闪烁) 【如果发现没有闪烁，可能是键盘后面第四个开关没有变为off【如果输入着输入着发现空格爆闪，那就是说明超过了14个按键】</li><li>重复步骤 2 和步骤 3 可编程其他键 </li><li>按 PMode(FN + 右 CTRL) 退出编程模式 (空格右灯熄灭)</li></ol><h2 id="备注"><a href="#备注" class="headerlink" title="备注:"></a>备注:</h2><p>• 支持 FN 层编程,在选键状态时可以对 FN 组合键(例如: FN + A)编程<br>• 在选键状态(步骤 1)打开文书软件(比如.txt 型文本文档)并按 PN + 任意键可自动分层显示其编程内容<br>• 可以加延时,每按 15ms 键(FN + F) 一次延时 15ms,每按 0.1s 键(FN + G) 一次延时 0.1s,每按 0.5s 键(FN + H) 一次延时 0.5s, 连续多次延时只计一个按键但时间累加<br>• 每个键最多可以编程 14 个按键<br>• 在编程模式 15 秒内没按任何按键会自动退出</p><h2 id="编程使用"><a href="#编程使用" class="headerlink" title="编程使用"></a>编程使用</h2><p>按 PN + 已编好程的键,或者<br>先按 Toggle(FN+右 SHIFT)让空格左灯亮起,再直接按已编程好的键,此时若按 PN + 已编好程的键会输出原来的键码</p><h2 id="编程示例"><a href="#编程示例" class="headerlink" title="编程示例"></a>编程示例</h2><p>把A编为123:FN+右CTRL,A,1,2,3,PN<br>继续把FN+A编为456:FN+A,4,5,6,PN<br>继续把 B 编为 CTRL+C: B, CTRL(不放手), 再按 C, 放开 CTRL 和 C, PN<br>继续把 C 编为在 WIN7 下调用 CMD.EXE: WIN, C,FN+G,M,FN+G,D,FN+H,ENTER, PN<br>结束:FN+右CTRL<br>使用已编程的A键:PN+A =&gt;输出123<br>使用已编程的FN+A键:PN+FN+A =&gt;输出456<br>使用已编程的 C 键: PN + C =&gt; CMD.EXE 程序调用</p><p>切换编程直接表达层:<br>Toggle(FN + 右 SHIFT) =&gt; 右 FN 灯亮起<br>(1)使用已编程的B键:B =&gt;输出CTRL+C的码(注:等如复制)<br>(2)使用已编程的 FN + A 键: FN+ A =&gt; 输出 456(注: 不需要再按 PN 键)<br>(3)使用已编程的 C 键: C=&gt;调用 CMD.EXE 程序<br>(4)如果要输出 A 键(此时直接按 A 是输出 123): PN + A =&gt; A<br>返回出厂设定<br>按住 FN + R, 三秒后 Toggle 灯开始闪烁,继续按住 FN + R 直至空格左灯闪了 9 次便会回复出厂设定</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggxdv5u7e1j30ys0uggqn.jpg"><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggxdvcgu2ij30y40xcto3.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> Experience </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-167</title>
       <link href="/2020/07/20/LeetCode-167/"/>
       <url>/2020/07/20/LeetCode-167/</url>
