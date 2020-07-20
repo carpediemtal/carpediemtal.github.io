@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数码</title>
+      <link href="/2020/07/20/%E6%95%B0%E7%A0%81/"/>
+      <url>/2020/07/20/%E6%95%B0%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><h3 id="存在意义-功能"><a href="#存在意义-功能" class="headerlink" title="存在意义/功能"></a>存在意义/功能</h3><ul><li><p>数据在计算机中的一种表示</p><p>数据要存储在计算机里, 然而计算机只有0和1, 没法存十进制, 也没法存正负号, 所以用一个bit表示正负, 剩下的表示数值.<br>如此而已</p></li></ul><a id="more"></a><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul><li><p>符号位</p></li><li><p>二进制数</p><ul><li>1为负</li><li>0为正</li></ul></li></ul><h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><h3 id="存在意义-功能-1"><a href="#存在意义-功能-1" class="headerlink" title="存在意义/功能"></a>存在意义/功能</h3><ul><li>或许是为补码做铺垫吧,idk</li></ul><h3 id="与原码的关系"><a href="#与原码的关系" class="headerlink" title="与原码的关系"></a>与原码的关系</h3><ul><li><p>原码为正</p><ul><li>反码与原码相同</li></ul></li><li><p>原码为负</p><ul><li><p>符号位不变</p></li><li><p>数值部分按位取反</p><p>按位取反：对于每一位：0变1,1变0</p></li></ul></li></ul><h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><h3 id="存在意义-功能-2"><a href="#存在意义-功能-2" class="headerlink" title="存在意义/功能"></a>存在意义/功能</h3><ul><li><p>减法变加法</p><ul><li>how：存在一个类似周期的东西, 就如正弦函数, 向右走, 可以获得一个函数值, 向左走, 也可以获得相同的函数值.</li></ul></li></ul><h3 id="与反码的关系"><a href="#与反码的关系" class="headerlink" title="与反码的关系"></a>与反码的关系</h3><ul><li><p>原码为正</p><ul><li>补码和反码相同</li></ul></li><li><p>原码为负</p><ul><li><p>补码 = 反码末位加1</p><p>mistake：反码加1是数值为加1, 也就是说，如果不进位到符号位<br>solution ：反码加1如有必要，需要进位的符号位</p><p>末位加1 不是 加1</p></li></ul></li></ul><h2 id="数"><a href="#数" class="headerlink" title="数"></a>数</h2><h3 id="小数"><a href="#小数" class="headerlink" title="小数"></a>小数</h3><ul><li><p>纯小数/定点小数</p><ul><li>整数位为0</li></ul></li><li><p>带小数</p><ul><li>整数位不为0</li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggxlbjx29jj31b90jd0v2.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IKBC poker说明书</title>
       <link href="/2020/07/20/IKBC-poker%E8%AF%B4%E6%98%8E%E4%B9%A6/"/>
       <url>/2020/07/20/IKBC-poker%E8%AF%B4%E6%98%8E%E4%B9%A6/</url>
