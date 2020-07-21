@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5262a7;
+  background: #9dff73;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3260,7 +3260,17 @@ pre .javascript .function {
   color: #4fc08d;
 }
 .btn {
-  color: #4fc08d;
+  color: #1a91da;
   background: #fff;
-  border: 2px solid #4fc08d;
+  border: 2px solid #1a91da;
+}
+.site-state-item-count {
+  color: #1a91da;
+}
+.back-to-top {
+  background: #4fc08d;
+}
+.site-title {
+  font-family: Lobster;
+  font-size: 35px;
 }
