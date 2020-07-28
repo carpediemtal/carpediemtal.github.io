@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="关于this到底指向谁这件事">
+<meta name="description" content="题目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中的this">
-<meta property="og:url" content="http://yoursite.com/2020/07/18/JavaScript中的this/index.html">
+<meta property="og:title" content="剑指offer-21">
+<meta property="og:url" content="http://yoursite.com/2020/07/28/剑指offer-21/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="关于this到底指向谁这件事">
+<meta property="og:description" content="题目">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-18T04:24:39.273Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gh6dcgix1mj30pw0ee74t.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gh6e23fuk7j30oq08eaa9.jpg">
+<meta property="og:updated_time" content="2020-07-28T00:39:10.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript中的this">
-<meta name="twitter:description" content="关于this到底指向谁这件事">
+<meta name="twitter:title" content="剑指offer-21">
+<meta name="twitter:description" content="题目">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gh6dcgix1mj30pw0ee74t.jpg">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/18/JavaScript中的this/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/28/剑指offer-21/">
 
 
 
 
 
-  <title>JavaScript中的this | Ming</title>
+  <title>剑指offer-21 | Ming</title>
   
 
 
@@ -304,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/JavaScript中的this/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/剑指offer-21/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -321,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript中的this</h1>
+          <h1 class="post-title" itemprop="name headline">剑指offer-21</h1>
         
 
         <div class="post-meta">
@@ -333,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T11:48:41+08:00">
-                2020-07-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-28T08:12:24+08:00">
+                2020-07-28
               </time>
             
 
@@ -356,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
                   </a>
                 </span>
 
@@ -387,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  412
+                  103
                 </span>
               
 
@@ -424,28 +427,16 @@
       
 
       
-        <h1 id="关于this到底指向谁这件事"><a href="#关于this到底指向谁这件事" class="headerlink" title="关于this到底指向谁这件事"></a>关于this到底指向谁这件事</h1><a id="more"></a>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gh6dcgix1mj30pw0ee74t.jpg">
 
-<h2 id="全局环境下的this"><a href="#全局环境下的this" class="headerlink" title="全局环境下的this"></a>全局环境下的this</h2><h3 id="情况一"><a href="#情况一" class="headerlink" title="情况一"></a>情况一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1(); <span class="comment">//window</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">	'use strict'</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f2(); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
-<p>可见，在非严格模式下直接调用，this指向window；严格模式下，this指向undefined。</p>
-<h3 id="情况二"><a href="#情况二" class="headerlink" title="情况二"></a>情况二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    num: <span class="number">10</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.f(); <span class="comment">// 输出：&#123;num: 10, f:f&#125;, 10</span></span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gh6e23fuk7j30oq08eaa9.jpg">
 
-<p>可见，如果函数被通过上一层对象调用，this会指向上一层的对象。</p>
-<h3 id="情况三"><a href="#情况三" class="headerlink" title="情况三"></a>情况三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    num: <span class="number">10</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ff = obj.f;</span><br><span class="line">ff(); <span class="comment">// 输出：window，undefined</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] exchange(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                moveBack(nums, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">moveBack</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i - <span class="number">1</span>] % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = nums[i];</span><br><span class="line">                nums[i] = nums[i - <span class="number">1</span>];</span><br><span class="line">                nums[i - <span class="number">1</span>] = tmp;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可见，如果函数f在window的全局环境中直接执行，this仍然指向window。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在函数被执行时，如果函数中的this是被上一层对象所调用，那么this指向上一层对象，否则指向window。</p>
-<h2 id="上下文对象调用中的-this"><a href="#上下文对象调用中的-this" class="headerlink" title="上下文对象调用中的 this"></a>上下文对象调用中的 this</h2><h3 id="情况一-1"><a href="#情况一-1" class="headerlink" title="情况一"></a>情况一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> game = &#123;</span><br><span class="line">    name: <span class="string">'overwatch'</span>,</span><br><span class="line">    hero: &#123;</span><br><span class="line">        name: <span class="string">'tracer'</span>,</span><br><span class="line">        f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(game.hero.f()); <span class="comment">// 输出：tarcer</span></span><br></pre></td></tr></table></figure>
-
-<p>可见，this指向最后调用它的对象hero。</p>
-<h3 id="情况二-1"><a href="#情况二-1" class="headerlink" title="情况二"></a>情况二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj1 = &#123;</span><br><span class="line">    name: <span class="string">'tracer'</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">    name: <span class="string">'genji'</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj1.f();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj3 = &#123;</span><br><span class="line">    name: <span class="string">'doomfist'</span>,</span><br><span class="line">    f: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> ff = obj1.f;</span><br><span class="line">        <span class="keyword">return</span> ff();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.f()); <span class="comment">// 输出：tracer</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.f()); <span class="comment">// 输出：tracer</span></span><br><span class="line"><span class="built_in">console</span>.log(obj3.f()); <span class="comment">// 输出：undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>聪明的你告诉我，这是为什么呢？</p>
-<p>第一个调用，this指向obj1，结果无可厚非。</p>
-<p>第二个调用，this仍然指向obj1。</p>
-<p>第三个调用，this指向window，所以结果是undefined。</p>
-<h2 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h2><p>一言以蔽之，箭头函数中的this<u><strong><em>指向定义箭头函数时所在的对象</em></strong></u>。</p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：小于O（n²）</p>
+<p>空间复杂度：O（1）</p>
 
       
     </div>
@@ -499,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/18/LeetCode-191/" rel="next" title="LeetCode-191">
-                <i class="fa fa-chevron-left"></i> LeetCode-191
+              <a href="/2020/07/28/LeetCode-104/" rel="next" title="LeetCode-104">
+                <i class="fa fa-chevron-left"></i> LeetCode-104
               </a>
             
           </div>
@@ -508,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/18/Vue-自定义组件的v-model/" rel="prev" title="Vue:自定义组件的v-model">
-                Vue:自定义组件的v-model <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -678,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于this到底指向谁这件事"><span class="nav-number">1.</span> <span class="nav-text">关于this到底指向谁这件事</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局环境下的this"><span class="nav-number">1.1.</span> <span class="nav-text">全局环境下的this</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一"><span class="nav-number">1.1.1.</span> <span class="nav-text">情况一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二"><span class="nav-number">1.1.2.</span> <span class="nav-text">情况二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况三"><span class="nav-number">1.1.3.</span> <span class="nav-text">情况三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文对象调用中的-this"><span class="nav-number">1.2.</span> <span class="nav-text">上下文对象调用中的 this</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">情况一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">情况二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数中的this"><span class="nav-number">1.3.</span> <span class="nav-text">箭头函数中的this</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
             
 
           </div>
