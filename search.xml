@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数制与编码</title>
+      <link href="/2020/07/29/%E6%95%B0%E5%88%B6%E4%B8%8E%E7%BC%96%E7%A0%81/"/>
+      <url>/2020/07/29/%E6%95%B0%E5%88%B6%E4%B8%8E%E7%BC%96%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数制"><a href="#数制" class="headerlink" title="数制"></a>数制</h2><h3 id="基数和权重"><a href="#基数和权重" class="headerlink" title="基数和权重"></a>基数和权重</h3><ul><li><p>优势</p><ul><li>少量数码表示较大的数</li></ul></li></ul><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li><p>二进制（B）</p><p>binary</p><ul><li>计算机内部数据传输</li></ul></li><li><p>八进制（O）</p><p>octonary</p><ul><li>书写程序</li></ul></li><li><p>十进制（D）</p><p>dEcimal</p><ul><li><p>优势</p><ul><li>十个指头</li></ul></li><li><p>劣势</p><ul><li>计算机难以表示</li></ul></li><li><p>人机界面</p></li></ul></li><li><p>十六进制（H）</p><p>hex</p><ul><li>书写程序</li></ul></li></ul><h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><ul><li><p>其它转化为十进制</p><ul><li>权重展开法</li></ul></li><li><p>十进制转化为其它进制</p><ul><li><p>整数部分</p><ul><li><p>基数连除取余</p><ul><li><p>栗子</p><p>8（D）=1000（B）<br>=x1<em>2^3 +x2</em>2^2+x3<em>2^1+x4</em>2^0</p></li></ul></li></ul></li><li><p>纯小数部分</p><ul><li>基数连乘取整</li></ul></li></ul></li><li><p>二进制转化为八进制或十六进制</p><ul><li><p>思想</p><ul><li>三位二进制 = 一位八进制</li><li>四位二进制 = 一位</li></ul></li><li><p>整数部分</p><ul><li>左边补0</li></ul></li><li><p>纯小数部分</p><ul><li>右边补0</li></ul></li></ul></li><li><p>八进制或十六进制转化为二进制</p><ul><li><p>思想</p><ul><li>三位二进制 = 一位八进制</li><li>四位二进制 = 一位</li></ul></li><li><p>整数部分</p><ul><li>每位数字转化为二进制</li></ul></li><li><p>小数部分</p><ul><li>每位数字转化为二进制</li></ul></li></ul></li></ul><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h3 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h3><p>binary code decimal</p><ul><li><p>常用</p><ul><li><p>8421</p></li><li><p>5421</p><p>某些数的表示不唯一</p></li><li><p>2421</p></li><li><p>余3</p></li></ul></li><li><p>BCD与十进制的转换</p><ul><li>replace</li></ul></li><li><p>BCD之间的转换</p><ul><li>中间量：十进制</li></ul></li><li><p>劣势</p><ul><li>过程中有错码</li></ul></li></ul><h3 id="可靠性编码"><a href="#可靠性编码" class="headerlink" title="可靠性编码"></a>可靠性编码</h3><ul><li><p>优势</p><ul><li>变化少</li></ul></li><li><p>格雷码</p><ul><li><p>规律</p><ul><li>相邻的数只有一位不同</li></ul></li><li><p>二进制转格雷码</p><ul><li><p>最高位</p><ul><li>与二进制相同</li></ul></li><li><p>低位</p><ul><li>从右向左一次进行异或运算</li></ul></li></ul></li></ul></li></ul><h3 id="奇偶校验码"><a href="#奇偶校验码" class="headerlink" title="奇偶校验码"></a>奇偶校验码</h3><ul><li><p>信息位</p><ul><li>原始数据</li></ul></li><li><p>校验位</p><p>使原始数据各位数之和为奇数的称为奇校验码，偶数称为偶校验码</p><ul><li>1或0</li></ul></li><li><p>特点</p><ul><li>只能检测奇数个错误</li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/007FpgxTly1gh7l443a2gj31381cmwm1.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数电 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-344</title>
       <link href="/2020/07/29/LeetCode-344/"/>
       <url>/2020/07/29/LeetCode-344/</url>
