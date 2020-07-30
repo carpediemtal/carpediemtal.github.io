@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/07/30/用添加maven依赖项的方式引入JavaFX/</loc>
+    
+    <lastmod>2020-07-30T09:50:30.601Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/07/30/软件工程概述/</loc>
     
     <lastmod>2020-07-30T08:13:08.458Z</lastmod>
