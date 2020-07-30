@@ -27,8 +27,14 @@
       <link href="/2020/07/29/%E5%9F%BA%E6%9C%AC%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E9%9B%86%E6%88%90%E9%80%BB%E8%BE%91%E9%97%A8/"/>
       <url>/2020/07/29/%E5%9F%BA%E6%9C%AC%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E9%9B%86%E6%88%90%E9%80%BB%E8%BE%91%E9%97%A8/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="基本逻辑运算"><a href="#基本逻辑运算" class="headerlink" title="基本逻辑运算"></a>基本逻辑运算</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul><li>对输入进行处理得出结果</li></ul><a id="more"></a><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li><p>与</p><ul><li><p>逻辑表达式</p><ul><li>*</li></ul></li><li><p>电路图</p><ul><li>与门</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li><li><p>或</p><ul><li><p>逻辑表达式</p><ul><li>+</li></ul></li><li><p>电路图</p><ul><li>或门</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li><li><p>非</p><ul><li><p>逻辑表达式</p><ul><li>——</li></ul></li><li><p>电路图</p><ul><li>非门（反相器）</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li></ul><h2 id="复合逻辑运算"><a href="#复合逻辑运算" class="headerlink" title="复合逻辑运算"></a>复合逻辑运算</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><ul><li>基本逻辑运算的组合</li></ul><h3 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h3><ul><li><p>与非</p><ul><li><p>概念</p><ul><li>先与后非</li></ul></li><li><p>电路</p><ul><li>与非门</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li><li><p>或非</p><ul><li><p>概念</p><ul><li>先或后非</li></ul></li><li><p>电路</p><ul><li>或非门</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li><li><p>与或非</p><ul><li><p>概念</p><ul><li>四个变量参与运算，先与再或后非</li></ul></li><li><p>电路</p><ul><li>与或非门</li></ul></li><li><p>逻辑符号</p><ul><li>常用</li><li>国际</li><li>国标</li></ul></li></ul></li><li><p>异或</p><ul><li><p>概念</p><ul><li>不同1相同0</li></ul></li><li><p>逻辑表达式</p></li><li><p>电路</p><ul><li>异或门</li></ul></li><li><p>奇偶特性</p><ul><li>偶数个1异或=0</li><li>奇数个1异或=1</li></ul></li></ul></li><li><p>同或</p><ul><li><p>概念</p><ul><li>相同1不同0</li></ul></li><li><p>逻辑表达式</p></li><li><p>电路</p></li></ul></li></ul><h2 id="逻辑运算优先级别"><a href="#逻辑运算优先级别" class="headerlink" title="逻辑运算优先级别"></a>逻辑运算优先级别</h2><h3 id="长非和括号"><a href="#长非和括号" class="headerlink" title="长非和括号"></a>长非和括号</h3><ul><li><p>乘</p><ul><li><p>异或同或</p><ul><li>加</li></ul></li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/007FpgxTly1gh8ujl1n0aj30xo1c4whx.jpg">]]></content>
       
+      
+      <categories>
+          
+          <category> 数电 </category>
+          
+      </categories>
       
       
     </entry>
