@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>安装RabbitMQ</title>
+      <link href="/2020/07/31/%E5%AE%89%E8%A3%85RabbitMQ/"/>
+      <url>/2020/07/31/%E5%AE%89%E8%A3%85RabbitMQ/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装Erlang"><a href="#安装Erlang" class="headerlink" title="安装Erlang"></a>安装Erlang</h2><p>RabbitMQ是用Erlang编写的。</p><h3 id="下载二进制安装包并安装"><a href="#下载二进制安装包并安装" class="headerlink" title="下载二进制安装包并安装"></a>下载二进制安装包并安装</h3><p>下载链接：<a href="http://erlang.org/download/otp_win64_23.0.exe" target="_blank" rel="noopener">http://erlang.org/download/otp_win64_23.0.exe</a></p><p>温馨提示：下载请开代理。</p><a id="more"></a><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>在环境变量里添加<code>ERLANG_HOME:Erlang安装目录</code>，在path里添加<code>%ERLANG_HOME%\bin</code>。</p><p>在shell里运行<code>erl -v</code>，出现版本号说明一切ok。</p><img src="http://ww1.sinaimg.cn/large/007FpgxTly1gh9ycker0ij309m02gt8j.jpg"><h2 id="安装RabbitMQ"><a href="#安装RabbitMQ" class="headerlink" title="安装RabbitMQ"></a>安装RabbitMQ</h2><h3 id="下载二进制安装包并安装-1"><a href="#下载二进制安装包并安装-1" class="headerlink" title="下载二进制安装包并安装"></a>下载二进制安装包并安装</h3><p>下载链接：<a href="https://www.rabbitmq.com/install-windows.html" target="_blank" rel="noopener">https://www.rabbitmq.com/install-windows.html</a></p><h3 id="配置环境变量-1"><a href="#配置环境变量-1" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>在环境变量里添加<code>RABBITMQ_HOME:RABBITMQ安装目录</code>，在path里添加<code>%RABBITMQ_HOME%\sbin</code>，在shell里运行<code>rabbitmq-plugins.bat enable rabbitmq_management</code>，接着运行<code>rabbitmq-server.bat</code>，即可启动rabbitmq服务器。</p><img src="http://ww1.sinaimg.cn/large/007FpgxTly1gh9yi9yp2zj30eb05lglj.jpg"><p>访问<code>localhost:15672</code>出现兔子表明一切ok。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-65</title>
       <link href="/2020/07/31/LeetCode-65/"/>
       <url>/2020/07/31/LeetCode-65/</url>
