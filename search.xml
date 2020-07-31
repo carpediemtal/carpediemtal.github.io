@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>利用bat运行java程序</title>
+      <link href="/2020/07/31/%E5%88%A9%E7%94%A8bat%E8%BF%90%E8%A1%8Cjava%E7%A8%8B%E5%BA%8F/"/>
+      <url>/2020/07/31/%E5%88%A9%E7%94%A8bat%E8%BF%90%E8%A1%8Cjava%E7%A8%8B%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<p>如果是用C/C++写的程序，可以直接编译成二进制的exe文件，在windows上执行起来很方便。</p><p>而java程序，一般都是利用工具把程序打成jar包，通过<code>java -jar xxx.jar</code>运行，此外还需要有jdk或者jre环境才可以如此。</p><a id="more"></a><p>我很好奇，MineCraft既然是用java编写的，他是怎样解决这一问题的呢？</p><p>打包发布并不是一件容易的事儿，javaFX的打包我弄了好久也没明白。据我所知，打包主要有以下方式：</p><ul><li><p>普通的java项目，可以用ide提供的一些功能去生成可执行的jar包。Idea里的Modules，Libraries还有Artifacts我没弄明白，平时也都是稀里糊涂的。</p></li><li><p>maven程序可以通过两个常见的打包工具生成可执行的jar包</p></li><li><p>spring boot程序最为方便，他提供了一个专门的打包工具，直接package就可以生成可执行的jar包。</p></li></ul><p>有时候jar包执行起来会有很多问题，希望以后可以有一个一统天下的打包神器。</p><p>要想像exe程序一样直接双击运行，有一个叫做exe4j的软件可以把可执行jar包转为exe文件。我没试过，因为觉得麻烦，exe4j的界面好像是上个世纪的软件。</p><p>通过bat执行java程序本质和<code>java -jar xxx.jar</code>没有区别。</p><p>如果已经有一个可执行的jar包，可以新建一个bat格式的文件，举个栗子：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">java -jar -Dfile.encoding=UTF-8 D:\BlogForServer\image-bed.jar</span><br></pre></td></tr></table></figure><p><code>@echo off</code>的作用是关掉黑框中的路径信息。</p><p>如果你在用IDEA，可以直接复制程序在IDEA运行时的命令：</p><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghajl4arqfj31hc0u076y.jpg"><p>举个栗子：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">D:\Software\Java\jdk-14\bin\java.exe --module-path D:\Software\Java\javafx-sdk-14.0.2.1\lib --add-modules javafx.controls,javafx.fxml --add-modules javafx.base,javafx.graphics --add-reads javafx.base=ALL-UNNAMED --add-reads javafx.graphics=ALL-UNNAMED "-javaagent:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\lib\idea_rt.jar=64980:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\bin" -Dfile.encoding=UTF-8 -classpath D:\Project\IdeaProjects\openJFX\target\classes;D:\Software\Java\javafx-sdk-14.0.2.1\lib\src.zip;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx-swt.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.web.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.base.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.fxml.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.media.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.swing.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.controls.jar;D:\Software\Java\javafx-sdk-14.0.2.1\lib\javafx.graphics.jar sample.Main</span><br></pre></td></tr></table></figure><p>只要能在ide里运行，用bat文件也能运行。</p><p>不过，上述方法只适合在本地小打小闹，如果要想要在别人的电脑上随意运行，此路不通。</p><p>等我会一点儿docker之后，这个问题也许能迎刃而解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指offer-22</title>
       <link href="/2020/07/31/%E5%89%91%E6%8C%87offer-22/"/>
       <url>/2020/07/31/%E5%89%91%E6%8C%87offer-22/</url>
