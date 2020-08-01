@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>过程和生命期</title>
+      <link href="/2020/08/01/%E8%BF%87%E7%A8%8B%E5%92%8C%E7%94%9F%E5%91%BD%E6%9C%9F/"/>
+      <url>/2020/08/01/%E8%BF%87%E7%A8%8B%E5%92%8C%E7%94%9F%E5%91%BD%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>A Sequence Of  Steps , In the Same Order each time</li><li>Produce an intended output of same kind</li></ul><a id="more"></a><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>The process describes all the major process activities</li><li>The process uses the resources, subject to a set of constraints, and produces intermediate and final products</li><li>The process may be composed of sub-processes that that linked in some way.</li><li>Each process activity has entry and exit criteria, so that we know when the activity begins and ends</li><li>The activities are organized in a sequence, so that it is clear when one activity is performed relative to the other activity </li><li>Every process has a set of guiding principles that explain the goals of each activity</li><li>Constraints  or controls may apply to an activity, resource, or product</li></ul><h2 id="生命期"><a href="#生命期" class="headerlink" title="生命期"></a>生命期</h2><ul><li><p>When the process involves the building of some PORDUCT</p></li><li><p>We sometime refer to the process as a Life Cycle</p></li></ul><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><ul><li><p>阶段</p><ul><li>Requirements Analysis </li><li>System Design</li><li>Program Design</li><li>Coding</li><li>Unit &amp; Integration Test</li><li>System Test</li><li>Acceptance Test</li><li>Operation &amp; Maintenance</li></ul></li><li><p>优势</p><ul><li>一个阶段完成后只需要关注下一个阶段</li><li>提供了一个模板、指导</li></ul></li><li><p>劣势</p><ul><li>线性的开发模式只有结束时才能看到结果，有很大的风险</li><li>不能适应客户需求的变化</li><li>把软件开发当做工业流程而不是一个创造性的流程</li></ul></li></ul><h3 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h3><ul><li><p>阶段</p><ul><li>和瀑布模型一样</li></ul></li><li><p>特点</p><ul><li>瀑布模型的变种版本</li><li>在前三个阶段就分别开始测试</li><li>最终产品最后一个步骤才出现</li></ul></li></ul><h3 id="原型模型"><a href="#原型模型" class="headerlink" title="原型模型"></a>原型模型</h3><ul><li>很像敏捷开发</li><li>先建立一个可以修改的源氏模型，之后和客户不断交流完善</li></ul><h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><ul><li>瀑布模型和原型模型的结合</li><li>慢</li></ul><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghbi3q3ivmj30x21i6dmi.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工程概论 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>复习</title>
       <link href="/2020/08/01/%E5%A4%8D%E4%B9%A0/"/>
       <url>/2020/08/01/%E5%A4%8D%E4%B9%A0/</url>
