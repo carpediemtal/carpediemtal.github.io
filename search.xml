@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>项目管理</title>
+      <link href="/2020/08/05/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+      <url>/2020/08/05/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><ul><li><p>Work Breakdown Structure</p></li><li><p>项目范围的WBS表示</p></li></ul><h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>Minimum Amount of Time it will be take to complete the Project</li></ul><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>The Slack at every node is Zero</li><li>There may be more than one critical path</li></ul><h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><ul><li>最长的那条路径</li><li>从左面开始，计算每项作业的最早结束时间</li><li>该时间等于最早可能的开始时间（ES）加上该作业的持续时间</li></ul><h2 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h2><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghfow71axuj30kq0aqwf4.jpg"><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghfouzznoqj30t70nmjui.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工程概率 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指offer-45</title>
       <link href="/2020/08/04/%E5%89%91%E6%8C%87offer-45/"/>
       <url>/2020/08/04/%E5%89%91%E6%8C%87offer-45/</url>
