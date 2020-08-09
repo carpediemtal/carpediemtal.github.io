@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>计算机中的数据表示</title>
+      <link href="/2020/08/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA/"/>
+      <url>/2020/08/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据编码"><a href="#数据编码" class="headerlink" title="数据编码"></a>数据编码</h2><h3 id="数值数据的编码"><a href="#数值数据的编码" class="headerlink" title="数值数据的编码"></a>数值数据的编码</h3><a id="more"></a><ul><li><p>数据</p><ul><li><p>分类</p><ul><li><p>根据小数点</p><ul><li><p>定点数</p><ul><li><p>定点整数（纯整数）</p><ul><li>符号位</li><li>数值位</li><li>小数点位</li><li>编码表示范围</li></ul></li><li><p>定点小数</p><ul><li>符号位</li><li>数值位</li><li>小数点位</li><li>编码表示范围</li></ul></li></ul></li><li><p>浮点数</p><ul><li>数符</li><li>阶符</li><li>阶码</li><li>尾数</li></ul></li></ul></li><li><p>根据符号</p><ul><li>无符号数</li><li>有符号数</li></ul></li></ul></li><li><p>进制转换</p><ul><li>整数部分</li><li>小数部分不断×2取整数部分做尾数直到小数部分为0</li></ul></li></ul></li><li><p>编码</p><ul><li><p>原码</p><ul><li><p>符号位</p><ul><li><p>最高位</p><ul><li><p>1</p><ul><li>负</li></ul></li><li><p>0</p><ul><li>正</li></ul></li></ul></li></ul></li><li><p>数值0</p><ul><li>两种表示</li></ul></li><li><p>原码和真值的转换</p><ul><li>把符号位改成﹢或-</li></ul></li><li><p>优劣</p><ul><li><p>优势</p><ul><li>简单直观</li><li>转换容易</li></ul></li><li><p>劣势</p><ul><li><p>0的表示不唯一</p></li><li><p>加减复杂</p></li><li><p>乘除简单</p><ul><li>真值相乘判断正负</li></ul></li></ul></li></ul></li><li><p>n位源码的表示范围</p><ul><li>整数</li><li>纯小数</li></ul></li></ul></li><li><p>补码</p><ul><li><p>作用</p><ul><li>把减法变成加法</li></ul></li><li><p>整数补码</p><ul><li><p>值</p><ul><li><p>正数的补码是其本身</p></li><li><p>负数的补码计算（以-35为例）</p><ul><li>将+35原码表示，所有位取反，最低位加1</li><li>将-35原码表示，除了符号位所有位取反，最低位加1</li><li>将+35原码表示，从低位向高位，找到第一个1不变，之后全部取反</li></ul></li></ul></li><li><p>表示范围</p><ul><li><p>最大值和原码最大值相同</p></li><li><p>最小值比原码最小值小1</p><ul><li>补码里0的表示只有一种</li></ul></li></ul></li></ul></li><li><p>小数补码</p><ul><li><p>值</p><ul><li>和整数补码有相同的计算方法</li></ul></li><li><p>表示范围</p><ul><li>最大值和原码最大值相同</li><li>最小值可以取到边界值-1</li></ul></li></ul></li></ul></li><li><p>反码</p><ul><li><p>求补码的过渡</p></li><li><p>取值</p><ul><li>正数不变</li><li>负数除了符号位所有位按位取反</li></ul></li><li><p>表示范围</p><ul><li>和原码一样</li></ul></li></ul></li><li><p>移码</p><ul><li>数值部分和补码相同</li><li>符号部分和补码相反</li></ul></li><li><p>求补运算</p><ul><li>所有位按位取反，末位加1</li></ul></li><li><p>算数左移/右移</p><ul><li><p>左移</p><ul><li>最高位移除，最低位补0</li></ul></li><li><p>右移</p><ul><li>最高位不变，最低位移除</li></ul></li></ul></li></ul></li></ul><h3 id="数据的浮点表示"><a href="#数据的浮点表示" class="headerlink" title="数据的浮点表示"></a>数据的浮点表示</h3><ul><li><p>浮点数表示法</p><ul><li><p>概念</p><ul><li>类似科学计数法</li></ul></li><li><p>组成</p><ul><li><p>尾数（用补码或原码表示）</p><ul><li>数值部分</li><li>数符部分</li></ul></li><li><p>基数（一般为2，不表示）</p></li><li><p>阶码（用移码表示）</p><ul><li>数值部分</li><li>数符部分</li></ul></li></ul></li></ul></li><li><p>浮点数所表示的数据范围</p><ul><li><p>浮点数分类</p><ul><li><p>非规格化浮点数</p></li><li><p>规格化浮点数</p><ul><li>将尾数的绝对值限定在某个范围内</li><li>规格化浮点数的第一位数值位和数符位必须相反</li><li>范围</li><li>例题</li></ul></li></ul></li><li><p>规格化</p><ul><li>左规</li><li>右规</li></ul></li><li><p>溢出</p><ul><li><p>上溢</p><ul><li>正</li><li>负</li></ul></li><li><p>下溢</p><ul><li>正</li><li>负</li></ul></li></ul></li></ul></li></ul><h3 id="检错与纠错编码"><a href="#检错与纠错编码" class="headerlink" title="检错与纠错编码"></a>检错与纠错编码</h3><ul><li><p>奇偶校验码</p><ul><li><p>概念</p><ul><li>事先约定好用奇或偶校验</li><li>补一位0或1使其有奇数或偶数个1</li></ul></li><li><p>分类</p><ul><li><p>水平奇偶校验</p></li><li><p>垂直奇偶校验</p></li><li><p>水平垂直奇偶校验</p><ul><li>水平＋垂直</li></ul></li></ul></li></ul></li><li><p>海明码</p><ul><li><p>概念</p><ul><li>具有一位纠错能力的编码</li></ul></li><li><p>编码距离</p></li></ul></li><li><p>循环冗余校验码CRC</p><ul><li><p>概念</p><ul><li>做除法运算除尽则编码正确否则余数指出错误位置</li></ul></li><li><p>做法</p><ul><li><p>获得CRC码</p><ul><li>将有效信息左移k位（k=生成多项式位数-1）</li><li>做除法运算得到余数补到有效信息后面得到CRC码</li></ul></li><li><p>解码</p><ul><li>用CRC码对生成多项式做除法运算</li><li>余数为出错位置（从1开始从右向左数）</li></ul></li></ul></li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghku43uslrj31hk2qutl8.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单元测试</title>
       <link href="/2020/08/09/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
       <url>/2020/08/09/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
