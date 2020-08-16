@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Dead lock</title>
+      <link href="/2020/08/16/Dead-lock/"/>
+      <url>/2020/08/16/Dead-lock/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>进程永远被阻塞称之为死锁</p><a id="more"></a><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ul><li>可抢占资源</li><li>不可抢占资源</li></ul><h2 id="必要条件和解决方法"><a href="#必要条件和解决方法" class="headerlink" title="必要条件和解决方法"></a>必要条件和解决方法</h2><h3 id="互斥条件"><a href="#互斥条件" class="headerlink" title="互斥条件"></a>互斥条件</h3><ul><li>假脱机</li></ul><h3 id="占有和等待条件"><a href="#占有和等待条件" class="headerlink" title="占有和等待条件"></a>占有和等待条件</h3><ul><li>在开始就请求全部资源</li></ul><h3 id="不可抢占条件"><a href="#不可抢占条件" class="headerlink" title="不可抢占条件"></a>不可抢占条件</h3><ul><li>抢占资源</li></ul><h3 id="环路等待条件"><a href="#环路等待条件" class="headerlink" title="环路等待条件"></a>环路等待条件</h3><ul><li>对资源按序编号</li></ul><h2 id="避免"><a href="#避免" class="headerlink" title="避免"></a>避免</h2><h3 id="安全状态"><a href="#安全状态" class="headerlink" title="安全状态"></a>安全状态</h3><h3 id="不安全状态"><a href="#不安全状态" class="headerlink" title="不安全状态"></a>不安全状态</h3><ul><li>无法保证所有进程都能完成</li></ul><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><h2 id="starvation"><a href="#starvation" class="headerlink" title="starvation"></a>starvation</h2><h3 id="进程没阻塞但是无限制被推后"><a href="#进程没阻塞但是无限制被推后" class="headerlink" title="进程没阻塞但是无限制被推后"></a>进程没阻塞但是无限制被推后</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghsg83j7j3j313u0c4wfq.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IO</title>
       <link href="/2020/08/16/IO/"/>
       <url>/2020/08/16/IO/</url>
