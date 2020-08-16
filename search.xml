@@ -8,8 +8,14 @@
       <link href="/2020/08/16/IO/"/>
       <url>/2020/08/16/IO/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="IO设备分类"><a href="#IO设备分类" class="headerlink" title="IO设备分类"></a>IO设备分类</h3><ul><li>Block device</li><li>Character divice</li></ul><a id="more"></a><h3 id="设备接口规范"><a href="#设备接口规范" class="headerlink" title="设备接口规范"></a>设备接口规范</h3><ul><li>可以从硬件手册获取接口规范</li><li>由于机密性，可能只提供开发库</li></ul><h3 id="设备控制器"><a href="#设备控制器" class="headerlink" title="设备控制器"></a>设备控制器</h3><ul><li><p>概念</p><ul><li>控制设备的那部分</li></ul></li></ul><h2 id="地址空间访问"><a href="#地址空间访问" class="headerlink" title="地址空间访问"></a>地址空间访问</h2><h3 id="内存映射"><a href="#内存映射" class="headerlink" title="内存映射"></a>内存映射</h3><ul><li><p>IO和内存空间分离</p></li><li><p>用内存空间</p><ul><li>两种挂接方式</li></ul></li><li><p>两者混合</p></li></ul><h3 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h3><ul><li><p>DMA controller</p><ul><li><p>地位</p><ul><li>CPU代理人</li></ul></li><li><p>工作方式</p><ul><li>Fly-by mode</li><li>cached mode</li></ul></li></ul></li><li><p>Interrupt visit</p><ul><li>中断控制器</li><li>精确中断</li><li>非精确中断</li></ul></li></ul><h2 id="磁臂调度算法"><a href="#磁臂调度算法" class="headerlink" title="磁臂调度算法"></a>磁臂调度算法</h2><h3 id="FCFS"><a href="#FCFS" class="headerlink" title="FCFS"></a>FCFS</h3><h3 id="Shortest-Seek-Fist"><a href="#Shortest-Seek-Fist" class="headerlink" title="Shortest Seek Fist"></a>Shortest Seek Fist</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghsfskyru3j30nf0l6jss.jpg">]]></content>
       
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
       
       
     </entry>
