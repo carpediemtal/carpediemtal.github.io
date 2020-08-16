@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/将IntelliJ-Idea的项目发布到github/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -323,7 +323,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/06/01/将IntelliJ-Idea的项目发布到github/" itemprop="url">将IntelliJ Idea的项目发布到github</a></h1>
+                <a class="post-title-link" href="/2020/07/07/异常/" itemprop="url">异常</a></h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,713 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-01T08:42:19+08:00">
-                2020-06-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T17:02:15+08:00">
+                2020-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  262
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java异常"><a href="#Java异常" class="headerlink" title="Java异常"></a>Java异常</h1><h2 id="Error-VS-Exception"><a href="#Error-VS-Exception" class="headerlink" title="Error VS Exception"></a>Error VS Exception</h2><p>Error和Exception本质是两个Class，他们都继承自Throwable这个类。Error表示严重的错误，比如OutOfMemoryError和StackOverflowError，出现Error程序就会停止，Error无法被捕获处理。Exception表示常见的一般的错误，可以被捕获处理，也可以向上层函数抛出，可以一直抛到main方法为止，如果在main方法内部还没有捕获异常，程序将会停止。</p>
+<h2 id="RuntimeException-VS-CheckedException"><a href="#RuntimeException-VS-CheckedException" class="headerlink" title="RuntimeException VS CheckedException"></a>RuntimeException VS CheckedException</h2><p>RuntimeException又叫UncheckedException，两者的区别从名字就可见一斑。RuntimeException及其子类不需要程序去捕获或者抛出，CheckedException及其子类必须去捕获或抛出。究其原因，在于RuntimeException及其子类是一些难以预估的错误，比如最常见的NullPointerException、IndexOutOfBoundsException等，这类错误编译器无法获知，只有当程序运行起来之后才能得到结果。而我们容易预估到CheckedException的出现，比如我们操作程序去读一个文件，就可能出现FileNotFoundException，这类Exception必须要去捕获处理或抛出。</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggiilypwmzj32500jewgw.jpg">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/Leetcode-34/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/07/Leetcode-34/" itemprop="url">Leetcode-34</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T15:43:56+08:00">
+                2020-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  339
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="LeetCode-34-在排序数组中查找元素的第一个和最后一个位置"><a href="#LeetCode-34-在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="LeetCode-34  在排序数组中查找元素的第一个和最后一个位置"></a>LeetCode-34  在排序数组中查找元素的第一个和最后一个位置</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggigemari3j30pp0dnmxq.jpg">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/07/Leetcode-34/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/剑指offer-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/07/剑指offer-03/" itemprop="url">剑指offer-03</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T14:28:32+08:00">
+                2020-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  250
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="剑指offer-03-数组中重复的数字"><a href="#剑指offer-03-数组中重复的数字" class="headerlink" title="剑指offer-03  数组中重复的数字"></a>剑指offer-03  数组中重复的数字</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggieb7db1jj30ph0angm3.jpg">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/07/剑指offer-03/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/LeetCode-36/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/07/LeetCode-36/" itemprop="url">LeetCode-36</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T07:51:01+08:00">
+                2020-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  231
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="LeetCode-36-有效的数独"><a href="#LeetCode-36-有效的数独" class="headerlink" title="LeetCode-36 有效的数独"></a>LeetCode-36 有效的数独</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggi2qvf6cmj30p10hcmy5.jpg">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/07/LeetCode-36/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/将博客从github迁移到gitee/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/06/将博客从github迁移到gitee/" itemprop="url">将博客从github迁移到gitee</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-06T21:00:21+08:00">
+                2020-07-06
               </time>
             
 
@@ -389,7 +1094,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  106
+                  389
                 </span>
               
 
@@ -427,12 +1132,11 @@
 
       
         
-          <h1 id="将IntelliJ-Idea的项目发布到github"><a href="#将IntelliJ-Idea的项目发布到github" class="headerlink" title="将IntelliJ Idea的项目发布到github"></a>将IntelliJ Idea的项目发布到github</h1><h2 id="Intelli-Idea版本："><a href="#Intelli-Idea版本：" class="headerlink" title="Intelli Idea版本："></a>Intelli Idea版本：</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfchye7vzkj30m80dwaas.jpg">
-
-<h2 id="安装git并在Idea中设置好git的路径"><a href="#安装git并在Idea中设置好git的路径" class="headerlink" title="安装git并在Idea中设置好git的路径"></a>安装git并在Idea中设置好git的路径</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfci20k3mwj30y50ohdhh.jpg">
+          <h1 id="将博客从github迁移到gitee"><a href="#将博客从github迁移到gitee" class="headerlink" title="将博客从github迁移到gitee"></a>将博客从github迁移到gitee</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>我的博客是最常见的github pages+hexo搭建而成的，一切都好，唯一不足就是访问太慢了，因为众所周知的原因，偶尔甚至不能访问。我自己有梯子倒还好，开代理就行，但是博客还想给别的小伙伴分享，正好gitee也有类似的功能，所以决定给博客搬个家。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>在gitee上新建一个仓库，可以选择直接从github导入：</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/06/01/将IntelliJ-Idea的项目发布到github/#more" rel="contents">
+            <a class="btn" href="/2020/07/06/将博客从github迁移到gitee/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -483,7 +1187,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/QQ聊天机器人/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/Leetcode-63/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -502,7 +1206,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/30/QQ聊天机器人/" itemprop="url">QQ聊天机器人</a></h1>
+                <a class="post-title-link" href="/2020/07/06/Leetcode-63/" itemprop="url">Leetcode-63</a></h1>
         
 
         <div class="post-meta">
@@ -514,371 +1218,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T09:39:14+08:00">
-                2020-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Fun/" itemprop="url" rel="index">
-                    <span itemprop="name">Fun</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  5.7k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  25
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="QQ聊天机器人-教程向"><a href="#QQ聊天机器人-教程向" class="headerlink" title="QQ聊天机器人-教程向"></a>QQ聊天机器人-教程向</h1><p>这篇文章将引导大家如何去写一个QQ聊天机器人。在此之前，先给大伙儿展示一下本fw的Robot的一些特点和功能：</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gfa8i163zbj30aa08wglu.jpg">
-
-<p>Name: Arina</p>
-<p>Attribute: 萌妹子</p>
-<p>官网：<a href="http://47.98.252.1:7000/arina" target="_blank" rel="noopener">http://47.98.252.1:7000/arina</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/30/QQ聊天机器人/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/Spring-Boot-表单输入验证/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/28/Spring-Boot-表单输入验证/" itemprop="url">Spring Boot:表单输入验证</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T22:17:32+08:00">
-                2020-05-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本fw决定写一篇教程向的文章，这篇文章会指导大家如何利用Spring Boot实现网页表单输入验证这样的一个简单的功能。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf8j0ds2l6j31hc0u0t9b.jpg">
-
-<p>如图，这个简单的应用可以呈现出这样一个允许用户输入数据的页面：只有输入满足长度要求才会跳转到新的页面，否则会提示错误信息。</p>
-<p>本fw用IDE是IntelliJ Idea，所以以Idea为例，向大家展示这个简易项目的全过程（from scratch）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/28/Spring-Boot-表单输入验证/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/leetcode-394/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/28/leetcode-394/" itemprop="url">leetcode-394</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T10:26:49+08:00">
-                2020-05-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-06T11:52:20+08:00">
+                2020-07-06
               </time>
             
 
@@ -931,7 +1272,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  140
+                  263
                 </span>
               
 
@@ -969,11 +1310,12 @@
 
       
         
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><hr>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf7yffo6fgj30k30g6my3.jpg">
+          <h1 id="Leetcode-63-不同路径II"><a href="#Leetcode-63-不同路径II" class="headerlink" title="Leetcode-63  不同路径II"></a>Leetcode-63  不同路径II</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43gykjzj30p90lc0tk.jpg">
+
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggh43uck04j30ol08fjrk.jpg">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/05/28/leetcode-394/#more" rel="contents">
+            <a class="btn" href="/2020/07/06/Leetcode-63/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1024,7 +1366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/大师/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/垃圾收集器与内存分配策略（1）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -1043,7 +1385,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/25/大师/" itemprop="url">大师</a></h1>
+                <a class="post-title-link" href="/2020/07/05/垃圾收集器与内存分配策略（1）/" itemprop="url">垃圾收集器与内存分配策略（1）</a></h1>
         
 
         <div class="post-meta">
@@ -1055,8 +1397,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-25T18:16:04+08:00">
-                2020-05-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-05T22:31:05+08:00">
+                2020-07-05
               </time>
             
 
@@ -1078,8 +1420,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Essay/" itemprop="url" rel="index">
-                    <span itemprop="name">Essay</span>
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
                   </a>
                 </span>
 
@@ -1109,721 +1451,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf4v47ghhuj31hc0u0e81.jpg">
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/WebSocket/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/24/WebSocket/" itemprop="url">WebSocket</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-24T12:56:30+08:00">
-                2020-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  110
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><hr>
-<h2 id="传统的Http协议"><a href="#传统的Http协议" class="headerlink" title="传统的Http协议"></a>传统的Http协议</h2><h3 id="无请求，不响应"><a href="#无请求，不响应" class="headerlink" title="无请求，不响应"></a>无请求，不响应</h3><ul>
-<li>浏览器向服务器发送请求，服务器回应</li>
-<li>服务器想要定期推送数据，需要用JavaScript定时轮询</li>
-</ul>
-<h2 id="WebSocket：Http升级版"><a href="#WebSocket：Http升级版" class="headerlink" title="WebSocket：Http升级版"></a>WebSocket：Http升级版</h2><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><p>GET /chat HTTP/1.1<br>Host: <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a><br>Upgrade: websocket<br>Connection: Upgrade</p>
-<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>HTTP/1.1 101 Switching Protocols<br>Upgrade: websocket<br>Connection: Upgrade</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>TCP连接will go on</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/24/WebSocket/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/leetcode-105/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/22/leetcode-105/" itemprop="url">leetcode-105</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-22T12:57:42+08:00">
-                2020-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  328
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Leetcode-105"><a href="#Leetcode-105" class="headerlink" title="Leetcode-105"></a>Leetcode-105</h1><p>本来不想发的，但实在没什么可发了。</p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gf152w9r7xj30ju0i5wex.jpg">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/22/leetcode-105/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/overwatch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/21/overwatch/" itemprop="url">overwatch_Anniversary</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T11:01:53+08:00">
-                2020-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Essay/" itemprop="url" rel="index">
-                    <span itemprop="name">Essay</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  791
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="四周年"><a href="#四周年" class="headerlink" title="四周年"></a>四周年</h1><p>不知不觉已经打了四年守望了，游戏时间将近1000个小时，是我这辈子玩的时间最长的游戏。我从第一个赛季就开始玩儿，现在已经900级了，如果考虑到当初防沉迷的限制（游戏时间3小时以上就不再有经验），我现在应该已经1000级了。再考虑到，我帮好几个同学从黄金上到钻石，游戏时间还要再往上涨。不过就算玩了这么久，昨天周年庆有活动，还是去网吧又玩了8个小时，这游戏的魅力自然不必多说了。</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gezw6j2h2tj31hc0u0n1g.jpg">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/21/overwatch/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/visitor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/21/visitor/" itemprop="url">visitor</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T10:47:02+08:00">
-                2020-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  618
+                  926
                 </span>
               
 
@@ -1861,11 +1489,38 @@
 
       
         
-          <h1 id="Visitor"><a href="#Visitor" class="headerlink" title="Visitor"></a>Visitor</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="表示一个作用于某对象结构中的各元素的操作"><a href="#表示一个作用于某对象结构中的各元素的操作" class="headerlink" title="表示一个作用于某对象结构中的各元素的操作"></a>表示一个作用于某对象结构中的各元素的操作</h3><h3 id="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"><a href="#可以在不改变各元素的类的前提下定义作用于这些元素的新操作" class="headerlink" title="可以在不改变各元素的类的前提下定义作用于这些元素的新操作"></a>可以在不改变各元素的类的前提下定义作用于这些元素的新操作</h3>
+          <h1 id="垃圾收集器与内存分配策略（1）"><a href="#垃圾收集器与内存分配策略（1）" class="headerlink" title="垃圾收集器与内存分配策略（1）"></a>垃圾收集器与内存分配策略（1）</h1><hr>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人想出来</p>
+<h3 id="GC（Garbage-Collection）"><a href="#GC（Garbage-Collection）" class="headerlink" title="GC（Garbage Collection）"></a>GC（Garbage Collection）</h3><h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
+<li><p>解决问题</p>
+<ul>
+<li>内存溢出、泄漏</li>
+<li>GC成了性能瓶颈</li>
+</ul>
+</li>
+</ul>
+<h2 id="GC区域"><a href="#GC区域" class="headerlink" title="GC区域"></a>GC区域</h2><h3 id="无关紧要的"><a href="#无关紧要的" class="headerlink" title="无关紧要的"></a>无关紧要的</h3><ul>
+<li><p>与线程同生共死</p>
+<p>分配内存时大致内存是确定的，方法或线程结束，内存自动回收，所以整个生命周期内存是比较确定的，没什么好说的。GC主要关注java堆（又称gc堆）</p>
+<ul>
+<li>程序计数器</li>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+</ul>
+</li>
+</ul>
+<h3 id="至关重要的"><a href="#至关重要的" class="headerlink" title="至关重要的"></a>至关重要的</h3><ul>
+<li><p>Java堆</p>
+<p>主要存放对象的 实例。</p>
+<ul>
+<li>内存动态分配</li>
+<li>内存动态回收</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/05/21/visitor/#more" rel="contents">
+            <a class="btn" href="/2020/07/05/垃圾收集器与内存分配策略（1）/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1916,7 +1571,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/Template-Method/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/Leetcode-31/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -1935,7 +1590,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/21/Template-Method/" itemprop="url">Template Method</a></h1>
+                <a class="post-title-link" href="/2020/07/05/Leetcode-31/" itemprop="url">Leetcode-31</a></h1>
         
 
         <div class="post-meta">
@@ -1947,8 +1602,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-21T09:56:00+08:00">
-                2020-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-05T09:36:33+08:00">
+                2020-07-05
               </time>
             
 
@@ -1970,8 +1625,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -2001,7 +1656,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  249
+                  423
                 </span>
               
 
@@ -2017,7 +1672,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -2039,16 +1694,375 @@
 
       
         
-          <h1 id="Template-Method"><a href="#Template-Method" class="headerlink" title="Template Method"></a>Template Method</h1><hr>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="定义一个操作中的算法的骨架"><a href="#定义一个操作中的算法的骨架" class="headerlink" title="定义一个操作中的算法的骨架"></a>定义一个操作中的算法的骨架</h3><h3 id="将一些步骤延迟到子类中"><a href="#将一些步骤延迟到子类中" class="headerlink" title="将一些步骤延迟到子类中"></a>将一些步骤延迟到子类中</h3><h3 id="子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤"><a href="#子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤" class="headerlink" title="子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤"></a>子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</h3><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="父类定义骨架"><a href="#父类定义骨架" class="headerlink" title="父类定义骨架"></a>父类定义骨架</h3><ul>
-<li>骨架一般声明为final</li>
-</ul>
-<h3 id="子类实现（某些）细节"><a href="#子类实现（某些）细节" class="headerlink" title="子类实现（某些）细节"></a>子类实现（某些）细节</h3><ul>
-<li>需要子类实现的一般声明为protected</li>
-</ul>
+          <h1 id="Leetcode-31-下一个排列"><a href="#Leetcode-31-下一个排列" class="headerlink" title="Leetcode-31 下一个排列"></a>Leetcode-31 下一个排列</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggfupwyax1j30k709cq3c.jpg">
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggfuqouj3qj30ok08xt8x.jpg">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/05/21/Template-Method/#more" rel="contents">
+            <a class="btn" href="/2020/07/05/Leetcode-31/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/对前后端分离的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/02/对前后端分离的理解/" itemprop="url">对前后端分离的理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-02T12:37:36+08:00">
+                2020-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Experience/" itemprop="url" rel="index">
+                    <span itemprop="name">Experience</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  717
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="对前后端分离的一点理解"><a href="#对前后端分离的一点理解" class="headerlink" title="对前后端分离的一点理解"></a>对前后端分离的一点理解</h1><p>对前后端分离的认知经历了一个比较长的过程。</p>
+<h2 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h2><p>记得大一的时候，我从一个同学那儿第一次听说了“前端”和“后端”这两个名词，我就问他什么是前端和后端啊，他告诉我前端就是用户可以看到的那部分，后端就是用户看不到的部分。</p>
+<h2 id="初认识"><a href="#初认识" class="headerlink" title="初认识"></a>初认识</h2><p>在学习MVC的时候，我了解到。传统的开发模式因为耦合性很高，所以有很多缺点。但是我只是听别人说耦合性高，自己从来没有试过传统的写法。在写了一些MVC架构的demo之后，才对这一点有了更深的理解。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/02/对前后端分离的理解/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/21/AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/21/AJAX/" itemprop="url">AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-21T10:32:52+08:00">
+                2020-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  628
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="AJAX心得体会"><a href="#AJAX心得体会" class="headerlink" title="AJAX心得体会"></a>AJAX心得体会</h1><p>在接触AJAX这个概念之前，觉得这东西好高端啊，熟悉了之后就觉得也没什么了不起，挺土的。</p>
+<p>在WEB世界里，浏览器向服务器发送一次HTTP请求，服务器返回一个HTML页面。</p>
+<p>栗子</p>
+<ul>
+<li>提交表单时，页面会刷新，服务器会返回一个全新的html页面</li>
+<li>百度的搜索框会根据用户输入的内容，即时进行联想，如果总是要刷新，肯定是不行的。</li>
+</ul>
+<p>解决方法是，用JavaScript发送新的请求，接受到数据之后，再用JavaScript更新页面数据，这样用户感觉自己始终停留在一个页面（没有刷新）。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/06/21/AJAX/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2090,7 +2104,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2138,7 +2152,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">137</span>
+                  <span class="site-state-item-count">148</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2244,7 +2258,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">60.9k</span>
+    <span title="Site words total count">63.9k</span>
   
 </div>
 

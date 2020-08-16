@@ -4,6 +4,209 @@
   
     
     <entry>
+      <title>IO</title>
+      <link href="/2020/08/16/IO/"/>
+      <url>/2020/08/16/IO/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>上路</title>
+      <link href="/2020/08/14/%E4%B8%8A%E8%B7%AF/"/>
+      <url>/2020/08/14/%E4%B8%8A%E8%B7%AF/</url>
+      
+        <content type="html"><![CDATA[<p>八个月的假期已经结束，开学即期末，期末即挂科。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Experience </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>File System</title>
+      <link href="/2020/08/14/File-System/"/>
+      <url>/2020/08/14/File-System/</url>
+      
+        <content type="html"><![CDATA[<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><ul><li>文件+文件管理</li></ul><h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><ul><li>普通文件</li><li>目录</li><li>设备文件</li></ul><a id="more"></a><h3 id="文件访问方法"><a href="#文件访问方法" class="headerlink" title="文件访问方法"></a>文件访问方法</h3><ul><li>顺序访问</li><li>随机访问</li></ul><h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><ul><li>Byte</li><li>Record</li><li>Tree</li></ul><h2 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h2><h3 id="分级"><a href="#分级" class="headerlink" title="分级"></a>分级</h3><ul><li><p>Single Level</p></li><li><p>Two Level</p></li><li><p>Hierarchical</p><ul><li><p>优势</p><ul><li>定位快</li></ul></li><li><p>劣势</p><ul><li>路径可能会很长</li></ul></li></ul></li></ul><h3 id="路径名"><a href="#路径名" class="headerlink" title="路径名"></a>路径名</h3><ul><li><p>绝对路径</p></li><li><p>相对路径</p><ul><li>.和..</li></ul></li></ul><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><h2 id="File-System-Implementation"><a href="#File-System-Implementation" class="headerlink" title="File System Implementation"></a>File System Implementation</h2><h3 id="Implementing-Files"><a href="#Implementing-Files" class="headerlink" title="Implementing Files"></a>Implementing Files</h3><ul><li><p>连续分配</p><ul><li>增删很麻烦</li></ul></li><li><p>链表分配</p><ul><li>随机存取很慢</li></ul></li><li><p>FAT</p><ul><li><p>功能</p><ul><li>记录空闲块</li><li>记录文件对应磁盘块的地址</li><li>记录磁盘块的顺序</li></ul></li><li><p>特点</p><ul><li>整个FAT表都要放在内存中</li></ul></li><li><p>缺陷</p><ul><li>占用内存太大</li></ul></li></ul></li><li><p>inode</p><ul><li>FAT改进版，只加载打开的文件</li><li>每个文件分配一个inode，其中有文件属性和文件块的地址</li></ul></li></ul><h3 id="Implementing-directtories"><a href="#Implementing-directtories" class="headerlink" title="Implementing directtories"></a>Implementing directtories</h3><ul><li>定长存储</li><li>变长存储</li></ul><h3 id="Link-File-Implementation"><a href="#Link-File-Implementation" class="headerlink" title="Link File Implementation"></a>Link File Implementation</h3><ul><li><p>软（符号）链接</p><ul><li>存目标文件的路径</li><li>需要额外的inode</li></ul></li><li><p>硬链接</p><ul><li>目标文件的别名</li><li>硬链接不可以跨文件系统</li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghqocqtcaij31451czdlg.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Virtual Memory</title>
+      <link href="/2020/08/13/Virtual-Memory/"/>
+      <url>/2020/08/13/Virtual-Memory/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol><li>每个程序有自己的地址空间，这些地址空间被分为很多拥有连续地址范围的页面</li><li>程序运行时，并非所有页面都要加载进内存。只有需要时，页面才被OS映射到物理内存</li><li>页面可以被交换（和磁盘）</li><li>程序里用到的是虚地址</li></ol><a id="more"></a><h2 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ul><li>如何把虚地址映射到物理地址</li></ul><h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><ul><li><p>页面</p><ul><li><p>虚拟地址空间单元</p></li><li><p>图</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghqbuq8zrzj30hz0pejsk.jpg"></li></ul></li><li><p>页表</p><ul><li>页面和页框的映射关系</li><li>Present/Absent</li><li>Page Frame Number</li></ul></li><li><p>页框</p><ul><li>物理内存空间单元</li></ul></li></ul><h3 id="MMU"><a href="#MMU" class="headerlink" title="MMU"></a>MMU</h3><p>Memory Management Unit</p><h3 id="翻译过程"><a href="#翻译过程" class="headerlink" title="翻译过程"></a>翻译过程</h3><ul><li><p>虚拟地址</p><ul><li><p>虚拟页面号</p><ul><li>高4位</li></ul></li><li><p>偏移量</p><ul><li>低12位</li></ul></li></ul></li><li><p>步骤</p><ul><li>由虚拟地址找到虚拟页面号和偏移量</li><li>由页表得到物理页面号(顺便判断是否会缺页中断，如果缺页中断就不用找了)</li><li>加偏移量得到物理地址</li></ul></li><li><p>图</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghqbu5dci6j30k40nejse.jpg"></li></ul><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="Speeding-Up-paging"><a href="#Speeding-Up-paging" class="headerlink" title="Speeding Up paging"></a>Speeding Up paging</h3><ul><li><p>TLBs</p><ul><li><p>情报</p><ul><li>大多数程序总是对少量的页面进行频繁的访问</li></ul></li><li><p>功能</p><ul><li>引入一个小型的硬件设备TLB将虚拟地址直接映射到物理地址，不再需要去查找页表</li></ul></li></ul></li></ul><h3 id="Reduce-Page-Table-Size"><a href="#Reduce-Page-Table-Size" class="headerlink" title="Reduce Page Table Size"></a>Reduce Page Table Size</h3><ul><li><p>Multilevel Page level</p><ul><li><p>缺点</p><ul><li>影响查找速度</li></ul></li></ul></li><li><p>Inverted Page Table</p><ul><li>哈希</li><li>全局只有一张表</li></ul></li></ul><h2 id="Page-Replacement-Alg"><a href="#Page-Replacement-Alg" class="headerlink" title="Page Replacement Alg"></a>Page Replacement Alg</h2><h3 id="为什么需要PRA"><a href="#为什么需要PRA" class="headerlink" title="为什么需要PRA"></a>为什么需要PRA</h3><ul><li>新的进程已经没内存了，所以要替换一些进程</li></ul><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul><li><p>最优置换算法</p><ul><li><p>特点</p><ul><li>Optimal but unreliazable</li><li>Page fault数最小</li><li>替换最后使用的进程</li></ul></li><li><p>计算缺页中断次数</p></li></ul></li><li><p>Least Recently used</p><ul><li><p>概念</p><ul><li>参考之前的序列，找到最不常用的</li></ul></li><li><p>分类</p><ul><li><p>Strict LRU</p><ul><li><p>缺陷</p><ul><li>要维护一个链表，每次都要更新链表</li></ul></li></ul></li><li><p>Approximately LRU</p></li></ul></li><li><p>硬件实现</p></li></ul></li><li><p>Simulating LRU</p><ul><li>Not Frequently used</li></ul></li><li><p>The Working Set PRA</p></li><li><p>The WS Clock</p></li><li><p>FIFO</p></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghqbv7xntzj323q1h9gww.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Memory Management</title>
+      <link href="/2020/08/13/Memory-Management/"/>
+      <url>/2020/08/13/Memory-Management/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Why-Memory-Management"><a href="#Why-Memory-Management" class="headerlink" title="Why Memory Management"></a>Why Memory Management</h2><p>没有内存管理的时代（单进程）岁月静好</p><p>多进程出现了问题</p><a id="more"></a><h2 id="Address-Space"><a href="#Address-Space" class="headerlink" title="Address Space"></a>Address Space</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul><li>每个进程都有自己独立的地址空间</li><li>地址空间从0开始</li></ul><h3 id="Relocation"><a href="#Relocation" class="headerlink" title="Relocation"></a>Relocation</h3><ul><li><p>概念</p><ul><li>加载程序到内存时对程序中指令和数据地址进行修改</li></ul></li><li><p>分类</p><ul><li><p>Static Relocation</p><ul><li><p>概念</p><ul><li>操作系统修正内存地址，一次性写好</li></ul></li><li><p>缺点</p><ul><li>可能无法利用碎片式的内存</li></ul></li></ul></li><li><p>Dynamic Relocation</p><ul><li><p>概念</p><ul><li>加载程序到内存之后，并不立即进行逻辑地址到物理地址的转换，而是等程序要执行时再实时算出来，需要寄存器协助</li><li>Base Register</li><li>Limit Register</li></ul></li></ul></li></ul></li><li><p>问题</p><ul><li>内存空间不足以加载新的进程怎么办</li></ul></li></ul><h3 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h3><ul><li><p>概念</p><ul><li>内存和磁盘交换，把老的进程先挪到磁盘，再把新的进程加载进内存</li></ul></li><li><p>Memory Compaction</p><ul><li>消除碎片区域</li></ul></li></ul><h3 id="Free-Space-Management"><a href="#Free-Space-Management" class="headerlink" title="Free Space Management"></a>Free Space Management</h3><ul><li><p>Bitmap&amp;Linked list</p><ul><li><p>图</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgupq6ipj30x80jqta1.jpg"></li><li><p>优劣</p><ul><li>Linked List查找空闲区域更快（bitmap需要检查每一位）</li><li>Linked List占用空间更大</li></ul></li></ul></li><li><p>内存分配算法</p><ul><li><p>First FIt</p></li><li><p>Next Fit</p></li><li><p>Best Fit</p><ul><li>耗时，空间利用率高</li></ul></li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgv1wu3dj31dt10jdlh.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>剑指offer-26</title>
+      <link href="/2020/08/12/%E5%89%91%E6%8C%87offer-26/"/>
+      <url>/2020/08/12/%E5%89%91%E6%8C%87offer-26/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gho9p3ahx9j30nu0logmc.jpg"><a id="more"></a><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gho9p9p9slj30n008uweo.jpg"><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubStructure</span><span class="params">(TreeNode A, TreeNode B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Special case</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || B == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> A == B;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Find the nodes which has same value with B's root</span></span><br><span class="line">        List&lt;TreeNode&gt; roots = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        dfs(A, B.val, roots);</span><br><span class="line">        <span class="keyword">for</span> (TreeNode root : roots) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root != <span class="keyword">null</span> &amp;&amp; cmp(root, B)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">cmp</span><span class="params">(TreeNode A, TreeNode B)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || B == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> A == B;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (A.val == B.val) &#123;</span><br><span class="line">            <span class="keyword">if</span> (B.left == <span class="keyword">null</span> &amp;&amp; B.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (B.left == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> cmp(A.right, B.right);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (B.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> cmp(A.left, B.left);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> cmp(A.right, B.right) &amp;&amp; cmp(A.right, B.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode A, <span class="keyword">int</span> val, List&lt;TreeNode&gt; roots)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (A.val == val) &#123;</span><br><span class="line">            roots.add(A);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(A.left, val, roots);</span><br><span class="line">        dfs(A.right, val, roots);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：不好算啊，dfs时间复杂度是O（m），m是A的节点个数，cmp时间复杂度小于O（n），n是B的节点个数。</p><p>空间复杂度：不好算啊，最多事O（m）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Scheduling</title>
+      <link href="/2020/08/12/Scheduling/"/>
+      <url>/2020/08/12/Scheduling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有多个就绪的进程或线程，哪一个应该先执行?</p><h2 id="When-to-schedule"><a href="#When-to-schedule" class="headerlink" title="When to schedule"></a>When to schedule</h2><ul><li>Process creates</li><li>Process exits</li><li>Process blocks on IO</li><li>IO interrupts</li></ul><a id="more"></a><h2 id="How-to-schedule"><a href="#How-to-schedule" class="headerlink" title="How to schedule"></a>How to schedule</h2><h3 id="Scheduling-Algorithm"><a href="#Scheduling-Algorithm" class="headerlink" title="Scheduling Algorithm"></a>Scheduling Algorithm</h3><ul><li><p>相关概念</p><ul><li><p>Throughput（吞吐量）</p><ul><li>单位时间内执行的任务数</li></ul></li><li><p>Turnaround（周转时间）</p><ul><li>提交到结束所需时间</li></ul></li><li><p>Average Turnaround time</p><ul><li>平均数</li></ul></li><li><p>Waiting time</p><ul><li>在ready queue里等待的时间</li></ul></li><li><p>Response time</p><ul><li>提交到第一次获得响应的时间，不同于周转时间</li></ul></li><li><p>CPU utilization</p></li></ul></li><li><p>Categories</p><ul><li><p>Preemptive &amp; Non-preemptive</p><ul><li>抢占式调度算法涉及到优先级</li></ul></li><li><p>Batch</p><ul><li><p>FCFS</p><p>Fist come First serve</p></li><li><p>SJF</p><p>Shortest job first</p><ul><li>非抢占式</li><li>抢占式</li></ul></li></ul></li><li><p>Interactive System</p><ul><li><p>Round-Robin Scheduling</p><p>轮转调度</p><ul><li><p>相关概念</p><ul><li>quantum</li></ul></li><li><p>特点</p><ul><li>平均周转时间大，response time小</li></ul></li><li><p>一体两面</p><ul><li>quantum太大，response time太大</li><li>quantum太小，进程切换频繁</li></ul></li></ul></li><li><p>Priority Scheduling</p><ul><li>先用轮转调度执行优先级最高的，再执行优先级低的</li></ul></li><li><p>Multiple Queues</p><p>多级队列</p><ul><li>类似Priority Scheduling，每层调度算法可以不一样</li><li>计算起来最复杂，最爱考</li></ul></li><li><p>Guaranteed Scheduling</p></li><li><p>Lottery Scheduling</p></li><li><p>Fair Share Scheduling</p><ul><li>更公平的Guaranteed Scheduling</li></ul></li></ul></li><li><p>Real time</p><ul><li><p>Real time Scheduling</p><ul><li><p>概念</p><ul><li>有一个进程集合，里面的进程对时间都有要求，对这组进程的调度就叫实时调度</li></ul></li><li><p>hard real time</p><ul><li>不可错过的deadline</li></ul></li><li><p>soft real time</p><ul><li>有deadline，但是错过就错过了吧</li></ul></li></ul></li></ul></li></ul></li><li><p>Priority inversion</p><ul><li><p>概念</p><ul><li>低优先级的进程阻塞了高优先级的进程</li></ul></li><li><p>栗子</p><ul><li>低优先级的进程进入了关键区，突然切到了高优先级进程，高优先级也要访问关键区，结果被阻塞</li></ul></li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gho8eehnvaj31jc1c345f.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IPC</title>
+      <link href="/2020/08/12/IPC/"/>
+      <url>/2020/08/12/IPC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><p>inter process communication</p><h2 id="Race-Condition"><a href="#Race-Condition" class="headerlink" title="Race Condition"></a>Race Condition</h2><p>2 process want to eat same cake</p><a id="more"></a><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul><li>多个进程访问共享的数据，最终的结果取决于进程运行的时序</li></ul><h3 id="how-to-avoid"><a href="#how-to-avoid" class="headerlink" title="how to avoid"></a>how to avoid</h3><ul><li><p>mutual exclusion</p><p>互斥访问</p></li><li><p>critical region</p><ul><li>对共享内存进行访问的程序片段</li><li>对关键区提出某种机制避免race condition</li></ul></li><li><p>好的解决方案的原则</p><ul><li>no 2 processes may be simultaneously inside their critical regions</li><li>不应对cpu的速度和数量作出任何假设</li><li>临界区外的进程不得阻塞其他进程</li><li>不得使进程无限期的等待进入临界区</li></ul></li></ul><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="Mutual-Exclusion-with-Busy-waiting"><a href="#Mutual-Exclusion-with-Busy-waiting" class="headerlink" title="Mutual Exclusion with Busy waiting"></a>Mutual Exclusion with Busy waiting</h3><ul><li><p>概念</p><ul><li>当一个进程要进入关键区的时候，检查是否可以进入，不能进入就继续检查</li></ul></li><li><p>实现</p><ul><li><p>屏蔽中断（Disable interrupt）</p><ul><li>同步顺序执行</li><li>多CPU失效，违背第二条原则</li></ul></li><li><p>锁变量（Lock Variables）</p><ul><li><p>严格轮换法（Strict Alternation）</p></li><li><p>Peterson‘s solution</p><ul><li>相比严格轮换法，引入了一定的随机性</li></ul></li><li><p>TSL指令</p><ul><li>需要硬件的帮助</li></ul></li></ul></li></ul></li><li><p>缺点</p><ul><li>浪费CPU时间</li><li>优先级问题</li></ul></li></ul><h3 id="Sleep-amp-Wakeup"><a href="#Sleep-amp-Wakeup" class="headerlink" title="Sleep &amp; Wakeup"></a>Sleep &amp; Wakeup</h3><ul><li><p>概念</p><ul><li>当进程发现自己无法进入关键区时，就sleep，等到它被正要离开关键区的进程wake up</li></ul></li><li><p>栗子</p><ul><li>Consumer和Producer</li></ul></li><li><p>实现</p><ul><li><p>Semaphore（信号量）</p><ul><li><p>类比</p><ul><li>Traffic Light</li></ul></li><li><p>操作（PV操作）</p><ul><li><p>up</p><p>每次加1会唤醒一个因为down操作陷入睡眠的进程</p><ul><li>samaphore++</li></ul></li><li><p>down</p><p>如果samaphore&lt;1，调用down方法的进程会陷入睡眠</p><ul><li>samaphore–</li></ul></li></ul></li><li><p>数量大小的含义</p><ul><li>资源数</li><li>同一个资源可以进入关键区的进程的数量</li></ul></li><li><p>特点</p><ul><li>当一个进程结束的时候，其所创建的samaphore对象不会销毁</li></ul></li><li><p>存在位置</p><ul><li><p>内核空间</p><p>如果放在用户空间，进程退出时samaphore会销毁</p></li></ul></li><li><p>缺陷</p><ul><li>从用户空间到切换到内核空间需要付出时间代价</li><li>容易死锁</li></ul></li></ul></li><li><p>Mutex</p><ul><li><p>地位</p><ul><li>simplified Samaphore</li></ul></li><li><p>取值</p><ul><li>0</li><li>1</li></ul></li><li><p>状态</p><ul><li>lock</li><li>unlock</li></ul></li><li><p>一般用途</p><ul><li>单进程里的多线程防止互斥访问</li></ul></li><li><p>存储位置</p><ul><li>用户空间</li></ul></li><li><p>和semapahore的区别</p><ul><li>进程和线程</li><li>存储位置</li></ul></li></ul></li><li><p>Monitor</p><ul><li><p>在pv操作上的一层包装，目的是防止deadlock</p></li><li><p>栗子</p><ul><li>java里的synchronized</li></ul></li></ul></li></ul></li></ul><h3 id="Message-Passing"><a href="#Message-Passing" class="headerlink" title="Message Passing"></a>Message Passing</h3><h3 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gho2wj80syj31ak1icgso.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Process</title>
+      <link href="/2020/08/12/Process/"/>
+      <url>/2020/08/12/Process/</url>
+      
+        <content type="html"><![CDATA[<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>The running program</p><h2 id="Process-versus-Thread"><a href="#Process-versus-Thread" class="headerlink" title="Process versus Thread"></a>Process versus Thread</h2><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul><li>进程有独立的内存空间</li><li>线程之间共享内存空间</li></ul><a id="more"></a><h3 id="代价"><a href="#代价" class="headerlink" title="代价"></a>代价</h3><ul><li>创建进程开销大</li><li>创建线程开销小</li></ul><h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><ul><li>进程之间通信需要ipc</li><li>线程之间通信更方便</li></ul><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>进程是资源（CPU、内存等）分配的基本单位</li><li>线程是进程的一个实体</li></ul><h2 id="Internal-Structure"><a href="#Internal-Structure" class="headerlink" title="Internal Structure"></a>Internal Structure</h2><h3 id="Code-segment"><a href="#Code-segment" class="headerlink" title="Code  segment"></a>Code  segment</h3><p>为什么代码块和数据块要分开？<br>清晰。一会数据一会代码不便于阅读。<br>代码块和数据块对于操作偶读需求不一样，分开便于权限管理。<br>代码去冗余，节约空间。对于程序中一段需要反复处理数据的函数，若数据与指令混合装载至内存，每次数据的不同必然导致内存的浪费。</p><h3 id="Stack-segment"><a href="#Stack-segment" class="headerlink" title="Stack segment"></a>Stack segment</h3><p>有没有栈是程序和进程的区别之一</p><h3 id="Data-segment"><a href="#Data-segment" class="headerlink" title="Data segment"></a>Data segment</h3><h3 id="Address-Space"><a href="#Address-Space" class="headerlink" title="Address Space"></a>Address Space</h3><p>存放地址的一片空间</p><ul><li><p>Kernel Space</p><p>操作系统代码本身</p></li><li><p>User Space</p></li><li><p>Kernel Mode&amp;User Mode</p></li></ul><h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h3><p>保存状态和案发现场</p><ul><li>Process Model</li></ul><h2 id="Creation"><a href="#Creation" class="headerlink" title="Creation"></a>Creation</h2><ol><li>System initialization</li><li>call by a running process</li><li>user request</li><li>initiation of a batch job</li></ol><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghnshorqjyj30yl0u2wi0.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>系统测试</title>
+      <link href="/2020/08/11/%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/"/>
+      <url>/2020/08/11/%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>软件生存周期各个阶段活动的产物经审批后即可称之为软件配置项</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ol><li>Function Test</li><li>Performance Test</li><li>Acceptance Test</li><li>Installation Test</li></ol><a id="more"></a><h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><h3 id="Cause-and-Effect-Graph"><a href="#Cause-and-Effect-Graph" class="headerlink" title="Cause-and-Effect Graph"></a>Cause-and-Effect Graph</h3><ul><li>Inputs</li><li>Outputs</li></ul><h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><h3 id="Stress-Test"><a href="#Stress-Test" class="headerlink" title="Stress Test"></a>Stress Test</h3><ul><li><p>definition</p><ul><li>Evaluate the system when stressed to it limits over a period of time</li></ul></li></ul><h3 id="Volume-Test"><a href="#Volume-Test" class="headerlink" title="Volume Test"></a>Volume Test</h3><ul><li><p>definition</p><ul><li>Address the handling of large amount of data  in the system.</li></ul></li><li><p>example</p><ul><li>Handle up to a Stack or Queue ,if their size can accommodate all the expected data.</li></ul></li></ul><h3 id="Configuration-Test"><a href="#Configuration-Test" class="headerlink" title="Configuration  Test"></a>Configuration  Test</h3><ul><li><p>definition</p><ul><li>Analyze the various software and hardware configurations.</li></ul></li></ul><h3 id="Compatibility-Test"><a href="#Compatibility-Test" class="headerlink" title="Compatibility  Test"></a>Compatibility  Test</h3><ul><li><p>definition</p><ul><li>When a system interface with other systems, find out whether the interface functions perform according to the requirement.</li></ul></li><li><p>example</p><ul><li>The system communicate with a large data base system, check out The speed and accuracy of data retrieval </li></ul></li></ul><h3 id="Regression-Test"><a href="#Regression-Test" class="headerlink" title="Regression  Test"></a>Regression  Test</h3><ul><li>The system is replacing an exist system. </li></ul><h3 id="Security-Test"><a href="#Security-Test" class="headerlink" title="Security  Test"></a>Security  Test</h3><h3 id="Timing-Test"><a href="#Timing-Test" class="headerlink" title="Timing  Test"></a>Timing  Test</h3><h3 id="Environment-Test"><a href="#Environment-Test" class="headerlink" title="Environment  Test"></a>Environment  Test</h3><h3 id="Quality-Test"><a href="#Quality-Test" class="headerlink" title="Quality Test"></a>Quality Test</h3><h3 id="Recovery-Test"><a href="#Recovery-Test" class="headerlink" title="Recovery Test"></a>Recovery Test</h3><ul><li>Response to the presence of faults or to the loss of data</li></ul><h3 id="Maintenance-Test"><a href="#Maintenance-Test" class="headerlink" title="Maintenance  Test"></a>Maintenance  Test</h3><h3 id="Documentation-Test"><a href="#Documentation-Test" class="headerlink" title="Documentation Test"></a>Documentation Test</h3><h3 id="Human-Factor-Test"><a href="#Human-Factor-Test" class="headerlink" title="Human Factor Test"></a>Human Factor Test</h3><h2 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h2><h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><ul><li><p>definition</p><ul><li>The probability that a system will operate without failure  under given conditions for a given time interval.</li></ul></li><li><p>measure</p><ul><li>R = MTTF/(1+MTTF)</li></ul></li></ul><h3 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h3><ul><li><p>definition</p><ul><li>The probability that a system is operating successfully according to specification at a given point of time.</li></ul></li><li><p>measure</p><ul><li>A = MTBF/(1+MTBF)</li></ul></li></ul><h3 id="Maintainability"><a href="#Maintainability" class="headerlink" title="Maintainability"></a>Maintainability</h3><ul><li><p>definition</p><ul><li>The probability that , for a given condition of use, a maintenance activity can be carried out within a stated time interval and using stated procedures and resources.</li></ul></li><li><p>measure</p><ul><li>M = 1/ (1+MTTR)</li></ul></li></ul><h2 id="Acceptance-Testing"><a href="#Acceptance-Testing" class="headerlink" title="Acceptance Testing"></a>Acceptance Testing</h2><h3 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h3><ul><li>To enable the customers and users to determine if the system We built really meets their needs and expectations.</li></ul><h3 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h3><ul><li>Benchmark Test</li><li>Pilot Test</li><li>Parallel Test</li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghmtm448agj31ql13e12b.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工程概论 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>剑指offer-25</title>
+      <link href="/2020/08/11/%E5%89%91%E6%8C%87offer-25/"/>
+      <url>/2020/08/11/%E5%89%91%E6%8C%87offer-25/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghmt09l5a6j30nw0at74o.jpg"><a id="more"></a><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghmt0p4q96j30mq08djrl.jpg"><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Special case</span></span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Head node</span></span><br><span class="line">        ListNode ans = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">var</span> p = ans;</span><br><span class="line">        <span class="keyword">var</span> p1 = l1;</span><br><span class="line">        <span class="keyword">var</span> p2 = l2;</span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="keyword">null</span> &amp;&amp; p2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1.val &lt;= p2.val) &#123;</span><br><span class="line">                <span class="keyword">var</span> tmp = p1;</span><br><span class="line">                p1 = p1.next;</span><br><span class="line">                tmp.next = <span class="keyword">null</span>;</span><br><span class="line">                p.next = tmp;</span><br><span class="line">                p = p.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> tmp = p2;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">                tmp.next = <span class="keyword">null</span>;</span><br><span class="line">                p.next = tmp;</span><br><span class="line">                p = p.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            p.next = p1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            p.next = p2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（m + n）</p><p>空间复杂度：O（1）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机中的数据表示</title>
       <link href="/2020/08/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA/"/>
       <url>/2020/08/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA/</url>
