@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/08/13/Virtual-Memory/</loc>
+    
+    <lastmod>2020-08-17T03:38:05.606Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/08/16/Dead-lock/</loc>
     
     <lastmod>2020-08-16T02:35:52.432Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://linjinming.gitee.io/2020/08/14/File-System/</loc>
     
     <lastmod>2020-08-14T13:45:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linjinming.gitee.io/2020/08/13/Virtual-Memory/</loc>
-    
-    <lastmod>2020-08-14T06:33:39.000Z</lastmod>
     
   </url>
   
