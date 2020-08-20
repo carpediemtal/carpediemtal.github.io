@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2020/07/30/软件工程概述/</loc>
+    
+    <lastmod>2020-08-20T08:54:36.437Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linjinming.gitee.io/2020/08/06/需求分析/</loc>
+    
+    <lastmod>2020-08-20T08:40:56.453Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linjinming.gitee.io/2020/08/07/系统设计/</loc>
+    
+    <lastmod>2020-08-20T08:29:46.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linjinming.gitee.io/2020/08/09/单元测试/</loc>
+    
+    <lastmod>2020-08-20T08:07:47.060Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2020/08/20/系统维护/</loc>
     
     <lastmod>2020-08-20T07:29:23.323Z</lastmod>
@@ -114,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://linjinming.gitee.io/2020/08/09/单元测试/</loc>
-    
-    <lastmod>2020-08-09T11:49:03.651Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://linjinming.gitee.io/2020/08/08/软件实现/</loc>
     
     <lastmod>2020-08-08T01:20:06.497Z</lastmod>
@@ -135,23 +156,9 @@
   </url>
   
   <url>
-    <loc>https://linjinming.gitee.io/2020/08/07/系统设计/</loc>
-    
-    <lastmod>2020-08-07T02:05:17.161Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://linjinming.gitee.io/2020/08/06/组合逻辑电路/</loc>
     
     <lastmod>2020-08-06T04:16:50.486Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linjinming.gitee.io/2020/08/06/需求分析/</loc>
-    
-    <lastmod>2020-08-06T02:34:51.809Z</lastmod>
     
   </url>
   
@@ -285,13 +292,6 @@
     <loc>https://linjinming.gitee.io/2020/07/30/用添加maven依赖项的方式引入JavaFX/</loc>
     
     <lastmod>2020-07-30T10:24:42.763Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linjinming.gitee.io/2020/07/30/软件工程概述/</loc>
-    
-    <lastmod>2020-07-30T08:13:08.458Z</lastmod>
     
   </url>
   
