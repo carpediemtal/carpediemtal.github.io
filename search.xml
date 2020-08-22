@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>触发器</title>
+      <link href="/2020/08/22/%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
+      <url>/2020/08/22/%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="时序电路"><a href="#时序电路" class="headerlink" title="时序电路"></a>时序电路</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul><li>输出信号与输入信号和过去的状态有关</li><li>电路里必须有具备记忆功能的器件</li></ul><a id="more"></a><h3 id="同步时序和异步时序"><a href="#同步时序和异步时序" class="headerlink" title="同步时序和异步时序"></a>同步时序和异步时序</h3><ul><li><p>同步时序</p><ul><li>触发器状态的转换同时完成</li></ul></li><li><p>异步时序</p><ul><li>触发器状态的转换不同时进行</li></ul></li></ul><h3 id="米里型时序和莫尔型时序"><a href="#米里型时序和莫尔型时序" class="headerlink" title="米里型时序和莫尔型时序"></a>米里型时序和莫尔型时序</h3><ul><li><p>米里型</p><ul><li>输出与输入和现态有关</li></ul></li><li><p>莫尔型</p><ul><li>输出仅与现态有关</li></ul></li></ul><h3 id="状态表"><a href="#状态表" class="headerlink" title="状态表"></a>状态表</h3><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ul><li><p>具有两个稳定的状态，0和1</p></li><li><p>稳态变化必须有触发</p></li><li><p>两个输出端：源码输出和反码输出</p></li></ul><h2 id="基本触发器"><a href="#基本触发器" class="headerlink" title="基本触发器"></a>基本触发器</h2><h3 id="基本RS触发器"><a href="#基本RS触发器" class="headerlink" title="基本RS触发器"></a>基本RS触发器</h3><ul><li><p>状态</p><ul><li>置位状态</li><li>复位状态</li><li>维持状态</li></ul></li><li><p>真值表</p></li></ul><h3 id="钟控rs触发器"><a href="#钟控rs触发器" class="headerlink" title="钟控rs触发器"></a>钟控rs触发器</h3><ul><li>性质和基本rs触发器刚好相反</li></ul><h3 id="D触发器"><a href="#D触发器" class="headerlink" title="D触发器"></a>D触发器</h3><ul><li><p>输出</p><ul><li><p>特点</p><ul><li>CP为0的时候维持状态</li><li>CP为1的时候和D保持一样</li></ul></li></ul></li><li><p>波形判断</p><ul><li><p>根据CD还是CD非判断</p><ul><li>上升沿触发</li><li>下降沿触发</li></ul></li><li><p>边沿处的次态=此刻的输入状态</p></li></ul></li></ul><h3 id="T触发器"><a href="#T触发器" class="headerlink" title="T触发器"></a>T触发器</h3><ul><li><p>输出</p><ul><li>T=0，维持</li><li>T=1，翻转</li></ul></li></ul><h3 id="JK触发器"><a href="#JK触发器" class="headerlink" title="JK触发器"></a>JK触发器</h3><ul><li><p>表达式</p></li><li><p>输出</p><ul><li><p>JK=00</p><ul><li>维持</li></ul></li><li><p>JK=01</p><ul><li>置0</li></ul></li><li><p>JK=10</p><ul><li>置1</li></ul></li><li><p>JK=11</p><ul><li>翻转</li></ul></li></ul></li><li><p>翻转时波形判断</p><ul><li><p>根据CD还是CD非判断</p><ul><li>上升沿触发</li><li>下降沿触发</li></ul></li><li><p>边沿处的次态=此刻的输入状态</p></li></ul></li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghzb6dbv6xj30q1166q7e.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数电 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>系统维护</title>
       <link href="/2020/08/20/%E7%B3%BB%E7%BB%9F%E7%BB%B4%E6%8A%A4/"/>
       <url>/2020/08/20/%E7%B3%BB%E7%BB%9F%E7%BB%B4%E6%8A%A4/</url>

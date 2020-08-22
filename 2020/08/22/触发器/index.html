@@ -79,20 +79,19 @@
 
 
 
-<meta name="description" content="LeetCode-167  两数之和II - 输入有序数组题目">
+<meta name="description" content="时序电路概念 输出信号与输入信号和过去的状态有关 电路里必须有具备记忆功能的器件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-167">
-<meta property="og:url" content="http://yoursite.com/2020/07/20/LeetCode-167/index.html">
+<meta property="og:title" content="触发器">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/触发器/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="LeetCode-167  两数之和II - 输入有序数组题目">
+<meta property="og:description" content="时序电路概念 输出信号与输入信号和过去的状态有关 电路里必须有具备记忆功能的器件">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggx6c22mv2j30qb0cmjs5.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggx6mmgx5ij30p808i0sy.jpg">
-<meta property="og:updated_time" content="2020-07-20T01:31:42.345Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ghzb6dbv6xj30q1166q7e.jpg">
+<meta property="og:updated_time" content="2020-08-22T00:59:48.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-167">
-<meta name="twitter:description" content="LeetCode-167  两数之和II - 输入有序数组题目">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ggx6c22mv2j30qb0cmjs5.jpg">
+<meta name="twitter:title" content="触发器">
+<meta name="twitter:description" content="时序电路概念 输出信号与输入信号和过去的状态有关 电路里必须有具备记忆功能的器件">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ghzb6dbv6xj30q1166q7e.jpg">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/20/LeetCode-167/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/22/触发器/">
 
 
 
 
 
-  <title>LeetCode-167 | Ming</title>
+  <title>触发器 | Ming</title>
   
 
 
@@ -307,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/20/LeetCode-167/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/触发器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -324,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode-167</h1>
+          <h1 class="post-title" itemprop="name headline">触发器</h1>
         
 
         <div class="post-meta">
@@ -336,8 +335,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T09:19:24+08:00">
-                2020-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T08:55:33+08:00">
+                2020-08-22
               </time>
             
 
@@ -359,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/数电/" itemprop="url" rel="index">
+                    <span itemprop="name">数电</span>
                   </a>
                 </span>
 
@@ -390,7 +389,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  347
+                  340
                 </span>
               
 
@@ -427,25 +426,131 @@
       
 
       
-        <h1 id="LeetCode-167-两数之和II-输入有序数组"><a href="#LeetCode-167-两数之和II-输入有序数组" class="headerlink" title="LeetCode-167  两数之和II - 输入有序数组"></a>LeetCode-167  两数之和II - 输入有序数组</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggx6c22mv2j30qb0cmjs5.jpg">
-
+        <h2 id="时序电路"><a href="#时序电路" class="headerlink" title="时序电路"></a>时序电路</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>输出信号与输入信号和过去的状态有关</li>
+<li>电路里必须有具备记忆功能的器件</li>
+</ul>
 <a id="more"></a>
 
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1ggx6mmgx5ij30p808i0sy.jpg">
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; numbers.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (numbers[i] + numbers[j] == target) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i + <span class="number">1</span>, j + <span class="number">1</span>&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="comment">// 如果加上最大的都小于target，那就可以进入下一轮了</span></span><br><span class="line">            <span class="keyword">if</span> (numbers[i] + numbers[numbers.length - <span class="number">1</span>] &lt; target) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> index = search(numbers, target - numbers[i], i + <span class="number">1</span>);</span><br><span class="line">            <span class="comment">// 如果没找到</span></span><br><span class="line">            <span class="keyword">if</span> (index == -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i + <span class="number">1</span>, index + <span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 二分法搜索target</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target, <span class="keyword">int</span> begin)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> end = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (begin &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (begin + end) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (numbers[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &lt; target) &#123;</span><br><span class="line">                begin = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                end = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="双指针法"><a href="#双指针法" class="headerlink" title="双指针法"></a>双指针法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>, end = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (begin &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = numbers[begin] + numbers[end];</span><br><span class="line">            <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;begin + <span class="number">1</span>, end + <span class="number">1</span>&#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &lt; target) &#123;</span><br><span class="line">                begin++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><h3 id="暴力法-1"><a href="#暴力法-1" class="headerlink" title="暴力法"></a>暴力法</h3><p>时间复杂度：O（n²）</p>
-<p>空间复杂度：O（1）</p>
-<h3 id="二分法-1"><a href="#二分法-1" class="headerlink" title="二分法"></a>二分法</h3><p>时间复杂度：O（nlogn）</p>
-<p>空间复杂度：O（1）</p>
-<h3 id="双指针法-1"><a href="#双指针法-1" class="headerlink" title="双指针法"></a>双指针法</h3><p>时间复杂度：O（n）</p>
-<p>空间复杂度：O（1）</p>
-
+<h3 id="同步时序和异步时序"><a href="#同步时序和异步时序" class="headerlink" title="同步时序和异步时序"></a>同步时序和异步时序</h3><ul>
+<li><p>同步时序</p>
+<ul>
+<li>触发器状态的转换同时完成</li>
+</ul>
+</li>
+<li><p>异步时序</p>
+<ul>
+<li>触发器状态的转换不同时进行</li>
+</ul>
+</li>
+</ul>
+<h3 id="米里型时序和莫尔型时序"><a href="#米里型时序和莫尔型时序" class="headerlink" title="米里型时序和莫尔型时序"></a>米里型时序和莫尔型时序</h3><ul>
+<li><p>米里型</p>
+<ul>
+<li>输出与输入和现态有关</li>
+</ul>
+</li>
+<li><p>莫尔型</p>
+<ul>
+<li>输出仅与现态有关</li>
+</ul>
+</li>
+</ul>
+<h3 id="状态表"><a href="#状态表" class="headerlink" title="状态表"></a>状态表</h3><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ul>
+<li><p>具有两个稳定的状态，0和1</p>
+</li>
+<li><p>稳态变化必须有触发</p>
+</li>
+<li><p>两个输出端：源码输出和反码输出</p>
+</li>
+</ul>
+<h2 id="基本触发器"><a href="#基本触发器" class="headerlink" title="基本触发器"></a>基本触发器</h2><h3 id="基本RS触发器"><a href="#基本RS触发器" class="headerlink" title="基本RS触发器"></a>基本RS触发器</h3><ul>
+<li><p>状态</p>
+<ul>
+<li>置位状态</li>
+<li>复位状态</li>
+<li>维持状态</li>
+</ul>
+</li>
+<li><p>真值表</p>
+</li>
+</ul>
+<h3 id="钟控rs触发器"><a href="#钟控rs触发器" class="headerlink" title="钟控rs触发器"></a>钟控rs触发器</h3><ul>
+<li>性质和基本rs触发器刚好相反</li>
+</ul>
+<h3 id="D触发器"><a href="#D触发器" class="headerlink" title="D触发器"></a>D触发器</h3><ul>
+<li><p>输出</p>
+<ul>
+<li><p>特点</p>
+<ul>
+<li>CP为0的时候维持状态</li>
+<li>CP为1的时候和D保持一样</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>波形判断</p>
+<ul>
+<li><p>根据CD还是CD非判断</p>
+<ul>
+<li>上升沿触发</li>
+<li>下降沿触发</li>
+</ul>
+</li>
+<li><p>边沿处的次态=此刻的输入状态</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="T触发器"><a href="#T触发器" class="headerlink" title="T触发器"></a>T触发器</h3><ul>
+<li><p>输出</p>
+<ul>
+<li>T=0，维持</li>
+<li>T=1，翻转</li>
+</ul>
+</li>
+</ul>
+<h3 id="JK触发器"><a href="#JK触发器" class="headerlink" title="JK触发器"></a>JK触发器</h3><ul>
+<li><p>表达式</p>
+</li>
+<li><p>输出</p>
+<ul>
+<li><p>JK=00</p>
+<ul>
+<li>维持</li>
+</ul>
+</li>
+<li><p>JK=01</p>
+<ul>
+<li>置0</li>
+</ul>
+</li>
+<li><p>JK=10</p>
+<ul>
+<li>置1</li>
+</ul>
+</li>
+<li><p>JK=11</p>
+<ul>
+<li>翻转</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>翻转时波形判断</p>
+<ul>
+<li><p>根据CD还是CD非判断</p>
+<ul>
+<li>上升沿触发</li>
+<li>下降沿触发</li>
+</ul>
+</li>
+<li><p>边沿处的次态=此刻的输入状态</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghzb6dbv6xj30q1166q7e.jpg">
       
     </div>
     
@@ -498,8 +603,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/19/LeetCode-234/" rel="next" title="LeetCode-234">
-                <i class="fa fa-chevron-left"></i> LeetCode-234
+              <a href="/2020/08/20/系统维护/" rel="next" title="系统维护">
+                <i class="fa fa-chevron-left"></i> 系统维护
               </a>
             
           </div>
@@ -507,10 +612,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/20/IKBC-poker说明书/" rel="prev" title="IKBC poker说明书">
-                IKBC poker说明书 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -677,7 +778,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode-167-两数之和II-输入有序数组"><span class="nav-number">1.</span> <span class="nav-text">LeetCode-167  两数之和II - 输入有序数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">1.2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暴力法"><span class="nav-number">1.3.1.</span> <span class="nav-text">暴力法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分法"><span class="nav-number">1.3.2.</span> <span class="nav-text">二分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法"><span class="nav-number">1.3.3.</span> <span class="nav-text">双指针法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">1.4.</span> <span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暴力法-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">暴力法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分法-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">二分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">双指针法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#时序电路"><span class="nav-number">1.</span> <span class="nav-text">时序电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步时序和异步时序"><span class="nav-number">1.2.</span> <span class="nav-text">同步时序和异步时序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#米里型时序和莫尔型时序"><span class="nav-number">1.3.</span> <span class="nav-text">米里型时序和莫尔型时序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态表"><span class="nav-number">1.4.</span> <span class="nav-text">状态表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">2.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本触发器"><span class="nav-number">3.</span> <span class="nav-text">基本触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本RS触发器"><span class="nav-number">3.1.</span> <span class="nav-text">基本RS触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#钟控rs触发器"><span class="nav-number">3.2.</span> <span class="nav-text">钟控rs触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D触发器"><span class="nav-number">3.3.</span> <span class="nav-text">D触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T触发器"><span class="nav-number">3.4.</span> <span class="nav-text">T触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JK触发器"><span class="nav-number">3.5.</span> <span class="nav-text">JK触发器</span></a></li></ol></li></ol></div>
             
 
           </div>
