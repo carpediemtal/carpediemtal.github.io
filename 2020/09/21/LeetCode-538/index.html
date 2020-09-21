@@ -81,18 +81,18 @@
 
 <meta name="description" content="题目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-79">
-<meta property="og:url" content="http://linjinming.gitee.io/2020/08/01/LeetCode-79/index.html">
+<meta property="og:title" content="LeetCode-538">
+<meta property="og:url" content="http://linjinming.gitee.io/2020/09/21/LeetCode-538/index.html">
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="题目">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007FpgxTly1ghb2g1fhgxj30po0lumy1.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007FpgxTly1ghb2fj2jvuj30om086dg1.jpg">
-<meta property="og:updated_time" content="2020-08-01T01:44:15.116Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1giy6abblm0j30pu0eeq3e.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1giy6afn1skj30pf08udg5.jpg">
+<meta property="og:updated_time" content="2020-09-21T04:46:45.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-79">
+<meta name="twitter:title" content="LeetCode-538">
 <meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/007FpgxTly1ghb2g1fhgxj30po0lumy1.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1giy6abblm0j30pu0eeq3e.jpg">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://linjinming.gitee.io/2020/08/01/LeetCode-79/">
+  <link rel="canonical" href="http://linjinming.gitee.io/2020/09/21/LeetCode-538/">
 
 
 
 
 
-  <title>LeetCode-79 | Ming</title>
+  <title>LeetCode-538 | Ming</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/08/01/LeetCode-79/">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/09/21/LeetCode-538/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode-79</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-538</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-01T08:55:28+08:00">
-                2020-08-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-21T12:43:01+08:00">
+                2020-09-21
               </time>
             
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  238
+                  108
                 </span>
               
 
@@ -427,16 +427,16 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghb2g1fhgxj30po0lumy1.jpg">
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1giy6abblm0j30pu0eeq3e.jpg">
 
 <a id="more"></a>
 
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/007FpgxTly1ghb2fj2jvuj30om086dg1.jpg">
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1giy6afn1skj30pf08udg5.jpg">
 
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">char</span> VISITED = <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (search(board, word, i, j, <span class="number">0</span>)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">char</span>[][] board, String word, <span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 是否越界或访问过或不符合预期</span></span><br><span class="line">        <span class="keyword">if</span> (row &lt; <span class="number">0</span> || row &gt;= board.length || col &lt; <span class="number">0</span> || col &gt;= board[<span class="number">0</span>].length || board[row][col] == VISITED || board[row][col] != word.charAt(index)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 已经找到合适的序列</span></span><br><span class="line">        <span class="keyword">if</span> (index == word.length() - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 标记避免重复访问</span></span><br><span class="line">        <span class="keyword">char</span> tmp = board[row][col];</span><br><span class="line">        board[row][col] = VISITED;</span><br><span class="line">        <span class="comment">// 上下左右递归</span></span><br><span class="line">        <span class="keyword">if</span> (search(board, word, row - <span class="number">1</span>, col, index + <span class="number">1</span>) || search(board, word, row + <span class="number">1</span>, col, index + <span class="number">1</span>) || search(board, word, row, col + <span class="number">1</span>, index + <span class="number">1</span>) || search(board, word, row, col - <span class="number">1</span>, index + <span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 恢复</span></span><br><span class="line">            board[row][col] = tmp;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">convertBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        rrl(root);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rrl</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        rrl(node.right);</span><br><span class="line">        sum += node.val;</span><br><span class="line">        node.val += sum - node.val;</span><br><span class="line">        rrl(node.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：大于O（m×n）</p>
-<p>空间复杂度：O（index），最大递归深度不超过index</p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（n），n为节点个数</p>
+<p>空间复杂度：O（n），最坏情况下，数呈现链表状，有n层递归。</p>
 
       
     </div>
@@ -490,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/01/剑指offer-12/" rel="next" title="剑指offer-12">
-                <i class="fa fa-chevron-left"></i> 剑指offer-12
+              <a href="/2020/09/20/LeetCode-78/" rel="next" title="LeetCode-78">
+                <i class="fa fa-chevron-left"></i> LeetCode-78
               </a>
             
           </div>
@@ -499,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/01/LeetCode-292/" rel="prev" title="LeetCode-292">
-                LeetCode-292 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
