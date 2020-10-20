@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>程序设计大作业之实验室管理系统</title>
+      <link href="/2020/10/20/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A%E4%B9%8B%E5%AE%9E%E9%AA%8C%E5%AE%A4%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2020/10/20/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A%E4%B9%8B%E5%AE%9E%E9%AA%8C%E5%AE%A4%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><p>该系统有三种类型的用户：</p><ul><li>管理员</li><li>实验员</li><li>学生</li></ul><p>不同用户拥有不同的功能：</p><ul><li>管理员的功能主要有：实验课程管理（增删课程），实验课程安排（给某个的班级安排某个课程）</li><li>实验员的功能：给自己负责的学生登入实验成绩</li><li>学生的功能：课程查询（查看自己被安排了什么课），成绩查询（查询课程的成绩，如果未录入就查不到）</li></ul><h2 id="页面设计"><a href="#页面设计" class="headerlink" title="页面设计"></a>页面设计</h2><p>主要设计了8个页面：</p><ol><li>/index：主页面<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gjvlyeejwdj31000hjaba.jpg"></li><li>/sign_in：登录页面</li><li>/profile：个人信息及功能页面</li><li>/score_query：学生的成绩查询页面</li><li>/course_query：学生的课程查询页面</li><li>/record_score：实验员的录入成绩页面</li><li>/lab_management：管理员的实验课程管理页面</li><li>/lab_arrangement：管理员的实验课程安排页面</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-143</title>
       <link href="/2020/10/20/LeetCode-143/"/>
       <url>/2020/10/20/LeetCode-143/</url>
