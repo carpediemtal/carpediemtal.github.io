@@ -81,18 +81,18 @@
 
 <meta name="description" content="题目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-233">
-<meta property="og:url" content="http://linjinming.gitee.io/2020/11/12/LeetCode-283/index.html">
+<meta property="og:title" content="LeetCode-134">
+<meta property="og:url" content="http://linjinming.gitee.io/2020/11/18/LeetCode-134/index.html">
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="题目">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gku97biic4j30n60ab3yy.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gku9v9o2qwj30m40873ys.jpg">
-<meta property="og:updated_time" content="2020-11-19T02:30:34.529Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkt8s8k4dtj30mm0m2abj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkt8sp5a7tj30mh08h74l.jpg">
+<meta property="og:updated_time" content="2020-11-20T14:36:53.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-233">
+<meta name="twitter:title" content="LeetCode-134">
 <meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gku97biic4j30n60ab3yy.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkt8s8k4dtj30mm0m2abj.jpg">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://linjinming.gitee.io/2020/11/12/LeetCode-283/">
+  <link rel="canonical" href="http://linjinming.gitee.io/2020/11/18/LeetCode-134/">
 
 
 
 
 
-  <title>LeetCode-233 | Ming</title>
+  <title>LeetCode-134 | Ming</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/11/12/LeetCode-283/">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/11/18/LeetCode-134/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode-233</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-134</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-12T14:35:43+08:00">
-                2020-11-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-18T14:35:43+08:00">
+                2020-11-18
               </time>
             
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  149
+                  112
                 </span>
               
 
@@ -427,13 +427,15 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gku97biic4j30n60ab3yy.jpg" alt="Snipaste_2020-11-19_10-04-28.png"></p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkt8s8k4dtj30mm0m2abj.jpg" alt="Snipaste_2020-11-18_13-02-29.png"></p>
 <a id="more"></a>
 
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gku9v9o2qwj30m40873ys.jpg" alt="Snipaste_2020-11-19_10-27-38.png"></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="借助其它数组"><a href="#借助其它数组" class="headerlink" title="借助其它数组"></a>借助其它数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] tmp = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num != <span class="number">0</span>) &#123;</span><br><span class="line">                tmp[index++] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.arraycopy(tmp, <span class="number">0</span>, nums, <span class="number">0</span>, nums.length);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkt8sp5a7tj30mh08h74l.jpg" alt="Snipaste_2020-11-18_13-04-57.png"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">canCompleteCircuit</span><span class="params">(<span class="keyword">int</span>[] gas, <span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; gas.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (winnable(gas, cost, i)) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">winnable</span><span class="params">(<span class="keyword">int</span>[] gas, <span class="keyword">int</span>[] cost, <span class="keyword">int</span> startPos)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = startPos;</span><br><span class="line">        <span class="keyword">int</span> gasLeft = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            gasLeft += gas[index];</span><br><span class="line">            <span class="keyword">if</span> (gasLeft &gt;= cost[index]) &#123;</span><br><span class="line">                gasLeft -= cost[index];</span><br><span class="line">                index++;</span><br><span class="line">                <span class="keyword">if</span> (index &gt;= gas.length) &#123;</span><br><span class="line">                    index -= gas.length;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">while</span> (index != startPos);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="原地操作"><a href="#原地操作" class="headerlink" title="原地操作"></a>原地操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                moveZeroToEnd(nums, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">moveZeroToEnd</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i + <span class="number">1</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                swap(nums, i, i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = nums[a];</span><br><span class="line">        nums[a] = nums[b];</span><br><span class="line">        nums[b] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（n²）</p>
+<p>空间复杂度：O（1）</p>
+
       
     </div>
     
@@ -486,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/12/LeetCode-1030/" rel="next" title="LeetCode-233">
-                <i class="fa fa-chevron-left"></i> LeetCode-233
+              <a href="/2020/11/18/LeetCode-283/" rel="next" title="LeetCode-283">
+                <i class="fa fa-chevron-left"></i> LeetCode-283
               </a>
             
           </div>
@@ -496,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/12/LeetCode-130/" rel="prev" title="LeetCode-233">
-                LeetCode-233 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/19/LeetCode-130/" rel="prev" title="LeetCode-130">
+                LeetCode-130 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,7 +579,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">230</span>
+                  <span class="site-state-item-count">231</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -665,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#借助其它数组"><span class="nav-number">3.1.</span> <span class="nav-text">借助其它数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原地操作"><span class="nav-number">3.2.</span> <span class="nav-text">原地操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +701,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">83.9k</span>
+    <span title="Site words total count">84k</span>
   
 </div>
 

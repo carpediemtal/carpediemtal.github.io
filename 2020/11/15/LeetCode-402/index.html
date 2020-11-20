@@ -81,18 +81,18 @@
 
 <meta name="description" content="题目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-233">
-<meta property="og:url" content="http://linjinming.gitee.io/2020/11/12/LeetCode-130/index.html">
+<meta property="og:title" content="LeetCode-402">
+<meta property="og:url" content="http://linjinming.gitee.io/2020/11/15/LeetCode-402/index.html">
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="题目">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkueevgs8oj30ms0igq3u.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkueelhxssj30lw08j3ys.jpg">
-<meta property="og:updated_time" content="2020-11-19T05:09:36.419Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkpsqfd8skj30mx0jj0to.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkpsqnkiv1j30mg08vglw.jpg">
+<meta property="og:updated_time" content="2020-11-20T14:34:02.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-233">
+<meta name="twitter:title" content="LeetCode-402">
 <meta name="twitter:description" content="题目">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkueevgs8oj30ms0igq3u.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkpsqfd8skj30mx0jj0to.jpg">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://linjinming.gitee.io/2020/11/12/LeetCode-130/">
+  <link rel="canonical" href="http://linjinming.gitee.io/2020/11/15/LeetCode-402/">
 
 
 
 
 
-  <title>LeetCode-233 | Ming</title>
+  <title>LeetCode-402 | Ming</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/11/12/LeetCode-130/">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/11/15/LeetCode-402/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ming">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode-233</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-402</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-12T14:35:43+08:00">
-                2020-11-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-15T14:35:43+08:00">
+                2020-11-15
               </time>
             
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  390
+                  387
                 </span>
               
 
@@ -427,15 +427,17 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkueevgs8oj30ms0igq3u.jpg" alt="Snipaste_2020-11-19_13-04-50.png"></p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkpsqfd8skj30mx0jj0to.jpg" alt="Snipaste_2020-11-15_13-32-18.png"></p>
 <a id="more"></a>
 
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkueelhxssj30lw08j3ys.jpg" alt="Snipaste_2020-11-19_13-03-53.png"></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>如果一个‘O’没有被包围，一定是因为他在边界或者他跟边界的‘O’有勾连，所以边界的‘O’是始作俑者，罪魁祸首。所以从边界的‘O’出发，把与其有勾连的全部标记一遍，就知道board里的每个‘O’是什么成分。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">char</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (board.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>[][] flag = <span class="keyword">new</span> <span class="keyword">boolean</span>[board.length][board[<span class="number">0</span>].length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (board[i][j] == <span class="string">'O'</span> &amp;&amp; onBoundary(board, i, j) &amp;&amp; !flag[i][j]) &#123;</span><br><span class="line">                    flag[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                    spread(board, flag, i, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (board[i][j] == <span class="string">'O'</span> &amp;&amp; !flag[i][j]) &#123;</span><br><span class="line">                    board[i][j] = <span class="string">'X'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">spread</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">boolean</span>[][] flag, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row &gt; <span class="number">0</span> &amp;&amp; board[row - <span class="number">1</span>][col] == <span class="string">'O'</span> &amp;&amp; !flag[row - <span class="number">1</span>][col]) &#123;</span><br><span class="line">            flag[row - <span class="number">1</span>][col] = <span class="keyword">true</span>;</span><br><span class="line">            spread(board, flag, row - <span class="number">1</span>, col);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (row &lt; board.length - <span class="number">1</span> &amp;&amp; board[row + <span class="number">1</span>][col] == <span class="string">'O'</span> &amp;&amp; !flag[row + <span class="number">1</span>][col]) &#123;</span><br><span class="line">            flag[row + <span class="number">1</span>][col] = <span class="keyword">true</span>;</span><br><span class="line">            spread(board, flag, row + <span class="number">1</span>, col);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (col &gt; <span class="number">0</span> &amp;&amp; board[row][col - <span class="number">1</span>] == <span class="string">'O'</span> &amp;&amp; !flag[row][col - <span class="number">1</span>]) &#123;</span><br><span class="line">            flag[row][col - <span class="number">1</span>] = <span class="keyword">true</span>;</span><br><span class="line">            spread(board, flag, row, col - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (col &lt; board[<span class="number">0</span>].length - <span class="number">1</span> &amp;&amp; board[row][col + <span class="number">1</span>] == <span class="string">'O'</span> &amp;&amp; !flag[row][col + <span class="number">1</span>]) &#123;</span><br><span class="line">            flag[row][col + <span class="number">1</span>] = <span class="keyword">true</span>;</span><br><span class="line">            spread(board, flag, row, col + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">onBoundary</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> row == <span class="number">0</span> || row == board.length - <span class="number">1</span> || col == <span class="number">0</span> || col == board[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gkpsqnkiv1j30mg08vglw.jpg" alt="Snipaste_2020-11-15_13-32-14.png"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">removeKdigits</span><span class="params">(String num, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            num = removeOneDigit(num).toString();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (allZero(num)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num.startsWith(<span class="string">"0"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> num.substring(indexOfZero(num));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> StringBuilder <span class="title">removeOneDigit</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num.length() &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num.charAt(<span class="number">0</span>) &gt; num.charAt(<span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> StringBuilder(num.substring(<span class="number">1</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">return</span> sb.append(num.charAt(<span class="number">0</span>)).append(removeOneDigit(num.substring(<span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">allZero</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch : num.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch != <span class="string">'0'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">indexOfZero</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num.charAt(i) != <span class="string">'0'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（n）</p>
-<p>空间复杂度：O（n），n为元素个数row×col。</p>
+<p>我觉得这种递归的代码写起来很好看，可是超时了，主要原因是遍历num高达k遍，其实遍历一遍就够了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">removeKdigits</span><span class="params">(String num, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Deque&lt;Character&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; k &gt; <span class="number">0</span> &amp;&amp; stack.peek() &gt; num.charAt(i)) &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(num.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 清理门户</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            sb.append(stack.pollLast());</span><br><span class="line">        &#125;</span><br><span class="line">        String ans = sb.toString();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (allZero(ans)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ans.startsWith(<span class="string">"0"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> ans.substring(indexOfZero(ans));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">allZero</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch : num.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch != <span class="string">'0'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">indexOfZero</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num.charAt(i) != <span class="string">'0'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（N），遍历一遍</p>
+<p>空间复杂度：O（N），stack</p>
 
       
     </div>
@@ -489,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/12/LeetCode-283/" rel="next" title="LeetCode-233">
-                <i class="fa fa-chevron-left"></i> LeetCode-233
+              <a href="/2020/11/12/LeetCode-328/" rel="next" title="LeetCode-328">
+                <i class="fa fa-chevron-left"></i> LeetCode-328
               </a>
             
           </div>
@@ -499,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/12/LeetCode-134/" rel="prev" title="LeetCode-233">
-                LeetCode-233 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/16/LeetCode-406/" rel="prev" title="LeetCode-406">
+                LeetCode-406 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">230</span>
+                  <span class="site-state-item-count">231</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -668,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">3.1.</span> <span class="nav-text">递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
             
 
           </div>
@@ -702,7 +704,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">83.9k</span>
+    <span title="Site words total count">84k</span>
   
 </div>
 
