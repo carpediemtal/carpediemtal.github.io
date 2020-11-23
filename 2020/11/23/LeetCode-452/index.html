@@ -88,7 +88,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkz17ffym8j30n00kaq4i.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkz25agqr2j30m008adg4.jpg">
-<meta property="og:updated_time" content="2020-11-23T05:48:25.523Z">
+<meta property="og:updated_time" content="2020-11-23T10:49:15.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-452">
 <meta name="twitter:description" content="题目">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  465
+                  568
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  3
                 </span>
               
             </div>
@@ -437,6 +437,9 @@
 
 <h3 id="极速算法"><a href="#极速算法" class="headerlink" title="极速算法"></a>极速算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMinArrowShots</span><span class="params">(<span class="keyword">int</span>[][] points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (points.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(points, Comparator.comparingInt(point -&gt; point[<span class="number">1</span>]));</span><br><span class="line">        <span class="keyword">int</span> pos = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> arrows = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> xy : points) &#123;</span><br><span class="line">            <span class="keyword">if</span> (xy[<span class="number">0</span>] &gt; pos) &#123;</span><br><span class="line">                arrows++;</span><br><span class="line">                pos = xy[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arrows;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>算法思路：贪心算法。</p>
+<p>数组中有若干个区间——[a1,b1],[a2,b2]……[an,bn]，每次选择Min（b1~bn）这个点，删除包含这个点的区间，并且arrows+1，最终得到的arrows就是结果。</p>
+<p>为什么Min(b1~bn)是最优解？可以逆向想一下，往左移动可能会减少捅破的气球，往右则这个区间的气球不能被捅到。</p>
 <h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（nlogn）</p>
 <p>空间复杂度：O（logn），Arrays.sort的空间复杂度</p>
 
@@ -701,7 +704,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.5k</span>
+    <span title="Site words total count">85.9k</span>
   
 </div>
 

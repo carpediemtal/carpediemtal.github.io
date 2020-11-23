@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="概览Java9在package之上引入了一个module（Java Platform Module System）的概念，一些相关的package和resources以及一个描述module的文件就构成了一个module。 假如我这里有一个简单的java程序： 123456789import java.util.logging.Logger;public class Main &amp;#123;	pri">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-22T15:16:29.490Z">
+<meta property="og:updated_time" content="2020-11-23T11:18:23.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Jlink">
 <meta name="twitter:description" content="概览Java9在package之上引入了一个module（Java Platform Module System）的概念，一些相关的package和resources以及一个描述module的文件就构成了一个module。 假如我这里有一个简单的java程序： 123456789import java.util.logging.Logger;public class Main &amp;#123;	pri">
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  155
+                  466
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -430,6 +430,32 @@
 
 <p>它只包含4个类：Logger，Main，String和Object，但是在java9之前，要想运行这个程序我们需要JRE的全部，即使是不需要的部分。这是一种浪费。</p>
 <p>所以，一个可以自定义的JRE是最好的选择。</p>
+<a id="more"></a>
+
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>准备两个module：hello.modules和main.app</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><blockquote>
+<p>─simple-module<br>    ├─hello.modules<br>    │  └─module-info.java<br>    │  └─eternal<br>    │      └─fire<br>    │          └─hello<br>    └─main.app<br>    │  └─module-info.java<br>        └─eternal<br>             └─fire<br>                 └─main</p>
+</blockquote>
+<h3 id="hello-modules"><a href="#hello-modules" class="headerlink" title="hello.modules"></a>hello.modules</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire.hello;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloModules</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Hello, modules!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> hello.modules &#123;</span><br><span class="line">	<span class="keyword">exports</span> eternal.fire.hello;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="main-app"><a href="#main-app" class="headerlink" title="main.app"></a>main.app</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire.main;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> eternal.fire.hello.HelloModules;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainApp</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		HelloModules.func();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> main.app &#123;</span><br><span class="line">	<span class="keyword">requires</span> hello.modules;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">javac -d outDir --module-source-path simple-module simple-module/hello.modules/eternal/fire/hello/HelloModules.java</span><br><span class="line"></span><br><span class="line">javac -d outDir --module-source-path simple-module simple-module/main.app/eternal/fire/main/MainApp.java</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java --module-path outDir --module main.app/eternal.fire.main.MainApp</span><br><span class="line">Hello, modules!</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看依赖关系"><a href="#查看依赖关系" class="headerlink" title="查看依赖关系"></a>查看依赖关系</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jdeps --<span class="keyword">module</span>-path outDir --<span class="keyword">module</span> main.app</span><br><span class="line">main.app</span><br><span class="line"> [file:<span class="comment">///C:/Users/67460/Desktop/module-project/outDir/main.app/]</span></span><br><span class="line">   <span class="keyword">requires</span> hello.modules</span><br><span class="line">   <span class="keyword">requires</span> mandated java.base (@<span class="number">15</span>)</span><br><span class="line">main.app -&gt; hello.modules</span><br><span class="line">main.app -&gt; java.base</span><br><span class="line">   eternal.fire.main                                  -&gt; eternal.fire.hello                                 hello.modules</span><br><span class="line">   eternal.fire.main                                  -&gt; java.lang                                          java.base</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用Jlink生成自定义JRE"><a href="#使用Jlink生成自定义JRE" class="headerlink" title="使用Jlink生成自定义JRE"></a>使用Jlink生成自定义JRE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jlink --module-path outDir --add-modules hello.modules,main.app --output jre</span><br><span class="line">    </span><br><span class="line">jlink --launcher jreLaucher=main.app/eternal.fire.main.MainApp --module-path outDir --add-modules main.app,hello.modules --output jreLauncher</span><br></pre></td></tr></table></figure>
+
+<p>两者的区别在于，后者可以自动生成运行的脚本。</p>
+<h3 id="运行自定义JRE"><a href="#运行自定义JRE" class="headerlink" title="运行自定义JRE"></a>运行自定义JRE</h3><p>在jre/bin目录下和jreLauncher/bin目录下，分别运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\67460\Desktop\module-project\jre\bin&gt; ./java --module main.app/eternal.fire.main.MainApp</span><br><span class="line">Hello, modules!</span><br><span class="line"></span><br><span class="line">PS C:\Users\67460\Desktop\module-project\jreLauncher\bin&gt; .\jreLaucher</span><br><span class="line">Hello, modules!</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -662,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">2.</span> <span class="nav-text">Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">2.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hello-modules"><span class="nav-number">2.2.</span> <span class="nav-text">hello.modules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-app"><span class="nav-number">2.3.</span> <span class="nav-text">main.app</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">2.4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">2.5.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看依赖关系"><span class="nav-number">2.6.</span> <span class="nav-text">查看依赖关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Jlink生成自定义JRE"><span class="nav-number">2.7.</span> <span class="nav-text">使用Jlink生成自定义JRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行自定义JRE"><span class="nav-number">2.8.</span> <span class="nav-text">运行自定义JRE</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -696,7 +722,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.5k</span>
+    <span title="Site words total count">85.9k</span>
   
 </div>
 
