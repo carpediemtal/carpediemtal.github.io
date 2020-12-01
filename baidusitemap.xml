@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://linjinming.gitee.io/2020/07/07/Leetcode-34/</loc>
+    <lastmod>2020-12-01</lastmod>
+  </url>  <url>
+    <loc>https://linjinming.gitee.io/2020/11/30/LeetCode-767/</loc>
+    <lastmod>2020-11-30</lastmod>
+  </url>  <url>
     <loc>https://linjinming.gitee.io/2020/11/29/LeetCode-976/</loc>
     <lastmod>2020-11-29</lastmod>
   </url>  <url>
@@ -542,9 +548,6 @@
     <lastmod>2020-07-08</lastmod>
   </url>  <url>
     <loc>https://linjinming.gitee.io/2020/07/07/%E5%BC%82%E5%B8%B8/</loc>
-    <lastmod>2020-07-07</lastmod>
-  </url>  <url>
-    <loc>https://linjinming.gitee.io/2020/07/07/Leetcode-34/</loc>
     <lastmod>2020-07-07</lastmod>
   </url>  <url>
     <loc>https://linjinming.gitee.io/2020/07/07/LeetCode-36/</loc>
