@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="Why Memory Management没有内存管理的时代（单进程）岁月静好 多进程出现了问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memory Management">
 <meta property="og:url" content="http://linjinming.gitee.io/2020/08/13/Memory-Management/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="Why Memory Management没有内存管理的时代（单进程）岁月静好 多进程出现了问题">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgupq6ipj30x80jqta1.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgv1wu3dj31dt10jdlh.jpg">
-<meta property="og:updated_time" content="2020-08-13T12:41:00.000Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnlqszvtj32ni2v44qp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmfcpy7j30720b5jrp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmxtzy2j30n80fe0ti.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmrz6a6j30k40nejse.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnn6u7kjj30iw09ft95.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmlwdkuj30eh09edg5.jpg">
+<meta property="og:updated_time" content="2020-12-09T07:52:31.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Memory Management">
-<meta name="twitter:description" content="Why Memory Management没有内存管理的时代（单进程）岁月静好 多进程出现了问题">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgupq6ipj30x80jqta1.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glhnlqszvtj32ni2v44qp.jpg">
 
 
 
@@ -390,7 +391,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  285
+                  487
                 </span>
               
 
@@ -427,96 +428,126 @@
       
 
       
-        <h2 id="Why-Memory-Management"><a href="#Why-Memory-Management" class="headerlink" title="Why Memory Management"></a>Why Memory Management</h2><p>没有内存管理的时代（单进程）岁月静好</p>
-<p>多进程出现了问题</p>
+        <p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnlqszvtj32ni2v44qp.jpg" alt="Memory Management.png"></p>
 <a id="more"></a>
 
-<h2 id="Address-Space"><a href="#Address-Space" class="headerlink" title="Address Space"></a>Address Space</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>每个进程都有自己独立的地址空间</li>
-<li>地址空间从0开始</li>
+<h2 id="Why-Memory-Management"><a href="#Why-Memory-Management" class="headerlink" title="Why Memory Management"></a>Why Memory Management</h2><p>没有内存管理的时代（单进程）岁月静好，而多进程出现了问题</p>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmfcpy7j30720b5jrp.jpg" alt="虚拟内存.png"></p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><ul>
+<li>让物理内存扩充成更大的逻辑内存，从而让程序有更多的可使用内存</li>
 </ul>
-<h3 id="Relocation"><a href="#Relocation" class="headerlink" title="Relocation"></a>Relocation</h3><ul>
+<h3 id="内存分页"><a href="#内存分页" class="headerlink" title="内存分页"></a>内存分页</h3><ul>
 <li><p>概念</p>
 <ul>
-<li>加载程序到内存时对程序中指令和数据地址进行修改</li>
+<li>每个程序有自己的地址空间，这些地址空间被分为很多拥有连续地址范围的页面</li>
+<li>程序运行时，并非所有页面都要加载进内存。只有需要时，页面才被OS映射到物理内存</li>
+<li>页面可以被交换（和磁盘）</li>
+<li>程序里用到的是虚地址</li>
+</ul>
+</li>
+<li><p>分页系统地址映射</p>
+<ul>
+<li><p>MMU（内存管理单元）<img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmxtzy2j30n80fe0ti.jpg" alt="MMU.png"></p>
+<ul>
+<li><p>作用</p>
+<ul>
+<li>持有页和页框的映射表，负责地址空间和物理内存的转换</li>
+</ul>
+</li>
+<li><p>虚拟地址到物理地址的翻译过程<img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmrz6a6j30k40nejse.jpg" alt="翻译过程.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>页面置换算法</p>
+<ul>
+<li><p>什么情况下需要进行页面置换</p>
+<ul>
+<li>新的进程没有足够的内存</li>
 </ul>
 </li>
 <li><p>分类</p>
 <ul>
-<li><p>Static Relocation</p>
+<li><p>最优置换算法（OPT）</p>
 <ul>
-<li><p>概念</p>
+<li><p>特点</p>
 <ul>
-<li>操作系统修正内存地址，一次性写好</li>
+<li>Optimal but unreliazable</li>
+<li>Page fault数最小</li>
+<li>替换最后使用的进程</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>业界标杆，仅做参考</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>LRU</p>
+<ul>
+<li>将最近最久未使用的页面替换出</li>
+</ul>
+</li>
+<li><p>NRU</p>
+<ul>
+<li><p>状态位</p>
+<ul>
+<li><p>R</p>
+<ul>
+<li>页面被访问一次设置为1，定期清零</li>
+</ul>
+</li>
+<li><p>M</p>
+<ul>
+<li>页面被修改一次设置为1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缺页中断时，将RM编号最小的页面替换出去</p>
+</li>
+</ul>
+</li>
+<li><p>FIFO</p>
+<ul>
+<li>先进先出</li>
+</ul>
+</li>
+<li><p>第二次机会算法<img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnn6u7kjj30iw09ft95.jpg" alt="第二次机会算法.png"></p>
+<ul>
+<li>FIFO的改进，如果页面被访问过，多一次不被替换的机会</li>
+</ul>
+</li>
+<li><p>时钟clock<img src="http://ww1.sinaimg.cn/large/005VT09Qly1glhnmlwdkuj30eh09edg5.jpg" alt="时钟算法.png"></p>
+<ul>
+<li>第二次机会算法的改进，将链表首位相连</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="内存分段"><a href="#内存分段" class="headerlink" title="内存分段"></a>内存分段</h3><ul>
+<li><p>特点</p>
+<ul>
+<li>段的长度可以不同，并且可以动态增长</li>
+<li>使程序和数据可以被划分为逻辑上独立的地址空间并且有助于共享和保护</li>
 </ul>
 </li>
 <li><p>缺点</p>
 <ul>
-<li>可能无法利用碎片式的内存</li>
+<li>内存碎片</li>
+<li>内存交换效率低</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>Dynamic Relocation</p>
-<ul>
-<li><p>概念</p>
-<ul>
-<li>加载程序到内存之后，并不立即进行逻辑地址到物理地址的转换，而是等程序要执行时再实时算出来，需要寄存器协助</li>
-<li>Base Register</li>
-<li>Limit Register</li>
+<h3 id="段页式"><a href="#段页式" class="headerlink" title="段页式"></a>段页式</h3><ul>
+<li>先将地址空间划分为段，段内再划分页面</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>问题</p>
-<ul>
-<li>内存空间不足以加载新的进程怎么办</li>
-</ul>
-</li>
-</ul>
-<h3 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h3><ul>
-<li><p>概念</p>
-<ul>
-<li>内存和磁盘交换，把老的进程先挪到磁盘，再把新的进程加载进内存</li>
-</ul>
-</li>
-<li><p>Memory Compaction</p>
-<ul>
-<li>消除碎片区域</li>
-</ul>
-</li>
-</ul>
-<h3 id="Free-Space-Management"><a href="#Free-Space-Management" class="headerlink" title="Free Space Management"></a>Free Space Management</h3><ul>
-<li><p>Bitmap&amp;Linked list</p>
-<ul>
-<li><p>图</p>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgupq6ipj30x80jqta1.jpg">
-</li>
-<li><p>优劣</p>
-<ul>
-<li>Linked List查找空闲区域更快（bitmap需要检查每一位）</li>
-<li>Linked List占用空间更大</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>内存分配算法</p>
-<ul>
-<li><p>First FIt</p>
-</li>
-<li><p>Next Fit</p>
-</li>
-<li><p>Best Fit</p>
-<ul>
-<li>耗时，空间利用率高</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1ghpgv1wu3dj31dt10jdlh.jpg">
+
       
     </div>
     
@@ -660,7 +691,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">260</span>
+                  <span class="site-state-item-count">264</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -748,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Memory-Management"><span class="nav-number">1.</span> <span class="nav-text">Why Memory Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Address-Space"><span class="nav-number">2.</span> <span class="nav-text">Address Space</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relocation"><span class="nav-number">2.2.</span> <span class="nav-text">Relocation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swap"><span class="nav-number">2.3.</span> <span class="nav-text">Swap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Free-Space-Management"><span class="nav-number">2.4.</span> <span class="nav-text">Free Space Management</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Memory-Management"><span class="nav-number">1.</span> <span class="nav-text">Why Memory Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟内存"><span class="nav-number">2.</span> <span class="nav-text">虚拟内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">2.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分页"><span class="nav-number">2.2.</span> <span class="nav-text">内存分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分段"><span class="nav-number">2.3.</span> <span class="nav-text">内存分段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段页式"><span class="nav-number">2.4.</span> <span class="nav-text">段页式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -782,7 +813,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">98.5k</span>
+    <span title="Site words total count">101k</span>
   
 </div>
 
