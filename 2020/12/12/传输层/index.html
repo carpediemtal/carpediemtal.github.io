@@ -84,15 +84,17 @@
 <meta property="og:url" content="http://linjinming.gitee.io/2020/12/12/传输层/index.html">
 <meta property="og:site_name" content="Ming">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw3dpkmlj31y82dkhcp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gln3niy4cxj33h42hskjl.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw3w62jlj30fw09g778.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw3o9io2j30jr0fkgpt.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw43rc0hj30g90ayq5w.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw4e7df1j30fi0bedj5.jpg">
-<meta property="og:updated_time" content="2020-12-12T03:02:21.023Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gln3p0wuaqj30kb07ymzj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gln3p7m9l8j30go09l40j.jpg">
+<meta property="og:updated_time" content="2020-12-14T00:57:18.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="传输层">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1glkw3dpkmlj31y82dkhcp.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gln3niy4cxj33h42hskjl.jpg">
 
 
 
@@ -390,7 +392,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  316
+                  633
                 </span>
               
 
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -427,10 +429,12 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1glkw3dpkmlj31y82dkhcp.jpg" alt="传输层.png"></p>
+        <p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gln3niy4cxj33h42hskjl.jpg" alt="传输层.png"></p>
 <a id="more"></a>
 
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="网络层把数据包发送到目的主机，但真正通信的是主机间的进程"><a href="#网络层把数据包发送到目的主机，但真正通信的是主机间的进程" class="headerlink" title="网络层把数据包发送到目的主机，但真正通信的是主机间的进程"></a>网络层把数据包发送到目的主机，但真正通信的是主机间的进程</h3><h3 id="传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节"><a href="#传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节" class="headerlink" title="传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节"></a>传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节</h3><h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>User Datagram Protocol</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>网络层把数据包发送到目的主机，但真正通信的是主机间的进程</p>
+<p>传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节</p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>User Datagram Protocol</p>
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
 <li>无连接</li>
 <li>尽力而为</li>
@@ -497,6 +501,47 @@
 </li>
 <li><p>B收到A的确认报文后释放连接</p>
 </li>
+</ul>
+</li>
+<li><p>第四次挥手的必要性</p>
+</li>
+<li><p>2MSL的必要性</p>
+</li>
+</ul>
+<h2 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h2><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><p>超时重传</p>
+<p>如果一个已经发送的报文段在超时时间内没有收到确认，那么就重传这个报文段。</p>
+</li>
+</ul>
+<h3 id="超时时间RTO"><a href="#超时时间RTO" class="headerlink" title="超时时间RTO"></a>超时时间RTO</h3><ul>
+<li>应该略大于RTT</li>
+</ul>
+<h2 id="TCP滑动窗口"><a href="#TCP滑动窗口" class="headerlink" title="TCP滑动窗口"></a>TCP滑动窗口</h2><h3 id="发送方窗口"><a href="#发送方窗口" class="headerlink" title="发送方窗口"></a>发送方窗口</h3><ul>
+<li>已经发送但未收到确认</li>
+<li>可以发送但未发送的</li>
+</ul>
+<h3 id="接受方窗口"><a href="#接受方窗口" class="headerlink" title="接受方窗口"></a>接受方窗口</h3><ul>
+<li>对最后一个按序到达的字节确认</li>
+</ul>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>使得发送方的发送速率和接收方的接受速率有一个好的匹配</li>
+</ul>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><ul>
+<li>通过控制确认报文中窗口字段的大小来控制发送方窗口大小，进而控制发送速率</li>
+</ul>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>网络拥塞引起超时，超时引起重发，重发加剧了拥塞，正反馈</p>
+<h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>降低网络的拥塞程度</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li><p>慢开始+拥塞避免<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gln3p0wuaqj30kb07ymzj.jpg" alt="慢开始+拥塞避免.png"></p>
+<ul>
+<li>cwdn从1开始指数增长，超过慢开始门限 ssthresh时线性增长，超时后ssthresh=cwnd/2，重新慢开始</li>
+</ul>
+</li>
+<li><p>快重传+快恢复<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gln3p7m9l8j30go09l40j.jpg" alt="快重传与快恢复.png"></p>
+<ul>
+<li>三个同样的ACK说明丢包了，不等超时，直接重传，之后执行快恢复ssthresh=cwnd/2，cnwd设定为ssthresh，直接进入拥塞避免状态</li>
 </ul>
 </li>
 </ul>
@@ -644,7 +689,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">276</span>
+                  <span class="site-state-item-count">277</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -732,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">1.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层把数据包发送到目的主机，但真正通信的是主机间的进程"><span class="nav-number">1.1.</span> <span class="nav-text">网络层把数据包发送到目的主机，但真正通信的是主机间的进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节"><span class="nav-number">1.2.</span> <span class="nav-text">传输层提供了进程间的逻辑通信，向高层屏蔽了底层的核心细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">2.</span> <span class="nav-text">UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header格式"><span class="nav-number">2.2.</span> <span class="nav-text">Header格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点-1"><span class="nav-number">3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header格式-1"><span class="nav-number">3.2.</span> <span class="nav-text">Header格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接"><span class="nav-number">3.3.</span> <span class="nav-text">建立连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭连接"><span class="nav-number">3.4.</span> <span class="nav-text">关闭连接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">2.</span> <span class="nav-text">UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header格式"><span class="nav-number">2.2.</span> <span class="nav-text">Header格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点-1"><span class="nav-number">3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header格式-1"><span class="nav-number">3.2.</span> <span class="nav-text">Header格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接"><span class="nav-number">3.3.</span> <span class="nav-text">建立连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭连接"><span class="nav-number">3.4.</span> <span class="nav-text">关闭连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP可靠传输"><span class="nav-number">4.</span> <span class="nav-text">TCP可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">4.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时时间RTO"><span class="nav-number">4.2.</span> <span class="nav-text">超时时间RTO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">TCP滑动窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送方窗口"><span class="nav-number">5.1.</span> <span class="nav-text">发送方窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接受方窗口"><span class="nav-number">5.2.</span> <span class="nav-text">接受方窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP流量控制"><span class="nav-number">6.</span> <span class="nav-text">TCP流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用-1"><span class="nav-number">6.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-1"><span class="nav-number">6.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP拥塞控制"><span class="nav-number">7.</span> <span class="nav-text">TCP拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用-2"><span class="nav-number">7.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-number">7.2.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -766,7 +811,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">105.8k</span>
+    <span title="Site words total count">107.9k</span>
   
 </div>
 
