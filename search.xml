@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>新浪图床问题</title>
+      <link href="/2021/03/05/%E6%96%B0%E6%B5%AA%E5%9B%BE%E5%BA%8A%E9%97%AE%E9%A2%98/"/>
+      <url>/2021/03/05/%E6%96%B0%E6%B5%AA%E5%9B%BE%E5%BA%8A%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>因为家境贫寒用不起收费的图床，所以一直在用新浪图床。</p><p>起初非常好用，后来白嫖的人太多了，新浪采取了一些措施，很多网站访问新浪图片都会403，但是github和gitee提供的page还能正常用，但到了现在，都没法用了。</p><p>有个简单的方法是，在<code>&lt;head&gt;</code>标签内加上<meta name="referrer" content="no-referrer">。</p><p>我使用的博客框架是hexo，只需要修改html模板就可以了，路径是：<code>/themes/your_theme/layout/_partials/head.swig</code></p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1go9c8xgpqzj30q903zjro.jpg"><p>添加meta标签，就大功告成了。</p><p>还有个方法是给所有的img标签加上referrerpolicy=”no-referrer”属性，可以写个脚本正则匹配，批处理一下，但是我的md里还有markdown格式的图片链接，有些麻烦。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Experience </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>面试题 16.26. 计算器</title>
       <link href="/2021/01/23/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.26.%20%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
       <url>/2021/01/23/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.26.%20%E8%AE%A1%E7%AE%97%E5%99%A8/</url>
