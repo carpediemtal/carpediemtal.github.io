@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://linjinming.gitee.io/2021/03/13/go-get/</loc>
+    <lastmod>2021-03-13</lastmod>
+  </url>  <url>
+    <loc>https://linjinming.gitee.io/2020/09/21/Blog-Template/</loc>
+    <lastmod>2021-03-13</lastmod>
+  </url>  <url>
+    <loc>https://linjinming.gitee.io/2021/03/13/LeetCode-705/</loc>
+    <lastmod>2021-03-13</lastmod>
+  </url>  <url>
     <loc>https://linjinming.gitee.io/2021/03/12/LeetCode-331/</loc>
     <lastmod>2021-03-12</lastmod>
   </url>  <url>
@@ -231,9 +240,6 @@
   </url>  <url>
     <loc>https://linjinming.gitee.io/2020/11/25/LeetCode-1370/</loc>
     <lastmod>2020-11-25</lastmod>
-  </url>  <url>
-    <loc>https://linjinming.gitee.io/2020/09/21/Blog-Template/</loc>
-    <lastmod>2020-11-24</lastmod>
   </url>  <url>
     <loc>https://linjinming.gitee.io/2020/11/24/LeetCode-222/</loc>
     <lastmod>2020-11-24</lastmod>
