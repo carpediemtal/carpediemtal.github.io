@@ -4,6 +4,82 @@
   
     
     <entry>
+      <title>模电-map</title>
+      <link href="/2021/11/14/%E6%A8%A1%E7%94%B5-map/"/>
+      <url>/2021/11/14/%E6%A8%A1%E7%94%B5-map/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq75xuv2qj32mc20otry.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 模电 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基本电路元件模型</title>
+      <link href="/2021/09/03/%E5%9F%BA%E6%9C%AC%E7%94%B5%E8%B7%AF%E5%85%83%E4%BB%B6%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2021/09/03/%E5%9F%BA%E6%9C%AC%E7%94%B5%E8%B7%AF%E5%85%83%E4%BB%B6%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq79udr22j30zk0yego7.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 模电 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>化二次型为标准型</title>
+      <link href="/2021/08/25/%E5%8C%96%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%BA%E6%A0%87%E5%87%86%E5%9E%8B/"/>
+      <url>/2021/08/25/%E5%8C%96%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%BA%E6%A0%87%E5%87%86%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq7ll4s4nj317y0wyn2f.jpg"><h1 id="化二次型为标准型"><a href="#化二次型为标准型" class="headerlink" title="化二次型为标准型"></a>化二次型为标准型</h1><h2 id="正交变换法"><a href="#正交变换法" class="headerlink" title="正交变换法"></a>正交变换法</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><ul><li>二次型对应一个实对称矩阵</li><li>对角矩阵对应二次型的标准型</li><li>实对称矩阵一定可以化成对角阵</li></ul><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul><li>求出二次型的矩阵A</li><li>求出A的所有特征值</li><li>求出特征值对应的特征向量</li><li>将特征向量正交化、单位化作为列向量组成矩阵C</li><li>作正交变换x=Cy得到f的标准型</li></ul><h2 id="配方法"><a href="#配方法" class="headerlink" title="配方法"></a>配方法</h2><h2 id="初等变换法"><a href="#初等变换法" class="headerlink" title="初等变换法"></a>初等变换法</h2><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><h3 id="得到对角矩阵和可逆矩阵C"><a href="#得到对角矩阵和可逆矩阵C" class="headerlink" title="得到对角矩阵和可逆矩阵C"></a>得到对角矩阵和可逆矩阵C</h3><h3 id="由对角矩阵写出关于y的标准二次型"><a href="#由对角矩阵写出关于y的标准二次型" class="headerlink" title="由对角矩阵写出关于y的标准二次型"></a>由对角矩阵写出关于y的标准二次型</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 线代 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初等变换的应用</title>
+      <link href="/2021/08/25/%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+      <url>/2021/08/25/%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq7jq09b5j333m1coqog.jpg"><h1 id="初等变换的应用"><a href="#初等变换的应用" class="headerlink" title="初等变换的应用"></a>初等变换的应用</h1><h2 id="行阶梯形矩阵"><a href="#行阶梯形矩阵" class="headerlink" title="行阶梯形矩阵"></a>行阶梯形矩阵</h2><h3 id="求矩阵的秩"><a href="#求矩阵的秩" class="headerlink" title="求矩阵的秩"></a>求矩阵的秩</h3><ul><li><p>原理</p><ul><li>初等变换不改变矩阵的秩</li></ul></li><li><p>操作</p><ul><li>行变换将矩阵化为行阶梯形</li><li>非零行即为矩阵的秩</li></ul></li></ul><h3 id="确定向量组的线性相关性"><a href="#确定向量组的线性相关性" class="headerlink" title="确定向量组的线性相关性"></a>确定向量组的线性相关性</h3><ul><li>以所有向量为列向量构成矩阵</li><li>列满秩则线性无关</li><li>列不满秩则线性相关</li></ul><h3 id="求向量组的秩"><a href="#求向量组的秩" class="headerlink" title="求向量组的秩"></a>求向量组的秩</h3><p>极大线性无关组所含向量个数为向量组的秩</p><ul><li><p>作出对应的矩阵</p></li><li><p>化为行阶梯型</p></li><li><p>非零行的每一行的首非零元素所在列的向量构成极大线性无关组</p><p>极大先行无关组并不唯一<br>取每一行第一个首非零元素所在列的向量构成的极大先行无关组可能是若干个极大先行无关组的一个<br>秩即为极大先行无关组中向量的个数</p></li><li><p>得到极大先行无关组和向量组的秩</p></li></ul><h3 id="判断两个向量组是否等价"><a href="#判断两个向量组是否等价" class="headerlink" title="判断两个向量组是否等价"></a>判断两个向量组是否等价</h3><ul><li>向量组A&amp;向量组B组成矩阵C（A，B）</li><li>将C化为行阶梯型</li><li>若r（A）=r（B）=r（A，B）则A和B等价</li></ul><h2 id="行最简形矩阵"><a href="#行最简形矩阵" class="headerlink" title="行最简形矩阵"></a>行最简形矩阵</h2><h3 id="确定向量是否能由向量组线性表出"><a href="#确定向量是否能由向量组线性表出" class="headerlink" title="确定向量是否能由向量组线性表出"></a>确定向量是否能由向量组线性表出</h3><ul><li><p>以向量组和所给向量组成矩阵</p></li><li><p>观察看能不能线性表出</p><ul><li><p>能</p><ul><li>解一手非齐次线性方程组</li></ul></li><li><p>不能</p></li></ul></li></ul><h3 id="求向量空间中一个向量在一组基下的坐标"><a href="#求向量空间中一个向量在一组基下的坐标" class="headerlink" title="求向量空间中一个向量在一组基下的坐标"></a>求向量空间中一个向量在一组基下的坐标</h3><ul><li>基和向量组成矩阵</li><li>把基化成单位矩阵</li><li>向量所在列即为坐标</li></ul><h3 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h3><ul><li><p>齐次线性方程组</p><ul><li>系数矩阵</li><li>行最简型</li><li>n-r个自由变量</li><li>6</li><li>基础解系的线性组合就是通解</li></ul></li><li><p>非齐次线性方程组</p><ul><li>对应齐次线性方程组的通解</li><li>令自由变量全为0得到一个特解</li><li>齐次的通解+非齐次的特解即为非齐次的通解</li></ul></li></ul><h2 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h2><h3 id="求矩阵的逆"><a href="#求矩阵的逆" class="headerlink" title="求矩阵的逆"></a>求矩阵的逆</h3><ul><li><p>初等行变换</p><ul><li><p>原理</p><ul><li><p>（A|E）左乘A^(-1)得到（E|A^(-1))</p><p>左乘可逆矩阵相当于做初等行变换</p></li></ul></li><li><p>操作</p><ul><li>作矩阵（A|E）</li><li>初等行变换将A变化为E</li><li>得到A^(-1)</li></ul></li></ul></li><li><p>初等列变换</p><ul><li>图</li></ul></li></ul><h3 id="解矩阵方程"><a href="#解矩阵方程" class="headerlink" title="解矩阵方程"></a>解矩阵方程</h3><ul><li>图</li></ul><h3 id="过渡矩阵"><a href="#过渡矩阵" class="headerlink" title="过渡矩阵"></a>过渡矩阵</h3><p>两组基之间的过渡矩阵<br>若X是在A基下的坐标，而Y是在B基下的坐标，则X，Y满足X=PY；过渡矩阵P为可逆矩阵。</p><ul><li>作两组基组成的矩阵</li><li>前n列化为单位矩阵</li><li>后n列即为所求的过渡矩阵</li></ul><h3 id="化二次型为标准型"><a href="#化二次型为标准型" class="headerlink" title="化二次型为标准型"></a>化二次型为标准型</h3><ul><li>图</li><li>得到对角矩阵和可逆矩阵C</li><li>由对角矩阵写出关于y的标准二次型</li></ul><h2 id="求矩阵的最高阶非零子式"><a href="#求矩阵的最高阶非零子式" class="headerlink" title="求矩阵的最高阶非零子式"></a>求矩阵的最高阶非零子式</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 线代 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-150</title>
       <link href="/2021/03/20/LeetCode-150/"/>
       <url>/2021/03/20/LeetCode-150/</url>
@@ -6026,6 +6102,44 @@
       <categories>
           
           <category> Essay </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电路中的基本物理量</title>
+      <link href="/2019/08/30/%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%A9%E7%90%86%E9%87%8F/"/>
+      <url>/2019/08/30/%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%A9%E7%90%86%E9%87%8F/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq7c8gwe7j30zi0jc40r.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> 模电 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>线性代数考点</title>
+      <link href="/2019/08/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%80%83%E7%82%B9/"/>
+      <url>/2019/08/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%80%83%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq7hxk6fvj34vj9xye84.jpg"><h1 id="线性代数考点"><a href="#线性代数考点" class="headerlink" title="线性代数考点"></a>线性代数考点</h1><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><ul><li><p>初等行变换不改变值</p></li><li><p>交换行或列添负号</p></li><li><p>某一行或列的公因式可以提出</p></li><li><p>幂</p></li><li><p>|AB|=|A||B|</p></li><li><p>伴随矩阵</p><ul><li>AA<em>=A</em>A=|A|E</li><li>A*=A^(-1)|A|</li><li>|A*|=|A|^(n-1)</li></ul></li></ul><h3 id="有特点的行列式"><a href="#有特点的行列式" class="headerlink" title="有特点的行列式"></a>有特点的行列式</h3><ul><li><p>范德蒙德行列式</p><p>通过行列式的性质可以把一些类似行列式转化为范德蒙行列式</p><p>行列式的性质：初等行变换不改变行列式的值<br>每一行每一列可以提出公因式到行列式外<br>对换两行要添负号</p><ul><li><p>形式</p><ul><li>行等比数列</li><li>列等比数列</li></ul></li><li><p>值</p><ul><li>取决于第二行</li><li>后面的项减前面的项的乘积</li></ul></li></ul></li><li><p>（分块）上/下三角行列式</p><p>由行列式性质将一些行列式化为上下三角形<br>分块矩阵有相同的运算规则</p><ul><li><p>主对角线形式</p><ul><li>行列式值为主对角线元素乘积</li></ul></li><li><p>辐对角线形式</p><ul><li>统计交换次数n</li><li>行列式值为-1^n 乘主对角线元素乘积</li></ul></li></ul></li><li><p>行和相等の行列式</p><ul><li><p>形式</p></li><li><p>特点</p><ul><li>每一行的值相等</li></ul></li><li><p>操作</p><ul><li>把所有列加到第一列</li><li>第一列按列展开得到三角行列式</li></ul></li></ul></li><li><p>两线一星行列式</p><ul><li><p>形式</p></li><li><p>特点</p><ul><li><p>两线</p><ul><li>每条线上的元素相同</li><li>不同线上的元素可能不同</li></ul></li><li><p>星</p><ul><li>孤单的非零元素</li></ul></li></ul></li><li><p>操作</p><ul><li>按星所在的行或列直接展开</li><li>得到对角阵</li></ul></li></ul></li><li><p>X形行列式</p><ul><li><p>形式</p></li><li><p>特点</p><ul><li>不同颜色元素的值不同</li></ul></li><li><p>操作</p><ul><li>通过行列变换集齐四色龙珠召唤神龙</li></ul></li><li><p>公式</p><ul><li>2n阶x形行列式的值：龙珠的n次幂</li></ul></li></ul></li><li><p>箭头形行列式</p><ul><li><p>形式</p></li><li><p>特点</p><ul><li>每行两个元素</li></ul></li><li><p>操作</p><ul><li>每一列提出公因式 使每行的两个元素互为相反数</li><li>将第一列/最后一列化0</li><li>得到三角行列式</li></ul></li></ul></li><li><p>夹逼行列式</p><ul><li><p>形式</p></li><li><p>操作</p><ul><li>加上一行一列</li><li>变身箭头行列式</li></ul></li></ul></li><li><p>抽象形行列式</p><ul><li><p>操作</p><ul><li>“正交化”</li></ul></li></ul></li></ul><h2 id="求逆矩阵"><a href="#求逆矩阵" class="headerlink" title="求逆矩阵"></a>求逆矩阵</h2><h3 id="一般矩阵"><a href="#一般矩阵" class="headerlink" title="一般矩阵"></a>一般矩阵</h3><ul><li>初等变换法</li></ul><h3 id="对角矩阵"><a href="#对角矩阵" class="headerlink" title="对角矩阵"></a>对角矩阵</h3><ul><li><p>主对角线形式</p></li><li><p>辐对角线形式</p><ul><li>交换次序</li></ul></li></ul><h3 id="二阶矩阵"><a href="#二阶矩阵" class="headerlink" title="二阶矩阵"></a>二阶矩阵</h3><ul><li><p>伴随矩阵法</p><ul><li><p>二阶矩阵的伴随矩阵</p><ul><li>主对角线元素对调</li><li>辐对角线元素添负号</li></ul></li><li><p>二阶矩阵的行列式</p></li></ul></li></ul><h3 id="抽象矩阵"><a href="#抽象矩阵" class="headerlink" title="抽象矩阵"></a>抽象矩阵</h3><ul><li><p>操作</p><ul><li>将所求为一因子分解因式</li></ul></li></ul><h2 id="代数余子式"><a href="#代数余子式" class="headerlink" title="代数余子式"></a>代数余子式</h2><p>余子式和代数余子式可能相差负号</p><h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="齐次线性方程组有无非零解"><a href="#齐次线性方程组有无非零解" class="headerlink" title="齐次线性方程组有无非零解"></a>齐次线性方程组有无非零解</h3><ul><li><p>定理</p><ul><li><p>对象</p><ul><li>矩阵行列式</li><li>秩</li><li>解的情况</li></ul></li><li><p>关系：等价</p><ul><li>满秩</li><li>|A|≠0</li><li>矩阵可逆</li><li>Ax=0有唯一零解</li><li>降秩</li><li>|A|=0</li><li>矩阵不可逆</li><li>Ax=0有无穷非零解</li></ul></li></ul></li></ul><h3 id="非齐次线性方程组解的情况"><a href="#非齐次线性方程组解的情况" class="headerlink" title="非齐次线性方程组解的情况"></a>非齐次线性方程组解的情况</h3><ul><li><p>定理</p><ul><li><p>对象</p><ul><li><p>矩阵行列式</p></li><li><p>秩</p><ul><li>系数矩阵的秩</li><li>增广矩阵的秩</li></ul></li><li><p>阶数</p></li><li><p>解的情况</p></li></ul></li><li><p>关系:等价</p><ul><li><p>|A|≠0</p></li><li><p>R(A)=R(A,b)=n</p></li><li><p>Ax=b有唯一解</p></li><li><p>|A|=0</p></li><li><p>无解或无穷多解</p><ul><li><p>无解</p><ul><li>R(A)&lt;R(A,b)</li></ul></li><li><p>无穷多解</p><ul><li><p>R(A)=R(a,b)&lt;n</p></li><li><p>求通解</p><ul><li><p>自由未知量</p><ul><li><p>个数</p><ul><li>n-r</li></ul></li></ul></li><li><p>齐次方程的通解</p><ul><li>令自由未知量为1</li></ul></li><li><p>非齐次方程的特解</p><ul><li>令自由未知量为0</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul><h3 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h3><ul><li><p>齐次线性方程组</p><ul><li>系数矩阵</li><li>行最简型</li><li>n-r个自由变量</li><li>给自由变量赋值得到一组基础解系</li><li>基础解系的线性组合就是通解</li></ul></li><li><p>非齐次线性方程组</p><ul><li>对应齐次线性方程组的通解</li><li>令自由变量全为0得到一个特解</li><li>齐次的通解+非齐次的特解即为非齐次的通解</li></ul></li></ul><h2 id="初等变换和初等矩阵"><a href="#初等变换和初等矩阵" class="headerlink" title="初等变换和初等矩阵"></a>初等变换和初等矩阵</h2><h3 id="初等变换"><a href="#初等变换" class="headerlink" title="初等变换"></a>初等变换</h3><ul><li>行变换</li><li>列变换</li></ul><h3 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h3><ul><li><p>定义</p><ul><li>单位矩阵经过一次初等变换</li></ul></li><li><p>性质</p><ul><li>左乘行变换</li><li>右乘列变换</li></ul></li></ul><h3 id="可逆矩阵"><a href="#可逆矩阵" class="headerlink" title="可逆矩阵"></a>可逆矩阵</h3><ul><li><p>分解</p><ul><li>若干个初等矩阵的积</li></ul></li></ul><h2 id="向量组的线性相关性"><a href="#向量组的线性相关性" class="headerlink" title="向量组的线性相关性"></a>向量组的线性相关性</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul><li><p>向量组a1,a2,…,an∈Rn</p><p>Rn是n维向量空间<br>n维向量空间中的向量是n维向量</p></li><li><p>向量组对应的矩阵An</p></li></ul><h3 id="关系：等价"><a href="#关系：等价" class="headerlink" title="关系：等价"></a>关系：等价</h3><p>到底有没有水货？<br>全是干货——满秩<br>有水货——降秩</p><ul><li>|A|≠0</li><li>A满秩</li><li>向量组线性无关</li><li>|A|=0</li><li>A降秩</li><li>向量组线性相关</li></ul><h3 id="一个定理"><a href="#一个定理" class="headerlink" title="一个定理"></a>一个定理</h3><ul><li>线性无关的向量组增加分量（维数）仍然线性无关</li></ul><h2 id="极大无关组"><a href="#极大无关组" class="headerlink" title="极大无关组"></a>极大无关组</h2><p>原文：初等变换的应用</p><h3 id="作出对应的矩阵"><a href="#作出对应的矩阵" class="headerlink" title="作出对应的矩阵"></a>作出对应的矩阵</h3><h3 id="化为行阶梯型"><a href="#化为行阶梯型" class="headerlink" title="化为行阶梯型"></a>化为行阶梯型</h3><h3 id="非零行的每一行的首非零元素所在列的向量构成极大线性无关组"><a href="#非零行的每一行的首非零元素所在列的向量构成极大线性无关组" class="headerlink" title="非零行的每一行的首非零元素所在列的向量构成极大线性无关组"></a>非零行的每一行的首非零元素所在列的向量构成极大线性无关组</h3><p>极大先行无关组并不唯一<br>取每一行第一个首非零元素所在列的向量构成的极大先行无关组可能是若干个极大先行无关组的一个<br>秩即为极大先行无关组中向量的个数<br>每个阶梯上取一个向量</p><h3 id="得到极大先行无关组和向量组的秩"><a href="#得到极大先行无关组和向量组的秩" class="headerlink" title="得到极大先行无关组和向量组的秩"></a>得到极大先行无关组和向量组的秩</h3><h2 id="化二次型为标准型"><a href="#化二次型为标准型" class="headerlink" title="化二次型为标准型"></a>化二次型为标准型</h2><h3 id="正交变换法"><a href="#正交变换法" class="headerlink" title="正交变换法"></a>正交变换法</h3><ul><li><p>基础知识</p><ul><li>二次型对应一个实对称矩阵</li><li>对角矩阵对应二次型的标准型</li><li>实对称矩阵一定可以化成对角阵</li></ul></li><li><p>步骤</p><ul><li>求出二次型的矩阵A</li><li>求出A的所有特征值</li><li>求出特征值对应的特征向量</li><li>将特征向量正交化、单位化作为列向量组成矩阵C</li><li>作正交变换x=Cy得到f的标准型</li></ul></li></ul><h3 id="配方法"><a href="#配方法" class="headerlink" title="配方法"></a>配方法</h3><ul><li>先把含x1的项集中起来</li><li>交叉项提取公因式x1</li><li>配方</li><li>递归</li></ul><h3 id="初等变换法"><a href="#初等变换法" class="headerlink" title="初等变换法"></a>初等变换法</h3><ul><li>上面行列变换</li><li>下面列变换</li></ul><h2 id="特征值"><a href="#特征值" class="headerlink" title="特征值"></a>特征值</h2><h3 id="计算方面的性质"><a href="#计算方面的性质" class="headerlink" title="计算方面的性质"></a>计算方面的性质</h3><ul><li><p>幂</p></li><li><p>函数</p><ul><li>f(λ)=f(A)</li></ul></li><li><p>行列式</p><ul><li>特征值乘积</li></ul></li></ul><h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>任意两行两列向量正交</li><li>行列向量为单位向量</li></ul><h2 id="伴随矩阵的秩R-A"><a href="#伴随矩阵的秩R-A" class="headerlink" title="伴随矩阵的秩R(A*)"></a>伴随矩阵的秩R(A*)</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul><li><p>条件</p><ul><li>结论</li></ul></li><li><p>R(A)=n</p><ul><li>R(A*)=n</li></ul></li><li><p>R(A)=n-1</p><ul><li>R(A*)=1</li></ul></li><li><p>R(A)&lt;n-1</p><ul><li>R(A*)=0</li></ul></li></ul><h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><ul><li><p>定理</p><ul><li>最高阶非零余子式</li><li>秩</li></ul></li></ul><h2 id="相似矩阵"><a href="#相似矩阵" class="headerlink" title="相似矩阵"></a>相似矩阵</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>存在可逆矩阵P，P^(-1)<em>A</em>P=B</li></ul><h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ul><li><p>秩相同</p></li><li><p>特征值相同</p></li><li><p>行列式值相同</p></li><li><p>迹相同</p><p>迹——trace——主对角线元素和</p></li></ul><h2 id="正定二次型"><a href="#正定二次型" class="headerlink" title="正定二次型"></a>正定二次型</h2><h3 id="充要条件"><a href="#充要条件" class="headerlink" title="充要条件"></a>充要条件</h3><ul><li>顺序主子式全部大于0</li><li>特征值全部大于0</li><li>与单位矩阵合同</li></ul><h3 id="充分条件"><a href="#充分条件" class="headerlink" title="充分条件"></a>充分条件</h3><ul><li>行列式大于0</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 线代 </category>
           
       </categories>
       

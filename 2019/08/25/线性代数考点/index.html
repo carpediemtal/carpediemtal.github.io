@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="no-referrer">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="线性代数考点行列式行列式的性质 初等行变换不改变值  交换行或列添负号  某一行或列的公因式可以提出  幂  |AB|=|A||B|  伴随矩阵  AA=AA=|A|E A*=A^(-1)|A| |A*|=|A|^(n-1)    有特点的行列式 范德蒙德行列式 通过行列式的性质可以把一些类似行列式转化为范德蒙行列式 行列式的性质：初等行变换不改变行列式的值每一行每一列可以提出公因式到行列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数考点">
+<meta property="og:url" content="http://linjinming.gitee.io/2019/08/25/线性代数考点/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="线性代数考点行列式行列式的性质 初等行变换不改变值  交换行或列添负号  某一行或列的公因式可以提出  幂  |AB|=|A||B|  伴随矩阵  AA=AA=|A|E A*=A^(-1)|A| |A*|=|A|^(n-1)    有特点的行列式 范德蒙德行列式 通过行列式的性质可以把一些类似行列式转化为范德蒙行列式 行列式的性质：初等行变换不改变行列式的值每一行每一列可以提出公因式到行列">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1goq7hxk6fvj34vj9xye84.jpg">
+<meta property="og:updated_time" content="2021-03-20T03:25:18.202Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数考点">
+<meta name="twitter:description" content="线性代数考点行列式行列式的性质 初等行变换不改变值  交换行或列添负号  某一行或列的公因式可以提出  幂  |AB|=|A||B|  伴随矩阵  AA=AA=|A|E A*=A^(-1)|A| |A*|=|A|^(n-1)    有特点的行列式 范德蒙德行列式 通过行列式的性质可以把一些类似行列式转化为范德蒙行列式 行列式的性质：初等行变换不改变行列式的值每一行每一列可以提出公因式到行列">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1goq7hxk6fvj34vj9xye84.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjinming.gitee.io/2019/08/25/线性代数考点/">
+
+
+
+
+
+  <title>线性代数考点 | Ming</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2ff12830577cde1e94dd80bdcf083398";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ming</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2019/08/25/线性代数考点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">线性代数考点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-25T11:23:57+08:00">
+                2019-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/线代/" itemprop="url" rel="index">
+                    <span itemprop="name">线代</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="http://ww1.sinaimg.cn/large/005VT09Qly1goq7hxk6fvj34vj9xye84.jpg">
+
+
+
+<h1 id="线性代数考点"><a href="#线性代数考点" class="headerlink" title="线性代数考点"></a>线性代数考点</h1><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="行列式的性质"><a href="#行列式的性质" class="headerlink" title="行列式的性质"></a>行列式的性质</h3><ul>
+<li><p>初等行变换不改变值</p>
+</li>
+<li><p>交换行或列添负号</p>
+</li>
+<li><p>某一行或列的公因式可以提出</p>
+</li>
+<li><p>幂</p>
+</li>
+<li><p>|AB|=|A||B|</p>
+</li>
+<li><p>伴随矩阵</p>
+<ul>
+<li>AA<em>=A</em>A=|A|E</li>
+<li>A*=A^(-1)|A|</li>
+<li>|A*|=|A|^(n-1)</li>
+</ul>
+</li>
+</ul>
+<h3 id="有特点的行列式"><a href="#有特点的行列式" class="headerlink" title="有特点的行列式"></a>有特点的行列式</h3><ul>
+<li><p>范德蒙德行列式</p>
+<p>通过行列式的性质可以把一些类似行列式转化为范德蒙行列式</p>
+<p>行列式的性质：初等行变换不改变行列式的值<br>每一行每一列可以提出公因式到行列式外<br>对换两行要添负号</p>
+<ul>
+<li><p>形式</p>
+<ul>
+<li>行等比数列</li>
+<li>列等比数列</li>
+</ul>
+</li>
+<li><p>值</p>
+<ul>
+<li>取决于第二行</li>
+<li>后面的项减前面的项的乘积</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>（分块）上/下三角行列式</p>
+<p>由行列式性质将一些行列式化为上下三角形<br>分块矩阵有相同的运算规则</p>
+<ul>
+<li><p>主对角线形式</p>
+<ul>
+<li>行列式值为主对角线元素乘积</li>
+</ul>
+</li>
+<li><p>辐对角线形式</p>
+<ul>
+<li>统计交换次数n</li>
+<li>行列式值为-1^n 乘主对角线元素乘积</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>行和相等の行列式</p>
+<ul>
+<li><p>形式</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>每一行的值相等</li>
+</ul>
+</li>
+<li><p>操作</p>
+<ul>
+<li>把所有列加到第一列</li>
+<li>第一列按列展开得到三角行列式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>两线一星行列式</p>
+<ul>
+<li><p>形式</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li><p>两线</p>
+<ul>
+<li>每条线上的元素相同</li>
+<li>不同线上的元素可能不同</li>
+</ul>
+</li>
+<li><p>星</p>
+<ul>
+<li>孤单的非零元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作</p>
+<ul>
+<li>按星所在的行或列直接展开</li>
+<li>得到对角阵</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>X形行列式</p>
+<ul>
+<li><p>形式</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>不同颜色元素的值不同</li>
+</ul>
+</li>
+<li><p>操作</p>
+<ul>
+<li>通过行列变换集齐四色龙珠召唤神龙</li>
+</ul>
+</li>
+<li><p>公式</p>
+<ul>
+<li>2n阶x形行列式的值：龙珠的n次幂</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>箭头形行列式</p>
+<ul>
+<li><p>形式</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>每行两个元素</li>
+</ul>
+</li>
+<li><p>操作</p>
+<ul>
+<li>每一列提出公因式 使每行的两个元素互为相反数</li>
+<li>将第一列/最后一列化0</li>
+<li>得到三角行列式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>夹逼行列式</p>
+<ul>
+<li><p>形式</p>
+</li>
+<li><p>操作</p>
+<ul>
+<li>加上一行一列</li>
+<li>变身箭头行列式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>抽象形行列式</p>
+<ul>
+<li><p>操作</p>
+<ul>
+<li>“正交化”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="求逆矩阵"><a href="#求逆矩阵" class="headerlink" title="求逆矩阵"></a>求逆矩阵</h2><h3 id="一般矩阵"><a href="#一般矩阵" class="headerlink" title="一般矩阵"></a>一般矩阵</h3><ul>
+<li>初等变换法</li>
+</ul>
+<h3 id="对角矩阵"><a href="#对角矩阵" class="headerlink" title="对角矩阵"></a>对角矩阵</h3><ul>
+<li><p>主对角线形式</p>
+</li>
+<li><p>辐对角线形式</p>
+<ul>
+<li>交换次序</li>
+</ul>
+</li>
+</ul>
+<h3 id="二阶矩阵"><a href="#二阶矩阵" class="headerlink" title="二阶矩阵"></a>二阶矩阵</h3><ul>
+<li><p>伴随矩阵法</p>
+<ul>
+<li><p>二阶矩阵的伴随矩阵</p>
+<ul>
+<li>主对角线元素对调</li>
+<li>辐对角线元素添负号</li>
+</ul>
+</li>
+<li><p>二阶矩阵的行列式</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="抽象矩阵"><a href="#抽象矩阵" class="headerlink" title="抽象矩阵"></a>抽象矩阵</h3><ul>
+<li><p>操作</p>
+<ul>
+<li>将所求为一因子分解因式</li>
+</ul>
+</li>
+</ul>
+<h2 id="代数余子式"><a href="#代数余子式" class="headerlink" title="代数余子式"></a>代数余子式</h2><p>余子式和代数余子式可能相差负号</p>
+<h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="齐次线性方程组有无非零解"><a href="#齐次线性方程组有无非零解" class="headerlink" title="齐次线性方程组有无非零解"></a>齐次线性方程组有无非零解</h3><ul>
+<li><p>定理</p>
+<ul>
+<li><p>对象</p>
+<ul>
+<li>矩阵行列式</li>
+<li>秩</li>
+<li>解的情况</li>
+</ul>
+</li>
+<li><p>关系：等价</p>
+<ul>
+<li>满秩</li>
+<li>|A|≠0</li>
+<li>矩阵可逆</li>
+<li>Ax=0有唯一零解</li>
+<li>降秩</li>
+<li>|A|=0</li>
+<li>矩阵不可逆</li>
+<li>Ax=0有无穷非零解</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="非齐次线性方程组解的情况"><a href="#非齐次线性方程组解的情况" class="headerlink" title="非齐次线性方程组解的情况"></a>非齐次线性方程组解的情况</h3><ul>
+<li><p>定理</p>
+<ul>
+<li><p>对象</p>
+<ul>
+<li><p>矩阵行列式</p>
+</li>
+<li><p>秩</p>
+<ul>
+<li>系数矩阵的秩</li>
+<li>增广矩阵的秩</li>
+</ul>
+</li>
+<li><p>阶数</p>
+</li>
+<li><p>解的情况</p>
+</li>
+</ul>
+</li>
+<li><p>关系:等价</p>
+<ul>
+<li><p>|A|≠0</p>
+</li>
+<li><p>R(A)=R(A,b)=n</p>
+</li>
+<li><p>Ax=b有唯一解</p>
+</li>
+<li><p>|A|=0</p>
+</li>
+<li><p>无解或无穷多解</p>
+<ul>
+<li><p>无解</p>
+<ul>
+<li>R(A)&lt;R(A,b)</li>
+</ul>
+</li>
+<li><p>无穷多解</p>
+<ul>
+<li><p>R(A)=R(a,b)&lt;n</p>
+</li>
+<li><p>求通解</p>
+<ul>
+<li><p>自由未知量</p>
+<ul>
+<li><p>个数</p>
+<ul>
+<li>n-r</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>齐次方程的通解</p>
+<ul>
+<li>令自由未知量为1</li>
+</ul>
+</li>
+<li><p>非齐次方程的特解</p>
+<ul>
+<li>令自由未知量为0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h3><ul>
+<li><p>齐次线性方程组</p>
+<ul>
+<li>系数矩阵</li>
+<li>行最简型</li>
+<li>n-r个自由变量</li>
+<li>给自由变量赋值得到一组基础解系</li>
+<li>基础解系的线性组合就是通解</li>
+</ul>
+</li>
+<li><p>非齐次线性方程组</p>
+<ul>
+<li>对应齐次线性方程组的通解</li>
+<li>令自由变量全为0得到一个特解</li>
+<li>齐次的通解+非齐次的特解即为非齐次的通解</li>
+</ul>
+</li>
+</ul>
+<h2 id="初等变换和初等矩阵"><a href="#初等变换和初等矩阵" class="headerlink" title="初等变换和初等矩阵"></a>初等变换和初等矩阵</h2><h3 id="初等变换"><a href="#初等变换" class="headerlink" title="初等变换"></a>初等变换</h3><ul>
+<li>行变换</li>
+<li>列变换</li>
+</ul>
+<h3 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h3><ul>
+<li><p>定义</p>
+<ul>
+<li>单位矩阵经过一次初等变换</li>
+</ul>
+</li>
+<li><p>性质</p>
+<ul>
+<li>左乘行变换</li>
+<li>右乘列变换</li>
+</ul>
+</li>
+</ul>
+<h3 id="可逆矩阵"><a href="#可逆矩阵" class="headerlink" title="可逆矩阵"></a>可逆矩阵</h3><ul>
+<li><p>分解</p>
+<ul>
+<li>若干个初等矩阵的积</li>
+</ul>
+</li>
+</ul>
+<h2 id="向量组的线性相关性"><a href="#向量组的线性相关性" class="headerlink" title="向量组的线性相关性"></a>向量组的线性相关性</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li><p>向量组a1,a2,…,an∈Rn</p>
+<p>Rn是n维向量空间<br>n维向量空间中的向量是n维向量</p>
+</li>
+<li><p>向量组对应的矩阵An</p>
+</li>
+</ul>
+<h3 id="关系：等价"><a href="#关系：等价" class="headerlink" title="关系：等价"></a>关系：等价</h3><p>到底有没有水货？<br>全是干货——满秩<br>有水货——降秩</p>
+<ul>
+<li>|A|≠0</li>
+<li>A满秩</li>
+<li>向量组线性无关</li>
+<li>|A|=0</li>
+<li>A降秩</li>
+<li>向量组线性相关</li>
+</ul>
+<h3 id="一个定理"><a href="#一个定理" class="headerlink" title="一个定理"></a>一个定理</h3><ul>
+<li>线性无关的向量组增加分量（维数）仍然线性无关</li>
+</ul>
+<h2 id="极大无关组"><a href="#极大无关组" class="headerlink" title="极大无关组"></a>极大无关组</h2><p>原文：初等变换的应用</p>
+<h3 id="作出对应的矩阵"><a href="#作出对应的矩阵" class="headerlink" title="作出对应的矩阵"></a>作出对应的矩阵</h3><h3 id="化为行阶梯型"><a href="#化为行阶梯型" class="headerlink" title="化为行阶梯型"></a>化为行阶梯型</h3><h3 id="非零行的每一行的首非零元素所在列的向量构成极大线性无关组"><a href="#非零行的每一行的首非零元素所在列的向量构成极大线性无关组" class="headerlink" title="非零行的每一行的首非零元素所在列的向量构成极大线性无关组"></a>非零行的每一行的首非零元素所在列的向量构成极大线性无关组</h3><p>极大先行无关组并不唯一<br>取每一行第一个首非零元素所在列的向量构成的极大先行无关组可能是若干个极大先行无关组的一个<br>秩即为极大先行无关组中向量的个数<br>每个阶梯上取一个向量</p>
+<h3 id="得到极大先行无关组和向量组的秩"><a href="#得到极大先行无关组和向量组的秩" class="headerlink" title="得到极大先行无关组和向量组的秩"></a>得到极大先行无关组和向量组的秩</h3><h2 id="化二次型为标准型"><a href="#化二次型为标准型" class="headerlink" title="化二次型为标准型"></a>化二次型为标准型</h2><h3 id="正交变换法"><a href="#正交变换法" class="headerlink" title="正交变换法"></a>正交变换法</h3><ul>
+<li><p>基础知识</p>
+<ul>
+<li>二次型对应一个实对称矩阵</li>
+<li>对角矩阵对应二次型的标准型</li>
+<li>实对称矩阵一定可以化成对角阵</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li>求出二次型的矩阵A</li>
+<li>求出A的所有特征值</li>
+<li>求出特征值对应的特征向量</li>
+<li>将特征向量正交化、单位化作为列向量组成矩阵C</li>
+<li>作正交变换x=Cy得到f的标准型</li>
+</ul>
+</li>
+</ul>
+<h3 id="配方法"><a href="#配方法" class="headerlink" title="配方法"></a>配方法</h3><ul>
+<li>先把含x1的项集中起来</li>
+<li>交叉项提取公因式x1</li>
+<li>配方</li>
+<li>递归</li>
+</ul>
+<h3 id="初等变换法"><a href="#初等变换法" class="headerlink" title="初等变换法"></a>初等变换法</h3><ul>
+<li>上面行列变换</li>
+<li>下面列变换</li>
+</ul>
+<h2 id="特征值"><a href="#特征值" class="headerlink" title="特征值"></a>特征值</h2><h3 id="计算方面的性质"><a href="#计算方面的性质" class="headerlink" title="计算方面的性质"></a>计算方面的性质</h3><ul>
+<li><p>幂</p>
+</li>
+<li><p>函数</p>
+<ul>
+<li>f(λ)=f(A)</li>
+</ul>
+</li>
+<li><p>行列式</p>
+<ul>
+<li>特征值乘积</li>
+</ul>
+</li>
+</ul>
+<h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>任意两行两列向量正交</li>
+<li>行列向量为单位向量</li>
+</ul>
+<h2 id="伴随矩阵的秩R-A"><a href="#伴随矩阵的秩R-A" class="headerlink" title="伴随矩阵的秩R(A*)"></a>伴随矩阵的秩R(A*)</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li><p>条件</p>
+<ul>
+<li>结论</li>
+</ul>
+</li>
+<li><p>R(A)=n</p>
+<ul>
+<li>R(A*)=n</li>
+</ul>
+</li>
+<li><p>R(A)=n-1</p>
+<ul>
+<li>R(A*)=1</li>
+</ul>
+</li>
+<li><p>R(A)&lt;n-1</p>
+<ul>
+<li>R(A*)=0</li>
+</ul>
+</li>
+</ul>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><ul>
+<li><p>定理</p>
+<ul>
+<li>最高阶非零余子式</li>
+<li>秩</li>
+</ul>
+</li>
+</ul>
+<h2 id="相似矩阵"><a href="#相似矩阵" class="headerlink" title="相似矩阵"></a>相似矩阵</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>存在可逆矩阵P，P^(-1)<em>A</em>P=B</li>
+</ul>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ul>
+<li><p>秩相同</p>
+</li>
+<li><p>特征值相同</p>
+</li>
+<li><p>行列式值相同</p>
+</li>
+<li><p>迹相同</p>
+<p>迹——trace——主对角线元素和</p>
+</li>
+</ul>
+<h2 id="正定二次型"><a href="#正定二次型" class="headerlink" title="正定二次型"></a>正定二次型</h2><h3 id="充要条件"><a href="#充要条件" class="headerlink" title="充要条件"></a>充要条件</h3><ul>
+<li>顺序主子式全部大于0</li>
+<li>特征值全部大于0</li>
+<li>与单位矩阵合同</li>
+</ul>
+<h3 id="充分条件"><a href="#充分条件" class="headerlink" title="充分条件"></a>充分条件</h3><ul>
+<li>行列式大于0</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赠人玫瑰，手有余香</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/30/电路中的基本物理量/" rel="prev" title="电路中的基本物理量">
+                电路中的基本物理量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/arina.jpg" alt="Ming">
+            
+              <p class="site-author-name" itemprop="name">Ming</p>
+              <p class="site-description motion-element" itemprop="description">Come on, check me out!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">325</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/carpediemtal" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mail:674602921@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="qq:674602921" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="overwatchID:SEKAI#51158" target="_blank" title="Overwatch">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>Overwatch</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.treasurew.com/" title="treasurew" target="_blank">treasurew</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性代数考点"><span class="nav-number">1.</span> <span class="nav-text">线性代数考点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行列式"><span class="nav-number">1.1.</span> <span class="nav-text">行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行列式的性质"><span class="nav-number">1.1.1.</span> <span class="nav-text">行列式的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有特点的行列式"><span class="nav-number">1.1.2.</span> <span class="nav-text">有特点的行列式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求逆矩阵"><span class="nav-number">1.2.</span> <span class="nav-text">求逆矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般矩阵"><span class="nav-number">1.2.1.</span> <span class="nav-text">一般矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对角矩阵"><span class="nav-number">1.2.2.</span> <span class="nav-text">对角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二阶矩阵"><span class="nav-number">1.2.3.</span> <span class="nav-text">二阶矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">抽象矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代数余子式"><span class="nav-number">1.3.</span> <span class="nav-text">代数余子式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性方程组"><span class="nav-number">1.4.</span> <span class="nav-text">线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次线性方程组有无非零解"><span class="nav-number">1.4.1.</span> <span class="nav-text">齐次线性方程组有无非零解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非齐次线性方程组解的情况"><span class="nav-number">1.4.2.</span> <span class="nav-text">非齐次线性方程组解的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解线性方程组"><span class="nav-number">1.4.3.</span> <span class="nav-text">解线性方程组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初等变换和初等矩阵"><span class="nav-number">1.5.</span> <span class="nav-text">初等变换和初等矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初等变换"><span class="nav-number">1.5.1.</span> <span class="nav-text">初等变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初等矩阵"><span class="nav-number">1.5.2.</span> <span class="nav-text">初等矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可逆矩阵"><span class="nav-number">1.5.3.</span> <span class="nav-text">可逆矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量组的线性相关性"><span class="nav-number">1.6.</span> <span class="nav-text">向量组的线性相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">1.6.1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系：等价"><span class="nav-number">1.6.2.</span> <span class="nav-text">关系：等价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个定理"><span class="nav-number">1.6.3.</span> <span class="nav-text">一个定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极大无关组"><span class="nav-number">1.7.</span> <span class="nav-text">极大无关组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作出对应的矩阵"><span class="nav-number">1.7.1.</span> <span class="nav-text">作出对应的矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#化为行阶梯型"><span class="nav-number">1.7.2.</span> <span class="nav-text">化为行阶梯型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非零行的每一行的首非零元素所在列的向量构成极大线性无关组"><span class="nav-number">1.7.3.</span> <span class="nav-text">非零行的每一行的首非零元素所在列的向量构成极大线性无关组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#得到极大先行无关组和向量组的秩"><span class="nav-number">1.7.4.</span> <span class="nav-text">得到极大先行无关组和向量组的秩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#化二次型为标准型"><span class="nav-number">1.8.</span> <span class="nav-text">化二次型为标准型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正交变换法"><span class="nav-number">1.8.1.</span> <span class="nav-text">正交变换法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配方法"><span class="nav-number">1.8.2.</span> <span class="nav-text">配方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初等变换法"><span class="nav-number">1.8.3.</span> <span class="nav-text">初等变换法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征值"><span class="nav-number">1.9.</span> <span class="nav-text">特征值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算方面的性质"><span class="nav-number">1.9.1.</span> <span class="nav-text">计算方面的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正交矩阵"><span class="nav-number">1.10.</span> <span class="nav-text">正交矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.10.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伴随矩阵的秩R-A"><span class="nav-number">1.11.</span> <span class="nav-text">伴随矩阵的秩R(A*)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">1.11.1.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">1.11.2.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相似矩阵"><span class="nav-number">1.12.</span> <span class="nav-text">相似矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.12.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-1"><span class="nav-number">1.12.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正定二次型"><span class="nav-number">1.13.</span> <span class="nav-text">正定二次型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#充要条件"><span class="nav-number">1.13.1.</span> <span class="nav-text">充要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充分条件"><span class="nav-number">1.13.2.</span> <span class="nav-text">充分条件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">120.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
