@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数据流体系风格</title>
+      <link href="/2021/03/21/%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BD%93%E7%B3%BB%E9%A3%8E%E6%A0%BC/"/>
+      <url>/2021/03/21/%E6%95%B0%E6%8D%AE%E6%B5%81%E4%BD%93%E7%B3%BB%E9%A3%8E%E6%A0%BC/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gordme3ycoj31yg31u4ky.jpg"><a id="more"></a><h1 id="数据流体系结构风格"><a href="#数据流体系结构风格" class="headerlink" title="数据流体系结构风格"></a>数据流体系结构风格</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul><li><p>the availability of data controls the computation</p></li><li><p>the structure of the design is decided by orderly motion of data from process to process</p></li><li><p>in a pure data flow system, there is no other interaction between processes</p></li></ul><h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><h3 id="基本构件：处理"><a href="#基本构件：处理" class="headerlink" title="基本构件：处理"></a>基本构件：处理</h3><ul><li><p>作用</p><ul><li>数据处理</li></ul></li><li><p>接口</p><ul><li>输入输出端口</li></ul></li><li><p>计算模型</p><ul><li>输入端口读数，经过计算，写到输出端口</li></ul></li></ul><h3 id="连接件：数据流"><a href="#连接件：数据流" class="headerlink" title="连接件：数据流"></a>连接件：数据流</h3><ul><li><p>作用</p><ul><li>传递数据流</li></ul></li><li><p>特点</p><ul><li>单向</li><li>异步</li><li>有缓冲</li></ul></li><li><p>接口</p><ul><li>reader</li><li>writer</li></ul></li><li><p>计算模型</p><ul><li>构件A的输出</li><li>构件B的输入</li></ul></li></ul><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="批处理体系结构风格"><a href="#批处理体系结构风格" class="headerlink" title="批处理体系结构风格"></a>批处理体系结构风格</h3><ul><li><p>定义</p><ul><li>基本构件：独立的应用程序</li><li>连接件：某种类型的媒质</li><li>连接件定义了相应的数据流图，表达拓扑结构</li><li>每个处理步骤是一个独立的程序</li><li>每一步必须在前一步结束后才能开始</li><li>数据必须是完整的，以整体的方式传递</li></ul></li><li><p>特点</p><ul><li>整体传递数据</li><li>构件粒度大</li><li>延迟高，实时性差</li><li>无并发（应该说的是构件之间）</li></ul></li><li><p>栗子</p><ul><li>相似代码检测</li></ul></li></ul><h3 id="管道-过滤器体系结构风格"><a href="#管道-过滤器体系结构风格" class="headerlink" title="管道-过滤器体系结构风格"></a>管道-过滤器体系结构风格</h3><ul><li><p>场景</p><ul><li>数据源源不断的产生</li></ul></li><li><p>定义</p><ul><li>把系统分解为几个连贯的通过数据流连接的处理步骤</li><li>递增的读取和消费数据流</li></ul></li><li><p>组成</p><ul><li><p>构件：过滤器</p><ul><li><p>作用</p><ul><li>将源数据变换成目标数据</li></ul></li><li><p>变换类型</p><ul><li>增删</li><li>改类型</li><li>分解、合并数据流</li></ul></li><li><p>特点：独立</p><ul><li>无上下文信息</li><li>不保留状态</li><li>不感知其它过滤器</li></ul></li></ul></li><li><p>连接件：管道</p><ul><li>单向传输</li></ul></li></ul></li><li><p>优势</p><ul><li>构件粒度小</li><li>高内聚、低耦合</li><li>软件复用</li><li>并行执行</li></ul></li><li><p>劣势</p><ul><li>格式转换</li><li>不适合处理交互的应用？？</li></ul></li><li><p>栗子</p><ul><li>pipe and filter</li><li>编译器</li><li>Unix pipes</li><li>Image processing</li></ul></li></ul><h3 id="过程控制"><a href="#过程控制" class="headerlink" title="过程控制"></a><del>过程控制</del></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件体系结构 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode-150</title>
       <link href="/2021/03/20/LeetCode-150/"/>
       <url>/2021/03/20/LeetCode-150/</url>
