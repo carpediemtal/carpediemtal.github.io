@@ -90,7 +90,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkm4dcfna2j30mp0eimxh.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gkm5xx4w9ij30md08njro.jpg">
-<meta property="og:updated_time" content="2020-11-12T02:09:16.430Z">
+<meta property="og:updated_time" content="2021-03-21T02:46:51.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-73">
 <meta name="twitter:description" content="题目">
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  330
+                  397
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -437,6 +437,8 @@
 
 <p>这样会有冗余的操作，比如将同一行或一列多次置零，可以用Set改进：</p>
 <h3 id="版本二"><a href="#版本二" class="headerlink" title="版本二"></a>版本二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        Set&lt;Integer&gt; rows = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        Set&lt;Integer&gt; cols = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    rows.add(i);</span><br><span class="line">                    cols.add(j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row : rows) &#123;</span><br><span class="line">            setZeroesR(matrix, row);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> col : cols) &#123;</span><br><span class="line">            setZeroesC(matrix, col);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setZeroesR</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> row)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix[<span class="number">0</span>].length; i++) &#123;</span><br><span class="line">            matrix[row][i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setZeroesC</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            matrix[i][col] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setZeroes</span><span class="params">(matrix [][]<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">   flag1 := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(matrix))</span><br><span class="line">   flag2 := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(matrix[<span class="number">0</span>]))</span><br><span class="line">   <span class="keyword">for</span> i := <span class="keyword">range</span> matrix &#123;</span><br><span class="line">      <span class="keyword">for</span> j := <span class="keyword">range</span> matrix[i] &#123;</span><br><span class="line">         <span class="keyword">if</span> matrix[i][j] == <span class="number">0</span> &#123;</span><br><span class="line">            flag1[i] = <span class="literal">true</span></span><br><span class="line">            flag2[j] = <span class="literal">true</span></span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i := <span class="keyword">range</span> matrix &#123;</span><br><span class="line">      <span class="keyword">for</span> j := <span class="keyword">range</span> matrix[i] &#123;</span><br><span class="line">         <span class="keyword">if</span> flag1[i] || flag2[j] &#123;</span><br><span class="line">            matrix[i][j] = <span class="number">0</span></span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（M*N）</p>
 <p>空间复杂度：O（M+N）</p>
@@ -584,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">331</span>
+                  <span class="site-state-item-count">338</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -595,7 +597,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -672,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本一"><span class="nav-number">3.1.</span> <span class="nav-text">版本一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本二"><span class="nav-number">3.2.</span> <span class="nav-text">版本二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本一"><span class="nav-number">3.1.</span> <span class="nav-text">版本一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本二"><span class="nav-number">3.2.</span> <span class="nav-text">版本二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go"><span class="nav-number">3.3.</span> <span class="nav-text">Go</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度"><span class="nav-number">4.</span> <span class="nav-text">复杂度</span></a></li></ol></div>
             
 
           </div>
@@ -706,7 +708,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">125.8k</span>
+    <span title="Site words total count">125.9k</span>
   
 </div>
 
