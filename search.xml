@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>LeetCode-1190</title>
+      <link href="/2021/04/17/LeetCode-1190/"/>
+      <url>/2021/04/17/LeetCode-1190/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h4 id="1190-反转每对括号间的子串"><a href="#1190-反转每对括号间的子串" class="headerlink" title="1190. 反转每对括号间的子串"></a><a href="https://leetcode-cn.com/problems/reverse-substrings-between-each-pair-of-parentheses/" target="_blank" rel="noopener">1190. 反转每对括号间的子串</a></h4><p>这是星期三HW机试的第一道原题，而机试满分600分，通过只要求100分。</p><p>这个题目借助栈，很容易直接写出来</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpmu33659qj30j80ja3z5.jpg"><a id="more"></a><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpmu385idbj30ia07mwep.jpg"><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>和机试不同的是，牛客上的要去处理输入输出</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverseParentheses</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"><span class="keyword">var</span> stack []<span class="keyword">rune</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _, ch := <span class="keyword">range</span> s &#123;</span><br><span class="line"><span class="keyword">if</span> ch == <span class="string">')'</span> &#123;</span><br><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">top := stack[<span class="built_in">len</span>(stack)<span class="number">-1</span>]</span><br><span class="line">stack = stack[:<span class="built_in">len</span>(stack)<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">if</span> top == <span class="string">'('</span> &#123;</span><br><span class="line">stack = <span class="built_in">append</span>(stack, unzip(buf.String())...)</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">buf.WriteRune(top)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">stack = <span class="built_in">append</span>(stack, ch)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">string</span>(stack)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">unzip</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="params">(arr []<span class="keyword">rune</span>)</span></span> &#123;</span><br><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> s &#123;</span><br><span class="line">arr = <span class="built_in">append</span>(arr, v)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度：O（n）</p><p>空间复杂度：O（n）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cookie、session and token</title>
+      <link href="/2021/04/13/Cookie%E3%80%81session-and-token/"/>
+      <url>/2021/04/13/Cookie%E3%80%81session-and-token/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 计网 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算表达式</title>
       <link href="/2021/04/13/%E8%AE%A1%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
       <url>/2021/04/13/%E8%AE%A1%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
