@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>分布式事务</title>
+      <link href="/2021/04/18/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"/>
+      <url>/2021/04/18/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpnmo1d70nj32d21ewgws.jpg"><a id="more"></a><h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol><li>分布式环境下，一个事务的多个操作位于不同的物理机/虚拟机上</li><li>分布式环境下如何保证事务的ACID特性</li></ol><h2 id="锁-VS-事务"><a href="#锁-VS-事务" class="headerlink" title="锁 VS 事务"></a>锁 VS 事务</h2><ul><li><p>分布式锁关心进程间的互斥关系（隔离性）</p></li><li><p>分布式事务关心ACID四个特性</p></li></ul><h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="2PC"><a href="#2PC" class="headerlink" title="2PC"></a>2PC</h3><p>2 phase commit</p><ul><li><p>组成</p><ul><li>协调者（coordinator）</li><li>参与者 × N</li></ul></li><li><p>过程</p><ul><li><p>coordinator询问所有参与者，事务执行（是否成功</p></li><li><p>一票否决</p><ul><li>所有参与者提交</li><li>所有参与者回滚</li></ul></li></ul></li><li><p>缺点</p><ul><li><p>同步</p><ul><li>等待coordinator消息过程中阻塞</li></ul></li><li><p>单点故障</p></li><li><p>数据不一致</p><ul><li>网络问题导致只有部分参与者收到commit消息</li></ul></li><li><p>一票否决，不“乐观”</p></li></ul></li></ul><h3 id="本地消息表"><a href="#本地消息表" class="headerlink" title="本地消息表"></a>本地消息表</h3><ul><li><p>组成</p><ul><li><p>本地</p><ul><li>业务数据表</li><li>消息表</li></ul></li><li><p>消息队列</p></li></ul></li><li><p>过程</p><ul><li><p>一个本地事务</p><ul><li>写业务数据表</li><li>写本地消息表</li></ul></li><li><p>一方将本地消息表中的消息移到消息队列</p></li><li><p>一方从消息队列中读取消息进行下一步操作</p></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 分布式 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>学习观</title>
       <link href="/2021/04/17/%E5%AD%A6%E4%B9%A0%E8%A7%82/"/>
       <url>/2021/04/17/%E5%AD%A6%E4%B9%A0%E8%A7%82/</url>
