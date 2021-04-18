@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  添加缺失、移除未用到的 MODULE 1go mod tidy  下载 MODULE 到本地 1go mod d">
+<meta name="description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  在GOLAND中开启GO MODULES  选择：Enable Go Modules Intergration">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GO MODULE">
 <meta property="og:url" content="http://linjinming.gitee.io/2021/04/11/GO-MODULE/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  添加缺失、移除未用到的 MODULE 1go mod tidy  下载 MODULE 到本地 1go mod d">
+<meta property="og:description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  在GOLAND中开启GO MODULES  选择：Enable Go Modules Intergration">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-04-11T02:56:16.505Z">
+<meta property="og:updated_time" content="2021-04-18T01:56:54.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GO MODULE">
-<meta name="twitter:description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  添加缺失、移除未用到的 MODULE 1go mod tidy  下载 MODULE 到本地 1go mod d">
+<meta name="twitter:description" content="常用操作开启 GO MODULE 和代理： 12go env -w GO111MODULE=ongo env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct  在当前目录初始化新的 MODULE 1go mod init  在GOLAND中开启GO MODULES  选择：Enable Go Modules Intergration">
 
 
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  75
+                  107
                 </span>
               
 
@@ -431,6 +431,13 @@
 
 <p>在当前目录初始化新的 MODULE</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init</span><br></pre></td></tr></table></figure>
+
+<p>在GOLAND中开启GO MODULES</p>
+<ul>
+<li>选择：Enable Go Modules Intergration</li>
+</ul>
+<p>下载依赖，go get 命令也会自动更新 go.mod 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get ./...</span><br></pre></td></tr></table></figure>
 
 <p>添加缺失、移除未用到的 MODULE</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
@@ -585,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">361</span>
+                  <span class="site-state-item-count">364</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -707,7 +714,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">131.8k</span>
+    <span title="Site words total count">131.9k</span>
   
 </div>
 
