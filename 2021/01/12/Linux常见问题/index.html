@@ -88,10 +88,13 @@
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="工作过程中难免会遇到问题，遇到问题就去搜索一下，然后照着网上说的步骤，理解或是不理解，解决了问题。 把自己遇到的问题以及解决方案记录下来，也许对以后的工作有所裨益。 &amp;lt;! – more –&amp;gt; Nginx1234567891011121314# restartservice nginx restart# confignano /etc/nginx/nginx.conf# 301 redi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-01-12T06:13:05.149Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gpv1togl9nj30rs027mxb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gpv1up59x4j30ux0haabb.jpg">
+<meta property="og:updated_time" content="2021-04-24T11:17:51.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常见问题">
 <meta name="twitter:description" content="工作过程中难免会遇到问题，遇到问题就去搜索一下，然后照着网上说的步骤，理解或是不理解，解决了问题。 把自己遇到的问题以及解决方案记录下来，也许对以后的工作有所裨益。 &amp;lt;! – more –&amp;gt; Nginx1234567891011121314# restartservice nginx restart# confignano /etc/nginx/nginx.conf# 301 redi">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gpv1togl9nj30rs027mxb.jpg">
 
 
 
@@ -389,7 +392,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  169
+                  190
                 </span>
               
 
@@ -430,6 +433,11 @@
 <p>把自己遇到的问题以及解决方案记录下来，也许对以后的工作有所裨益。</p>
 <p>&lt;! – more –&gt;</p>
 <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># restart</span></span><br><span class="line">service nginx restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># config</span></span><br><span class="line">nano /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 301 redirect</span></span><br><span class="line"><span class="comment"># /etc/nginx/nginx.conf</span></span><br><span class="line">server &#123;</span><br><span class="line">	listen       80 default_server;</span><br><span class="line">        listen       [::]:80 default_server;</span><br><span class="line">        server_name  m1ng.xyz;</span><br><span class="line">        <span class="built_in">return</span>       301 https://linjinming.gitee.io/;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx-403-Forbidden"><a href="#Nginx-403-Forbidden" class="headerlink" title="Nginx 403 Forbidden"></a>Nginx 403 Forbidden</h3><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpv1togl9nj30rs027mxb.jpg">
+
+<p>ps发现运行用户为nginx，不合理，在配置中改成root：</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpv1up59x4j30ux0haabb.jpg">
 
 <h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>用ssh连接服务器后，没有语法高亮，而 ~/.bashrc里似乎有高亮的相关设置。我在 ~/.bashrc里设置了环境变量，但每次都需要source ~/.bashrc一下。</p>
 <p>解决方法：<a href="https://blog.csdn.net/weixin_43937316/article/details/89215023" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43937316/article/details/89215023</a></p>
@@ -577,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">371</span>
+                  <span class="site-state-item-count">372</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -665,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Path"><span class="nav-number">2.</span> <span class="nav-text">Path</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">1.</span> <span class="nav-text">Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-403-Forbidden"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx 403 Forbidden</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Path"><span class="nav-number">2.</span> <span class="nav-text">Path</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +707,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">135.8k</span>
+    <span title="Site words total count">136.3k</span>
   
 </div>
 

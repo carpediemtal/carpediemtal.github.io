@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://linjinming.gitee.io/2021/04/24/%E6%8B%AF%E6%95%91%E8%A2%AB%E5%A2%99%E7%9A%84VPS/</loc>
+    <lastmod>2021-04-24</lastmod>
+  </url>  <url>
+    <loc>https://linjinming.gitee.io/2021/01/12/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2021-04-24</lastmod>
+  </url>  <url>
     <loc>https://linjinming.gitee.io/2021/04/22/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
@@ -279,9 +285,6 @@
   </url>  <url>
     <loc>https://linjinming.gitee.io/2021/01/23/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.26.%20%E8%AE%A1%E7%AE%97%E5%99%A8/</loc>
     <lastmod>2021-01-23</lastmod>
-  </url>  <url>
-    <loc>https://linjinming.gitee.io/2021/01/12/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2021-01-12</lastmod>
   </url>  <url>
     <loc>https://linjinming.gitee.io/2020/12/21/LeetCode-746/</loc>
     <lastmod>2020-12-21</lastmod>
