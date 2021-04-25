@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjinming.gitee.io/2021/04/25/缓存/</loc>
+    
+    <lastmod>2021-04-25T04:41:39.634Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linjinming.gitee.io/2021/04/25/LRU/</loc>
+    
+    <lastmod>2021-04-25T02:03:33.844Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjinming.gitee.io/2021/04/24/拯救被墙的VPS/</loc>
     
-    <lastmod>2021-04-24T11:48:48.218Z</lastmod>
+    <lastmod>2021-04-24T11:53:54.884Z</lastmod>
     
   </url>
   
