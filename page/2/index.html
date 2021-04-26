@@ -306,6 +306,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2021/04/19/矩阵链乘积/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/arina.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/19/矩阵链乘积/" itemprop="url">矩阵链乘积</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-19T07:35:51+08:00">
+                2021-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>矩阵链乘积</strong>（英语：Matrix chain multiplication，或Matrix Chain Ordering Problem，MCOP）是可用<a href="https://zh.wikipedia.org/wiki/动态规划" target="_blank" rel="noopener">动态规划</a>解决的最佳化问题。给定一序列矩阵，期望求出<a href="https://zh.wikipedia.org/wiki/矩陣乘法" target="_blank" rel="noopener">相乘这些矩阵</a>的最有效方法。此问题并不是真的去<em>执行</em>其乘法，而只是决定执行乘法的顺序而已。</p>
+<p>因为矩阵乘法具有<a href="https://zh.wikipedia.org/wiki/結合律" target="_blank" rel="noopener">结合律</a>，所有其运算顺序有很多种选择。换句话说，不论如何括号其乘积，最后结果都会是一样的。例如，若有四个矩阵<strong>ABCD</strong>，将可以有：</p>
+<p><strong>ABCD=(AB)(CD)=A(BCD)=A(BC)D=…</strong></p>
+<p>但括号其乘积的顺序是会影响到需计算乘积所需简单算术运算的数目，即其<em>效率</em>。例如，设<strong>A</strong>为一10 X 30矩阵，B为30 X 5矩阵与C为5 X 60矩阵，则：</p>
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpopkzoaxpj30h701yweo.jpg">
+
+<p>明显地，第一种方式要有效多了。既然已确认过此问题了，那要如何决定<em>n</em>个矩阵相乘的最佳顺序呢？可以比较每一顺序的运算量（使用蛮力），但这将需要时间<a href="https://zh.wikipedia.org/wiki/大O符号" target="_blank" rel="noopener">O</a>(2<em>n</em>)，是一种非常慢且对大<em>n</em>不实在的方法。那解决方法，如我们将看到的，是将问题分成一套相关的子问题。以解答子问题一次而再使用其解答数次，即可以彻底地得出其所需时间。此一方法称为<a href="https://zh.wikipedia.org/wiki/动态规划" target="_blank" rel="noopener">动态规划</a>。</p>
+<p>N个矩阵（A1，A2，A3，，，An）链乘的最佳顺序，对于这个问题，它的子问题是什么？如何将它拆分成更小的子问题呢？</p>
+<p>可以将这N个矩阵分成两部分，第一部分的最佳顺序是一个子问题，第二部分的最佳顺序也是一个子问题。那这两个子问题和大问题又如何建立联系呢？</p>
+<p>将N个矩阵分成两部分，有多种不同的划分方法，三个矩阵链乘有2种划分方法：（AB）C和A（BC）</p>
+<p>我们去尝试所有的划分方法，求得每种划分方法需要的计算数，取最小的作为N个矩阵链乘的最优解。</p>
+<p>划分而得的两部分又可以拆分成更小的子问题，这时候动态规划就能发挥威力，我们自下而上去求解，将求得的结果存在一张表中，方便复用。</p>
+<p>由此可见，动态规划问题的主要求解思路就是如何寻找最优解问题的子问题，以及如何将大问题和子问题联系起来。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/04/19/矩阵链乘积/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2021/04/18/虚拟机体系结构风格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1885,183 +2074,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2021/04/12/LeetCode-179/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/arina.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ming">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/12/LeetCode-179/" itemprop="url">LeetCode-179</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-12T12:20:37+08:00">
-                2021-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  190
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h4 id="179-最大数"><a href="#179-最大数" class="headerlink" title="179. 最大数"></a><a href="https://leetcode-cn.com/problems/largest-number/" target="_blank" rel="noopener">179. 最大数</a></h4><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpguersge8j30is0ledgg.jpg">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/04/12/LeetCode-179/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2114,7 +2126,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">374</span>
+                  <span class="site-state-item-count">375</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2220,7 +2232,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">137.2k</span>
+    <span title="Site words total count">137.3k</span>
   
 </div>
 
