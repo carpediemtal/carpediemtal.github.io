@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Function Prolog</title>
+      <link href="/2021/04/26/Function-Prolog/"/>
+      <url>/2021/04/26/Function-Prolog/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpwy940dbij32801gids2.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> Go </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux进程</title>
+      <link href="/2021/04/26/Linux%E8%BF%9B%E7%A8%8B/"/>
+      <url>/2021/04/26/Linux%E8%BF%9B%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpwxuekba7j31t019ygto.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GO GC</title>
       <link href="/2021/04/26/GO-GC/"/>
       <url>/2021/04/26/GO-GC/</url>
@@ -1281,6 +1319,25 @@
       <categories>
           
           <category> Experience </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Go Slice</title>
+      <link href="/2021/01/26/Go-Slice/"/>
+      <url>/2021/01/26/Go-Slice/</url>
+      
+        <content type="html"><![CDATA[<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gpwyjxs9tgj31eu12243u.jpg">]]></content>
+      
+      
+      <categories>
+          
+          <category> Go </category>
           
       </categories>
       
