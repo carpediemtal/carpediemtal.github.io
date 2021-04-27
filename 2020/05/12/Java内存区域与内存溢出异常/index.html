@@ -1,133 +1,51 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="referrer" content="no-referrer">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linjinming.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Java内存区域与内存溢出异常 概述C\C++ 内存管理区域的土皇帝  Java new操作不需要去写配对的delete代码  不容易内存泄漏和内存溢出  内存泄漏 Memory Leak程序动态申请的堆内存没有释放或者无法释放，后果可能是运行变慢，也可能是程序崩溃。问题具有积累性。  内存溢出 Out of Memory意思是内存不够了，你要加内存条了。内存泄漏可能会导致内存溢出。    一旦泄">
+  <meta name="description" content="Java内存区域与内存溢出异常 概述C\C++ 内存管理区域的土皇帝  Java new操作不需要去写配对的delete代码  不容易内存泄漏和内存溢出  内存泄漏 Memory Leak程序动态申请的堆内存没有释放或者无法释放，后果可能是运行变慢，也可能是程序崩溃。问题具有积累性。  内存溢出 Out of Memory意思是内存不够了，你要加内存条了。内存泄漏可能会导致内存溢出。    一旦泄">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内存区域与内存溢出异常">
-<meta property="og:url" content="http://linjinming.gitee.io/2020/05/12/Java内存区域与内存溢出异常/index.html">
+<meta property="og:url" content="http://linjinming.gitee.io/2020/05/12/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/index.html">
 <meta property="og:site_name" content="Ming">
 <meta property="og:description" content="Java内存区域与内存溢出异常 概述C\C++ 内存管理区域的土皇帝  Java new操作不需要去写配对的delete代码  不容易内存泄漏和内存溢出  内存泄漏 Memory Leak程序动态申请的堆内存没有释放或者无法释放，后果可能是运行变慢，也可能是程序崩溃。问题具有积累性。  内存溢出 Out of Memory意思是内存不够了，你要加内存条了。内存泄漏可能会导致内存溢出。    一旦泄">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gept7hyc2aj368jcn3b2f.jpg">
-<meta property="og:updated_time" content="2020-07-06T14:36:18.201Z">
+<meta property="article:published_time" content="2020-05-12T09:45:36.000Z">
+<meta property="article:modified_time" content="2020-07-06T14:36:18.201Z">
+<meta property="article:author" content="Ming">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存区域与内存溢出异常">
-<meta name="twitter:description" content="Java内存区域与内存溢出异常 概述C\C++ 内存管理区域的土皇帝  Java new操作不需要去写配对的delete代码  不容易内存泄漏和内存溢出  内存泄漏 Memory Leak程序动态申请的堆内存没有释放或者无法释放，后果可能是运行变慢，也可能是程序崩溃。问题具有积累性。  内存溢出 Out of Memory意思是内存不够了，你要加内存条了。内存泄漏可能会导致内存溢出。    一旦泄">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005VT09Qly1gept7hyc2aj368jcn3b2f.jpg">
 
+<link rel="canonical" href="http://linjinming.gitee.io/2020/05/12/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://linjinming.gitee.io/2020/05/12/Java内存区域与内存溢出异常/">
-
-
-
-
 
   <title>Java内存区域与内存溢出异常 | Ming</title>
   
@@ -136,296 +54,217 @@
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?2ff12830577cde1e94dd80bdcf083398";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Ming</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            About
-          </a>
-        </li>
-      
-        
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
-        
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-        
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
         <li class="menu-item menu-item-commonweal">
-          <a href="/404/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            Commonweal 404
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/05/12/Java内存区域与内存溢出异常/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://linjinming.gitee.io/2020/05/12/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ming">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Ming">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Java内存区域与内存溢出异常</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Java内存区域与内存溢出异常
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T17:45:36+08:00">
-                2020-05-12
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index">
-                    <span itemprop="name">JVM</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2020-05-12 17:45:36" itemprop="dateCreated datePublished" datetime="2020-05-12T17:45:36+08:00">2020-05-12</time>
             </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  7.3k
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-06 22:36:18" itemprop="dateModified" datetime="2020-07-06T22:36:18+08:00">2020-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
                 </span>
-              
+            </span>
 
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  38
-                </span>
-              
-            </div>
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>26k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>24 mins.</span>
+            </span>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="Java内存区域与内存溢出异常"><a href="#Java内存区域与内存溢出异常" class="headerlink" title="Java内存区域与内存溢出异常"></a>Java内存区域与内存溢出异常</h1><hr>
@@ -448,7 +287,7 @@
 <li><p>一旦泄漏或溢出，不懂JVM没办法Debug</p>
 </li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><h3 id="JVM会把她管理的内存划分为若干个区域"><a href="#JVM会把她管理的内存划分为若干个区域" class="headerlink" title="JVM会把她管理的内存划分为若干个区域"></a>JVM会把她管理的内存划分为若干个区域</h3><ul>
 <li><p>程序计数器</p>
@@ -708,27 +547,31 @@
 <li><p>运行期间新的常量也可能放入运行常量池中</p>
 </li>
 <li><p>栗子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="keyword">new</span> String(<span class="string">"intern?"</span>);</span><br><span class="line">        String s2 = <span class="keyword">new</span> String(<span class="string">"intern?"</span>);</span><br><span class="line">        System.out.println(s1 == s2);   <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">​    String s3 = s1.intern();</span><br><span class="line">​    String s4 = <span class="string">"intern?"</span>;</span><br><span class="line">​    System.out.println(s3 == s4);   <span class="comment">//true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="keyword">new</span> String(<span class="string">&quot;intern?&quot;</span>);</span><br><span class="line">        String s2 = <span class="keyword">new</span> String(<span class="string">&quot;intern?&quot;</span>);</span><br><span class="line">        System.out.println(s1 == s2);   <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">​    String s3 = s1.intern();</span><br><span class="line">​    String s4 = <span class="string">&quot;intern?&quot;</span>;</span><br><span class="line">​    System.out.println(s3 == s4);   <span class="comment">//true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
+<ul>
+<li><p>String类的intern方法</p>
+<ul>
+<li>new出来的String会被放在java Heap里</li>
+<li>通过字面量对String初始化，她会先在运行常量池里寻找，找到则返回池里的引用，否则就在池里创建一个并返回引用。</li>
+<li>new出来的String调用intern方法会把自己的引用添加到运行常量池里</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>异常</p>
+<ul>
+<li>OutOfMemoryError</li>
 </ul>
-<pre><code>    - String类的intern方法
-
-      - new出来的String会被放在java Heap里
-      - 通过字面量对String初始化，她会先在运行常量池里寻找，找到则返回池里的引用，否则就在池里创建一个并返回引用。
-      - new出来的String调用intern方法会把自己的引用添加到运行常量池里
-
-- 异常
-
-  - OutOfMemoryError</code></pre><ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>直接内存</p>
 <ul>
 <li><p>特点</p>
@@ -779,21 +622,15 @@
 <li><p>栗子</p>
 <ul>
 <li><p>java堆里存的是对象实例，只要一直new对象，就会产生内存溢出异常</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="comment">//-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            String s = <span class="keyword">new</span> String(<span class="string">"stack over flow"</span>);</span><br><span class="line">            list.add(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-</li>
-</ul>
-<ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="comment">//-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            String s = <span class="keyword">new</span> String(<span class="string">&quot;stack over flow&quot;</span>);</span><br><span class="line">            list.add(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>运行结果</p>
-<p>D:\Software\Java\jdk-14\bin\java.exe -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 “-javaagent:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\lib\idea_rt.jar=49458:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\bin” -Dfile.encoding=UTF-8 -classpath D:\Software\Java\javafx-sdk-11.0.2\lib;D:\Software\Java\javafx-sdk-11.0.2\bin;D:\Project\IdeaProjects\JVM\out\production\JVM eternal.fire.Main<br>[0.017s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.<br>[0.027s][info ][gc,heap] Heap region size: 1M<br>[0.027s][info ][gc,heap,coops] Heap address: 0x00000000fec00000, size: 20 MB, Compressed Oops mode: 32-bit<br>[0.029s][info ][gc      ] Using G1<br>[0.052s][info ][gc      ] Periodic GC disabled<br>[0.142s][info ][gc,start   ] GC(0) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.142s][info ][gc,task   ] GC(0) Using 2 workers of 4 for evacuation<br>[0.162s][info ][gc,phases  ] GC(0)  Pre Evacuate Collection Set: 0.0ms<br>[0.162s][info ][gc,phases  ] GC(0)  Merge Heap Roots: 0.0ms<br>[0.162s][info ][gc,phases  ] GC(0)  Evacuate Collection Set: 19.2ms<br>[0.162s][info ][gc,phases  ] GC(0)  Post Evacuate Collection Set: 0.2ms<br>[0.162s][info ][gc,phases  ] GC(0)  Other: 0.2ms<br>[0.162s][info ][gc,heap   ] GC(0) Eden regions: 10-&gt;0(8)<br>[0.162s][info ][gc,heap   ] GC(0) Survivor regions: 0-&gt;2(2)<br>[0.162s][info ][gc,heap   ] GC(0) Old regions: 0-&gt;7<br>[0.162s][info ][gc,heap   ] GC(0) Archive regions: 0-&gt;0<br>[0.162s][info ][gc,heap   ] GC(0) Humongous regions: 0-&gt;0<br>[0.162s][info ][gc,metaspace ] GC(0) Metaspace: 828K(4864K)-&gt;828K(4864K) NonClass: 752K(4352K)-&gt;752K(4352K) Class: 76K(512K)-&gt;76K(512K)<br>[0.162s][info ][gc      ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 10M-&gt;8M(20M) 19.717ms<br>[0.162s][info ][gc,cpu    ] GC(0) User=0.03s Sys=0.00s Real=0.02s<br>[0.164s][info ][gc,start   ] GC(1) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.164s][info ][gc,task   ] GC(1) Using 2 workers of 4 for evacuation<br>[0.195s][info ][gc      ] GC(1) To-space exhausted<br>[0.195s][info ][gc,phases  ] GC(1)  Pre Evacuate Collection Set: 0.0ms<br>[0.195s][info ][gc,phases  ] GC(1)  Merge Heap Roots: 0.1ms<br>[0.195s][info ][gc,phases  ] GC(1)  Evacuate Collection Set: 24.8ms<br>[0.195s][info ][gc,phases  ] GC(1)  Post Evacuate Collection Set: 6.1ms<br>[0.195s][info ][gc,phases  ] GC(1)  Other: 0.1ms<br>[0.195s][info ][gc,heap   ] GC(1) Eden regions: 8-&gt;0(9)<br>[0.195s][info ][gc,heap   ] GC(1) Survivor regions: 2-&gt;1(2)<br>[0.195s][info ][gc,heap   ] GC(1) Old regions: 7-&gt;18<br>[0.195s][info ][gc,heap   ] GC(1) Archive regions: 0-&gt;0<br>[0.195s][info ][gc,heap   ] GC(1) Humongous regions: 0-&gt;0<br>[0.195s][info ][gc,metaspace ] GC(1) Metaspace: 860K(4864K)-&gt;860K(4864K) NonClass: 776K(4352K)-&gt;776K(4352K) Class: 83K(512K)-&gt;83K(512K)<br>[0.195s][info ][gc      ] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 16M-&gt;19M(20M) 31.208ms<br>[0.195s][info ][gc,cpu    ] GC(1) User=0.05s Sys=0.02s Real=0.03s<br>[0.196s][info ][gc,start   ] GC(2) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.196s][info ][gc,task   ] GC(2) Using 2 workers of 4 for evacuation<br>[0.206s][info ][gc      ] GC(2) To-space exhausted<br>[0.206s][info ][gc,phases  ] GC(2)  Pre Evacuate Collection Set: 0.0ms<br>[0.206s][info ][gc,phases  ] GC(2)  Merge Heap Roots: 0.1ms<br>[0.206s][info ][gc,phases  ] GC(2)  Evacuate Collection Set: 7.6ms<br>[0.206s][info ][gc,phases  ] GC(2)  Post Evacuate Collection Set: 2.5ms<br>[0.206s][info ][gc,phases  ] GC(2)  Other: 0.1ms<br>[0.206s][info ][gc,heap   ] GC(2) Eden regions: 1-&gt;0(10)<br>[0.206s][info ][gc,heap   ] GC(2) Survivor regions: 1-&gt;0(0)<br>[0.206s][info ][gc,heap   ] GC(2) Old regions: 18-&gt;20<br>[0.206s][info ][gc,heap   ] GC(2) Archive regions: 0-&gt;0<br>[0.206s][info ][gc,heap   ] GC(2) Humongous regions: 0-&gt;0<br>[0.206s][info ][gc,metaspace ] GC(2) Metaspace: 863K(4864K)-&gt;863K(4864K) NonClass: 779K(4352K)-&gt;779K(4352K) Class: 84K(512K)-&gt;84K(512K)<br>[0.206s][info ][gc      ] GC(2) Pause Young (Concurrent Start) (G1 Evacuation Pause) 20M-&gt;20M(20M) 10.425ms<br>[0.206s][info ][gc,cpu    ] GC(2) User=0.03s Sys=0.00s Real=0.01s<br>[0.206s][info ][gc      ] GC(3) Concurrent Cycle<br>[0.206s][info ][gc,task   ] GC(4) Using 2 workers of 4 for full compaction<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Clear Claimed Marks<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Clear Claimed Marks 0.010ms<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Scan Root Regions<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Scan Root Regions 0.005ms<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Mark (0.206s)<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Mark From Roots<br>[0.206s][info ][gc,task   ] GC(3) Using 1 workers of 1 for marking<br>[0.206s][info ][gc,start   ] GC(4) Pause Full (G1 Evacuation Pause)<br>[0.207s][info ][gc,phases,start] GC(4) Phase 1: Mark live objects<br>[0.222s][info ][gc,phases   ] GC(4) Phase 1: Mark live objects 15.531ms<br>[0.222s][info ][gc,phases,start] GC(4) Phase 2: Prepare for compaction<br>[0.225s][info ][gc,phases   ] GC(4) Phase 2: Prepare for compaction 3.259ms<br>[0.226s][info ][gc,phases,start] GC(4) Phase 3: Adjust pointers<br>[0.230s][info ][gc,phases   ] GC(4) Phase 3: Adjust pointers 4.823ms<br>[0.230s][info ][gc,phases,start] GC(4) Phase 4: Compact heap<br>[0.234s][info ][gc,phases   ] GC(4) Phase 4: Compact heap 3.391ms<br>[0.234s][info ][gc,heap    ] GC(4) Eden regions: 0-&gt;0(10)<br>[0.234s][info ][gc,heap    ] GC(4) Survivor regions: 0-&gt;0(0)<br>[0.234s][info ][gc,heap    ] GC(4) Old regions: 20-&gt;19<br>[0.234s][info ][gc,heap    ] GC(4) Archive regions: 0-&gt;0<br>[0.234s][info ][gc,heap    ] GC(4) Humongous regions: 0-&gt;0<br>[0.234s][info ][gc,metaspace  ] GC(4) Metaspace: 863K(4864K)-&gt;863K(4864K) NonClass: 779K(4352K)-&gt;779K(4352K) Class: 84K(512K)-&gt;84K(512K)<br>[0.234s][info ][gc       ] GC(4) Pause Full (G1 Evacuation Pause) 20M-&gt;17M(20M) 27.490ms<br>[0.234s][info ][gc,cpu     ] GC(4) User=0.06s Sys=0.00s Real=0.03s<br>[0.234s][info ][gc,marking   ] GC(3) Concurrent Mark From Roots 27.911ms<br>[0.234s][info ][gc,marking   ] GC(3) Concurrent Mark Abort<br>[0.234s][info ][gc       ] GC(3) Concurrent Cycle 27.980ms<br>[0.235s][info ][gc,start    ] GC(5) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.235s][info ][gc,task    ] GC(5) Using 2 workers of 4 for evacuation<br>[0.239s][info ][gc       ] GC(5) To-space exhausted<br>[0.239s][info ][gc,phases   ] GC(5)  Pre Evacuate Collection Set: 0.0ms<br>[0.239s][info ][gc,phases   ] GC(5)  Merge Heap Roots: 0.0ms<br>[0.239s][info ][gc,phases   ] GC(5)  Evacuate Collection Set: 2.7ms<br>[0.239s][info ][gc,phases   ] GC(5)  Post Evacuate Collection Set: 1.5ms<br>[0.239s][info ][gc,phases   ] GC(5)  Other: 0.1ms<br>[0.239s][info ][gc,heap    ] GC(5) Eden regions: 1-&gt;0(10)<br>[0.239s][info ][gc,heap    ] GC(5) Survivor regions: 0-&gt;0(0)<br>[0.239s][info ][gc,heap    ] GC(5) Old regions: 19-&gt;20<br>[0.239s][info ][gc,heap    ] GC(5) Archive regions: 0-&gt;0<br>[0.239s][info ][gc,heap    ] GC(5) Humongous regions: 0-&gt;0<br>[0.239s][info ][gc,metaspace  ] GC(5) Metaspace: 877K(4864K)-&gt;877K(4864K) NonClass: 791K(4352K)-&gt;791K(4352K) Class: 85K(512K)-&gt;85K(512K)<br>[0.239s][info ][gc       ] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 18M-&gt;18M(20M) 4.331ms<br>[0.239s][info ][gc,cpu     ] GC(5) User=0.00s Sys=0.00s Real=0.00s<br>[0.239s][info ][gc,task    ] GC(6) Using 2 workers of 4 for full compaction<br>[0.239s][info ][gc,start    ] GC(6) Pause Full (G1 Evacuation Pause)<br>[0.239s][info ][gc,phases,start] GC(6) Phase 1: Mark live objects<br>[0.260s][info ][gc,phases   ] GC(6) Phase 1: Mark live objects 20.870ms<br>[0.260s][info ][gc,phases,start] GC(6) Phase 2: Prepare for compaction<br>[0.265s][info ][gc,phases   ] GC(6) Phase 2: Prepare for compaction 4.449ms<br>[0.265s][info ][gc,phases,start] GC(6) Phase 3: Adjust pointers<br>[0.270s][info ][gc,phases   ] GC(6) Phase 3: Adjust pointers 4.844ms<br>[0.270s][info ][gc,phases,start] GC(6) Phase 4: Compact heap<br>[0.273s][info ][gc,phases   ] GC(6) Phase 4: Compact heap 2.932ms<br>[0.273s][info ][gc,heap    ] GC(6) Eden regions: 0-&gt;0(10)<br>[0.273s][info ][gc,heap    ] GC(6) Survivor regions: 0-&gt;0(0)<br>[0.273s][info ][gc,heap    ] GC(6) Old regions: 20-&gt;19<br>[0.273s][info ][gc,heap    ] GC(6) Archive regions: 0-&gt;0<br>[0.273s][info ][gc,heap    ] GC(6) Humongous regions: 0-&gt;0<br>[0.273s][info ][gc,metaspace  ] GC(6) Metaspace: 877K(4864K)-&gt;877K(4864K) NonClass: 791K(4352K)-&gt;791K(4352K) Class: 85K(512K)-&gt;85K(512K)<br>[0.273s][info ][gc       ] GC(6) Pause Full (G1 Evacuation Pause) 18M-&gt;18M(20M) 33.448ms<br>[0.273s][info ][gc,cpu     ] GC(6) User=0.03s Sys=0.00s Real=0.03s<br>[0.274s][info ][gc,start    ] GC(7) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.274s][info ][gc,task    ] GC(7) Using 2 workers of 4 for evacuation<br>[0.279s][info ][gc       ] GC(7) To-space exhausted<br>[0.279s][info ][gc,phases   ] GC(7)  Pre Evacuate Collection Set: 0.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Merge Heap Roots: 0.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Evacuate Collection Set: 2.6ms<br>[0.279s][info ][gc,phases   ] GC(7)  Post Evacuate Collection Set: 2.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Other: 0.1ms<br>[0.279s][info ][gc,heap    ] GC(7) Eden regions: 1-&gt;0(10)<br>[0.279s][info ][gc,heap    ] GC(7) Survivor regions: 0-&gt;0(0)<br>[0.279s][info ][gc,heap    ] GC(7) Old regions: 19-&gt;20<br>[0.279s][info ][gc,heap    ] GC(7) Archive regions: 0-&gt;0<br>[0.279s][info ][gc,heap    ] GC(7) Humongous regions: 0-&gt;0<br>[0.279s][info ][gc,metaspace  ] GC(7) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.279s][info ][gc       ] GC(7) Pause Young (Concurrent Start) (G1 Evacuation Pause) 19M-&gt;19M(20M) 4.810ms<br>[0.279s][info ][gc,cpu     ] GC(7) User=0.02s Sys=0.00s Real=0.01s<br>[0.279s][info ][gc,task    ] GC(8) Using 2 workers of 4 for full compaction<br>[0.279s][info ][gc,start    ] GC(8) Pause Full (G1 Evacuation Pause)<br>[0.279s][info ][gc       ] GC(9) Concurrent Cycle<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Clear Claimed Marks<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Clear Claimed Marks 0.007ms<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Scan Root Regions<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Scan Root Regions 0.004ms<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Mark (0.279s)<br>[0.279s][info ][gc,phases,start] GC(8) Phase 1: Mark live objects<br>[0.297s][info ][gc,phases   ] GC(8) Phase 1: Mark live objects 17.333ms<br>[0.297s][info ][gc,phases,start] GC(8) Phase 2: Prepare for compaction<br>[0.300s][info ][gc,phases   ] GC(8) Phase 2: Prepare for compaction 3.819ms<br>[0.300s][info ][gc,phases,start] GC(8) Phase 3: Adjust pointers<br>[0.306s][info ][gc,phases   ] GC(8) Phase 3: Adjust pointers 5.189ms<br>[0.306s][info ][gc,phases,start] GC(8) Phase 4: Compact heap<br>[0.309s][info ][gc,phases   ] GC(8) Phase 4: Compact heap 3.243ms<br>[0.309s][info ][gc,heap    ] GC(8) Eden regions: 0-&gt;0(10)<br>[0.309s][info ][gc,heap    ] GC(8) Survivor regions: 0-&gt;0(0)<br>[0.309s][info ][gc,heap    ] GC(8) Old regions: 20-&gt;20<br>[0.309s][info ][gc,heap    ] GC(8) Archive regions: 0-&gt;0<br>[0.309s][info ][gc,heap    ] GC(8) Humongous regions: 0-&gt;0<br>[0.309s][info ][gc,metaspace  ] GC(8) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.309s][info ][gc       ] GC(8) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 29.953ms<br>[0.309s][info ][gc,cpu     ] GC(8) User=0.02s Sys=0.00s Real=0.03s<br>[0.309s][info ][gc,task    ] GC(10) Using 2 workers of 4 for full compaction<br>[0.310s][info ][gc,start    ] GC(10) Pause Full (G1 Evacuation Pause)<br>[0.310s][info ][gc,phases,start] GC(10) Phase 1: Mark live objects<br>[0.327s][info ][gc,phases   ] GC(10) Phase 1: Mark live objects 17.019ms<br>[0.327s][info ][gc,phases,start] GC(10) Phase 2: Prepare for compaction<br>[0.331s][info ][gc,phases   ] GC(10) Phase 2: Prepare for compaction 3.941ms<br>[0.331s][info ][gc,phases,start] GC(10) Phase 3: Adjust pointers<br>[0.335s][info ][gc,phases   ] GC(10) Phase 3: Adjust pointers 4.810ms<br>[0.335s][info ][gc,phases,start] GC(10) Phase 4: Compact heap<br>[0.338s][info ][gc,phases   ] GC(10) Phase 4: Compact heap 2.592ms<br>[0.338s][info ][gc,heap    ] GC(10) Eden regions: 0-&gt;0(10)<br>[0.338s][info ][gc,heap    ] GC(10) Survivor regions: 0-&gt;0(0)<br>[0.338s][info ][gc,heap    ] GC(10) Old regions: 20-&gt;20<br>[0.338s][info ][gc,heap    ] GC(10) Archive regions: 0-&gt;0<br>[0.338s][info ][gc,heap    ] GC(10) Humongous regions: 0-&gt;0<br>[0.338s][info ][gc,metaspace  ] GC(10) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.338s][info ][gc       ] GC(10) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 28.726ms<br>[0.339s][info ][gc,cpu     ] GC(10) User=0.06s Sys=0.00s Real=0.03s<br>[0.339s][info ][gc,marking   ] GC(9) Concurrent Mark Abort<br>[0.339s][info ][gc       ] GC(9) Concurrent Cycle 59.644ms<br>[0.339s][info ][gc,start    ] GC(11) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.339s][info ][gc,task    ] GC(11) Using 2 workers of 4 for evacuation<br>[0.339s][info ][gc,phases   ] GC(11)  Pre Evacuate Collection Set: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Merge Heap Roots: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Evacuate Collection Set: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Post Evacuate Collection Set: 0.1ms<br>[0.339s][info ][gc,phases   ] GC(11)  Other: 0.1ms<br>[0.339s][info ][gc,heap    ] GC(11) Eden regions: 0-&gt;0(10)<br>[0.339s][info ][gc,heap    ] GC(11) Survivor regions: 0-&gt;0(0)<br>[0.339s][info ][gc,heap    ] GC(11) Old regions: 20-&gt;20<br>[0.339s][info ][gc,heap    ] GC(11) Archive regions: 0-&gt;0<br>[0.339s][info ][gc,heap    ] GC(11) Humongous regions: 0-&gt;0<br>[0.339s][info ][gc,metaspace  ] GC(11) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.339s][info ][gc       ] GC(11) Pause Young (Normal) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.268ms<br>[0.339s][info ][gc,cpu     ] GC(11) User=0.00s Sys=0.00s Real=0.00s<br>[0.339s][info ][gc,task    ] GC(12) Using 2 workers of 4 for full compaction<br>[0.339s][info ][gc,start    ] GC(12) Pause Full (G1 Evacuation Pause)<br>[0.339s][info ][gc,phases,start] GC(12) Phase 1: Mark live objects<br>[0.356s][info ][gc,phases   ] GC(12) Phase 1: Mark live objects 16.720ms<br>[0.356s][info ][gc,phases,start] GC(12) Phase 2: Prepare for compaction<br>[0.367s][info ][gc,phases   ] GC(12) Phase 2: Prepare for compaction 10.800ms<br>[0.367s][info ][gc,phases,start] GC(12) Phase 3: Adjust pointers<br>[0.372s][info ][gc,phases   ] GC(12) Phase 3: Adjust pointers 5.027ms<br>[0.372s][info ][gc,phases,start] GC(12) Phase 4: Compact heap<br>[0.376s][info ][gc,phases   ] GC(12) Phase 4: Compact heap 4.215ms<br>[0.376s][info ][gc,heap    ] GC(12) Eden regions: 0-&gt;0(10)<br>[0.376s][info ][gc,heap    ] GC(12) Survivor regions: 0-&gt;0(0)<br>[0.376s][info ][gc,heap    ] GC(12) Old regions: 20-&gt;20<br>[0.376s][info ][gc,heap    ] GC(12) Archive regions: 0-&gt;0<br>[0.376s][info ][gc,heap    ] GC(12) Humongous regions: 0-&gt;0<br>[0.376s][info ][gc,metaspace  ] GC(12) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.376s][info ][gc       ] GC(12) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 37.163ms<br>[0.377s][info ][gc,cpu     ] GC(12) User=0.09s Sys=0.00s Real=0.04s<br>[0.377s][info ][gc,task    ] GC(13) Using 2 workers of 4 for full compaction<br>[0.377s][info ][gc,start    ] GC(13) Pause Full (G1 Evacuation Pause)<br>[0.377s][info ][gc,phases,start] GC(13) Phase 1: Mark live objects<br>[0.394s][info ][gc,phases   ] GC(13) Phase 1: Mark live objects 16.754ms<br>[0.394s][info ][gc,phases,start] GC(13) Phase 2: Prepare for compaction<br>[0.397s][info ][gc,phases   ] GC(13) Phase 2: Prepare for compaction 3.615ms<br>[0.397s][info ][gc,phases,start] GC(13) Phase 3: Adjust pointers<br>[0.402s][info ][gc,phases   ] GC(13) Phase 3: Adjust pointers 4.787ms<br>[0.402s][info ][gc,phases,start] GC(13) Phase 4: Compact heap<br>[0.405s][info ][gc,phases   ] GC(13) Phase 4: Compact heap 2.556ms<br>[0.405s][info ][gc,heap    ] GC(13) Eden regions: 0-&gt;0(10)<br>[0.405s][info ][gc,heap    ] GC(13) Survivor regions: 0-&gt;0(0)<br>[0.405s][info ][gc,heap    ] GC(13) Old regions: 20-&gt;20<br>[0.405s][info ][gc,heap    ] GC(13) Archive regions: 0-&gt;0<br>[0.405s][info ][gc,heap    ] GC(13) Humongous regions: 0-&gt;0<br>[0.405s][info ][gc,metaspace  ] GC(13) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.405s][info ][gc       ] GC(13) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 28.025ms<br>[0.405s][info ][gc,cpu     ] GC(13) User=0.06s Sys=0.00s Real=0.03s<br>[0.405s][info ][gc,start    ] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.406s][info ][gc,task    ] GC(14) Using 2 workers of 4 for evacuation<br>[0.406s][info ][gc,phases   ] GC(14)  Pre Evacuate Collection Set: 0.0ms<br>[0.406s][info ][gc,phases   ] GC(14)  Merge Heap Roots: 0.0ms<br>[0.406s][info ][gc,phases   ] GC(14)  Evacuate Collection Set: 0.1ms<br>[0.406s][info ][gc,phases   ] GC(14)  Post Evacuate Collection Set: 0.1ms<br>[0.406s][info ][gc,phases   ] GC(14)  Other: 0.1ms<br>[0.406s][info ][gc,heap    ] GC(14) Eden regions: 0-&gt;0(10)<br>[0.406s][info ][gc,heap    ] GC(14) Survivor regions: 0-&gt;0(0)<br>[0.406s][info ][gc,heap    ] GC(14) Old regions: 20-&gt;20<br>[0.406s][info ][gc,heap    ] GC(14) Archive regions: 0-&gt;0<br>[0.406s][info ][gc,heap    ] GC(14) Humongous regions: 0-&gt;0<br>[0.406s][info ][gc,metaspace  ] GC(14) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.406s][info ][gc       ] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.332ms<br>[0.406s][info ][gc,cpu     ] GC(14) User=0.00s Sys=0.00s Real=0.00s<br>[0.406s][info ][gc,task    ] GC(15) Using 2 workers of 4 for full compaction<br>[0.406s][info ][gc       ] GC(16) Concurrent Cycle<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Clear Claimed Marks<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Clear Claimed Marks 0.006ms<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Scan Root Regions<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Scan Root Regions 0.005ms<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Mark (0.406s)<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Mark From Roots<br>[0.406s][info ][gc,task    ] GC(16) Using 1 workers of 1 for marking<br>[0.406s][info ][gc,start    ] GC(15) Pause Full (G1 Evacuation Pause)<br>[0.406s][info ][gc,phases,start] GC(15) Phase 1: Mark live objects<br>[0.423s][info ][gc,phases   ] GC(15) Phase 1: Mark live objects 16.596ms<br>[0.423s][info ][gc,phases,start] GC(15) Phase 2: Prepare for compaction<br>[0.427s][info ][gc,phases   ] GC(15) Phase 2: Prepare for compaction 4.129ms<br>[0.427s][info ][gc,phases,start] GC(15) Phase 3: Adjust pointers<br>[0.432s][info ][gc,phases   ] GC(15) Phase 3: Adjust pointers 5.072ms<br>[0.432s][info ][gc,phases,start] GC(15) Phase 4: Compact heap<br>[0.436s][info ][gc,phases   ] GC(15) Phase 4: Compact heap 3.706ms<br>[0.436s][info ][gc,heap    ] GC(15) Eden regions: 0-&gt;0(10)<br>[0.436s][info ][gc,heap    ] GC(15) Survivor regions: 0-&gt;0(0)<br>[0.436s][info ][gc,heap    ] GC(15) Old regions: 20-&gt;20<br>[0.436s][info ][gc,heap    ] GC(15) Archive regions: 0-&gt;0<br>[0.436s][info ][gc,heap    ] GC(15) Humongous regions: 0-&gt;0<br>[0.436s][info ][gc,metaspace  ] GC(15) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.436s][info ][gc       ] GC(15) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 29.957ms<br>[0.437s][info ][gc,cpu     ] GC(15) User=0.05s Sys=0.00s Real=0.03s<br>[0.437s][info ][gc,task    ] GC(17) Using 2 workers of 4 for full compaction<br>[0.437s][info ][gc,start    ] GC(17) Pause Full (G1 Evacuation Pause)<br>[0.437s][info ][gc,phases,start] GC(17) Phase 1: Mark live objects<br>[0.456s][info ][gc,phases   ] GC(17) Phase 1: Mark live objects 19.597ms<br>[0.456s][info ][gc,phases,start] GC(17) Phase 2: Prepare for compaction<br>[0.462s][info ][gc,phases   ] GC(17) Phase 2: Prepare for compaction 5.797ms<br>[0.462s][info ][gc,phases,start] GC(17) Phase 3: Adjust pointers<br>[0.467s][info ][gc,phases   ] GC(17) Phase 3: Adjust pointers 4.970ms<br>[0.467s][info ][gc,phases,start] GC(17) Phase 4: Compact heap<br>[0.470s][info ][gc,phases   ] GC(17) Phase 4: Compact heap 3.354ms<br>[0.471s][info ][gc,heap    ] GC(17) Eden regions: 0-&gt;0(10)<br>[0.471s][info ][gc,heap    ] GC(17) Survivor regions: 0-&gt;0(0)<br>[0.471s][info ][gc,heap    ] GC(17) Old regions: 20-&gt;20<br>[0.471s][info ][gc,heap    ] GC(17) Archive regions: 0-&gt;0<br>[0.471s][info ][gc,heap    ] GC(17) Humongous regions: 0-&gt;0<br>[0.471s][info ][gc,metaspace  ] GC(17) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.471s][info ][gc       ] GC(17) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 34.180ms<br>[0.471s][info ][gc,cpu     ] GC(17) User=0.06s Sys=0.00s Real=0.03s<br>[0.471s][info ][gc,marking   ] GC(16) Concurrent Mark From Roots 65.292ms<br>[0.471s][info ][gc,marking   ] GC(16) Concurrent Mark Abort<br>[0.471s][info ][gc       ] GC(16) Concurrent Cycle 65.353ms<br>[0.471s][info ][gc,start    ] GC(18) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.471s][info ][gc,task    ] GC(18) Using 2 workers of 4 for evacuation<br>[0.471s][info ][gc,phases   ] GC(18)  Pre Evacuate Collection Set: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Merge Heap Roots: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Evacuate Collection Set: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Post Evacuate Collection Set: 0.1ms<br>[0.471s][info ][gc,phases   ] GC(18)  Other: 0.1ms<br>[0.471s][info ][gc,heap    ] GC(18) Eden regions: 0-&gt;0(10)<br>[0.472s][info ][gc,heap    ] GC(18) Survivor regions: 0-&gt;0(0)<br>[0.472s][info ][gc,heap    ] GC(18) Old regions: 20-&gt;20<br>[0.472s][info ][gc,heap    ] GC(18) Archive regions: 0-&gt;0<br>[0.472s][info ][gc,heap    ] GC(18) Humongous regions: 0-&gt;0<br>[0.472s][info ][gc,metaspace  ] GC(18) Metaspace: 899K(4864K)-&gt;899K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.472s][info ][gc       ] GC(18) Pause Young (Normal) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.265ms<br>[0.472s][info ][gc,cpu     ] GC(18) User=0.00s Sys=0.00s Real=0.00s<br>[0.472s][info ][gc,task    ] GC(19) Using 2 workers of 4 for full compaction<br>[0.472s][info ][gc,start    ] GC(19) Pause Full (G1 Evacuation Pause)<br>[0.472s][info ][gc,phases,start] GC(19) Phase 1: Mark live objects<br>[0.472s][info ][gc,phases   ] GC(19) Phase 1: Mark live objects 0.749ms<br>[0.472s][info ][gc,phases,start] GC(19) Phase 2: Prepare for compaction<br>[0.473s][info ][gc,phases   ] GC(19) Phase 2: Prepare for compaction 0.233ms<br>[0.473s][info ][gc,phases,start] GC(19) Phase 3: Adjust pointers<br>[0.473s][info ][gc,phases   ] GC(19) Phase 3: Adjust pointers 0.566ms<br>[0.473s][info ][gc,phases,start] GC(19) Phase 4: Compact heap<br>[0.473s][info ][gc,phases   ] GC(19) Phase 4: Compact heap 0.244ms<br>[0.474s][info ][gc,heap    ] GC(19) Eden regions: 0-&gt;0(10)<br>[0.474s][info ][gc,heap    ] GC(19) Survivor regions: 0-&gt;0(0)<br>[0.474s][info ][gc,heap    ] GC(19) Old regions: 20-&gt;2<br>[0.474s][info ][gc,heap    ] GC(19) Archive regions: 0-&gt;0<br>[0.474s][info ][gc,heap    ] GC(19) Humongous regions: 0-&gt;0<br>[0.474s][info ][gc,metaspace  ] GC(19) Metaspace: 899K(4864K)-&gt;899K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.474s][info ][gc       ] GC(19) Pause Full (G1 Evacuation Pause) 19M-&gt;0M(20M) 2.030ms<br>[0.474s][info ][gc,cpu     ] GC(19) User=0.00s Sys=0.00s Real=0.00s<br>[0.475s][info ][gc,heap,exit  ] Heap<br>[0.475s][info ][gc,heap,exit  ] garbage-first heap  total 20480K, used 938K [0x00000000fec00000, 0x0000000100000000)<br>[0.475s][info ][gc,heap,exit  ]  region size 1024K, 1 young (1024K), 0 survivors (0K)<br>[0.475s][info ][gc,heap,exit  ] Metaspace    used 935K, capacity 4537K, committed 4864K, reserved 1056768K<br>[0.475s][info ][gc,heap,exit  ]  class space  used 92K, capacity 404K, committed 512K, reserved 1048576K<br>Exception in thread “main” java.lang.OutOfMemoryError: Java heap space</p>
-<pre><code>at eternal.fire.Main.main(Main.java:10)</code></pre><p>Process finished with exit code 1</p>
+<p>D:\Software\Java\jdk-14\bin\java.exe -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 “-javaagent:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\lib\idea_rt.jar=49458:D:\Software\JetBrains\IntelliJ IDEA 2019.2.2\bin” -Dfile.encoding=UTF-8 -classpath D:\Software\Java\javafx-sdk-11.0.2\lib;D:\Software\Java\javafx-sdk-11.0.2\bin;D:\Project\IdeaProjects\JVM\out\production\JVM eternal.fire.Main<br>[0.017s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.<br>[0.027s][info ][gc,heap] Heap region size: 1M<br>[0.027s][info ][gc,heap,coops] Heap address: 0x00000000fec00000, size: 20 MB, Compressed Oops mode: 32-bit<br>[0.029s][info ][gc      ] Using G1<br>[0.052s][info ][gc      ] Periodic GC disabled<br>[0.142s][info ][gc,start   ] GC(0) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.142s][info ][gc,task   ] GC(0) Using 2 workers of 4 for evacuation<br>[0.162s][info ][gc,phases  ] GC(0)  Pre Evacuate Collection Set: 0.0ms<br>[0.162s][info ][gc,phases  ] GC(0)  Merge Heap Roots: 0.0ms<br>[0.162s][info ][gc,phases  ] GC(0)  Evacuate Collection Set: 19.2ms<br>[0.162s][info ][gc,phases  ] GC(0)  Post Evacuate Collection Set: 0.2ms<br>[0.162s][info ][gc,phases  ] GC(0)  Other: 0.2ms<br>[0.162s][info ][gc,heap   ] GC(0) Eden regions: 10-&gt;0(8)<br>[0.162s][info ][gc,heap   ] GC(0) Survivor regions: 0-&gt;2(2)<br>[0.162s][info ][gc,heap   ] GC(0) Old regions: 0-&gt;7<br>[0.162s][info ][gc,heap   ] GC(0) Archive regions: 0-&gt;0<br>[0.162s][info ][gc,heap   ] GC(0) Humongous regions: 0-&gt;0<br>[0.162s][info ][gc,metaspace ] GC(0) Metaspace: 828K(4864K)-&gt;828K(4864K) NonClass: 752K(4352K)-&gt;752K(4352K) Class: 76K(512K)-&gt;76K(512K)<br>[0.162s][info ][gc      ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 10M-&gt;8M(20M) 19.717ms<br>[0.162s][info ][gc,cpu    ] GC(0) User=0.03s Sys=0.00s Real=0.02s<br>[0.164s][info ][gc,start   ] GC(1) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.164s][info ][gc,task   ] GC(1) Using 2 workers of 4 for evacuation<br>[0.195s][info ][gc      ] GC(1) To-space exhausted<br>[0.195s][info ][gc,phases  ] GC(1)  Pre Evacuate Collection Set: 0.0ms<br>[0.195s][info ][gc,phases  ] GC(1)  Merge Heap Roots: 0.1ms<br>[0.195s][info ][gc,phases  ] GC(1)  Evacuate Collection Set: 24.8ms<br>[0.195s][info ][gc,phases  ] GC(1)  Post Evacuate Collection Set: 6.1ms<br>[0.195s][info ][gc,phases  ] GC(1)  Other: 0.1ms<br>[0.195s][info ][gc,heap   ] GC(1) Eden regions: 8-&gt;0(9)<br>[0.195s][info ][gc,heap   ] GC(1) Survivor regions: 2-&gt;1(2)<br>[0.195s][info ][gc,heap   ] GC(1) Old regions: 7-&gt;18<br>[0.195s][info ][gc,heap   ] GC(1) Archive regions: 0-&gt;0<br>[0.195s][info ][gc,heap   ] GC(1) Humongous regions: 0-&gt;0<br>[0.195s][info ][gc,metaspace ] GC(1) Metaspace: 860K(4864K)-&gt;860K(4864K) NonClass: 776K(4352K)-&gt;776K(4352K) Class: 83K(512K)-&gt;83K(512K)<br>[0.195s][info ][gc      ] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 16M-&gt;19M(20M) 31.208ms<br>[0.195s][info ][gc,cpu    ] GC(1) User=0.05s Sys=0.02s Real=0.03s<br>[0.196s][info ][gc,start   ] GC(2) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.196s][info ][gc,task   ] GC(2) Using 2 workers of 4 for evacuation<br>[0.206s][info ][gc      ] GC(2) To-space exhausted<br>[0.206s][info ][gc,phases  ] GC(2)  Pre Evacuate Collection Set: 0.0ms<br>[0.206s][info ][gc,phases  ] GC(2)  Merge Heap Roots: 0.1ms<br>[0.206s][info ][gc,phases  ] GC(2)  Evacuate Collection Set: 7.6ms<br>[0.206s][info ][gc,phases  ] GC(2)  Post Evacuate Collection Set: 2.5ms<br>[0.206s][info ][gc,phases  ] GC(2)  Other: 0.1ms<br>[0.206s][info ][gc,heap   ] GC(2) Eden regions: 1-&gt;0(10)<br>[0.206s][info ][gc,heap   ] GC(2) Survivor regions: 1-&gt;0(0)<br>[0.206s][info ][gc,heap   ] GC(2) Old regions: 18-&gt;20<br>[0.206s][info ][gc,heap   ] GC(2) Archive regions: 0-&gt;0<br>[0.206s][info ][gc,heap   ] GC(2) Humongous regions: 0-&gt;0<br>[0.206s][info ][gc,metaspace ] GC(2) Metaspace: 863K(4864K)-&gt;863K(4864K) NonClass: 779K(4352K)-&gt;779K(4352K) Class: 84K(512K)-&gt;84K(512K)<br>[0.206s][info ][gc      ] GC(2) Pause Young (Concurrent Start) (G1 Evacuation Pause) 20M-&gt;20M(20M) 10.425ms<br>[0.206s][info ][gc,cpu    ] GC(2) User=0.03s Sys=0.00s Real=0.01s<br>[0.206s][info ][gc      ] GC(3) Concurrent Cycle<br>[0.206s][info ][gc,task   ] GC(4) Using 2 workers of 4 for full compaction<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Clear Claimed Marks<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Clear Claimed Marks 0.010ms<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Scan Root Regions<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Scan Root Regions 0.005ms<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Mark (0.206s)<br>[0.206s][info ][gc,marking  ] GC(3) Concurrent Mark From Roots<br>[0.206s][info ][gc,task   ] GC(3) Using 1 workers of 1 for marking<br>[0.206s][info ][gc,start   ] GC(4) Pause Full (G1 Evacuation Pause)<br>[0.207s][info ][gc,phases,start] GC(4) Phase 1: Mark live objects<br>[0.222s][info ][gc,phases   ] GC(4) Phase 1: Mark live objects 15.531ms<br>[0.222s][info ][gc,phases,start] GC(4) Phase 2: Prepare for compaction<br>[0.225s][info ][gc,phases   ] GC(4) Phase 2: Prepare for compaction 3.259ms<br>[0.226s][info ][gc,phases,start] GC(4) Phase 3: Adjust pointers<br>[0.230s][info ][gc,phases   ] GC(4) Phase 3: Adjust pointers 4.823ms<br>[0.230s][info ][gc,phases,start] GC(4) Phase 4: Compact heap<br>[0.234s][info ][gc,phases   ] GC(4) Phase 4: Compact heap 3.391ms<br>[0.234s][info ][gc,heap    ] GC(4) Eden regions: 0-&gt;0(10)<br>[0.234s][info ][gc,heap    ] GC(4) Survivor regions: 0-&gt;0(0)<br>[0.234s][info ][gc,heap    ] GC(4) Old regions: 20-&gt;19<br>[0.234s][info ][gc,heap    ] GC(4) Archive regions: 0-&gt;0<br>[0.234s][info ][gc,heap    ] GC(4) Humongous regions: 0-&gt;0<br>[0.234s][info ][gc,metaspace  ] GC(4) Metaspace: 863K(4864K)-&gt;863K(4864K) NonClass: 779K(4352K)-&gt;779K(4352K) Class: 84K(512K)-&gt;84K(512K)<br>[0.234s][info ][gc       ] GC(4) Pause Full (G1 Evacuation Pause) 20M-&gt;17M(20M) 27.490ms<br>[0.234s][info ][gc,cpu     ] GC(4) User=0.06s Sys=0.00s Real=0.03s<br>[0.234s][info ][gc,marking   ] GC(3) Concurrent Mark From Roots 27.911ms<br>[0.234s][info ][gc,marking   ] GC(3) Concurrent Mark Abort<br>[0.234s][info ][gc       ] GC(3) Concurrent Cycle 27.980ms<br>[0.235s][info ][gc,start    ] GC(5) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.235s][info ][gc,task    ] GC(5) Using 2 workers of 4 for evacuation<br>[0.239s][info ][gc       ] GC(5) To-space exhausted<br>[0.239s][info ][gc,phases   ] GC(5)  Pre Evacuate Collection Set: 0.0ms<br>[0.239s][info ][gc,phases   ] GC(5)  Merge Heap Roots: 0.0ms<br>[0.239s][info ][gc,phases   ] GC(5)  Evacuate Collection Set: 2.7ms<br>[0.239s][info ][gc,phases   ] GC(5)  Post Evacuate Collection Set: 1.5ms<br>[0.239s][info ][gc,phases   ] GC(5)  Other: 0.1ms<br>[0.239s][info ][gc,heap    ] GC(5) Eden regions: 1-&gt;0(10)<br>[0.239s][info ][gc,heap    ] GC(5) Survivor regions: 0-&gt;0(0)<br>[0.239s][info ][gc,heap    ] GC(5) Old regions: 19-&gt;20<br>[0.239s][info ][gc,heap    ] GC(5) Archive regions: 0-&gt;0<br>[0.239s][info ][gc,heap    ] GC(5) Humongous regions: 0-&gt;0<br>[0.239s][info ][gc,metaspace  ] GC(5) Metaspace: 877K(4864K)-&gt;877K(4864K) NonClass: 791K(4352K)-&gt;791K(4352K) Class: 85K(512K)-&gt;85K(512K)<br>[0.239s][info ][gc       ] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 18M-&gt;18M(20M) 4.331ms<br>[0.239s][info ][gc,cpu     ] GC(5) User=0.00s Sys=0.00s Real=0.00s<br>[0.239s][info ][gc,task    ] GC(6) Using 2 workers of 4 for full compaction<br>[0.239s][info ][gc,start    ] GC(6) Pause Full (G1 Evacuation Pause)<br>[0.239s][info ][gc,phases,start] GC(6) Phase 1: Mark live objects<br>[0.260s][info ][gc,phases   ] GC(6) Phase 1: Mark live objects 20.870ms<br>[0.260s][info ][gc,phases,start] GC(6) Phase 2: Prepare for compaction<br>[0.265s][info ][gc,phases   ] GC(6) Phase 2: Prepare for compaction 4.449ms<br>[0.265s][info ][gc,phases,start] GC(6) Phase 3: Adjust pointers<br>[0.270s][info ][gc,phases   ] GC(6) Phase 3: Adjust pointers 4.844ms<br>[0.270s][info ][gc,phases,start] GC(6) Phase 4: Compact heap<br>[0.273s][info ][gc,phases   ] GC(6) Phase 4: Compact heap 2.932ms<br>[0.273s][info ][gc,heap    ] GC(6) Eden regions: 0-&gt;0(10)<br>[0.273s][info ][gc,heap    ] GC(6) Survivor regions: 0-&gt;0(0)<br>[0.273s][info ][gc,heap    ] GC(6) Old regions: 20-&gt;19<br>[0.273s][info ][gc,heap    ] GC(6) Archive regions: 0-&gt;0<br>[0.273s][info ][gc,heap    ] GC(6) Humongous regions: 0-&gt;0<br>[0.273s][info ][gc,metaspace  ] GC(6) Metaspace: 877K(4864K)-&gt;877K(4864K) NonClass: 791K(4352K)-&gt;791K(4352K) Class: 85K(512K)-&gt;85K(512K)<br>[0.273s][info ][gc       ] GC(6) Pause Full (G1 Evacuation Pause) 18M-&gt;18M(20M) 33.448ms<br>[0.273s][info ][gc,cpu     ] GC(6) User=0.03s Sys=0.00s Real=0.03s<br>[0.274s][info ][gc,start    ] GC(7) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.274s][info ][gc,task    ] GC(7) Using 2 workers of 4 for evacuation<br>[0.279s][info ][gc       ] GC(7) To-space exhausted<br>[0.279s][info ][gc,phases   ] GC(7)  Pre Evacuate Collection Set: 0.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Merge Heap Roots: 0.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Evacuate Collection Set: 2.6ms<br>[0.279s][info ][gc,phases   ] GC(7)  Post Evacuate Collection Set: 2.0ms<br>[0.279s][info ][gc,phases   ] GC(7)  Other: 0.1ms<br>[0.279s][info ][gc,heap    ] GC(7) Eden regions: 1-&gt;0(10)<br>[0.279s][info ][gc,heap    ] GC(7) Survivor regions: 0-&gt;0(0)<br>[0.279s][info ][gc,heap    ] GC(7) Old regions: 19-&gt;20<br>[0.279s][info ][gc,heap    ] GC(7) Archive regions: 0-&gt;0<br>[0.279s][info ][gc,heap    ] GC(7) Humongous regions: 0-&gt;0<br>[0.279s][info ][gc,metaspace  ] GC(7) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.279s][info ][gc       ] GC(7) Pause Young (Concurrent Start) (G1 Evacuation Pause) 19M-&gt;19M(20M) 4.810ms<br>[0.279s][info ][gc,cpu     ] GC(7) User=0.02s Sys=0.00s Real=0.01s<br>[0.279s][info ][gc,task    ] GC(8) Using 2 workers of 4 for full compaction<br>[0.279s][info ][gc,start    ] GC(8) Pause Full (G1 Evacuation Pause)<br>[0.279s][info ][gc       ] GC(9) Concurrent Cycle<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Clear Claimed Marks<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Clear Claimed Marks 0.007ms<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Scan Root Regions<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Scan Root Regions 0.004ms<br>[0.279s][info ][gc,marking   ] GC(9) Concurrent Mark (0.279s)<br>[0.279s][info ][gc,phases,start] GC(8) Phase 1: Mark live objects<br>[0.297s][info ][gc,phases   ] GC(8) Phase 1: Mark live objects 17.333ms<br>[0.297s][info ][gc,phases,start] GC(8) Phase 2: Prepare for compaction<br>[0.300s][info ][gc,phases   ] GC(8) Phase 2: Prepare for compaction 3.819ms<br>[0.300s][info ][gc,phases,start] GC(8) Phase 3: Adjust pointers<br>[0.306s][info ][gc,phases   ] GC(8) Phase 3: Adjust pointers 5.189ms<br>[0.306s][info ][gc,phases,start] GC(8) Phase 4: Compact heap<br>[0.309s][info ][gc,phases   ] GC(8) Phase 4: Compact heap 3.243ms<br>[0.309s][info ][gc,heap    ] GC(8) Eden regions: 0-&gt;0(10)<br>[0.309s][info ][gc,heap    ] GC(8) Survivor regions: 0-&gt;0(0)<br>[0.309s][info ][gc,heap    ] GC(8) Old regions: 20-&gt;20<br>[0.309s][info ][gc,heap    ] GC(8) Archive regions: 0-&gt;0<br>[0.309s][info ][gc,heap    ] GC(8) Humongous regions: 0-&gt;0<br>[0.309s][info ][gc,metaspace  ] GC(8) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.309s][info ][gc       ] GC(8) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 29.953ms<br>[0.309s][info ][gc,cpu     ] GC(8) User=0.02s Sys=0.00s Real=0.03s<br>[0.309s][info ][gc,task    ] GC(10) Using 2 workers of 4 for full compaction<br>[0.310s][info ][gc,start    ] GC(10) Pause Full (G1 Evacuation Pause)<br>[0.310s][info ][gc,phases,start] GC(10) Phase 1: Mark live objects<br>[0.327s][info ][gc,phases   ] GC(10) Phase 1: Mark live objects 17.019ms<br>[0.327s][info ][gc,phases,start] GC(10) Phase 2: Prepare for compaction<br>[0.331s][info ][gc,phases   ] GC(10) Phase 2: Prepare for compaction 3.941ms<br>[0.331s][info ][gc,phases,start] GC(10) Phase 3: Adjust pointers<br>[0.335s][info ][gc,phases   ] GC(10) Phase 3: Adjust pointers 4.810ms<br>[0.335s][info ][gc,phases,start] GC(10) Phase 4: Compact heap<br>[0.338s][info ][gc,phases   ] GC(10) Phase 4: Compact heap 2.592ms<br>[0.338s][info ][gc,heap    ] GC(10) Eden regions: 0-&gt;0(10)<br>[0.338s][info ][gc,heap    ] GC(10) Survivor regions: 0-&gt;0(0)<br>[0.338s][info ][gc,heap    ] GC(10) Old regions: 20-&gt;20<br>[0.338s][info ][gc,heap    ] GC(10) Archive regions: 0-&gt;0<br>[0.338s][info ][gc,heap    ] GC(10) Humongous regions: 0-&gt;0<br>[0.338s][info ][gc,metaspace  ] GC(10) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.338s][info ][gc       ] GC(10) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 28.726ms<br>[0.339s][info ][gc,cpu     ] GC(10) User=0.06s Sys=0.00s Real=0.03s<br>[0.339s][info ][gc,marking   ] GC(9) Concurrent Mark Abort<br>[0.339s][info ][gc       ] GC(9) Concurrent Cycle 59.644ms<br>[0.339s][info ][gc,start    ] GC(11) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.339s][info ][gc,task    ] GC(11) Using 2 workers of 4 for evacuation<br>[0.339s][info ][gc,phases   ] GC(11)  Pre Evacuate Collection Set: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Merge Heap Roots: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Evacuate Collection Set: 0.0ms<br>[0.339s][info ][gc,phases   ] GC(11)  Post Evacuate Collection Set: 0.1ms<br>[0.339s][info ][gc,phases   ] GC(11)  Other: 0.1ms<br>[0.339s][info ][gc,heap    ] GC(11) Eden regions: 0-&gt;0(10)<br>[0.339s][info ][gc,heap    ] GC(11) Survivor regions: 0-&gt;0(0)<br>[0.339s][info ][gc,heap    ] GC(11) Old regions: 20-&gt;20<br>[0.339s][info ][gc,heap    ] GC(11) Archive regions: 0-&gt;0<br>[0.339s][info ][gc,heap    ] GC(11) Humongous regions: 0-&gt;0<br>[0.339s][info ][gc,metaspace  ] GC(11) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.339s][info ][gc       ] GC(11) Pause Young (Normal) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.268ms<br>[0.339s][info ][gc,cpu     ] GC(11) User=0.00s Sys=0.00s Real=0.00s<br>[0.339s][info ][gc,task    ] GC(12) Using 2 workers of 4 for full compaction<br>[0.339s][info ][gc,start    ] GC(12) Pause Full (G1 Evacuation Pause)<br>[0.339s][info ][gc,phases,start] GC(12) Phase 1: Mark live objects<br>[0.356s][info ][gc,phases   ] GC(12) Phase 1: Mark live objects 16.720ms<br>[0.356s][info ][gc,phases,start] GC(12) Phase 2: Prepare for compaction<br>[0.367s][info ][gc,phases   ] GC(12) Phase 2: Prepare for compaction 10.800ms<br>[0.367s][info ][gc,phases,start] GC(12) Phase 3: Adjust pointers<br>[0.372s][info ][gc,phases   ] GC(12) Phase 3: Adjust pointers 5.027ms<br>[0.372s][info ][gc,phases,start] GC(12) Phase 4: Compact heap<br>[0.376s][info ][gc,phases   ] GC(12) Phase 4: Compact heap 4.215ms<br>[0.376s][info ][gc,heap    ] GC(12) Eden regions: 0-&gt;0(10)<br>[0.376s][info ][gc,heap    ] GC(12) Survivor regions: 0-&gt;0(0)<br>[0.376s][info ][gc,heap    ] GC(12) Old regions: 20-&gt;20<br>[0.376s][info ][gc,heap    ] GC(12) Archive regions: 0-&gt;0<br>[0.376s][info ][gc,heap    ] GC(12) Humongous regions: 0-&gt;0<br>[0.376s][info ][gc,metaspace  ] GC(12) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.376s][info ][gc       ] GC(12) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 37.163ms<br>[0.377s][info ][gc,cpu     ] GC(12) User=0.09s Sys=0.00s Real=0.04s<br>[0.377s][info ][gc,task    ] GC(13) Using 2 workers of 4 for full compaction<br>[0.377s][info ][gc,start    ] GC(13) Pause Full (G1 Evacuation Pause)<br>[0.377s][info ][gc,phases,start] GC(13) Phase 1: Mark live objects<br>[0.394s][info ][gc,phases   ] GC(13) Phase 1: Mark live objects 16.754ms<br>[0.394s][info ][gc,phases,start] GC(13) Phase 2: Prepare for compaction<br>[0.397s][info ][gc,phases   ] GC(13) Phase 2: Prepare for compaction 3.615ms<br>[0.397s][info ][gc,phases,start] GC(13) Phase 3: Adjust pointers<br>[0.402s][info ][gc,phases   ] GC(13) Phase 3: Adjust pointers 4.787ms<br>[0.402s][info ][gc,phases,start] GC(13) Phase 4: Compact heap<br>[0.405s][info ][gc,phases   ] GC(13) Phase 4: Compact heap 2.556ms<br>[0.405s][info ][gc,heap    ] GC(13) Eden regions: 0-&gt;0(10)<br>[0.405s][info ][gc,heap    ] GC(13) Survivor regions: 0-&gt;0(0)<br>[0.405s][info ][gc,heap    ] GC(13) Old regions: 20-&gt;20<br>[0.405s][info ][gc,heap    ] GC(13) Archive regions: 0-&gt;0<br>[0.405s][info ][gc,heap    ] GC(13) Humongous regions: 0-&gt;0<br>[0.405s][info ][gc,metaspace  ] GC(13) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.405s][info ][gc       ] GC(13) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 28.025ms<br>[0.405s][info ][gc,cpu     ] GC(13) User=0.06s Sys=0.00s Real=0.03s<br>[0.405s][info ][gc,start    ] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause)<br>[0.406s][info ][gc,task    ] GC(14) Using 2 workers of 4 for evacuation<br>[0.406s][info ][gc,phases   ] GC(14)  Pre Evacuate Collection Set: 0.0ms<br>[0.406s][info ][gc,phases   ] GC(14)  Merge Heap Roots: 0.0ms<br>[0.406s][info ][gc,phases   ] GC(14)  Evacuate Collection Set: 0.1ms<br>[0.406s][info ][gc,phases   ] GC(14)  Post Evacuate Collection Set: 0.1ms<br>[0.406s][info ][gc,phases   ] GC(14)  Other: 0.1ms<br>[0.406s][info ][gc,heap    ] GC(14) Eden regions: 0-&gt;0(10)<br>[0.406s][info ][gc,heap    ] GC(14) Survivor regions: 0-&gt;0(0)<br>[0.406s][info ][gc,heap    ] GC(14) Old regions: 20-&gt;20<br>[0.406s][info ][gc,heap    ] GC(14) Archive regions: 0-&gt;0<br>[0.406s][info ][gc,heap    ] GC(14) Humongous regions: 0-&gt;0<br>[0.406s][info ][gc,metaspace  ] GC(14) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.406s][info ][gc       ] GC(14) Pause Young (Concurrent Start) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.332ms<br>[0.406s][info ][gc,cpu     ] GC(14) User=0.00s Sys=0.00s Real=0.00s<br>[0.406s][info ][gc,task    ] GC(15) Using 2 workers of 4 for full compaction<br>[0.406s][info ][gc       ] GC(16) Concurrent Cycle<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Clear Claimed Marks<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Clear Claimed Marks 0.006ms<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Scan Root Regions<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Scan Root Regions 0.005ms<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Mark (0.406s)<br>[0.406s][info ][gc,marking   ] GC(16) Concurrent Mark From Roots<br>[0.406s][info ][gc,task    ] GC(16) Using 1 workers of 1 for marking<br>[0.406s][info ][gc,start    ] GC(15) Pause Full (G1 Evacuation Pause)<br>[0.406s][info ][gc,phases,start] GC(15) Phase 1: Mark live objects<br>[0.423s][info ][gc,phases   ] GC(15) Phase 1: Mark live objects 16.596ms<br>[0.423s][info ][gc,phases,start] GC(15) Phase 2: Prepare for compaction<br>[0.427s][info ][gc,phases   ] GC(15) Phase 2: Prepare for compaction 4.129ms<br>[0.427s][info ][gc,phases,start] GC(15) Phase 3: Adjust pointers<br>[0.432s][info ][gc,phases   ] GC(15) Phase 3: Adjust pointers 5.072ms<br>[0.432s][info ][gc,phases,start] GC(15) Phase 4: Compact heap<br>[0.436s][info ][gc,phases   ] GC(15) Phase 4: Compact heap 3.706ms<br>[0.436s][info ][gc,heap    ] GC(15) Eden regions: 0-&gt;0(10)<br>[0.436s][info ][gc,heap    ] GC(15) Survivor regions: 0-&gt;0(0)<br>[0.436s][info ][gc,heap    ] GC(15) Old regions: 20-&gt;20<br>[0.436s][info ][gc,heap    ] GC(15) Archive regions: 0-&gt;0<br>[0.436s][info ][gc,heap    ] GC(15) Humongous regions: 0-&gt;0<br>[0.436s][info ][gc,metaspace  ] GC(15) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.436s][info ][gc       ] GC(15) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 29.957ms<br>[0.437s][info ][gc,cpu     ] GC(15) User=0.05s Sys=0.00s Real=0.03s<br>[0.437s][info ][gc,task    ] GC(17) Using 2 workers of 4 for full compaction<br>[0.437s][info ][gc,start    ] GC(17) Pause Full (G1 Evacuation Pause)<br>[0.437s][info ][gc,phases,start] GC(17) Phase 1: Mark live objects<br>[0.456s][info ][gc,phases   ] GC(17) Phase 1: Mark live objects 19.597ms<br>[0.456s][info ][gc,phases,start] GC(17) Phase 2: Prepare for compaction<br>[0.462s][info ][gc,phases   ] GC(17) Phase 2: Prepare for compaction 5.797ms<br>[0.462s][info ][gc,phases,start] GC(17) Phase 3: Adjust pointers<br>[0.467s][info ][gc,phases   ] GC(17) Phase 3: Adjust pointers 4.970ms<br>[0.467s][info ][gc,phases,start] GC(17) Phase 4: Compact heap<br>[0.470s][info ][gc,phases   ] GC(17) Phase 4: Compact heap 3.354ms<br>[0.471s][info ][gc,heap    ] GC(17) Eden regions: 0-&gt;0(10)<br>[0.471s][info ][gc,heap    ] GC(17) Survivor regions: 0-&gt;0(0)<br>[0.471s][info ][gc,heap    ] GC(17) Old regions: 20-&gt;20<br>[0.471s][info ][gc,heap    ] GC(17) Archive regions: 0-&gt;0<br>[0.471s][info ][gc,heap    ] GC(17) Humongous regions: 0-&gt;0<br>[0.471s][info ][gc,metaspace  ] GC(17) Metaspace: 898K(4864K)-&gt;898K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.471s][info ][gc       ] GC(17) Pause Full (G1 Evacuation Pause) 19M-&gt;19M(20M) 34.180ms<br>[0.471s][info ][gc,cpu     ] GC(17) User=0.06s Sys=0.00s Real=0.03s<br>[0.471s][info ][gc,marking   ] GC(16) Concurrent Mark From Roots 65.292ms<br>[0.471s][info ][gc,marking   ] GC(16) Concurrent Mark Abort<br>[0.471s][info ][gc       ] GC(16) Concurrent Cycle 65.353ms<br>[0.471s][info ][gc,start    ] GC(18) Pause Young (Normal) (G1 Evacuation Pause)<br>[0.471s][info ][gc,task    ] GC(18) Using 2 workers of 4 for evacuation<br>[0.471s][info ][gc,phases   ] GC(18)  Pre Evacuate Collection Set: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Merge Heap Roots: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Evacuate Collection Set: 0.0ms<br>[0.471s][info ][gc,phases   ] GC(18)  Post Evacuate Collection Set: 0.1ms<br>[0.471s][info ][gc,phases   ] GC(18)  Other: 0.1ms<br>[0.471s][info ][gc,heap    ] GC(18) Eden regions: 0-&gt;0(10)<br>[0.472s][info ][gc,heap    ] GC(18) Survivor regions: 0-&gt;0(0)<br>[0.472s][info ][gc,heap    ] GC(18) Old regions: 20-&gt;20<br>[0.472s][info ][gc,heap    ] GC(18) Archive regions: 0-&gt;0<br>[0.472s][info ][gc,heap    ] GC(18) Humongous regions: 0-&gt;0<br>[0.472s][info ][gc,metaspace  ] GC(18) Metaspace: 899K(4864K)-&gt;899K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.472s][info ][gc       ] GC(18) Pause Young (Normal) (G1 Evacuation Pause) 19M-&gt;19M(20M) 0.265ms<br>[0.472s][info ][gc,cpu     ] GC(18) User=0.00s Sys=0.00s Real=0.00s<br>[0.472s][info ][gc,task    ] GC(19) Using 2 workers of 4 for full compaction<br>[0.472s][info ][gc,start    ] GC(19) Pause Full (G1 Evacuation Pause)<br>[0.472s][info ][gc,phases,start] GC(19) Phase 1: Mark live objects<br>[0.472s][info ][gc,phases   ] GC(19) Phase 1: Mark live objects 0.749ms<br>[0.472s][info ][gc,phases,start] GC(19) Phase 2: Prepare for compaction<br>[0.473s][info ][gc,phases   ] GC(19) Phase 2: Prepare for compaction 0.233ms<br>[0.473s][info ][gc,phases,start] GC(19) Phase 3: Adjust pointers<br>[0.473s][info ][gc,phases   ] GC(19) Phase 3: Adjust pointers 0.566ms<br>[0.473s][info ][gc,phases,start] GC(19) Phase 4: Compact heap<br>[0.473s][info ][gc,phases   ] GC(19) Phase 4: Compact heap 0.244ms<br>[0.474s][info ][gc,heap    ] GC(19) Eden regions: 0-&gt;0(10)<br>[0.474s][info ][gc,heap    ] GC(19) Survivor regions: 0-&gt;0(0)<br>[0.474s][info ][gc,heap    ] GC(19) Old regions: 20-&gt;2<br>[0.474s][info ][gc,heap    ] GC(19) Archive regions: 0-&gt;0<br>[0.474s][info ][gc,heap    ] GC(19) Humongous regions: 0-&gt;0<br>[0.474s][info ][gc,metaspace  ] GC(19) Metaspace: 899K(4864K)-&gt;899K(4864K) NonClass: 811K(4352K)-&gt;811K(4352K) Class: 87K(512K)-&gt;87K(512K)<br>[0.474s][info ][gc       ] GC(19) Pause Full (G1 Evacuation Pause) 19M-&gt;0M(20M) 2.030ms<br>[0.474s][info ][gc,cpu     ] GC(19) User=0.00s Sys=0.00s Real=0.00s<br>[0.475s][info ][gc,heap,exit  ] Heap<br>[0.475s][info ][gc,heap,exit  ] garbage-first heap  total 20480K, used 938K [0x00000000fec00000, 0x0000000100000000)<br>[0.475s][info ][gc,heap,exit  ]  region size 1024K, 1 young (1024K), 0 survivors (0K)<br>[0.475s][info ][gc,heap,exit  ] Metaspace    used 935K, capacity 4537K, committed 4864K, reserved 1056768K<br>[0.475s][info ][gc,heap,exit  ]  class space  used 92K, capacity 404K, committed 512K, reserved 1048576K<br>Exception in thread “main” java.lang.OutOfMemoryError: Java heap space</p>
+<pre><code>at eternal.fire.Main.main(Main.java:10)
+</code></pre>
+<p>Process finished with exit code 1</p>
 </li>
 </ul>
-<ul>
+</li>
 <li><p>关键提示</p>
 <ul>
 <li>java.lang.OutOfMemoryError: Java heap space</li>
@@ -821,7 +658,7 @@
 </ul>
 <h3 id="虚拟机栈和本地方法栈溢出"><a href="#虚拟机栈和本地方法栈溢出" class="headerlink" title="虚拟机栈和本地方法栈溢出"></a>虚拟机栈和本地方法栈溢出</h3><ul>
 <li><p>StackOverFlowError</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JVMStackOverFlow</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stackLength;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stackLength++;</span><br><span class="line">    stackLeak();;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    JVMStackOverFlow jvmStackOverFlow = <span class="keyword">new</span> JVMStackOverFlow();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        jvmStackOverFlow.stackLeak();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (StackOverflowError e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"stack length:"</span> + jvmStackOverFlow.stackLength);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JVMStackOverFlow</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stackLength;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stackLength++;</span><br><span class="line">    stackLeak();;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    JVMStackOverFlow jvmStackOverFlow = <span class="keyword">new</span> JVMStackOverFlow();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        jvmStackOverFlow.stackLeak();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (StackOverflowError e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;stack length:&quot;</span> + jvmStackOverFlow.stackLength);</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出：<br><code>stack length:19056</code><br><code>Exception in thread &quot;main&quot; java.lang.StackOverflowError</code></p>
 <ul>
@@ -833,8 +670,6 @@
 
 
 
-</li>
-</ul>
 <ul>
 <li><p>多线程可能触发OutOfMemoryError</p>
 <p>比如windows 32位，每个进程的最大内存是2GB，除去java堆、方法区之类的空间，剩下的由虚拟机栈和本地方法栈瓜分，给每个线程分的栈越大，能建立线程的数量就越小，建立线程需要耗费内存，所以更容易OutOfMemoryError</p>
@@ -846,7 +681,11 @@
 <p>按理说我的这个测试应该会OutOfMemory的，但是跑了半天却跑不出个bug来，只是我的电脑变得很卡，变得很卡是有道理的，但为啥跑不出bug呀，我猜可能是idea或者是java8以后对这个有所优化，ByTheWay，我的输入法突然崩了，但能打字，不只是搜狗输入法，我的日语输入法也出了毛病，kind of weird. 刚切到桌面，我的桌面图标的名字也变成马赛克了？？？神奇。我的整个系统都出了毛病。希望重启能解决问题</p>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="运行时常量池溢出"><a href="#运行时常量池溢出" class="headerlink" title="运行时常量池溢出"></a>运行时常量池溢出</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RuntimeConstantPoolOutOfMemory</span> </span>&#123;</span><br><span class="line">    <span class="comment">//-XX:PermSize=10M</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            list.add(String.valueOf(i++).intern());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <ul>
 <li><p>无限intern就是很好的方法</p>
@@ -876,6 +715,9 @@
 </ul>
 <h3 id="直接内存-溢出"><a href="#直接内存-溢出" class="headerlink" title="直接内存 溢出"></a>直接内存 溢出</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectMemoryOOM</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> _1MB = <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IllegalAccessException, NoSuchFieldException </span>&#123;</span><br><span class="line"><span class="comment">//        -Xmx20M -XX:MaxDirectMemorySize=10M</span></span><br><span class="line">        Field unsafeField = Unsafe.class.getDeclaredField()[<span class="number">0</span>];</span><br><span class="line">        unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        Unsafe unsafe = (Unsafe) unsafeField.get(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            unsafe.allocateMemory(_1MB);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+
 <ul>
 <li><p>说明</p>
 <ul>
@@ -883,334 +725,234 @@
 </ul>
 </li>
 </ul>
-<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gept7hyc2aj368jcn3b2f.jpg">
-      
+<img src="http://ww1.sinaimg.cn/large/005VT09Qly1gept7hyc2aj368jcn3b2f.jpg"/>
     </div>
-    
-    
-    
 
     
-
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>赠人玫瑰，手有余香</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
   </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ming WeChat Pay">
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
         <p>WeChat Pay</p>
       </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="Ming Alipay">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
         <p>Alipay</p>
       </div>
-    
-
-    
 
   </div>
 </div>
 
-      </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/12/Filter%E6%A8%A1%E5%BC%8F/" rel="prev" title="Filter模式">
+      <i class="fa fa-chevron-left"></i> Filter模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/12/OS-introductions/" rel="next" title="OS introductions">
+      OS introductions <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/05/12/Filter模式/" rel="next" title="Filter模式">
-                <i class="fa fa-chevron-left"></i> Filter模式
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/12/OS-introductions/" rel="prev" title="OS introductions">
-                OS introductions <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/arina.jpg" alt="Ming">
-            
-              <p class="site-author-name" itemprop="name">Ming</p>
-              <p class="site-description motion-element" itemprop="description">Come on, check me out!</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">378</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">29</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/carpediemtal" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mail:674602921@qq.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="qq:674602921" target="_blank" title="QQ">
-                      
-                        <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="overwatchID:SEKAI#51158" target="_blank" title="Overwatch">
-                      
-                        <i class="fa fa-fw fa-gamepad"></i>Overwatch</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.treasurew.com/" title="treasurew" target="_blank">treasurew</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java内存区域与内存溢出异常"><span class="nav-number">1.</span> <span class="nav-text">Java内存区域与内存溢出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-C"><span class="nav-number">1.1.1.</span> <span class="nav-text">C\C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区域"><span class="nav-number">1.2.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM会把她管理的内存划分为若干个区域"><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM会把她管理的内存划分为若干个区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象访问"><span class="nav-number">1.3.</span> <span class="nav-text">对象访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栗子"><span class="nav-number">1.3.1.</span> <span class="nav-text">栗子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用的定位方式"><span class="nav-number">1.3.2.</span> <span class="nav-text">引用的定位方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种定位方式的优劣"><span class="nav-number">1.3.3.</span> <span class="nav-text">两种定位方式的优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OutOfMemory异常"><span class="nav-number">1.4.</span> <span class="nav-text">OutOfMemory异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java堆溢出"><span class="nav-number">1.4.1.</span> <span class="nav-text">java堆溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机栈和本地方法栈溢出"><span class="nav-number">1.4.2.</span> <span class="nav-text">虚拟机栈和本地方法栈溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量池溢出"><span class="nav-number">1.4.3.</span> <span class="nav-text">运行时常量池溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区溢出"><span class="nav-number">1.4.4.</span> <span class="nav-text">方法区溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接内存-溢出"><span class="nav-number">1.4.5.</span> <span class="nav-text">直接内存 溢出</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ming</span>
-
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">137.3k</span>
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="nav-number">1.</span> <span class="nav-text">Java内存区域与内存溢出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-C"><span class="nav-number">1.1.1.</span> <span class="nav-text">C\C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E4%BC%9A%E6%8A%8A%E5%A5%B9%E7%AE%A1%E7%90%86%E7%9A%84%E5%86%85%E5%AD%98%E5%88%92%E5%88%86%E4%B8%BA%E8%8B%A5%E5%B9%B2%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.2.1.</span> <span class="nav-text">JVM会把她管理的内存划分为若干个区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.</span> <span class="nav-text">对象访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E5%AD%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">栗子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">引用的定位方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8A%A3"><span class="nav-number">1.3.3.</span> <span class="nav-text">两种定位方式的优劣</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OutOfMemory%E5%BC%82%E5%B8%B8"><span class="nav-number">1.4.</span> <span class="nav-text">OutOfMemory异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%A0%86%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.1.</span> <span class="nav-text">java堆溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.2.</span> <span class="nav-text">虚拟机栈和本地方法栈溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.3.</span> <span class="nav-text">运行时常量池溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.4.</span> <span class="nav-text">方法区溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98-%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.5.</span> <span class="nav-text">直接内存 溢出</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">378</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">475k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:12</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
 
 
 
 
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -1218,452 +960,22 @@
   
 
 
-  
-
-
-
-
-
-
-
-
-
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+<script src="/js/local-search.js"></script>
 
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
 
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
 
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
 
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 
