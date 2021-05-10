@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>让%CPU=100%的程序</title>
+      <link href="2021/05/09/%E8%AE%A9-CPU-100-%E7%9A%84%E7%A8%8B%E5%BA%8F/"/>
+      <url>2021/05/09/%E8%AE%A9-CPU-100-%E7%9A%84%E7%A8%8B%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<p>写一个程序让CPU使用率达到100%？</p><span id="more"></span><h2 id="CPU使用率"><a href="#CPU使用率" class="headerlink" title="CPU使用率"></a>CPU使用率</h2><p>首先，什么是CPU使用率？</p><p>我觉得在不同的语境下，这个概念应该有不同的含义。</p><ul><li>如果说的是CPU本身的使用率，则可以这样理解：存在一个任务队列等待CPU去执行，如果任务队列为空，CPU就会处于“空闲”状态，这时候CPU会去执行一个<code>idle</code>线程，这个线程用来统计进程的信息、降低CPU功耗（我记得当初写汇编的时候，8086有一个halt指令，可以暂停CPU，降低功耗也许和此有关）等。假如让CPU空闲时也不停空转，可以想见的是，我们的电脑即使什么也不做，CPU就会烫到能煮鸡蛋了。这时候，CPU使用率 = 非idle时间/总CPU时间。</li></ul><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqckp5z9eej30ux0iv76f.jpg"/><p>top命令第三行的 98.7 id，就是idle状态占用CPU时间的百分比。</p><p>参考：<a href="https://linjinming.gitee.io/2021/05/06/TOP/">TOP | Ming (gitee.io)</a></p><ul><li>如果说的是某个程序的CPU使用率，则可以这样理解：操作系统将CPU时间划分成很多时间片，每个线程都有机会得到CPU时间。这时候，CPU使用率 = 一定时间内线程消耗的CPU时间/总CPU时间。图中每个进程的%CPU即为该进程的CPU使用率。</li></ul><p>如果想要某个线程的CPU使用率达到100%，意味着这个程序占用了所有的CPU时间，因此键盘、鼠标、其它程序也不会再有响应，进入了“死机”的状态。因为操作系统的调度，这种状态似乎很难达到。</p><blockquote><p>关于死机：</p><p>我们用户态的所有的程序都是由操作系统去调度的，我们写的程序可能会崩溃，可能会死锁，死循环，但因为有操作系统的存在，就算出现了这些问题，别的程序也能够及时得到相应。</p><p>但操作系统本身也是一种程序，如果操作系统的代码出了意想不到的问题（栗如死循环），我们用户态的所有的程序就再也得不到CPU时间了。这种情况下，操作系统选择直接死机，避免更进一步的错误发生。</p></blockquote><p>但如果只是让CPU总的使用率100%的话，还是很容易的，从定义出发，只要让CPU别闲下来就好。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>linux和win10都试试。</p><p>值得一提的是，任务管理器显示的CPU使用率和top命令在linux下显示的CPU使用率含义略有不同，任务管理器显示的是多个核的平均值，最大值100%，而top显示所有核的总和，可能会超过100%。</p><h3 id="Linux环境："><a href="#Linux环境：" class="headerlink" title="Linux环境："></a>Linux环境：</h3><p>很低配的单核服务器</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqcku8jjyvj30uj0gdq4k.jpg"/><p>写一个死循环：</p><p><img src="C:\Users\67460\AppData\Roaming\Typora\typora-user-images\image-20210509232311391.png" alt="image-20210509232311391"></p><p>查看运行状况：</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqcl9wrzenj30ux0ivgns.jpg"/><p>idle时间为0，正如之前所说，整个CPU使用率达到了100%，但该进程（circle）最多到99.9%。</p><h3 id="Windows环境："><a href="#Windows环境：" class="headerlink" title="Windows环境："></a>Windows环境：</h3><p>我八核十六线程的锐龙2700，AMD YES</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqckv7bmmij30b70b60t7.jpg"/><p>写个死循环：</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqclboyuawj307t03m0sk.jpg"/><p>我的锐龙波澜不惊：</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqclcbczk2j30it0ght9p.jpg"/><p>多起几个线程：（因为go routine和线程不是一对一的关系，所以go几下</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqclg6rjoyj31gl0rawg3.jpg"/><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqcliy1muxj30it0ghgmu.jpg"/><p>可见总的CPU使用率已经到了100%，而Go程序的使用率来到了98.4%，并未达到100%，这也是我还能截图的原因。</p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1gqclh0mo29j30it0ghdgu.jpg"/><h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://linjinming.gitee.io/2021/05/06/TOP/">TOP | Ming (gitee.io)</a></p><p><a href="https://unix.stackexchange.com/questions/361245/what-does-an-idle-cpu-process-do">linux kernel - What does an idle CPU process do? - Unix &amp; Linux Stack Exchange</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sort.Search</title>
       <link href="2021/05/09/sort-Search/"/>
       <url>2021/05/09/sort-Search/</url>
