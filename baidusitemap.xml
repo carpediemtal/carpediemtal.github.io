@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://linjinming.gitee.io/2021/06/20/%E5%85%AB%E7%9A%87%E5%90%8E/</loc>
+    <lastmod>2021-06-20</lastmod>
+  </url>
+  <url>
+    <loc>http://linjinming.gitee.io/2021/06/19/Shortest-Path/</loc>
+    <lastmod>2021-06-19</lastmod>
+  </url>
+  <url>
     <loc>http://linjinming.gitee.io/2021/06/19/LeetCode-1239/</loc>
     <lastmod>2021-06-19</lastmod>
   </url>
