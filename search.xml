@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Linux定时任务</title>
+      <link href="2021/06/20/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+      <url>2021/06/20/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<p>一般来说，我更新一篇博客需要经过以下两步：</p><ol><li>用<code>Typora</code>在windows上写好<code>markdown</code>文章，生成<code>html</code>并push到<code>github</code>的仓库里</li><li><code>ssh</code>登录我的服务器，执行<code>git pull</code>更新。（因为服务器被墙了，所以我还得借助舍友的梯子才能<code>ssh</code> TAT</li></ol><p>可以写一个脚本，在对应目录下执行<code>git pull</code>，并使其周期性执行，让繁琐工作自动化。</p><span id="more"></span><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p><code>pull.sh</code>:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># cd 到博客目录下</span></span><br><span class="line"><span class="built_in">cd</span> carpediemtal.github.io || <span class="built_in">exit</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><h2 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h2><p><strong>cron</strong>是一款类Unix的操作系统下的基于时间的任务管理系统。用户们可以通过<strong>cron</strong>在固定时间、日期、间隔下，运行定期任务（可以是命令和脚本）。<strong>cron</strong>常用于运维和管理，但也可用于其他地方，如：定期下载文件和邮件。</p><p>通常，<strong>任务时间表</strong>（crontab）文件储存的指令被crond<a href="https://zh.wikipedia.org/wiki/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B">守护进程</a>激活，守护进程在后台运行，并每一分钟检查是否有定期的作业需要执行。这类作业一般称为<strong>cron jobs</strong>。</p><p>命令参数：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line"> -u &lt;user&gt;  define user</span><br><span class="line"> -e         edit user<span class="string">&#x27;s crontab</span></span><br><span class="line"><span class="string"> -l         list user&#x27;</span>s crontab</span><br><span class="line"> -r         delete user<span class="string">&#x27;s crontab</span></span><br><span class="line"><span class="string"> -i         prompt before deleting</span></span><br><span class="line"><span class="string"> -n &lt;host&gt;  set host in cluster to run users&#x27;</span> crontabs</span><br><span class="line"> -c         get host <span class="keyword">in</span> cluster to run users<span class="string">&#x27; crontabs</span></span><br><span class="line"><span class="string"> -s         selinux context</span></span><br><span class="line"><span class="string"> -x &lt;mask&gt;  enable debugging</span></span><br></pre></td></tr></table></figure><p>时间格式可以参考这个网站：<a href="https://crontab.guru/">Crontab.guru - The cron schedule expression editor</a></p><img src="http://ww1.sinaimg.cn/large/005VT09Qly1grosp49gflj30s80py3zg.jpg"/><p>执行下面的命令建立定时执行的任务</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑定时任务</span></span><br><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 每隔一小时执行一次</span></span><br><span class="line">* */1 * * * /home/ming/pull.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的定时任务</span></span><br><span class="line">crontab -l</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> crontab </tag>
+            
+            <tag> 定时任务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>八皇后</title>
       <link href="2021/06/20/%E5%85%AB%E7%9A%87%E5%90%8E/"/>
       <url>2021/06/20/%E5%85%AB%E7%9A%87%E5%90%8E/</url>

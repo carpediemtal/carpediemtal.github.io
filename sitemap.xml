@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://linjinming.gitee.io/2021/06/20/Linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
+    
+    <lastmod>2021-06-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://linjinming.gitee.io/2021/06/20/%E5%85%AB%E7%9A%87%E5%90%8E/</loc>
     
     <lastmod>2021-06-20</lastmod>
@@ -2882,6 +2889,20 @@
   
   <url>
     <loc>http://linjinming.gitee.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</loc>
+    <lastmod>2021-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linjinming.gitee.io/tags/crontab/</loc>
+    <lastmod>2021-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linjinming.gitee.io/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
     <lastmod>2021-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
