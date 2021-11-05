@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>关于超星平台视频失去焦点后的自动暂停</title>
+      <link href="2021/11/05/%E5%85%B3%E4%BA%8E%E8%B6%85%E6%98%9F%E5%B9%B3%E5%8F%B0%E8%A7%86%E9%A2%91%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E5%90%8E%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9A%82%E5%81%9C/"/>
+      <url>2021/11/05/%E5%85%B3%E4%BA%8E%E8%B6%85%E6%98%9F%E5%B9%B3%E5%8F%B0%E8%A7%86%E9%A2%91%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E5%90%8E%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9A%82%E5%81%9C/</url>
+      
+        <content type="html"><![CDATA[<p>学校在“学在西电（超星平台）”新开设了一门网课，要求学习时长不小于16学时（720分钟），打开视频播放页面后，正当我切屏去做其他事时，视频竟自动暂停播放，这还怎么愉快地刷网课？</p><img src="http://tva1.sinaimg.cn/large/005VT09Qly1gw4dmuk88rj31hc0u0k66.jpg"/><span id="more"></span><p>根据我浅薄的JavaScript知识来猜测，应该存在一段代码将<strong>“鼠标移动或者切换窗口”</strong>作为浏览器中某个部分的监听事件，当检测到这样的事件发生时对应的函数就被调用，视频被暂停。</p><p>仔细观察，鼠标移开视频区域并不会导致视频的暂停，而只有当鼠标指针移开页面时才会发生，因此很可能是<strong>body</strong>这个部分设置的<code>EventListener</code>（监听函数）。</p><p>使用<code>ctrl+shift+C</code>选中整个页面（body）：</p><img src="http://tva1.sinaimg.cn/large/005VT09Qly1gw4gqlwj3sj31hc0u0x2j.jpg"/><p>在右下角找到body的<code>EventListener</code>：<code>mouseout</code>，点击remove就大功告成了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Experience </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 超星,JavaScript,EventListener </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SPM Review I</title>
       <link href="2021/06/23/SPM-Review-I/"/>
       <url>2021/06/23/SPM-Review-I/</url>
