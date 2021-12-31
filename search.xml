@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VMware的两种网络连接方式</title>
+      <link href="2021/12/31/VMware%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/"/>
+      <url>2021/12/31/VMware%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<img src="http://tva1.sinaimg.cn/large/005VT09Qly1gxx8l3jqo4j30xc0a30uu.jpg"/><span id="more"></span><h2 id="主机使用SSH连接VMware虚拟机"><a href="#主机使用SSH连接VMware虚拟机" class="headerlink" title="主机使用SSH连接VMware虚拟机"></a>主机使用SSH连接VMware虚拟机</h2><h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑设置</span></span><br><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure><img src="http://tva1.sinaimg.cn/large/005VT09Qly1gxxg187n8sj30qb0jmgnb.jpg"/><p>修改<code>BOOTPROTO</code>为”static”并添加<code>IPADDR</code>和<code>NETMASK</code></p><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>外部网路无法直接访问虚拟机，需要设置端口转发规则，将外部网络发送到主机指定端口的数据转发到指定的虚拟机上。</p><img src="http://tva1.sinaimg.cn/large/005VT09Qly1gxx8qauazjj30uh0ffn36.jpg"/><p>注意SSH连接指定的IP是主机的ip，端口是主机设定的端口</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计网 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计网,VMware,NAT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于超星平台视频失去焦点后的自动暂停</title>
       <link href="2021/11/05/%E5%85%B3%E4%BA%8E%E8%B6%85%E6%98%9F%E5%B9%B3%E5%8F%B0%E8%A7%86%E9%A2%91%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E5%90%8E%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9A%82%E5%81%9C/"/>
       <url>2021/11/05/%E5%85%B3%E4%BA%8E%E8%B6%85%E6%98%9F%E5%B9%B3%E5%8F%B0%E8%A7%86%E9%A2%91%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E5%90%8E%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9A%82%E5%81%9C/</url>
