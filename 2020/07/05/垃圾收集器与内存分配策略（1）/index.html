@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"carpediemtal.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="垃圾收集器与内存分配策略（1） 序言Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人想出来 GC（Garbage Collection）学习目的 解决问题  内存溢出、泄漏 GC成了性能瓶颈    GC区域无关紧要的 与线程同生共死 分配内存时大致内存是确定的，方法或线程结束，内存自动回收，所以整个生命周期内存是比较确定的，没什么好说的。GC主要关注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="垃圾收集器与内存分配策略（1）">
+<meta property="og:url" content="https://carpediemtal.github.io/2020/07/05/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="垃圾收集器与内存分配策略（1） 序言Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人想出来 GC（Garbage Collection）学习目的 解决问题  内存溢出、泄漏 GC成了性能瓶颈    GC区域无关紧要的 与线程同生共死 分配内存时大致内存是确定的，方法或线程结束，内存自动回收，所以整个生命周期内存是比较确定的，没什么好说的。GC主要关注">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gggguxml1ej31bd1y2wqt.jpg">
+<meta property="article:published_time" content="2020-07-05T14:31:05.000Z">
+<meta property="article:modified_time" content="2025-02-12T00:43:54.881Z">
+<meta property="article:author" content="Ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gggguxml1ej31bd1y2wqt.jpg">
+
+<link rel="canonical" href="https://carpediemtal.github.io/2020/07/05/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>垃圾收集器与内存分配策略（1） | Ming</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://carpediemtal.github.io/2020/07/05/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          垃圾收集器与内存分配策略（1）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-05 22:31:05" itemprop="dateCreated datePublished" datetime="2020-07-05T22:31:05+08:00">2020-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-12 08:43:54" itemprop="dateModified" datetime="2025-02-12T08:43:54+08:00">2025-02-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="垃圾收集器与内存分配策略（1）"><a href="#垃圾收集器与内存分配策略（1）" class="headerlink" title="垃圾收集器与内存分配策略（1）"></a>垃圾收集器与内存分配策略（1）</h1><hr>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外面的人想进去，墙里面的人想出来</p>
+<h3 id="GC（Garbage-Collection）"><a href="#GC（Garbage-Collection）" class="headerlink" title="GC（Garbage Collection）"></a>GC（Garbage Collection）</h3><h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
+<li><p>解决问题</p>
+<ul>
+<li>内存溢出、泄漏</li>
+<li>GC成了性能瓶颈</li>
+</ul>
+</li>
+</ul>
+<h2 id="GC区域"><a href="#GC区域" class="headerlink" title="GC区域"></a>GC区域</h2><h3 id="无关紧要的"><a href="#无关紧要的" class="headerlink" title="无关紧要的"></a>无关紧要的</h3><ul>
+<li><p>与线程同生共死</p>
+<p>分配内存时大致内存是确定的，方法或线程结束，内存自动回收，所以整个生命周期内存是比较确定的，没什么好说的。GC主要关注java堆（又称gc堆）</p>
+<ul>
+<li>程序计数器</li>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+</ul>
+</li>
+</ul>
+<h3 id="至关重要的"><a href="#至关重要的" class="headerlink" title="至关重要的"></a>至关重要的</h3><ul>
+<li><p>Java堆</p>
+<p>主要存放对象的 实例。</p>
+<ul>
+<li>内存动态分配</li>
+<li>内存动态回收</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="找垃圾算法"><a href="#找垃圾算法" class="headerlink" title="找垃圾算法"></a>找垃圾算法</h2><p>回收之前要确定对象是死是活（未来还会用到吗）</p>
+<h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><p>有一个人引用计数就加1，少一个人引用计数就减1</p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li><p>立即执行</p>
+<p>计数为0就可以立即回收了</p>
+</li>
+<li><p>自我诊断</p>
+<p>没必要再去new一个线程，是否可以回收自己就可以判断。</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<p>因为致命缺陷jvm不用这个</p>
+<ul>
+<li><p>计数本身有一定的工作量</p>
+</li>
+<li><p>循环引用，形成永动</p>
+<p>两个变量互相引用是无解（无法回收）的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="根搜索算法"><a href="#根搜索算法" class="headerlink" title="根搜索算法"></a>根搜索算法</h3><p>有一些特殊的对象可以作为gc root，从gc root出发，能到达之处就不是垃圾，不能到达之处就是垃圾</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="上古时代的定义"><a href="#上古时代的定义" class="headerlink" title="上古时代的定义"></a>上古时代的定义</h3><ul>
+<li>存储着另一块内存的起始地址的变量</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>强引用</p>
+<p>Strong</p>
+<ul>
+<li>Object obj &#x3D; new Object()</li>
+<li>只要引用存在，就不会被回收</li>
+</ul>
+</li>
+<li><p>软引用</p>
+<p>Soft</p>
+<ul>
+<li>内存溢出之前会把软引用的对象回收，如果没用就报错了</li>
+<li>通过SoftReference实现软引用</li>
+</ul>
+</li>
+<li><p>弱引用</p>
+<p>Weak</p>
+<ul>
+<li>比软引用更容易被回收</li>
+<li>朝生暮死（下次回收开始弱引用必死）</li>
+<li>通过WeakReference实现弱引用</li>
+</ul>
+</li>
+<li><p>虚引用</p>
+<p>Phatom</p>
+<ul>
+<li>唯一用处是对象被回收时能收到一个系统通知</li>
+<li>通过PhatomReference实现虚引用</li>
+</ul>
+</li>
+</ul>
+<h2 id="生存还是死亡"><a href="#生存还是死亡" class="headerlink" title="生存还是死亡"></a>生存还是死亡</h2><h3 id="根搜索算法之后并未宣判死刑，对象仍有一线生机"><a href="#根搜索算法之后并未宣判死刑，对象仍有一线生机" class="headerlink" title="根搜索算法之后并未宣判死刑，对象仍有一线生机"></a>根搜索算法之后并未宣判死刑，对象仍有一线生机</h3><h3 id="两次标记"><a href="#两次标记" class="headerlink" title="两次标记"></a>两次标记</h3><ul>
+<li><p>第一次标记</p>
+<ul>
+<li><p>finalize方法</p>
+<p>这个方法时java对c\c++程序员作出的妥协，这方法已经不适合这个版本了，应该被gc</p>
+<ul>
+<li><p>对象自我救赎的最后一次机会</p>
+<p>这个方法只可能被调用一次</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第二次标记</p>
+<ul>
+<li>如果对象救赎成功，就不会被标记，否则只有死路一条</li>
+</ul>
+</li>
+</ul>
+<h2 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h2><h3 id="回收废弃常量和无用的类"><a href="#回收废弃常量和无用的类" class="headerlink" title="回收废弃常量和无用的类"></a>回收废弃常量和无用的类</h3><h3 id="性价比低，可以不gc"><a href="#性价比低，可以不gc" class="headerlink" title="性价比低，可以不gc"></a>性价比低，可以不gc</h3><h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>标记</p>
+<ul>
+<li>找垃圾算法</li>
+</ul>
+</li>
+<li><p>清除</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>效率不行</li>
+<li>碎片太多，可能找不到大的连续的内存空间</li>
+</ul>
+</li>
+<li><p>地位</p>
+<ul>
+<li><p>基石</p>
+<ul>
+<li>之后的算法都是改进版</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>设置保留区，内存不够用时将所有活着的移到保留区，再清除</p>
+<p>50%-50%会减少一半的可用内存，代价太大，而且也不需要如此。90%-10%又没法交换，所以一般是三部分：80%-10%-10%，只有一个10%是闲置的</p>
+</li>
+<li><p>分配担保</p>
+</li>
+</ul>
+</li>
+<li><p>优势</p>
+<ul>
+<li>简单易行</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>牺牲部分内存</li>
+<li>对象比较多时复制操作会比较多</li>
+</ul>
+</li>
+</ul>
+<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><ul>
+<li><p>过程</p>
+<ul>
+<li><p>标记</p>
+</li>
+<li><p>整理</p>
+<ul>
+<li>把活着的拼接到一起</li>
+</ul>
+</li>
+<li><p>清除</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><ul>
+<li><p>内存划分</p>
+<ul>
+<li><p>新生代</p>
+<ul>
+<li>新生代每次存活数量少，选复制算法</li>
+</ul>
+</li>
+<li><p>老生代</p>
+<ul>
+<li>存活率高，使用标记-整理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gggguxml1ej31bd1y2wqt.jpg"/>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/05/Leetcode-31/" rel="prev" title="Leetcode-31">
+      <i class="fa fa-chevron-left"></i> Leetcode-31
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/06/Leetcode-63/" rel="next" title="Leetcode-63">
+      Leetcode-63 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">垃圾收集器与内存分配策略（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">序言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC%EF%BC%88Garbage-Collection%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">GC（Garbage Collection）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">学习目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">GC区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%85%B3%E7%B4%A7%E8%A6%81%E7%9A%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">无关紧要的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%B3%E5%85%B3%E9%87%8D%E8%A6%81%E7%9A%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">至关重要的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%9E%83%E5%9C%BE%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">找垃圾算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">引用计数算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">根搜索算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%8F%A4%E6%97%B6%E4%BB%A3%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">上古时代的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.2.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1"><span class="nav-number">1.5.</span> <span class="nav-text">生存还是死亡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E4%B9%8B%E5%90%8E%E5%B9%B6%E6%9C%AA%E5%AE%A3%E5%88%A4%E6%AD%BB%E5%88%91%EF%BC%8C%E5%AF%B9%E8%B1%A1%E4%BB%8D%E6%9C%89%E4%B8%80%E7%BA%BF%E7%94%9F%E6%9C%BA"><span class="nav-number">1.5.1.</span> <span class="nav-text">根搜索算法之后并未宣判死刑，对象仍有一线生机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E6%AC%A1%E6%A0%87%E8%AE%B0"><span class="nav-number">1.5.2.</span> <span class="nav-text">两次标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.6.</span> <span class="nav-text">回收方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E5%BA%9F%E5%BC%83%E5%B8%B8%E9%87%8F%E5%92%8C%E6%97%A0%E7%94%A8%E7%9A%84%E7%B1%BB"><span class="nav-number">1.6.1.</span> <span class="nav-text">回收废弃常量和无用的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E4%BB%B7%E6%AF%94%E4%BD%8E%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%B8%8Dgc"><span class="nav-number">1.6.2.</span> <span class="nav-text">性价比低，可以不gc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.1.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.4.</span> <span class="nav-text">分代收集算法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

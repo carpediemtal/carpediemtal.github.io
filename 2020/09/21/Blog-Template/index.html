@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"carpediemtal.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="需求我习惯把在LeetCode上写的代码发到博客上，过程中要做一些琐碎的事情，例如： 先在博客的根目录打开git bash，用hexo命令new一篇新的文章：hexo new “LeetCode-xxx”，用编辑器打开输入分类，题目&lt;!--more--&gt;，结果，代码，复杂度等，如图所示。   于是我想借助java稍微简化下步骤，顺便写个GUI，温习一下我的javaFX。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blog Template">
+<meta property="og:url" content="https://carpediemtal.github.io/2020/09/21/Blog-Template/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="需求我习惯把在LeetCode上写的代码发到博客上，过程中要做一些琐碎的事情，例如： 先在博客的根目录打开git bash，用hexo命令new一篇新的文章：hexo new “LeetCode-xxx”，用编辑器打开输入分类，题目&lt;!--more--&gt;，结果，代码，复杂度等，如图所示。   于是我想借助java稍微简化下步骤，顺便写个GUI，温习一下我的javaFX。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9pu3rm6j313u0r5dir.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl03cp5i6wj30dy098mxc.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0ocqotqj30dy098mx9.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0oif3htj30dy098q31.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0se2taej30dy098q33.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkmfydb44vj30dy098mx7.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkmfyjn8l3j30dy098gln.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9r7fm3pj30b607kq2v.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9v20wyij30h60ji0tc.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1goi3rgs7oyj30vv04p74m.jpg">
+<meta property="article:published_time" content="2020-09-21T06:37:36.000Z">
+<meta property="article:modified_time" content="2025-02-11T15:47:16.043Z">
+<meta property="article:author" content="Ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9pu3rm6j313u0r5dir.jpg">
+
+<link rel="canonical" href="https://carpediemtal.github.io/2020/09/21/Blog-Template/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Blog Template | Ming</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://carpediemtal.github.io/2020/09/21/Blog-Template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Blog Template
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-21 14:37:36" itemprop="dateCreated datePublished" datetime="2020-09-21T14:37:36+08:00">2020-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-11 23:47:16" itemprop="dateModified" datetime="2025-02-11T23:47:16+08:00">2025-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>我习惯把在LeetCode上写的代码发到博客上，过程中要做一些琐碎的事情，例如：</p>
+<p>先在博客的根目录打开git bash，用hexo命令new一篇新的文章：hexo new “LeetCode-xxx”，用编辑器打开输入分类，题目<code>&lt;!--more--&gt;</code>，结果，代码，复杂度等，如图所示。</p>
+<img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9pu3rm6j313u0r5dir.jpg"/>
+
+<p>于是我想借助java稍微简化下步骤，顺便写个GUI，温习一下我的javaFX。</p>
+<span id="more"></span>
+
+<h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2><h3 id="BETA3-1"><a href="#BETA3-1" class="headerlink" title="BETA3.1"></a>BETA3.1</h3><h4 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h4><p>添加了新功能：树代码生成</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl03cp5i6wj30dy098mxc.jpg" alt="Snipaste_2020-11-24_11-15-30.png"></p>
+<h3 id="BETA3-0"><a href="#BETA3-0" class="headerlink" title="BETA3.0"></a>BETA3.0</h3><h4 id="新特性-1"><a href="#新特性-1" class="headerlink" title="新特性"></a>新特性</h4><p>添加了新的功能：括号转换和链表代码生成。</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0ocqotqj30dy098mx9.jpg" alt="Snipaste_2020-11-20_22-40-04.png"></p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0oif3htj30dy098q31.jpg" alt="Snipaste_2020-11-20_22-40-33.png"></p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkw0se2taej30dy098q33.jpg" alt="Snipaste_2020-11-20_22-44-33.png"></p>
+<h3 id="BETA2-0"><a href="#BETA2-0" class="headerlink" title="BETA2.0"></a>BETA2.0</h3><h4 id="新特性-2"><a href="#新特性-2" class="headerlink" title="新特性"></a>新特性</h4><ul>
+<li>Gradle也挺好，这次用Gradle。</li>
+<li>增加了Dialog界面</li>
+<li>用JFoenix稍加美化（按钮，输入框）</li>
+<li>调整了一下布局</li>
+</ul>
+<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkmfydb44vj30dy098mx7.jpg" alt="Snipaste_2020-11-12_15-53-17.png"></p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gkmfyjn8l3j30dy098gln.jpg" alt="Snipaste_2020-11-12_15-53-38.png"></p>
+<h3 id="BETA1-0"><a href="#BETA1-0" class="headerlink" title="BETA1.0"></a>BETA1.0</h3><h4 id="最终效果："><a href="#最终效果：" class="headerlink" title="最终效果："></a>最终效果：</h4><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9r7fm3pj30b607kq2v.jpg"/>
+
+<p>输入文件名和路径（可以设置默认值），点击Execute就可以在对应路径下创建一个模板文件。</p>
+<img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1giy9v20wyij30h60ji0tc.jpg"/>
+
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sample;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> javafx.geometry.Insets;</span><br><span class="line"><span class="keyword">import</span> javafx.geometry.Pos;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Scene;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.control.Button;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.control.Label;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.control.TextField;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.image.Image;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.layout.HBox;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.layout.VBox;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.paint.Paint;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.DirectoryChooser;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.Stage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> <span class="keyword">extends</span> <span class="title class_">Application</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">(Stage primaryStage)</span> &#123;</span><br><span class="line">        <span class="type">VBox</span> <span class="variable">vBox</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VBox</span>(<span class="number">20</span>);</span><br><span class="line">        <span class="type">HBox</span> <span class="variable">hBox1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HBox</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="type">HBox</span> <span class="variable">hBox2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HBox</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="type">HBox</span> <span class="variable">hBox3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HBox</span>(<span class="number">10</span>);</span><br><span class="line">        vBox.getChildren().addAll(hBox1, hBox2, hBox3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// HBox-1</span></span><br><span class="line">        <span class="type">Label</span> <span class="variable">nameLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Label</span>(<span class="string">&quot;File Name:&quot;</span>);</span><br><span class="line">        <span class="type">TextField</span> <span class="variable">nameTextField</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TextField</span>(<span class="string">&quot;LeetCode&quot;</span>);</span><br><span class="line">        nameTextField.setMinWidth(<span class="number">250</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// HBox-2</span></span><br><span class="line">        <span class="type">Label</span> <span class="variable">pathLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Label</span>(<span class="string">&quot;Path:&quot;</span>);</span><br><span class="line">        <span class="type">TextField</span> <span class="variable">pathTextField</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TextField</span>(<span class="string">&quot;C:\\Users\\67460\\Documents\\blog\\source\\_posts&quot;</span>);</span><br><span class="line">        pathTextField.setMinWidth(<span class="number">250</span>);</span><br><span class="line">        <span class="type">Button</span> <span class="variable">browseButton</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Button</span>(<span class="string">&quot;Browse&quot;</span>);</span><br><span class="line">        browseButton.setOnAction(actionEvent -&gt; pathTextField.setText(chooseDirectory(primaryStage).toString()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// HBox-3</span></span><br><span class="line">        <span class="type">Label</span> <span class="variable">infoLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Label</span>();</span><br><span class="line">        <span class="comment">// Set red color for info label</span></span><br><span class="line">        infoLabel.setTextFill(Paint.valueOf(<span class="string">&quot;#FF0000&quot;</span>));</span><br><span class="line">        <span class="type">Button</span> <span class="variable">executeButton</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Button</span>(<span class="string">&quot;Execute&quot;</span>);</span><br><span class="line">        executeButton.setOnAction(actionEvent -&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (createTemplate(pathTextField.getText(), nameTextField.getText())) &#123;</span><br><span class="line">                    infoLabel.setText(<span class="string">&quot;Done!&quot;</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    infoLabel.setText(<span class="string">&quot;The file has already existed!&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">Button</span> <span class="variable">cancelButton</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Button</span>(<span class="string">&quot;Cancel&quot;</span>);</span><br><span class="line">        cancelButton.setOnAction(actionEvent -&gt; primaryStage.close());</span><br><span class="line"></span><br><span class="line">        hBox1.getChildren().addAll(nameLabel, nameTextField);</span><br><span class="line">        hBox2.getChildren().addAll(pathLabel, pathTextField, browseButton);</span><br><span class="line">        hBox3.getChildren().addAll(infoLabel, executeButton, cancelButton);</span><br><span class="line"></span><br><span class="line">        hBox1.setPadding(<span class="keyword">new</span> <span class="title class_">Insets</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">10</span>, <span class="number">20</span>));</span><br><span class="line">        hBox1.setAlignment(Pos.CENTER_LEFT);</span><br><span class="line">        hBox2.setPadding(<span class="keyword">new</span> <span class="title class_">Insets</span>(<span class="number">20</span>));</span><br><span class="line">        hBox2.setAlignment(Pos.CENTER);</span><br><span class="line">        hBox3.setPadding(<span class="keyword">new</span> <span class="title class_">Insets</span>(<span class="number">20</span>));</span><br><span class="line">        hBox3.setAlignment(Pos.CENTER_RIGHT);</span><br><span class="line"></span><br><span class="line">        primaryStage.setTitle(<span class="string">&quot;LeetCode template&quot;</span>);</span><br><span class="line">        <span class="type">var</span> <span class="variable">image</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Image</span>(<span class="string">&quot;LeetCodeIcon.png&quot;</span>);</span><br><span class="line">        primaryStage.getIcons().add(image);</span><br><span class="line">        primaryStage.setScene(<span class="keyword">new</span> <span class="title class_">Scene</span>(vBox, <span class="number">400</span>, <span class="number">240</span>));</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        launch(args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name file name such as LeetCode-233</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> return true if the file is created successfully and false if the file has already existed</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException the operation to file may cause IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">createTemplate</span><span class="params">(String path, String name)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(path + <span class="string">&quot;/&quot;</span> + name + <span class="string">&quot;.md&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// build the content</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">date</span> <span class="operator">=</span> LocalDateTime.now().format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>));</span><br><span class="line">        <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> String.format(<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">                ---</span></span><br><span class="line"><span class="string">                title: %s</span></span><br><span class="line"><span class="string">                date: %s</span></span><br><span class="line"><span class="string">                tags:</span></span><br><span class="line"><span class="string">                categories: LeetCode</span></span><br><span class="line"><span class="string">                ---</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                ## 题目</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                &lt;!-- more --&gt;</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                ## 结果</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                ## 代码</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                ## 复杂度</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                时间复杂度：O（）</span></span><br><span class="line"><span class="string">                                </span></span><br><span class="line"><span class="string">                空间复杂度：O（）</span></span><br><span class="line"><span class="string">                &quot;&quot;&quot;</span>, name, date);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Write the content to the file</span></span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">FileWriter</span>(file));</span><br><span class="line">        writer.write(content);</span><br><span class="line">        writer.flush();</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> File <span class="title function_">chooseDirectory</span><span class="params">(Stage primaryStage)</span> &#123;</span><br><span class="line">        <span class="type">DirectoryChooser</span> <span class="variable">directoryChooser</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DirectoryChooser</span>();</span><br><span class="line">        directoryChooser.setTitle(<span class="string">&quot;Choose Directory&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> directoryChooser.showDialog(primaryStage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="With-Go"><a href="#With-Go" class="headerlink" title="With Go"></a>With Go</h2><p>年少不知CLI好，错把GUI当个宝。</p>
+<p>以前总想写个图形界面出来，java的那个用gradle+javafx写的，启动速度好慢啊，费力不讨好，用go重写了一个。</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>-title：post name</p>
+<p>-tmpl：模板文件的路径，默认在.&#x2F;resources下</p>
+<p>-post：hexo的post路径</p>
+<img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1goi3rgs7oyj30vv04p74m.jpg"/>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>java：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/carpediemtal/Blog-template">https://github.com/carpediemtal/Blog-template</a></p>
+<p>go：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/carpediemtal/blog-template-with-go">https://github.com/carpediemtal/blog-template-with-go</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/21/LeetCode-538/" rel="prev" title="LeetCode-538">
+      <i class="fa fa-chevron-left"></i> LeetCode-538
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/22/LeetCode-62/" rel="next" title="LeetCode-62">
+      LeetCode-62 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E5%93%81"><span class="nav-number">2.</span> <span class="nav-text">产品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BETA3-1"><span class="nav-number">2.1.</span> <span class="nav-text">BETA3.1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.1.</span> <span class="nav-text">新特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BETA3-0"><span class="nav-number">2.2.</span> <span class="nav-text">BETA3.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E7%89%B9%E6%80%A7-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">新特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BETA2-0"><span class="nav-number">2.3.</span> <span class="nav-text">BETA2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E7%89%B9%E6%80%A7-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">最终效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BETA1-0"><span class="nav-number">2.4.</span> <span class="nav-text">BETA1.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">2.4.1.</span> <span class="nav-text">最终效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Go"><span class="nav-number">3.</span> <span class="nav-text">With Go</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">4.</span> <span class="nav-text">Github</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

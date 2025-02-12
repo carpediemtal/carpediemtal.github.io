@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"carpediemtal.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="依赖项12345dependencies &#123;    compile group: &#x27;org.apache.poi&#x27;, name: &#x27;poi&#x27;, version: &#x27;4.1.2&#x27;    compile group: &#x27;org.apache.poi&#x27;, name: &#x27;poi-ooxml&#x27;, v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache POI">
+<meta property="og:url" content="https://carpediemtal.github.io/2020/11/24/Apache-POI/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="依赖项12345dependencies &#123;    compile group: &#x27;org.apache.poi&#x27;, name: &#x27;poi&#x27;, version: &#x27;4.1.2&#x27;    compile group: &#x27;org.apache.poi&#x27;, name: &#x27;poi-ooxml&#x27;, v">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl1u3de1vdj31hc09p3zw.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl1u4yuxvhj31hc0u0amz.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl2ejcf71fj30ez03vdft.jpg">
+<meta property="article:published_time" content="2020-11-24T13:27:52.000Z">
+<meta property="article:modified_time" content="2025-02-11T15:46:44.614Z">
+<meta property="article:author" content="Ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl1u3de1vdj31hc09p3zw.jpg">
+
+<link rel="canonical" href="https://carpediemtal.github.io/2020/11/24/Apache-POI/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Apache POI | Ming</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://carpediemtal.github.io/2020/11/24/Apache-POI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Apache POI
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-24 21:27:52" itemprop="dateCreated datePublished" datetime="2020-11-24T21:27:52+08:00">2020-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-11 23:46:44" itemprop="dateModified" datetime="2025-02-11T23:46:44+08:00">2025-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="依赖项"><a href="#依赖项" class="headerlink" title="依赖项"></a>依赖项</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;org.apache.poi&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;poi&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;4.1.2&#x27;</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;org.apache.poi&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;poi-ooxml&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;4.1.2&#x27;</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;org.apache.poi&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;poi-ooxml-schemas&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;4.1.2&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获得workbook</span></span><br><span class="line"><span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(String.format(<span class="string">&quot;/%s.xlsx&quot;</span>, fileName)));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得sheet</span></span><br><span class="line"><span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;sheet1&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得某一行</span></span><br><span class="line"><span class="type">var</span> <span class="variable">row</span> <span class="operator">=</span> sheet.getRow(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得某一列</span></span><br><span class="line"><span class="type">var</span> <span class="variable">cell</span> <span class="operator">=</span> row.getCell(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历每行每列</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> cell : row) &#123;</span><br><span class="line">        <span class="comment">// Todo:</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从cell中获取数值</span></span><br><span class="line"><span class="type">double</span> <span class="variable">val</span> <span class="operator">=</span> cell.getNumericCellValue());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从cell中获取字符串</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> cell.getStringCellValue();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将cell的数值转为指定格式的字符串</span></span><br><span class="line"><span class="type">var</span> <span class="variable">formatter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DecimalFormat</span>(<span class="string">&quot;#&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> formatter.format(cell.getNumericCellValue());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除某一行的内容</span></span><br><span class="line">sheet.removeRow(row); <span class="comment">// 注意别一边遍历一边删，会出问题的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将一个范围的行进行移动，-1表示上移一行</span></span><br><span class="line">sheet.shiftRows(start, end, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面两个方法配合起来可以删除某一行</span></span><br><span class="line">sheet.removeRow(row);</span><br><span class="line">sheet.shiftRows(start, end, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将结果写入表格</span></span><br><span class="line"><span class="keyword">try</span> (<span class="type">var</span> <span class="variable">os</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;**********&quot;</span>))) &#123;</span><br><span class="line">		workbook.write(os);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h2><h3 id="任务一"><a href="#任务一" class="headerlink" title="任务一"></a>任务一</h3><p>接触Apache POI不是心血来潮，不过是主人的任务罢了。</p>
+<p>导员给我的任务是：筛选出成绩表中由导员负责的并且挂科超过3门的同学。</p>
+<p>已有的表格：计科全体学生各科成绩表、软工全体学生各科成绩表、物联网全体学生各科成绩表、导员负责的同学的名单</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl1u3de1vdj31hc09p3zw.jpg" alt="Snipaste_2020-11-25_23-26-16.png"></p>
+<p>表格具体内容涉及隐私就不放了，核心代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        output(<span class="string">&quot;计科&quot;</span>);</span><br><span class="line">        output(<span class="string">&quot;软工&quot;</span>);</span><br><span class="line">        output(<span class="string">&quot;物联网&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">output</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;---------------------------------- 优雅的分隔符 ----------------------------------&quot;</span>);</span><br><span class="line">        System.out.println(fileName + <span class="string">&quot;:&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(String.format(<span class="string">&quot;/%s.xlsx&quot;</span>, fileName)))) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;sheet1&quot;</span>);</span><br><span class="line">            <span class="type">var</span> <span class="variable">courses</span> <span class="operator">=</span> sheet.getRow(<span class="number">0</span>);</span><br><span class="line">            List&lt;List&lt;String&gt;&gt; students = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="type">var</span> <span class="variable">studentsOfYue</span> <span class="operator">=</span> studentOfYue();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row.getRowNum() == <span class="number">0</span> || row.getRowNum() == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> row.getCell(<span class="number">1</span>).toString();</span><br><span class="line">                <span class="keyword">if</span> (!studentsOfYue.contains(id)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> <span class="variable">cnt</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">                List&lt;String&gt; student = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> cell : row) &#123;</span><br><span class="line">                    <span class="keyword">switch</span> (cell.getCellType()) &#123;</span><br><span class="line">                        <span class="keyword">case</span> STRING -&gt; student.add(cell.getStringCellValue());</span><br><span class="line">                        <span class="keyword">case</span> NUMERIC -&gt; &#123;</span><br><span class="line">                            <span class="keyword">if</span> (cell.getNumericCellValue() &lt; <span class="number">60</span>) &#123;</span><br><span class="line">                                cnt++;</span><br><span class="line">                                student.add(getCourseName(cell.getColumnIndex(), courses) + <span class="string">&quot;:&quot;</span> + cell.getNumericCellValue());</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (cnt &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">                    students.add(student);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> student : students) &#123;</span><br><span class="line">                System.out.println(student);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 月月姐班上的同学</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Set&lt;String&gt; <span class="title function_">studentOfYue</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(<span class="string">&quot;/月.xlsx&quot;</span>))) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;总表&quot;</span>);</span><br><span class="line">            Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row.getRowNum() == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">var</span> <span class="variable">cell</span> <span class="operator">=</span> row.getCell(<span class="number">2</span>);</span><br><span class="line">                <span class="type">var</span> <span class="variable">formatter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DecimalFormat</span>(<span class="string">&quot;#&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">switch</span> (cell.getCellType()) &#123;</span><br><span class="line">                    <span class="keyword">case</span> STRING -&gt; set.add(cell.getStringCellValue());</span><br><span class="line">                    <span class="keyword">case</span> NUMERIC -&gt; set.add(formatter.format(cell.getNumericCellValue()));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> set;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">getCourseName</span><span class="params">(<span class="type">int</span> index, XSSFRow courses)</span> &#123;</span><br><span class="line">        <span class="type">var</span> <span class="variable">name</span> <span class="operator">=</span> courses.getCell(index).getStringCellValue();</span><br><span class="line">        <span class="keyword">if</span> (name.isBlank()) &#123;</span><br><span class="line">            <span class="keyword">return</span> getCourseName(index - <span class="number">1</span>, courses);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl1u4yuxvhj31hc0u0amz.jpg" alt="Snipaste_2020-11-25_23-27-52.png"></p>
+<p>效果差强人意。</p>
+<h3 id="任务二"><a href="#任务二" class="headerlink" title="任务二"></a>任务二</h3><p>导员的任务是：筛选出表中导员负责的同学的得分情况（移除其它同学的得分情况）</p>
+<p>已有的表格：各个学院和书院同学的得分情况、导员负责的同学的名单</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1gl2ejcf71fj30ez03vdft.jpg" alt="Snipaste_2020-11-26_11-13-28.png"></p>
+<p>核心代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.CellType;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Row;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.usermodel.XSSFRow;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.usermodel.XSSFSheet;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.usermodel.XSSFWorkbook;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(<span class="string">&quot;/学宪法.xlsx&quot;</span>))) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;***&quot;</span>);</span><br><span class="line">            <span class="type">var</span> <span class="variable">studentsOfYue</span> <span class="operator">=</span> studentsNameOfYue();</span><br><span class="line">            List&lt;Row&gt; rowsToDel = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row.getRowNum() == <span class="number">0</span> || row.getRowNum() == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">var</span> <span class="variable">name</span> <span class="operator">=</span> row.getCell(<span class="number">1</span>).getStringCellValue();</span><br><span class="line">                <span class="keyword">if</span> (!studentsOfYue.contains(name)) &#123;</span><br><span class="line">                    rowsToDel.add(row);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : rowsToDel) &#123;</span><br><span class="line">                sheet.removeRow(row);</span><br><span class="line">            &#125;</span><br><span class="line">            removeEmptyRow(sheet);</span><br><span class="line">          </span><br><span class="line">            <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">os</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;***********&quot;</span>))) &#123;</span><br><span class="line">                workbook.write(os);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 月月姐班上的同学的姓名</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 返回月月姐班上的同学的姓名组成的Set</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException 找不到人员名单</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Set&lt;String&gt; <span class="title function_">studentsNameOfYue</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(<span class="string">&quot;/月.xlsx&quot;</span>))) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;总表&quot;</span>);</span><br><span class="line">            Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row.getRowNum() == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">var</span> <span class="variable">cell</span> <span class="operator">=</span> row.getCell(<span class="number">1</span>);</span><br><span class="line">                set.add(cell.getStringCellValue());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> set;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 月月姐班上的同学的学号</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 返回月月姐班上的同学的学号组成的Set</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException 找不到人员名单</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Set&lt;String&gt; <span class="title function_">studentsIdOfYue</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">var</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(Main.class.getResourceAsStream(<span class="string">&quot;/月.xlsx&quot;</span>))) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheet(<span class="string">&quot;总表&quot;</span>);</span><br><span class="line">            Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> row : sheet) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row.getRowNum() == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">var</span> <span class="variable">cell</span> <span class="operator">=</span> row.getCell(<span class="number">2</span>);</span><br><span class="line">                <span class="type">var</span> <span class="variable">formatter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DecimalFormat</span>(<span class="string">&quot;#&quot;</span>);</span><br><span class="line">                set.add(formatter.format(cell.getNumericCellValue()));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> set;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">removeEmptyRow</span><span class="params">(XSSFSheet sheet)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lastRowNum</span> <span class="operator">=</span> sheet.getLastRowNum();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> lastRowNum - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="type">var</span> <span class="variable">row</span> <span class="operator">=</span> sheet.getRow(i);</span><br><span class="line">            <span class="keyword">if</span> (isEmptyRow(row)) &#123;</span><br><span class="line">                sheet.shiftRows(i + <span class="number">1</span>, lastRowNum, -<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isEmptyRow</span><span class="params">(XSSFRow row)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (row == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> cell : row) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cell != <span class="literal">null</span> &amp;&amp; cell.getCellType() != CellType.BLANK) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p>不贴了</p>
+<p>To be continued…</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/24/LeetCode-222/" rel="prev" title="LeetCode-222">
+      <i class="fa fa-chevron-left"></i> LeetCode-222
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/24/%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80%E4%B9%8B%E8%A7%A3%E9%87%8A%E5%99%A8/" rel="next" title="函数绘图语言之解释器">
+      函数绘图语言之解释器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="nav-number">1.</span> <span class="nav-text">依赖项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83"><span class="nav-number">3.</span> <span class="nav-text">实战演练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80"><span class="nav-number">3.1.</span> <span class="nav-text">任务一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C"><span class="nav-number">3.2.</span> <span class="nav-text">任务二</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

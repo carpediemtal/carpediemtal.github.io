@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"carpediemtal.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="函数绘图语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数绘图语言之解释器">
+<meta property="og:url" content="https://carpediemtal.github.io/2020/11/24/%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80%E4%B9%8B%E8%A7%A3%E9%87%8A%E5%99%A8/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="函数绘图语言">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap1m307jj30i20euta2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap3dwimjj30i00490t1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapflveduj30pi0h7q4k.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapjm4220j30fc02vweb.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapmfpo1mj30qm0jf0ug.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap1m307jj30i20euta2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaq1wzo5sj30eu0c6781.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaqg0k137j305804ta9y.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaq63os9hj30i20eujsi.jpg">
+<meta property="article:published_time" content="2020-11-24T13:30:32.000Z">
+<meta property="article:modified_time" content="2025-02-12T00:42:24.783Z">
+<meta property="article:author" content="Ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap1m307jj30i20euta2.jpg">
+
+<link rel="canonical" href="https://carpediemtal.github.io/2020/11/24/%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80%E4%B9%8B%E8%A7%A3%E9%87%8A%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>函数绘图语言之解释器 | Ming</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://carpediemtal.github.io/2020/11/24/%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80%E4%B9%8B%E8%A7%A3%E9%87%8A%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          函数绘图语言之解释器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-24 21:30:32" itemprop="dateCreated datePublished" datetime="2020-11-24T21:30:32+08:00">2020-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-12 08:42:24" itemprop="dateModified" datetime="2025-02-12T08:42:24+08:00">2025-02-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="函数绘图语言"><a href="#函数绘图语言" class="headerlink" title="函数绘图语言"></a>函数绘图语言</h2><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap1m307jj30i20euta2.jpg" alt="Snipaste_2020-12-03_15-21-41.png"></p>
+<span id="more"></span>
+
+<p>Github：<a target="_blank" rel="noopener" href="https://github.com/carpediemtal/Drawlang-Interpreter">carpediemtal&#x2F;Drawlang-Interpreter (github.com)</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="5-种语句"><a href="#5-种语句" class="headerlink" title="5 种语句"></a>5 种语句</h4><ul>
+<li><p>循环绘图（FOR-DRAW）</p>
+</li>
+<li><p>比例设置（SCALE）</p>
+</li>
+<li><p>角度旋转（ROT）</p>
+</li>
+<li><p>坐标平移（ORIGIN）</p>
+</li>
+<li><p>注释    （– 或 &#x2F;&#x2F;）</p>
+</li>
+</ul>
+<h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4><ul>
+<li><p>左上角为原点</p>
+</li>
+<li><p>x方向从左向右增长</p>
+</li>
+<li><p>y方向从上到下增长</p>
+</li>
+</ul>
+<h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--------------- 函数f(t)=t的图形</span><br><span class="line">origin is (100, 300);	-- 设置原点的偏移量</span><br><span class="line">rot is 0;			-- 设置旋转角度(不旋转)</span><br><span class="line">scale is (1, 1);		-- 设置横坐标和纵坐标的比例</span><br><span class="line">for T from 0 to 200 step 1 draw (t, 0);</span><br><span class="line">				-- 横坐标的轨迹（纵坐标为0）</span><br><span class="line">for T from 0 to 150 step 1 draw (0, -t);</span><br><span class="line">				-- 纵坐标的轨迹（横坐标为0）</span><br><span class="line">for T from 0 to 120 step 1 draw (t, -t);</span><br><span class="line">				-- 函数f(t)=t的轨迹 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">origin is (100, 300);</span><br><span class="line">rot is 0;</span><br><span class="line">scale is (1, 2);</span><br><span class="line">for T from 0 to 100 step 1 draw (100 * cos(T), 100*sin(T));</span><br><span class="line">scale is (2, 1);</span><br><span class="line">for T from 0 to 2*PI step PI/50 draw (20 * cos(T), -20 * sin(T));</span><br><span class="line">for T from 0 to 300 step 1 draw (T, -T);</span><br><span class="line">for T from 0 to 500 step 5 draw (-T, -2 * T);</span><br><span class="line"></span><br><span class="line">// 三个椭圆</span><br><span class="line">origin is (380,340);</span><br><span class="line">scale is (100,100/3);</span><br><span class="line">rot is pi/2;</span><br><span class="line">for T from -pi to pi step pi/50 draw (cos(t),sin(t));</span><br><span class="line">rot is pi/2 + 2*pi/3;</span><br><span class="line">for T from -pi to pi step pi/50 draw (cos(t),sin(t));</span><br><span class="line">rot is pi/2 - 2*pi/3;</span><br><span class="line">for T from -pi to pi step pi/50 draw (cos(t),sin(t));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 新的图形:万花筒</span><br><span class="line">origin is (250,250);</span><br><span class="line">scale is (100,100);</span><br><span class="line">rot is 0;</span><br><span class="line">for t from 0 to 2*pi step pi/50 draw (cos(t), sin(t));</span><br><span class="line">for t from 0 to pi*20 step Pi/50 draw ((1-1/(10/7))*cos(T)+1/(10/7)*cos(-T*(((10/7)-1))), (1-1/(10/7))*sin(T)+1/(10/7)*sin(-T*((10/7)-1)));</span><br></pre></td></tr></table></figure>
+
+<h2 id="为函数绘图语言构造‘解释器’"><a href="#为函数绘图语言构造‘解释器’" class="headerlink" title="为函数绘图语言构造‘解释器’"></a>为函数绘图语言构造‘解释器’</h2><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap3dwimjj30i00490t1.jpg" alt="Snipaste_2020-12-03_15-23-23.png"></p>
+<h3 id="词法分析器"><a href="#词法分析器" class="headerlink" title="词法分析器"></a>词法分析器</h3><h4 id="记号的种类"><a href="#记号的种类" class="headerlink" title="记号的种类"></a>记号的种类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">TokenType</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保留关键字</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    ORIGIN, SCALE, ROT, IS, TO, STEP, DRAW, FOR, FROM,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 参数和标点符号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    T, SEMICOLON, L_BRACKET, R_BRACKET, COMMA,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运算符号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    PLUS, MINUS, MUL, DIV, POWER,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    FUNC,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 常数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    CONST_VAL,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文件末尾和错误</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    END, ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>常数</p>
+<p>数值字面量和标识符形式的常量名均称为常数。</p>
+<ul>
+<li><p>字面量的形式为普通的数值，如果没有小数部分，可以省略小数点。例如2、2.、2.0都是合法的常数。</p>
+</li>
+<li><p>标识符PI、E也是常数，它们分别代表圆周率和自然对数的底。常数不能有符号位，如-1和+2不是常数而是（一元运算的）表达式。</p>
+</li>
+</ul>
+</li>
+<li><p>参数</p>
+<p>本绘图语言中唯一的、已经被定义好的变量名T被称为参数，它也是一个表达式。由于绘图语言中只有这唯一的变量，因此绘图语言中无需变量或参数的声明和定义语句。</p>
+</li>
+<li><p>函数</p>
+<p>为简单起见，当前函数调用仅支持Sin、Cos、Tan、Sqrt、Exp 和 Ln。</p>
+</li>
+<li><p>保留字</p>
+<p>语句中具有固定含义的标识符，包括：</p>
+<ul>
+<li><p>ORIGIN, SCALE, ROT,  IS,</p>
+</li>
+<li><p>FOR,  FROM,  TO,  STEP,  DRAW</p>
+</li>
+</ul>
+</li>
+<li><p>运算符</p>
+<ul>
+<li><p>+           -             *             <strong>&#x2F;</strong>           **</p>
+</li>
+<li><p><strong>结合性</strong>： ** <strong>右结合</strong>， 其他 <strong>左结合</strong></p>
+</li>
+<li><p><strong>优先级</strong>：** ＞ <strong>一元</strong>+- ＞ *&#x2F; ＞ <strong>二元</strong>+-</p>
+</li>
+</ul>
+</li>
+<li><p>分隔符</p>
+<p>；  （     ）   ，</p>
+</li>
+</ol>
+<p>建立hash表将字符串和Token相对应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initTable</span><span class="params">()</span> &#123;</span><br><span class="line">    tokenTable.put(<span class="string">&quot;PI&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.CONST_VAL, <span class="string">&quot;PI&quot;</span>, <span class="number">3.1415926</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;E&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.CONST_VAL, <span class="string">&quot;E&quot;</span>, <span class="number">2.71828</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;T&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.T, <span class="string">&quot;T&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;SIN&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;SIN&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;COS&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;COS&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;TAN&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;TAN&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;LN&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;LN&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;EXP&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;EXP&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;SQRT&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FUNC, <span class="string">&quot;SQRT&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;ORIGIN&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.ORIGIN, <span class="string">&quot;ORIGIN&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;SCALE&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.SCALE, <span class="string">&quot;SCALE&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;ROT&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.ROT, <span class="string">&quot;ROT&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;IS&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.IS, <span class="string">&quot;IS&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;FOR&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FOR, <span class="string">&quot;FOR&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;FROM&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.FROM, <span class="string">&quot;FROM&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;TO&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.TO, <span class="string">&quot;TO&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;STEP&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.STEP, <span class="string">&quot;STEP&quot;</span>, <span class="number">0</span>));</span><br><span class="line">    tokenTable.put(<span class="string">&quot;DRAW&quot;</span>, <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.DRAW, <span class="string">&quot;DRAW&quot;</span>, <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>识别出的函数会在后面的语法分析器进一步细分：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 计算带有函数的表达式的值</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> funcName 函数名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> val      函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 函数值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">double</span> <span class="title function_">function</span><span class="params">(String funcName, <span class="type">double</span> val)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (funcName) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;COS&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.cos(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;SIN&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.sin(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;TAN&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.tan(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;SQRT&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.sqrt(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;EXP&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.exp(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;LN&quot;</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.log(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">default</span> -&gt; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Syntax Error&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="DFA"><a href="#DFA" class="headerlink" title="DFA"></a>DFA</h4><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapflveduj30pi0h7q4k.jpg" alt="image-20201203153447268.png"></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 每次调用获得一个Token</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span> 返回下一个Token</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> Token <span class="title function_">getToken</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 跳过最初的空白字符</span></span><br><span class="line">    jumpSpace();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读到了源代码末尾</span></span><br><span class="line">    <span class="keyword">if</span> (index &gt;= src.length()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.END, <span class="string">&quot;END&quot;</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储Token字符</span></span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">tokenString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第一个非空字符</span></span><br><span class="line">    <span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> getChar();</span><br><span class="line">    tokenString.append(ch);</span><br><span class="line">    <span class="comment">// 识别保留字、常量名和参数名:纯字母</span></span><br><span class="line">    <span class="keyword">if</span> (Character.isAlphabetic(ch)) &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            ch = getChar();</span><br><span class="line">            <span class="keyword">if</span> (Character.isAlphabetic(ch)) &#123;</span><br><span class="line">                tokenString.append(ch);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        index--;</span><br><span class="line">        <span class="keyword">return</span> lookUpTable(tokenString.toString());</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(ch)) &#123; <span class="comment">// 识别数字常量</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            ch = getChar();</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(ch)) &#123;</span><br><span class="line">                tokenString.append(ch);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            tokenString.append(ch);</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                ch = getChar();</span><br><span class="line">                <span class="keyword">if</span> (Character.isDigit(ch)) &#123;</span><br><span class="line">                    tokenString.append(ch);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        index--;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.CONST_VAL, tokenString.toString(), Double.parseDouble(tokenString.toString()));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 识别运算符或者分隔符，跳过注释</span></span><br><span class="line">        <span class="keyword">switch</span> (ch) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;;&#x27;</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.SEMICOLON, <span class="string">&quot;;&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;(&#x27;</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.L_BRACKET, <span class="string">&quot;(&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;)&#x27;</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.R_BRACKET, <span class="string">&quot;)&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;,&#x27;</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.COMMA, <span class="string">&quot;,&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.PLUS, <span class="string">&quot;+&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// comment or minus</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span> -&gt; &#123;</span><br><span class="line">                ch = getChar();</span><br><span class="line">                <span class="comment">// 跳过注释</span></span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span> &amp;&amp; ch != <span class="string">&#x27;!&#x27;</span>) &#123;</span><br><span class="line">                        ch = getChar();</span><br><span class="line">                    &#125;</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">return</span> getToken();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.MINUS, <span class="string">&quot;-&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span> -&gt; &#123;</span><br><span class="line">                ch = getChar();</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.POWER, <span class="string">&quot;**&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.MUL, <span class="string">&quot;*&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// comment or div</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span> -&gt; &#123;</span><br><span class="line">                ch = getChar();</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span> &amp;&amp; ch != <span class="string">&#x27;!&#x27;</span>) &#123;</span><br><span class="line">                        ch = getChar();</span><br><span class="line">                    &#125;</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">return</span> getToken();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    index--;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.DIV, <span class="string">&quot;/&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 不能识别的字符返回ERROR类型的Token</span></span><br><span class="line">            <span class="keyword">default</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Token</span>(TokenType.ERROR, <span class="string">&quot;ERROR&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="语法分析器"><a href="#语法分析器" class="headerlink" title="语法分析器"></a>语法分析器</h3><h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapjm4220j30fc02vweb.jpg" alt="Snipaste_2020-12-03_15-39-00.png"></p>
+<p>语法分析器Parser内部持有一个词法分析器Lexer实例，通过该实例的getToken获得Token，再进一步分析。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">parse</span><span class="params">()</span> &#123;</span><br><span class="line">    fetchToken();</span><br><span class="line">    program();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h4><p>经过各种处理之后的最终文法规则</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glapmfpo1mj30qm0jf0ug.jpg" alt="Snipaste_2020-12-03_15-41-41.png"></p>
+<h4 id="表达式的语法树"><a href="#表达式的语法树" class="headerlink" title="表达式的语法树"></a>表达式的语法树</h4><p>函数绘图语言比较简单，只有表达式需要建立语法树进一步求值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> eternal.fire.syntax;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> eternal.fire.token.TokenType;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当节点有两个孩子的时候，使用left和right</span></span><br><span class="line"><span class="comment"> * 当节点只有一个孩子的时候，使用child</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExprNode</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> TokenType tokenType;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ExprNode left;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ExprNode right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ExprNode child;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 针对CONST_VAL</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> val;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 针对FUNC</span></span><br><span class="line">    <span class="keyword">private</span> String funcName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 针对FUNC类型的节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ExprNode</span><span class="params">(TokenType tokenType, String funcName)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.tokenType = tokenType;</span><br><span class="line">        <span class="built_in">this</span>.funcName = funcName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// CONST_VAL类型的节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ExprNode</span><span class="params">(TokenType tokenType, <span class="type">double</span> val)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.tokenType = tokenType;</span><br><span class="line">        <span class="built_in">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 针对二元运算类型的节点（已经构造好了左子树和右子树）</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ExprNode</span><span class="params">(TokenType tokenType, ExprNode left, ExprNode right)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.tokenType = tokenType;</span><br><span class="line">        <span class="built_in">this</span>.left = left;</span><br><span class="line">        <span class="built_in">this</span>.right = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ExprNode</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ......只截取了一部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造语法树的片段节选"><a href="#构造语法树的片段节选" class="headerlink" title="构造语法树的片段节选"></a>构造语法树的片段节选</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 匹配一个表达式expression，为表达式expression构造语法树ExprNode</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 构造出的语法树</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> ExprNode <span class="title function_">expression</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">left</span> <span class="operator">=</span> term();</span><br><span class="line">    <span class="keyword">while</span> (token.getTokenType() == TokenType.PLUS || token.getTokenType() == TokenType.MINUS) &#123;</span><br><span class="line">        <span class="type">var</span> <span class="variable">tmp</span> <span class="operator">=</span> token.getTokenType();</span><br><span class="line">        matchToken(token.getTokenType());</span><br><span class="line">        <span class="type">var</span> <span class="variable">right</span> <span class="operator">=</span> term();</span><br><span class="line">        <span class="comment">// 不断更新左节点</span></span><br><span class="line">        left = <span class="keyword">new</span> <span class="title class_">ExprNode</span>(tmp, left, right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>To be continued…</p>
+<h3 id="绘图：JavaFX"><a href="#绘图：JavaFX" class="headerlink" title="绘图：JavaFX"></a>绘图：JavaFX</h3><h4 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h4><p>利用JavaFx的canvas可以轻松在窗口面板上绘制一个点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Canvas</span> <span class="variable">canvas</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Canvas</span>(<span class="number">500</span>, <span class="number">500</span>);</span><br><span class="line"><span class="type">var</span> <span class="variable">context</span> <span class="operator">=</span> canvas.getGraphicsContext2D();</span><br><span class="line">context.setFill(Color.GREEN);</span><br><span class="line">context.fillOval(x, y, dotSize, dotSize);</span><br></pre></td></tr></table></figure>
+
+<p>当语法分析器获得绘图语句的结果后，使用循环语句在面板上画上若干个点，于是一切都结束了。</p>
+<h4 id="前端界面设计"><a href="#前端界面设计" class="headerlink" title="前端界面设计"></a>前端界面设计</h4><p>画板大小：500px*500px</p>
+<p>使用JFoenix和css样式对部分组件稍加美化</p>
+<p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glap1m307jj30i20euta2.jpg" alt="Snipaste_2020-12-03_15-21-41.png"></p>
+<h5 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h5><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaq1wzo5sj30eu0c6781.jpg" alt="Snipaste_2020-12-03_15-56-34.png"></p>
+<h4 id="窗口图标"><a href="#窗口图标" class="headerlink" title="窗口图标"></a>窗口图标</h4><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaqg0k137j305804ta9y.jpg" alt="draw.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">primaryStage.getIcons().add(<span class="keyword">new</span> <span class="title class_">Image</span>(Draw.class.getResourceAsStream(<span class="string">&quot;/draw.png&quot;</span>)));</span><br></pre></td></tr></table></figure>
+
+<h4 id="补充的功能"><a href="#补充的功能" class="headerlink" title="补充的功能"></a>补充的功能</h4><p><img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1glaq63os9hj30i20eujsi.jpg" alt="Snipaste_2020-12-03_16-00-36.png"></p>
+<h5 id="改变画笔颜色"><a href="#改变画笔颜色" class="headerlink" title="改变画笔颜色"></a>改变画笔颜色</h5><p>添加一个拾色器组件，当拾色器组件的值发生变化，就以新的值为画笔颜色，清空画板，重新渲染。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拾色器</span></span><br><span class="line"><span class="type">ColorPicker</span> <span class="variable">colorPicker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ColorPicker</span>(Color.GREEN);</span><br><span class="line">colorPicker.setOnAction(event -&gt; &#123;</span><br><span class="line">    logger.info(<span class="string">&quot;画笔颜色改变为&#123;&#125;&quot;</span>, colorPicker.getValue());</span><br><span class="line">    context.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">500</span>, <span class="number">500</span>);</span><br><span class="line">    context.setFill(colorPicker.getValue());</span><br><span class="line">    parser.getLexer().reload();</span><br><span class="line">    parser.parse();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="改变画笔宽度"><a href="#改变画笔宽度" class="headerlink" title="改变画笔宽度"></a>改变画笔宽度</h5><p>和上面的思路类似。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 滑动按钮</span></span><br><span class="line"><span class="type">JFXSlider</span> <span class="variable">slider</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFXSlider</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">0.5</span>);</span><br><span class="line">slider.setValue(<span class="number">5</span>);</span><br><span class="line">slider.valueProperty().addListener((observable, oldValue, newValue) -&gt; &#123;</span><br><span class="line">    logger.info(<span class="string">&quot;画笔宽度改变为&#123;&#125;&quot;</span>, newValue.doubleValue());</span><br><span class="line">    context.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">500</span>, <span class="number">500</span>);</span><br><span class="line">    parser.setDotSize(newValue.doubleValue());</span><br><span class="line">    parser.getLexer().reload();</span><br><span class="line">    parser.parse();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Help按钮"><a href="#Help按钮" class="headerlink" title="Help按钮"></a>Help按钮</h4><p>跳转到我的博客。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Help</span></span><br><span class="line"><span class="type">JFXButton</span> <span class="variable">helpBtn</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFXButton</span>(<span class="string">&quot;Help&quot;</span>);</span><br><span class="line">helpBtn.setMaxWidth(<span class="number">90</span>);</span><br><span class="line">helpBtn.getStyleClass().add(<span class="string">&quot;button-raised&quot;</span>);</span><br><span class="line">helpBtn.setStyle(<span class="string">&quot;-fx-background-color: #0F9D58&quot;</span>);</span><br><span class="line"><span class="comment">/*var helpIcon = new ImageView(new Image(Draw.class.getResourceAsStream(&quot;/help.png&quot;)));</span></span><br><span class="line"><span class="comment">helpIcon.setFitWidth(25);</span></span><br><span class="line"><span class="comment">helpIcon.setFitHeight(25);</span></span><br><span class="line"><span class="comment">helpBtn.setGraphic(helpIcon);*/</span></span><br><span class="line">helpBtn.setOnAction(event -&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Desktop.getDesktop().browse(<span class="keyword">new</span> <span class="title class_">URI</span>(BLOG_URL));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | URISyntaxException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>help的图标看上去好丑，我注释掉了。</p>
+<h4 id="Github按钮"><a href="#Github按钮" class="headerlink" title="Github按钮"></a>Github按钮</h4><p>跳转到我的github仓库。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Github</span></span><br><span class="line"><span class="type">JFXButton</span> <span class="variable">githubBtn</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFXButton</span>(<span class="string">&quot;Github&quot;</span>);</span><br><span class="line">githubBtn.setMaxWidth(<span class="number">90</span>);</span><br><span class="line">githubBtn.getStyleClass().add(<span class="string">&quot;button-raised&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为按钮添加图标</span></span><br><span class="line"><span class="type">var</span> <span class="variable">githubIcon</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ImageView</span>(<span class="keyword">new</span> <span class="title class_">Image</span>(Draw.class.getResourceAsStream(<span class="string">&quot;/github.png&quot;</span>)));</span><br><span class="line">githubIcon.setFitWidth(<span class="number">20</span>);</span><br><span class="line">githubIcon.setFitHeight(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">githubBtn.setGraphic(githubIcon);</span><br><span class="line">githubBtn.setOnAction(event -&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Desktop.getDesktop().browse(<span class="keyword">new</span> <span class="title class_">URI</span>(GITHUB_URL));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | URISyntaxException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>使用<em>SLF4J</em>和<em>Logback</em></p>
+<p>依赖项：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/org.slf4j/slf4j-api</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;org.slf4j&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;slf4j-api&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.7.30&#x27;</span></span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;ch.qos.logback&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;logback-classic&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.3&#x27;</span></span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/ch.qos.logback/logback-core</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;ch.qos.logback&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;logback-core&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.3&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>使用Gradle管理依赖项</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">&#x27;application&#x27;</span></span><br><span class="line">    id <span class="string">&#x27;org.openjfx.javafxplugin&#x27;</span> version <span class="string">&#x27;0.0.8&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group <span class="string">&#x27;eternal.fire&#x27;</span></span><br><span class="line">version <span class="string">&#x27;1.0-SNAPSHOT&#x27;</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">    maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/org.slf4j/slf4j-api</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;org.slf4j&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;slf4j-api&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.7.30&#x27;</span></span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;ch.qos.logback&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;logback-classic&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.3&#x27;</span></span><br><span class="line"><span class="comment">// https://mvnrepository.com/artifact/ch.qos.logback/logback-core</span></span><br><span class="line">    compile <span class="attr">group:</span> <span class="string">&#x27;ch.qos.logback&#x27;</span>, <span class="attr">name:</span> <span class="string">&#x27;logback-core&#x27;</span>, <span class="attr">version:</span> <span class="string">&#x27;1.2.3&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.jfoenix:jfoenix:9.0.10&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">javafx &#123;</span><br><span class="line">    version = <span class="string">&quot;13&quot;</span></span><br><span class="line">    modules = [<span class="string">&#x27;javafx.controls&#x27;</span>, <span class="string">&#x27;javafx.fxml&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">application &#123;</span><br><span class="line">    mainClass = <span class="string">&#x27;eternal.fire.Draw&#x27;</span></span><br><span class="line"><span class="comment">//    mainClass = &#x27;eternal.fire.Parser&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    options.encoding = <span class="string">&#x27;UTF-8&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradlew run</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/24/Apache-POI/" rel="prev" title="Apache POI">
+      <i class="fa fa-chevron-left"></i> Apache POI
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/25/LeetCode-1370/" rel="next" title="LeetCode-1370">
+      LeetCode-1370 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">函数绘图语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%A7%8D%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">5 种语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">1.1.2.</span> <span class="nav-text">坐标系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E5%AD%90"><span class="nav-number">1.2.</span> <span class="nav-text">栗子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%AF%AD%E8%A8%80%E6%9E%84%E9%80%A0%E2%80%98%E8%A7%A3%E9%87%8A%E5%99%A8%E2%80%99"><span class="nav-number">2.</span> <span class="nav-text">为函数绘图语言构造‘解释器’</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">词法分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%B0%E5%8F%B7%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">记号的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA"><span class="nav-number">2.1.2.</span> <span class="nav-text">DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">2.1.3.</span> <span class="nav-text">核心代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">语法分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">文法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%91"><span class="nav-number">2.2.3.</span> <span class="nav-text">表达式的语法树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E8%AF%AD%E6%B3%95%E6%A0%91%E7%9A%84%E7%89%87%E6%AE%B5%E8%8A%82%E9%80%89"><span class="nav-number">2.2.4.</span> <span class="nav-text">构造语法树的片段节选</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%9B%BE%EF%BC%9AJavaFX"><span class="nav-number">2.3.</span> <span class="nav-text">绘图：JavaFX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">2.3.1.</span> <span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.3.2.</span> <span class="nav-text">前端界面设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%83%E5%B1%80"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">布局</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%9B%BE%E6%A0%87"><span class="nav-number">2.3.3.</span> <span class="nav-text">窗口图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">2.3.4.</span> <span class="nav-text">补充的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E7%94%BB%E7%AC%94%E9%A2%9C%E8%89%B2"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">改变画笔颜色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E7%94%BB%E7%AC%94%E5%AE%BD%E5%BA%A6"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">改变画笔宽度</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Help%E6%8C%89%E9%92%AE"><span class="nav-number">2.3.5.</span> <span class="nav-text">Help按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github%E6%8C%89%E9%92%AE"><span class="nav-number">2.3.6.</span> <span class="nav-text">Github按钮</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97"><span class="nav-number">2.4.</span> <span class="nav-text">日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA"><span class="nav-number">2.5.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">2.6.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

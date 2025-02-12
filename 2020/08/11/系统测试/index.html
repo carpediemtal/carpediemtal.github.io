@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-xm.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-xm.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"carpediemtal.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="软件配置软件生存周期各个阶段活动的产物经审批后即可称之为软件配置项 过程 Function Test Performance Test Acceptance Test Installation Test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统测试">
+<meta property="og:url" content="https://carpediemtal.github.io/2020/08/11/%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="软件配置软件生存周期各个阶段活动的产物经审批后即可称之为软件配置项 过程 Function Test Performance Test Acceptance Test Installation Test">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1ghmtm448agj31ql13e12b.jpg">
+<meta property="article:published_time" content="2020-08-11T05:43:51.000Z">
+<meta property="article:modified_time" content="2025-02-12T00:45:52.228Z">
+<meta property="article:author" content="Ming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1ghmtm448agj31ql13e12b.jpg">
+
+<link rel="canonical" href="https://carpediemtal.github.io/2020/08/11/%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>系统测试 | Ming</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ming</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://carpediemtal.github.io/2020/08/11/%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/arina.jpg">
+      <meta itemprop="name" content="Ming">
+      <meta itemprop="description" content="Come on, check me out!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          系统测试
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-11 13:43:51" itemprop="dateCreated datePublished" datetime="2020-08-11T13:43:51+08:00">2020-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-02-12 08:45:52" itemprop="dateModified" datetime="2025-02-12T08:45:52+08:00">2025-02-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A6%82%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">软件工程概论</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>软件生存周期各个阶段活动的产物经审批后即可称之为软件配置项</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ol>
+<li>Function Test</li>
+<li>Performance Test</li>
+<li>Acceptance Test</li>
+<li>Installation Test</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><h3 id="Cause-and-Effect-Graph"><a href="#Cause-and-Effect-Graph" class="headerlink" title="Cause-and-Effect Graph"></a>Cause-and-Effect Graph</h3><ul>
+<li>Inputs</li>
+<li>Outputs</li>
+</ul>
+<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><h3 id="Stress-Test"><a href="#Stress-Test" class="headerlink" title="Stress Test"></a>Stress Test</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>Evaluate the system when stressed to it limits over a period of time</li>
+</ul>
+</li>
+</ul>
+<h3 id="Volume-Test"><a href="#Volume-Test" class="headerlink" title="Volume Test"></a>Volume Test</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>Address the handling of large amount of data  in the system.</li>
+</ul>
+</li>
+<li><p>example</p>
+<ul>
+<li>Handle up to a Stack or Queue ,if their size can accommodate all the expected data.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Configuration-Test"><a href="#Configuration-Test" class="headerlink" title="Configuration  Test"></a>Configuration  Test</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>Analyze the various software and hardware configurations.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Compatibility-Test"><a href="#Compatibility-Test" class="headerlink" title="Compatibility  Test"></a>Compatibility  Test</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>When a system interface with other systems, find out whether the interface functions perform according to the requirement.</li>
+</ul>
+</li>
+<li><p>example</p>
+<ul>
+<li>The system communicate with a large data base system, check out The speed and accuracy of data retrieval</li>
+</ul>
+</li>
+</ul>
+<h3 id="Regression-Test"><a href="#Regression-Test" class="headerlink" title="Regression  Test"></a>Regression  Test</h3><ul>
+<li>The system is replacing an exist system.</li>
+</ul>
+<h3 id="Security-Test"><a href="#Security-Test" class="headerlink" title="Security  Test"></a>Security  Test</h3><h3 id="Timing-Test"><a href="#Timing-Test" class="headerlink" title="Timing  Test"></a>Timing  Test</h3><h3 id="Environment-Test"><a href="#Environment-Test" class="headerlink" title="Environment  Test"></a>Environment  Test</h3><h3 id="Quality-Test"><a href="#Quality-Test" class="headerlink" title="Quality Test"></a>Quality Test</h3><h3 id="Recovery-Test"><a href="#Recovery-Test" class="headerlink" title="Recovery Test"></a>Recovery Test</h3><ul>
+<li>Response to the presence of faults or to the loss of data</li>
+</ul>
+<h3 id="Maintenance-Test"><a href="#Maintenance-Test" class="headerlink" title="Maintenance  Test"></a>Maintenance  Test</h3><h3 id="Documentation-Test"><a href="#Documentation-Test" class="headerlink" title="Documentation Test"></a>Documentation Test</h3><h3 id="Human-Factor-Test"><a href="#Human-Factor-Test" class="headerlink" title="Human Factor Test"></a>Human Factor Test</h3><h2 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h2><h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>The probability that a system will operate without failure  under given conditions for a given time interval.</li>
+</ul>
+</li>
+<li><p>measure</p>
+<ul>
+<li>R &#x3D; MTTF&#x2F;(1+MTTF)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>The probability that a system is operating successfully according to specification at a given point of time.</li>
+</ul>
+</li>
+<li><p>measure</p>
+<ul>
+<li>A &#x3D; MTBF&#x2F;(1+MTBF)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Maintainability"><a href="#Maintainability" class="headerlink" title="Maintainability"></a>Maintainability</h3><ul>
+<li><p>definition</p>
+<ul>
+<li>The probability that , for a given condition of use, a maintenance activity can be carried out within a stated time interval and using stated procedures and resources.</li>
+</ul>
+</li>
+<li><p>measure</p>
+<ul>
+<li>M &#x3D; 1&#x2F; (1+MTTR)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Acceptance-Testing"><a href="#Acceptance-Testing" class="headerlink" title="Acceptance Testing"></a>Acceptance Testing</h2><h3 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h3><ul>
+<li>To enable the customers and users to determine if the system We built really meets their needs and expectations.</li>
+</ul>
+<h3 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h3><ul>
+<li>Benchmark Test</li>
+<li>Pilot Test</li>
+<li>Parallel Test</li>
+</ul>
+<img src="https://raw.githubusercontent.com/carpediemtal/image-bed/master/img/blog005VT09Qly1ghmtm448agj31ql13e12b.jpg"/>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Ming Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/11/%E5%89%91%E6%8C%87offer-25/" rel="prev" title="剑指offer-25">
+      <i class="fa fa-chevron-left"></i> 剑指offer-25
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/12/Process/" rel="next" title="Process">
+      Process <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">软件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">功能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cause-and-Effect-Graph"><span class="nav-number">3.1.</span> <span class="nav-text">Cause-and-Effect Graph</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">性能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stress-Test"><span class="nav-number">4.1.</span> <span class="nav-text">Stress Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volume-Test"><span class="nav-number">4.2.</span> <span class="nav-text">Volume Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration-Test"><span class="nav-number">4.3.</span> <span class="nav-text">Configuration  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compatibility-Test"><span class="nav-number">4.4.</span> <span class="nav-text">Compatibility  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression-Test"><span class="nav-number">4.5.</span> <span class="nav-text">Regression  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security-Test"><span class="nav-number">4.6.</span> <span class="nav-text">Security  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timing-Test"><span class="nav-number">4.7.</span> <span class="nav-text">Timing  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Environment-Test"><span class="nav-number">4.8.</span> <span class="nav-text">Environment  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quality-Test"><span class="nav-number">4.9.</span> <span class="nav-text">Quality Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recovery-Test"><span class="nav-number">4.10.</span> <span class="nav-text">Recovery Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintenance-Test"><span class="nav-number">4.11.</span> <span class="nav-text">Maintenance  Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Documentation-Test"><span class="nav-number">4.12.</span> <span class="nav-text">Documentation Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Human-Factor-Test"><span class="nav-number">4.13.</span> <span class="nav-text">Human Factor Test</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">其他特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-number">5.1.</span> <span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Availability"><span class="nav-number">5.2.</span> <span class="nav-text">Availability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintainability"><span class="nav-number">5.3.</span> <span class="nav-text">Maintainability</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptance-Testing"><span class="nav-number">6.</span> <span class="nav-text">Acceptance Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Purpose"><span class="nav-number">6.1.</span> <span class="nav-text">Purpose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Types"><span class="nav-number">6.2.</span> <span class="nav-text">Types</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ming"
+      src="/images/arina.jpg">
+  <p class="site-author-name" itemprop="name">Ming</p>
+  <div class="site-description" itemprop="description">Come on, check me out!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/carpediemtal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;carpediemtal" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liujm2000@qq.com" title="E-Mail → mailto:liujm2000@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="QQ:674602921" title="QQ → QQ:674602921" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/APTX158675" title="Wechat → APTX158675"><i class="fab fa-weixin fa-fw"></i>Wechat</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.treasurew.com/" title="http:&#x2F;&#x2F;www.treasurew.com&#x2F;" rel="noopener" target="_blank">treasurew</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='#4FC08D' opacity='0.5' zIndex='-1' count='' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
