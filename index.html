@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-02-13 23:51:58" itemprop="dateModified" datetime="2025-02-13T23:51:58+08:00">2025-02-13</time>
+                <time title="Modified: 2025-02-13 23:53:22" itemprop="dateModified" datetime="2025-02-13T23:53:22+08:00">2025-02-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,28 +251,14 @@
 
       
           <h1 id="更好的备份"><a href="#更好的备份" class="headerlink" title="更好的备份"></a>更好的备份</h1><p>博客3年没有更新，花了点时间查阅了hexo的使用方法，并在网盘找到了备份的博客目录，在新电脑上重新安装hexo、配置好git SSH KEY之后，我尝试再post一篇水文。</p>
-<p>如果没有较好的备份，快速恢复到一个能写博客的状态很难。之前通过网盘管理备份，这次我想把所有的markdown文件、hexo、next的配置都放到git仓库里。</p>
-<h2 id="备份hexo配置和markdown文件"><a href="#备份hexo配置和markdown文件" class="headerlink" title="备份hexo配置和markdown文件"></a>备份hexo配置和markdown文件</h2><p>将hexo生成的blog文件夹作为<a target="_blank" rel="noopener" href="https://github.com/carpediemtal/blog">git仓库</a>上传，只保留配置文件和source文件夹（包含markdown）。</p>
-<h2 id="备份next主题"><a href="#备份next主题" class="headerlink" title="备份next主题"></a>备份next主题</h2><p>从主仓中fork了新仓，将当前的文件全部上传：<a target="_blank" rel="noopener" href="https://github.com/carpediemtal/hexo-theme-next">https://github.com/carpediemtal/hexo-theme-next</a></p>
-<h2 id="恢复步骤"><a href="#恢复步骤" class="headerlink" title="恢复步骤"></a>恢复步骤</h2><ol>
-<li>Git clone <a target="_blank" rel="noopener" href="https://github.com/carpediemtal/blog">blog备份仓库</a></li>
-<li>执行<code>hexo init test</code>命令，建一个新的blog目录，将其中的<code>node_modules</code>、<code>themes</code>、<code>package.json</code>、<code>package-lock.json</code>复制到blog目录下</li>
-<li>Git clone <a target="_blank" rel="noopener" href="https://github.com/carpediemtal/hexo-theme-next">next备份仓库</a>到themes目录下，并将仓库改名为next</li>
-<li><code>hexo d</code>若提示<code>ERROR Deployer not found: git</code>，执行<code>npm install hexo-deployer-git --save</code></li>
-<li>完成</li>
-</ol>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><h2 id="微博图床失效"><a href="#微博图床失效" class="headerlink" title="微博图床失效"></a>微博图床失效</h2><p>我多数文章的插图都在新浪的服务器上，但新浪也不是慈善机构，由于防盗链（会校验HTTP请求的referer字段），现在所有图片都无法正常访问了，需要寻求解决方案。</p>
-<p>好在图片还在，并未从新浪的服务器中直接删除。参考了这篇帖子：<br><a target="_blank" rel="noopener" href="https://sspai.com/post/77650">2023 年微博图床 403 全失效，一个方法秒解决！</a></p>
-<p>现需要将图片迁移到别的平台，github似乎是个不错的选择。</p>
-<h2 id="图片迁移到github仓库"><a href="#图片迁移到github仓库" class="headerlink" title="图片迁移到github仓库"></a>图片迁移到github仓库</h2><p>我采用的方案：</p>
-<ol>
-<li>需要一个<a target="_blank" rel="noopener" href="https://github.com/carpediemtal/image-bed">仓库</a>作为图床</li>
-<li>安装<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGO软件</a>，配置Github图床</li>
-<li>安装<a target="_blank" rel="noopener" href="https://github.com/PicGo/picgo-plugin-pic-migrater">PicGO插件-picMigrater</a></li>
-<li>借用picMigrater批量将所有markdown文件中的图片下载并上传到Github并替换图片链接</li>
-</ol>
-<h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p>之前在Namesilo上买的域名（m1ng.xyz）没续费被收回了，看了下最新的价格，首年需要 $2.79，后面续费需要 $13.49，没有便宜到闭眼买的地步，以后再说吧。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/09/%E6%89%BE%E5%9B%9E%E6%88%91%E7%9A%84blog/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
